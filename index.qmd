@@ -1,9 +1,9 @@
 ---
-title: "파이썬프로그래밍(2023)"
+title: "파이썬 프로그래밍 (2023)"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: table
   categories: true
   sort-ui: false
   filter-ui: false
