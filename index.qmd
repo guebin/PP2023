@@ -13,10 +13,10 @@ title-block-banner: true
 
 **질문하는 방법**
 
-- 카카오톡: <http://pf.kakao.com/_qeGDxj/chat> // 학기종료이후 폐쇄함
+- 카카오톡: [질문하러 가기](http://pf.kakao.com/_qeGDxj/chat) // 학기종료이후 폐쇄함
 - 이메일: <guebin@jbnu.ac.kr>
 - 직접방문: 자연과학대학 본관 205호 
-- Zoom: 카카오톡이나 이메일로 미리 시간을 정하고 물어볼 것. 
-- LMS: <- 권장하지 않음. (늦게봐요)
+- Zoom: *카카오톡이나 이메일로 미리 시간을 정할 것*
+- LMS: 
 
 **강의노트** 
