@@ -9,7 +9,7 @@ about:
       href: https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&sort=dd&shelf_id=2
     - icon: github
       text: Github
-      href: https://github.com/guebin/DV2022/tree/main/posts
+      href: https://github.com/guebin/PP2023
 
 ---
 
