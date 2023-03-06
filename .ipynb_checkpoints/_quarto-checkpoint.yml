@@ -7,9 +7,15 @@ website:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/guebin/IP2022/tree/main/posts
+        href: https://github.com/guebin/PP2023
       - icon: youtube
         href: https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&sort=dd&shelf_id=2
+  sidebar:
+    style: "docked"
+    search: true
+    contents: auto
+    
+    
 format:
   html:
     theme: cosmo
@@ -17,4 +23,4 @@ format:
     toc: true
     code-fold: false
     code-line-numbers: true
-
+    code-copy: true

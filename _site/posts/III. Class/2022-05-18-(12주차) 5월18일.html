@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2023-05-18">
+
+<title>PP2023 - 12wk-1 old</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PP2023</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../about.html" aria-current="page">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/PP2023"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">12wk-1 old</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">12wk-1 old</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>최규빈 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 18, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">About</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Posts</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">I. Python Basic</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/I. Python Basic/2022-03-02-(1주차) 3월2일.html" class="sidebar-item-text sidebar-link">01wk-1 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/I. Python Basic/2022-03-07-(1주차) 3월7일.html" class="sidebar-item-text sidebar-link">01wk-2 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/I. Python Basic/2022-03-14-(2주차) 3월14일.html" class="sidebar-item-text sidebar-link">02wk-1 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/I. Python Basic/2022-03-16-(3주차) 3월16일.html" class="sidebar-item-text sidebar-link">03wk-1 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/I. Python Basic/2022-03-21-(3주차) 3월21일.html" class="sidebar-item-text sidebar-link">03wk-2 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/I. Python Basic/2022-03-23-(4주차) 3월23일.html" class="sidebar-item-text sidebar-link">04wk-1 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/I. Python Basic/2022-03-28-(4주차) 3월28일.html" class="sidebar-item-text sidebar-link">04wk-2 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/I. Python Basic/2022-04-03-(5주차) 4월2일.html" class="sidebar-item-text sidebar-link">05wk-1 old</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">II. Numpy and Pandas</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/II. Numpy and Pandas/2022-04-06-(6주차) 4월6일.html" class="sidebar-item-text sidebar-link">05wk-2 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/II. Numpy and Pandas/2022-04-11-(6주차) 4월11일.html" class="sidebar-item-text sidebar-link">06wk-1 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/II. Numpy and Pandas/2022-04-13-(7주차) 4월13일.html" class="sidebar-item-text sidebar-link">07wk-1 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/II. Numpy and Pandas/2022-04-18-(7주차) 4월18일.html" class="sidebar-item-text sidebar-link">07wk-2 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/II. Numpy and Pandas/2022-05-04-(10주차) 5월6일.html" class="sidebar-item-text sidebar-link">10wk-1 old</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">III. Class</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/III. Class/2022-05-09-(10주차) 5월9일.html" class="sidebar-item-text sidebar-link">10wk-2 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/III. Class/2022-05-11-(11주차) 5월11일.html" class="sidebar-item-text sidebar-link">11wk-1</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/III. Class/2022-05-16-(11주차) 5월16일.html" class="sidebar-item-text sidebar-link">11wk-2</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/III. Class/2022-05-18-(12주차) 5월18일.html" class="sidebar-item-text sidebar-link active">12wk-1 old</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/III. Class/2022-05-23-(12주차) 5월23일.html" class="sidebar-item-text sidebar-link">12wk-2</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/III. Class/2022-05-25-(13주차) 5월25일.html" class="sidebar-item-text sidebar-link">13wk-1</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/III. Class/2022-05-30-(13주차) 5월30일.html" class="sidebar-item-text sidebar-link">13wk-2</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/III. Class/2022-06-06-(14주차) 6월6일.html" class="sidebar-item-text sidebar-link">14wk-1</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">V. Appendix</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/V. Appendix/2021-04-20-mid.html" class="sidebar-item-text sidebar-link">2021-04-mid</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/V. Appendix/2021-06-09-final.html" class="sidebar-item-text sidebar-link">2021-06-final</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/V. Appendix/2022-05-03-mid.html" class="sidebar-item-text sidebar-link">2022-04-mid</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/V. Appendix/2022-06-14-final.html" class="sidebar-item-text sidebar-link">2022-06-final</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#주차-5월18일" id="toc-주차-5월18일" class="nav-link active" data-scroll-target="#주차-5월18일">(12주차) 5월18일</a>
+  <ul class="collapse">
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link" data-scroll-target="#강의영상">강의영상</a></li>
+  <li><a href="#클래스-공부-3단계" id="toc-클래스-공부-3단계" class="nav-link" data-scroll-target="#클래스-공부-3단계">클래스 공부 3단계</a>
+  <ul class="collapse">
+  <li><a href="#오브젝트의-개념" id="toc-오브젝트의-개념" class="nav-link" data-scroll-target="#오브젝트의-개념">오브젝트의 개념</a></li>
+  <li><a href="#예제1-클래스변수-인스턴스변수" id="toc-예제1-클래스변수-인스턴스변수" class="nav-link" data-scroll-target="#예제1-클래스변수-인스턴스변수">예제1: 클래스변수, 인스턴스변수</a></li>
+  <li><a href="#예제2-인스턴스에서-변수x-변경-변경가능" id="toc-예제2-인스턴스에서-변수x-변경-변경가능" class="nav-link" data-scroll-target="#예제2-인스턴스에서-변수x-변경-변경가능">예제2: 인스턴스에서 변수x 변경 (변경가능)</a></li>
+  <li><a href="#예제3-클래스에서-변수y-변경-변경가능" id="toc-예제3-클래스에서-변수y-변경-변경가능" class="nav-link" data-scroll-target="#예제3-클래스에서-변수y-변경-변경가능">예제3: 클래스에서 변수y 변경 (변경가능)</a></li>
+  <li><a href="#예제4-클래스에서-변수x-변경-변경가능" id="toc-예제4-클래스에서-변수x-변경-변경가능" class="nav-link" data-scroll-target="#예제4-클래스에서-변수x-변경-변경가능">예제4: 클래스에서 변수x 변경 (변경가능)</a></li>
+  <li><a href="#예제4의-변형" id="toc-예제4의-변형" class="nav-link" data-scroll-target="#예제4의-변형">예제4의 변형</a></li>
+  <li><a href="#예제5-인스턴스에서-클래스변수-변경-변경가능" id="toc-예제5-인스턴스에서-클래스변수-변경-변경가능" class="nav-link" data-scroll-target="#예제5-인스턴스에서-클래스변수-변경-변경가능">예제5: 인스턴스에서 클래스변수 변경 (변경가능??)</a></li>
+  <li><a href="#예제5의-변형" id="toc-예제5의-변형" class="nav-link" data-scroll-target="#예제5의-변형">예제5의 변형</a></li>
+  <li><a href="#예제6-인스턴스-생성시점에-대한-분석" id="toc-예제6-인스턴스-생성시점에-대한-분석" class="nav-link" data-scroll-target="#예제6-인스턴스-생성시점에-대한-분석">예제6: 인스턴스 생성시점에 대한 분석</a></li>
+  <li><a href="#예제7-잘못된사용" id="toc-예제7-잘못된사용" class="nav-link" data-scroll-target="#예제7-잘못된사용">예제7: 잘못된사용</a></li>
+  </ul></li>
+  <li><a href="#숙제" id="toc-숙제" class="nav-link" data-scroll-target="#숙제">숙제</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="주차-5월18일" class="level1">
+<h1>(12주차) 5월18일</h1>
+<blockquote class="blockquote">
+<p>클래스 공부 3단계</p>
+</blockquote>
+<ul>
+<li>toc:true</li>
+<li>branch: master</li>
+<li>badges: true</li>
+<li>comments: true</li>
+<li>author: 최규빈</li>
+</ul>
+<section id="강의영상" class="level2">
+<h2 class="anchored" data-anchor-id="강의영상">강의영상</h2>
+<blockquote class="blockquote">
+<p>youtube: https://youtube.com/playlist?list=PLQqh36zP38-yAav-nx8zUjabLZXGYRyR2</p>
+</blockquote>
+<p><code>-</code> (1/6) 오브젝트의 개념</p>
+<p><code>-</code> (2/6) 예제1</p>
+<p><code>-</code> (3/6) 예제2,3,4</p>
+<p><code>-</code> (4/6) 예제5</p>
+<p><code>-</code> (5/6) 예제 6,7</p>
+<p><code>-</code> (6/6) 숙제설명</p>
+</section>
+<section id="클래스-공부-3단계" class="level2">
+<h2 class="anchored" data-anchor-id="클래스-공부-3단계">클래스 공부 3단계</h2>
+<p><code>-</code> 이 단계에서는 클래스오브젝트에 소속된 변수와 인스턴스오브젝트에 소속된 변수를 설명한다.</p>
+<section id="오브젝트의-개념" class="level3">
+<h3 class="anchored" data-anchor-id="오브젝트의-개념">오브젝트의 개념</h3>
+<p><code>-</code> 파이썬은 모든 것이 오브젝트로 이루어져 있다. &lt;- 우선은 그냥 명언처럼 외우세요</p>
+<p><code>-</code> 오브젝트는 메모리주소에 저장되는 모든것을 의미한다.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">id</span>(a) <span class="co"># 메모리주소를 보는 명령어 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>140193842610416</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>a<span class="op">=</span><span class="st">'asdf'</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">id</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>140193794777968</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>a<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">id</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>140193794512384</code></pre>
+</div>
+</div>
+<p><code>-</code> 클래스와 인스턴스도 오브젝트다</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">class</span> A:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    x<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="kw">def</span> f(<span class="va">self</span>):</span>
+<span id="cb7-4"><a href="#cb7-4"></a>        <span class="bu">print</span>(<span class="va">self</span>.x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">id</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>94740835761168</code></pre>
+</div>
+</div>
+<ul>
+<li>A는 오브젝트</li>
+</ul>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>a<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">id</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>140193794535776</code></pre>
+</div>
+</div>
+<ul>
+<li>a는 오브젝트</li>
+</ul>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>b<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="bu">id</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>140193794529632</code></pre>
+</div>
+</div>
+<ul>
+<li>b는 오브젝트</li>
+</ul>
+<p><code>-</code> 앞으로는 A를 클래스오브젝트, a,b를 인스턴스오브젝트라고 부르자.</p>
+</section>
+<section id="예제1-클래스변수-인스턴스변수" class="level3">
+<h3 class="anchored" data-anchor-id="예제1-클래스변수-인스턴스변수">예제1: 클래스변수, 인스턴스변수</h3>
+<p><code>-</code> 시점0</p>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">class</span> A: </span>
+<span id="cb16-2"><a href="#cb16-2"></a>    x<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>    y<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb16-4"><a href="#cb16-4"></a>    <span class="kw">def</span> f(<span class="va">self</span>):</span>
+<span id="cb16-5"><a href="#cb16-5"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">self</span>.x <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb16-6"><a href="#cb16-6"></a>        A.y <span class="op">=</span> A.y <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb16-7"><a href="#cb16-7"></a>        <span class="bu">print</span>(<span class="st">"현재 인스턴스에서 f가 </span><span class="sc">{}</span><span class="st">번 실행"</span>.<span class="bu">format</span>(<span class="va">self</span>.x))</span>
+<span id="cb16-8"><a href="#cb16-8"></a>        <span class="bu">print</span>(<span class="st">"A클래스에서 만들어진 모든 인스턴스들에서 f가 총 </span><span class="sc">{}</span><span class="st">번 실행"</span>.<span class="bu">format</span>(<span class="va">self</span>.y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>A.x, A.y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<pre><code>(0, 0)</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점1</p>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>a <span class="op">=</span> A() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>b <span class="op">=</span> A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<pre><code>([0, 0], [0, 0], [0, 0])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점2</p>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 1번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>([0, 1], [1, 1], [0, 1])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점3</p>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 2번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<pre><code>([0, 2], [1, 2], [1, 2])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점4</p>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 2번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 3번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<pre><code>([0, 3], [1, 3], [2, 3])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점5</p>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 2번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 4번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>([0, 4], [2, 4], [2, 4])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점6</p>
+<div class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>c<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y], [c.x,c.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>([0, 4], [2, 4], [2, 4], [0, 4])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점7</p>
+<div class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>c.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 5번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y], [c.x,c.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<pre><code>([0, 5], [2, 5], [2, 5], [1, 5])</code></pre>
+</div>
+</div>
+<p><code>-</code> 신기한점: 각 인스턴스에서 <code>인스턴스이름.f()</code>를 실행한 횟수를 서로 공유하는 듯 하다. (A의 관리하는 것처럼 느껴진다)</p>
+<p><code>-</code> x와 y는 약간 느낌이 다르다. x는 지점소속, y는 본사소속의 느낌?</p>
+<blockquote class="blockquote">
+<p>이 예제에서 x는 인스턴스오브젝트에 소속된 변수, y는 클래스오브젝트에 소속된 변수처럼 느껴짐</p>
+</blockquote>
+<p>(약속) 앞으로 인스턴스오브젝트에 소속된 변수를 인스턴스변수라고 하고, 클래스오브젝트에 소속된 변수를 클래스변수라고 하자.</p>
+<p><code>-</code> 인스턴스변수와 클래스변수를 구분하는 방법? <code>인스턴스이름.__dict__</code>를 쓰면 인스턴스변수만 출력된다</p>
+<ul>
+<li>따라서 a.+ tab을 눌러서 나오는 변수중 <code>a.__dict__</code>에 출력되지 않으면 클래스변수이다.</li>
+</ul>
+<div class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>a.__dict__ </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="62">
+<pre><code>{'x': 2}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>b.__dict__ </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
+<pre><code>{'x': 2}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>c.__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>{'x': 1}</code></pre>
+</div>
+</div>
+<p><code>-</code> 이 예제에서 아래는 모두 클래스변수이다.</p>
+<div class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>a.y, b.y, c.y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+<pre><code>(5, 5, 5)</code></pre>
+</div>
+</div>
+</section>
+<section id="예제2-인스턴스에서-변수x-변경-변경가능" class="level3">
+<h3 class="anchored" data-anchor-id="예제2-인스턴스에서-변수x-변경-변경가능">예제2: 인스턴스에서 변수x 변경 (변경가능)</h3>
+<p><code>-</code> 시점0</p>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="kw">class</span> A: </span>
+<span id="cb54-2"><a href="#cb54-2"></a>    x<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb54-3"><a href="#cb54-3"></a>    y<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb54-4"><a href="#cb54-4"></a>    <span class="kw">def</span> f(<span class="va">self</span>):</span>
+<span id="cb54-5"><a href="#cb54-5"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">self</span>.x <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb54-6"><a href="#cb54-6"></a>        A.y <span class="op">=</span> A.y <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb54-7"><a href="#cb54-7"></a>        <span class="bu">print</span>(<span class="st">"현재 인스턴스에서 f가 </span><span class="sc">{}</span><span class="st">번 실행"</span>.<span class="bu">format</span>(<span class="va">self</span>.x))</span>
+<span id="cb54-8"><a href="#cb54-8"></a>        <span class="bu">print</span>(<span class="st">"A클래스에서 만들어진 모든 인스턴스들에서 f가 총 </span><span class="sc">{}</span><span class="st">번 실행"</span>.<span class="bu">format</span>(<span class="va">self</span>.y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>a<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>[A.x,A.y], [a.x,a.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="68">
+<pre><code>([0, 0], [0, 0])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점1</p>
+<div class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 1번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 2번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 2번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 3번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 3번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>[A.x,A.y], [a.x,a.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
+<pre><code>([0, 3], [3, 3])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점2</p>
+<div class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>a.x <span class="op">=</span> <span class="dv">0</span> <span class="co"># f의 실행기록을 초기화하고 싶다</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 4번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>[A.x,A.y], [a.x,a.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="76">
+<pre><code>([0, 4], [1, 4])</code></pre>
+</div>
+</div>
+</section>
+<section id="예제3-클래스에서-변수y-변경-변경가능" class="level3">
+<h3 class="anchored" data-anchor-id="예제3-클래스에서-변수y-변경-변경가능">예제3: 클래스에서 변수y 변경 (변경가능)</h3>
+<p><code>-</code> 시점0</p>
+<div class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="kw">class</span> A: </span>
+<span id="cb71-2"><a href="#cb71-2"></a>    x<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb71-3"><a href="#cb71-3"></a>    y<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb71-4"><a href="#cb71-4"></a>    <span class="kw">def</span> f(<span class="va">self</span>):</span>
+<span id="cb71-5"><a href="#cb71-5"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">self</span>.x <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb71-6"><a href="#cb71-6"></a>        A.y <span class="op">=</span> A.y <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb71-7"><a href="#cb71-7"></a>        <span class="bu">print</span>(<span class="st">"현재 인스턴스에서 f가 </span><span class="sc">{}</span><span class="st">번 실행"</span>.<span class="bu">format</span>(<span class="va">self</span>.x))</span>
+<span id="cb71-8"><a href="#cb71-8"></a>        <span class="bu">print</span>(<span class="st">"A클래스에서 만들어진 모든 인스턴스들에서 f가 총 </span><span class="sc">{}</span><span class="st">번 실행"</span>.<span class="bu">format</span>(<span class="va">self</span>.y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>a<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>b<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="80">
+<pre><code>([0, 0], [0, 0], [0, 0])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점1</p>
+<div class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 1번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+<pre><code>([0, 1], [1, 1], [0, 1])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점2</p>
+<div class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>A.y <span class="op">=</span> <span class="dv">100</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
+<pre><code>([0, 100], [1, 100], [0, 100])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 2번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 101번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>[A.x,A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+<pre><code>([0, 101], [2, 101], [0, 101])</code></pre>
+</div>
+</div>
+</section>
+<section id="예제4-클래스에서-변수x-변경-변경가능" class="level3">
+<h3 class="anchored" data-anchor-id="예제4-클래스에서-변수x-변경-변경가능">예제4: 클래스에서 변수x 변경 (변경가능)</h3>
+<p><code>-</code> 시점0</p>
+<div class="cell" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a><span class="kw">class</span> A: </span>
+<span id="cb87-2"><a href="#cb87-2"></a>    x<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb87-3"><a href="#cb87-3"></a>    y<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb87-4"><a href="#cb87-4"></a>    <span class="kw">def</span> f(<span class="va">self</span>):</span>
+<span id="cb87-5"><a href="#cb87-5"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">self</span>.x <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb87-6"><a href="#cb87-6"></a>        A.y <span class="op">=</span> A.y <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb87-7"><a href="#cb87-7"></a>        <span class="bu">print</span>(<span class="st">"현재 인스턴스에서 f가 </span><span class="sc">{}</span><span class="st">번 실행"</span>.<span class="bu">format</span>(<span class="va">self</span>.x))</span>
+<span id="cb87-8"><a href="#cb87-8"></a>        <span class="bu">print</span>(<span class="st">"A클래스에서 만들어진 모든 인스턴스들에서 f가 총 </span><span class="sc">{}</span><span class="st">번 실행"</span>.<span class="bu">format</span>(<span class="va">self</span>.y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="107">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a>a<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>[A.x, A.y], [a.x,a.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
+<pre><code>([0, 0], [0, 0])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점1</p>
+<div class="cell" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 1번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>[A.x, A.y], [a.x,a.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="110">
+<pre><code>([0, 1], [1, 1])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점2</p>
+<div class="cell" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>A.x <span class="op">=</span> <span class="dv">100</span> <span class="co"># 이렇게 되면 앞으로 만들어진 인스턴스는 기본적으로 현재 인스턴스에서 100번 f를 실행하였다는 정보를 가지고 태어나게 된다. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="112">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a>[A.x, A.y], [a.x,a.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="112">
+<pre><code>([100, 1], [1, 1])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점3</p>
+<div class="cell" data-execution_count="113">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a>b<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="114">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a>[A.x, A.y], [a.x,a.y], [b.x,b.y] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="114">
+<pre><code>([100, 1], [1, 1], [100, 1])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점4</p>
+<div class="cell" data-execution_count="115">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 101번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 2번 실행</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점5</p>
+<div class="cell" data-execution_count="116">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 2번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 3번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="117">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 3번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 4번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="118">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 102번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 5번 실행</code></pre>
+</div>
+</div>
+</section>
+<section id="예제4의-변형" class="level3">
+<h3 class="anchored" data-anchor-id="예제4의-변형">예제4의 변형</h3>
+<p><code>-</code> 시점0</p>
+<div class="cell" data-execution_count="124">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1"></a><span class="kw">class</span> B: </span>
+<span id="cb109-2"><a href="#cb109-2"></a>    x<span class="op">=</span><span class="dv">10</span> <span class="co"># 초기자본금 </span></span>
+<span id="cb109-3"><a href="#cb109-3"></a>    y<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb109-4"><a href="#cb109-4"></a>    <span class="kw">def</span> f(<span class="va">self</span>): <span class="co"># f()를 실행할때마다 돈을 쓴다. </span></span>
+<span id="cb109-5"><a href="#cb109-5"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">self</span>.x <span class="op">-</span> <span class="dv">1</span> </span>
+<span id="cb109-6"><a href="#cb109-6"></a>        B.y <span class="op">=</span> B.y <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb109-7"><a href="#cb109-7"></a>        <span class="bu">print</span>(<span class="st">"현재 인스턴스에서 </span><span class="sc">{}</span><span class="st">원 잔액남음"</span>.<span class="bu">format</span>(<span class="va">self</span>.x))</span>
+<span id="cb109-8"><a href="#cb109-8"></a>        <span class="bu">print</span>(<span class="st">"A클래스에서 만들어진 모든 인스턴스들에서 총 </span><span class="sc">{}</span><span class="st">원 사용"</span>.<span class="bu">format</span>(<span class="va">self</span>.y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="125">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1"></a>a<span class="op">=</span>B()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="126">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a>b<span class="op">=</span>B()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="127">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1"></a>[B.x,B.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="127">
+<pre><code>([10, 0], [10, 0], [10, 0])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점1</p>
+<div class="cell" data-execution_count="128">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1"></a>a.f() <span class="co"># 돈을쓰는것</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 9원 잔액남음
+A클래스에서 만들어진 모든 인스턴스들에서 총 1원 사용</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="129">
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 8원 잔액남음
+A클래스에서 만들어진 모든 인스턴스들에서 총 2원 사용</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="130">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 9원 잔액남음
+A클래스에서 만들어진 모든 인스턴스들에서 총 3원 사용</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점2</p>
+<div class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1"></a>[B.x,B.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="131">
+<pre><code>([10, 3], [8, 3], [9, 3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="132">
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1"></a>B.x <span class="op">=</span> <span class="dv">999</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="133">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1"></a>[B.x,B.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="133">
+<pre><code>([999, 3], [8, 3], [9, 3])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점3</p>
+<div class="cell" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1"></a>c <span class="op">=</span> B()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1"></a>c.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 998원 잔액남음
+A클래스에서 만들어진 모든 인스턴스들에서 총 4원 사용</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점4</p>
+<div class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 7원 잔액남음
+A클래스에서 만들어진 모든 인스턴스들에서 총 5원 사용</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 8원 잔액남음
+A클래스에서 만들어진 모든 인스턴스들에서 총 6원 사용</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1"></a>c.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 997원 잔액남음
+A클래스에서 만들어진 모든 인스턴스들에서 총 7원 사용</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1"></a>c.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 996원 잔액남음
+A클래스에서 만들어진 모든 인스턴스들에서 총 8원 사용</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1"></a>c.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 995원 잔액남음
+A클래스에서 만들어진 모든 인스턴스들에서 총 9원 사용</code></pre>
+</div>
+</div>
+</section>
+<section id="예제5-인스턴스에서-클래스변수-변경-변경가능" class="level3">
+<h3 class="anchored" data-anchor-id="예제5-인스턴스에서-클래스변수-변경-변경가능">예제5: 인스턴스에서 클래스변수 변경 (변경가능??)</h3>
+<p><code>-</code> 시점0</p>
+<div class="cell" data-execution_count="160">
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1"></a><span class="kw">class</span> A: </span>
+<span id="cb138-2"><a href="#cb138-2"></a>    x<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb138-3"><a href="#cb138-3"></a>    y<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb138-4"><a href="#cb138-4"></a>    <span class="kw">def</span> f(<span class="va">self</span>):</span>
+<span id="cb138-5"><a href="#cb138-5"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">self</span>.x <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb138-6"><a href="#cb138-6"></a>        A.y <span class="op">=</span> A.y <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb138-7"><a href="#cb138-7"></a>        <span class="bu">print</span>(<span class="st">"현재 인스턴스에서 f가 </span><span class="sc">{}</span><span class="st">번 실행"</span>.<span class="bu">format</span>(<span class="va">self</span>.x))</span>
+<span id="cb138-8"><a href="#cb138-8"></a>        <span class="bu">print</span>(<span class="st">"A클래스에서 만들어진 모든 인스턴스들에서 f가 총 </span><span class="sc">{}</span><span class="st">번 실행"</span>.<span class="bu">format</span>(<span class="va">self</span>.y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="161">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb139-1"><a href="#cb139-1"></a>a<span class="op">=</span>A()</span>
+<span id="cb139-2"><a href="#cb139-2"></a>b<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="162">
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1"></a>[A.x, A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="162">
+<pre><code>([0, 0], [0, 0], [0, 0])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점1</p>
+<div class="cell" data-execution_count="163">
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 1번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="164">
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 2번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="165">
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb146-1"><a href="#cb146-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 2번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 3번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="166">
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb148-1"><a href="#cb148-1"></a>[A.x, A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="166">
+<pre><code>([0, 3], [2, 3], [1, 3])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점2</p>
+<div class="cell" data-execution_count="167">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb150-1"><a href="#cb150-1"></a>a.y <span class="co">## 인스턴스a에 소속되어있지만 클래스변수</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="167">
+<pre><code>3</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="170">
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb152-1"><a href="#cb152-1"></a>a.y <span class="op">=</span> <span class="dv">999</span> <span class="co">## 내가 하드코딩으로 a.y에 999를 입력 -&gt; 이것이 A.y나 b.y에도 반영될까? (X) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="153">
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb153-1"><a href="#cb153-1"></a>[A.x, A.y], [a.x,a.y], [b.x,b.y]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="153">
+<pre><code>([0, 3], [2, 999], [1, 3])</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점3</p>
+<div class="cell" data-execution_count="154">
+<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb155-1"><a href="#cb155-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 2번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 4번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="155">
+<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 3번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 999번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="156">
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb159-1"><a href="#cb159-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 3번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 6번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="157">
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb161-1"><a href="#cb161-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 4번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 7번 실행</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="158">
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb163-1"><a href="#cb163-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 4번 실행
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 999번 실행</code></pre>
+</div>
+</div>
+<p><code>-</code> 요약 - 인스턴스에서 클래스변수의 값을 변경하면? -&gt; 클래스변수의 값이 변경되는 것이 아니라 인스턴스변수가 새롭게 만들어져서 할당된다. - 이 예제에서 a.y는 이제 클래스변수에서 인스턴스변수로 재탄생되었다. 즉 999 오브젝트가 새롭게 만들어져서 a.y라는 이름을 얻은것임. - 기존의 A.y나 b.y에는 아무런 변화가 없다.</p>
+<blockquote class="blockquote">
+<p>a.y = 999 은 새로운 인스턴변수 y를 할당하는 역할을 한다. 클래스변수의 값을 변경하는 것이 아니다. (왜냐하면 애초에 a.y는 없는 값이었고, A.y를 빌리고 있었던 것임)</p>
+</blockquote>
+<div class="cell" data-execution_count="172">
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb165-1"><a href="#cb165-1"></a>a.__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="172">
+<pre><code>{'x': 2, 'y': 999}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="173">
+<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb167-1"><a href="#cb167-1"></a>b.__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="173">
+<pre><code>{'x': 1}</code></pre>
+</div>
+</div>
+</section>
+<section id="예제5의-변형" class="level3">
+<h3 class="anchored" data-anchor-id="예제5의-변형">예제5의 변형</h3>
+<p><code>-</code> 시점0</p>
+<div class="cell" data-execution_count="180">
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb169-1"><a href="#cb169-1"></a><span class="kw">class</span> A: </span>
+<span id="cb169-2"><a href="#cb169-2"></a>    x<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb169-3"><a href="#cb169-3"></a>    y<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb169-4"><a href="#cb169-4"></a>    <span class="kw">def</span> f(<span class="va">self</span>):</span>
+<span id="cb169-5"><a href="#cb169-5"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">self</span>.x <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb169-6"><a href="#cb169-6"></a>        A.y <span class="op">=</span> A.y <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb169-7"><a href="#cb169-7"></a>        <span class="bu">print</span>(<span class="st">"현재 인스턴스에서 f가 </span><span class="sc">{}</span><span class="st">번 실행 (인스턴스레벨)"</span>.<span class="bu">format</span>(<span class="va">self</span>.x))</span>
+<span id="cb169-8"><a href="#cb169-8"></a>        <span class="bu">print</span>(<span class="st">"A클래스에서 만들어진 모든 인스턴스들에서 f가 총 </span><span class="sc">{}</span><span class="st">번 실행 (클래스레벨)"</span>.<span class="bu">format</span>(A.y))</span>
+<span id="cb169-9"><a href="#cb169-9"></a>        <span class="bu">print</span>(<span class="st">"A클래스에서 만들어진 모든 인스턴스들에서 f가 총 </span><span class="sc">{}</span><span class="st">번 실행 (인스턴스레벨)"</span>.<span class="bu">format</span>(<span class="va">self</span>.y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="181">
+<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb170-1"><a href="#cb170-1"></a>a<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="182">
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 1번 실행 (클래스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 1번 실행 (인스턴스레벨)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="183">
+<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb173-1"><a href="#cb173-1"></a>b<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="184">
+<div class="sourceCode cell-code" id="cb174"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb174-1"><a href="#cb174-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 2번 실행 (클래스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 2번 실행 (인스턴스레벨)</code></pre>
+</div>
+</div>
+<p><code>-</code> 시점1</p>
+<div class="cell" data-execution_count="185">
+<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb176-1"><a href="#cb176-1"></a>a.y <span class="op">=</span> <span class="dv">999</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="186">
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb177-1"><a href="#cb177-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 2번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 3번 실행 (클래스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 999번 실행 (인스턴스레벨)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="187">
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb179-1"><a href="#cb179-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 3번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 4번 실행 (클래스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 999번 실행 (인스턴스레벨)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="188">
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb181-1"><a href="#cb181-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 4번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 5번 실행 (클래스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 999번 실행 (인스턴스레벨)</code></pre>
+</div>
+</div>
+</section>
+<section id="예제6-인스턴스-생성시점에-대한-분석" class="level3">
+<h3 class="anchored" data-anchor-id="예제6-인스턴스-생성시점에-대한-분석">예제6: 인스턴스 생성시점에 대한 분석</h3>
+<p><code>-</code> 의문: 아래의 코드에서 x는 클래변수라고 봐야할까? 인스턴스 변수라고 봐야할까? –&gt; 클래스변수</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb183-1"><a href="#cb183-1"></a><span class="kw">class</span> SoWhaTV: </span>
+<span id="cb183-2"><a href="#cb183-2"></a>    x<span class="op">=</span><span class="dv">0</span> <span class="co">### 이 시점에서 x는 클래스변수인가? 아니면 인스턴변수인가? </span></span>
+<span id="cb183-3"><a href="#cb183-3"></a>    <span class="kw">def</span> f(<span class="va">self</span>):</span>
+<span id="cb183-4"><a href="#cb183-4"></a>        <span class="bu">print</span>(<span class="va">self</span>.x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>-</code> 시점0</p>
+<div class="cell" data-execution_count="189">
+<div class="sourceCode cell-code" id="cb184"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb184-1"><a href="#cb184-1"></a><span class="kw">class</span> A: </span>
+<span id="cb184-2"><a href="#cb184-2"></a>    x<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb184-3"><a href="#cb184-3"></a>    y<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb184-4"><a href="#cb184-4"></a>    <span class="kw">def</span> f(<span class="va">self</span>):</span>
+<span id="cb184-5"><a href="#cb184-5"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">self</span>.x <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb184-6"><a href="#cb184-6"></a>        A.y <span class="op">=</span> A.y <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb184-7"><a href="#cb184-7"></a>        <span class="bu">print</span>(<span class="st">"현재 인스턴스에서 f가 </span><span class="sc">{}</span><span class="st">번 실행 (인스턴스레벨)"</span>.<span class="bu">format</span>(<span class="va">self</span>.x))</span>
+<span id="cb184-8"><a href="#cb184-8"></a>        <span class="bu">print</span>(<span class="st">"A클래스에서 만들어진 모든 인스턴스들에서 f가 총 </span><span class="sc">{}</span><span class="st">번 실행 (클래스레벨)"</span>.<span class="bu">format</span>(A.y))</span>
+<span id="cb184-9"><a href="#cb184-9"></a>        <span class="co">#print("A클래스에서 만들어진 모든 인스턴스들에서 f가 총 {}번 실행 (인스턴스레벨)".format(self.y))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="190">
+<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb185-1"><a href="#cb185-1"></a>a<span class="op">=</span>A()</span>
+<span id="cb185-2"><a href="#cb185-2"></a>b<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="191">
+<div class="sourceCode cell-code" id="cb186"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb186-1"><a href="#cb186-1"></a>a.x,a.y,b.x,b.y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="191">
+<pre><code>(0, 0, 0, 0)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="192">
+<div class="sourceCode cell-code" id="cb188"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb188-1"><a href="#cb188-1"></a>a.__dict__, b.__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="192">
+<pre><code>({}, {})</code></pre>
+</div>
+</div>
+<ul>
+<li>지금 시점에서 a.x, a.y, b.x, b.y 는 모두 클래스변수임</li>
+</ul>
+<p><code>-</code> 시점1</p>
+<div class="cell" data-execution_count="193">
+<div class="sourceCode cell-code" id="cb190"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb190-1"><a href="#cb190-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 1번 실행 (클래스레벨)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="194">
+<div class="sourceCode cell-code" id="cb192"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb192-1"><a href="#cb192-1"></a>a.__dict__, b.__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="194">
+<pre><code>({'x': 1}, {})</code></pre>
+</div>
+</div>
+<ul>
+<li>이 순간 a.x가 클래스변수에서 인스턴스변수로 변경되었다. 왜? f가 실행되면서 self.x = self.x + 1 이 실행되었으므로!</li>
+</ul>
+<p><code>-</code> 시점2</p>
+<div class="cell" data-execution_count="195">
+<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb194-1"><a href="#cb194-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 2번 실행 (클래스레벨)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="196">
+<div class="sourceCode cell-code" id="cb196"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb196-1"><a href="#cb196-1"></a>a.__dict__, b.__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="196">
+<pre><code>({'x': 1}, {'x': 1})</code></pre>
+</div>
+</div>
+</section>
+<section id="예제7-잘못된사용" class="level3">
+<h3 class="anchored" data-anchor-id="예제7-잘못된사용">예제7: 잘못된사용</h3>
+<p><code>-</code> 아래처럼 코드를 바꾸면 어떻게 되는가?</p>
+<div class="cell" data-execution_count="197">
+<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb198-1"><a href="#cb198-1"></a><span class="kw">class</span> A: </span>
+<span id="cb198-2"><a href="#cb198-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>): </span>
+<span id="cb198-3"><a href="#cb198-3"></a>        <span class="va">self</span>.x<span class="op">=</span><span class="dv">0</span> <span class="co"># 인스턴스변수로 나중에 쓸꺼니까 명시함 </span></span>
+<span id="cb198-4"><a href="#cb198-4"></a>        A.y<span class="op">=</span><span class="dv">0</span> <span class="co"># 클래스변수로 나중에 쓸꺼니까 명시함 </span></span>
+<span id="cb198-5"><a href="#cb198-5"></a>    <span class="kw">def</span> f(<span class="va">self</span>):</span>
+<span id="cb198-6"><a href="#cb198-6"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">self</span>.x <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb198-7"><a href="#cb198-7"></a>        A.y <span class="op">=</span> A.y <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb198-8"><a href="#cb198-8"></a>        <span class="bu">print</span>(<span class="st">"현재 인스턴스에서 f가 </span><span class="sc">{}</span><span class="st">번 실행 (인스턴스레벨)"</span>.<span class="bu">format</span>(<span class="va">self</span>.x))</span>
+<span id="cb198-9"><a href="#cb198-9"></a>        <span class="bu">print</span>(<span class="st">"A클래스에서 만들어진 모든 인스턴스들에서 f가 총 </span><span class="sc">{}</span><span class="st">번 실행 (클래스레벨)"</span>.<span class="bu">format</span>(A.y))</span>
+<span id="cb198-10"><a href="#cb198-10"></a>        <span class="co">#print("A클래스에서 만들어진 모든 인스턴스들에서 f가 총 {}번 실행 (인스턴스레벨)".format(self.y))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 사용해보자.</p>
+<div class="cell" data-execution_count="198">
+<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb199-1"><a href="#cb199-1"></a>a<span class="op">=</span>A()</span>
+<span id="cb199-2"><a href="#cb199-2"></a>b<span class="op">=</span>A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="199">
+<div class="sourceCode cell-code" id="cb200"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb200-1"><a href="#cb200-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 1번 실행 (클래스레벨)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="200">
+<div class="sourceCode cell-code" id="cb202"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb202-1"><a href="#cb202-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 1번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 2번 실행 (클래스레벨)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="201">
+<div class="sourceCode cell-code" id="cb204"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb204-1"><a href="#cb204-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 2번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 3번 실행 (클래스레벨)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="202">
+<div class="sourceCode cell-code" id="cb206"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb206-1"><a href="#cb206-1"></a>b.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 3번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 4번 실행 (클래스레벨)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="203">
+<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb208-1"><a href="#cb208-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 2번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 5번 실행 (클래스레벨)</code></pre>
+</div>
+</div>
+<p><code>-</code> 잘 되는것 같다?</p>
+<p><code>-</code> 조금만 생각해보면 엉터리라는 것을 알 수 있다. 아래를 관찰해보자.</p>
+<div class="cell" data-execution_count="204">
+<div class="sourceCode cell-code" id="cb210"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb210-1"><a href="#cb210-1"></a>c<span class="op">=</span>A() <span class="co"># 이 시점에서 __init__()이 실행된다! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="205">
+<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb211-1"><a href="#cb211-1"></a>a.f()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>현재 인스턴스에서 f가 3번 실행 (인스턴스레벨)
+A클래스에서 만들어진 모든 인스턴스들에서 f가 총 1번 실행 (클래스레벨)</code></pre>
+</div>
+</div>
+<ul>
+<li>클래스레벨의 변수가 왜 초기화가 되었지?</li>
+</ul>
+<p><code>-</code> 오류의 이유? c=A()가 실행되는 시점에 <code>__init__()</code>이 실행되면서 <code>A.y=0</code>이 실행된다. 따라서 강제초기화가 진행되었음</p>
+</section>
+</section>
+<section id="숙제" class="level2">
+<h2 class="anchored" data-anchor-id="숙제">숙제</h2>
+<p>아래의 조건에 맞는 클래스를 생성하라.</p>
+<ol type="1">
+<li><p><code>['가위','바위']</code>와 같은 리스트를 입력으로 받아 인스턴스를 생성한다.</p></li>
+<li><p>위의 리스트에서 하나의 값을 뽑는 메소드 <code>f</code>를 가지고 있다.</p></li>
+</ol>
+<p><strong>(3) f의 실행횟수를 기록하는 기능을 가진다. (각 인스턴스에서 실행한 횟수, 클래스에서 생성된 모든 인스턴스에서 실행한 횟수 모두 기록)</strong></p>
+<p>사용예시</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb213-1"><a href="#cb213-1"></a>a <span class="op">=</span> Klass([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
+<span id="cb213-2"><a href="#cb213-2"></a>a.f() <span class="co"># 가위가 1/2 바위가 1/2의 확률로 출력 </span></span>
+<span id="cb213-3"><a href="#cb213-3"></a>b <span class="op">=</span> Klass([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span>
+<span id="cb213-4"><a href="#cb213-4"></a>b.f() <span class="co"># 가위, 바위, 보가 1/3의 확률로 출력 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
