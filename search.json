@@ -88,14 +88,14 @@
     "href": "posts/01_PythonBasic/2023-03-20-3wk-1.html#리스트-원소-추가",
     "title": "03wk-1: 파이썬의 자료형 (4) – draft",
     "section": "리스트 원소 추가",
-    "text": "리스트 원소 추가\n(예제) 비어있는 리스트를 만들고 원소 0,1,2를 차례로 추가하여 보자.\n(풀이1)\n\na=[]\na\n\n[]\n\n\n\na= a + [0] \na\n\n[0]\n\n\n\na= a + [1]\na\n\n[0, 1]\n\n\n\na= a + [2]\na\n\n[0, 1, 2]\n\n\n(풀이2)\n\na=[]\na\n\n[]\n\n\n\na += [0] \na\n\n[0]\n\n\n\na += [1]\na\n\n[0, 1]\n\n\n\na += [2]\na\n\n[0, 1, 2]\n\n\n\n암기법: 중복되는 변수를 지우고 연산자의 순서를 바꾼다.\n\n(풀이3) 리스트 특화기능(=메소드)를 이용\n\na=[]\na\n\n[]\n\n\n\na.append(0)\na\n\n[0]\n\n\n\na.append(1)\na\n\n[0, 1]\n\n\n\na.append(2)\na\n\n[0, 1, 2]"
+    "text": "리스트 원소 추가\n(예제) 비어있는 리스트를 만들고 원소 0,1,2를 차례로 추가하여 보자.\n(풀이1) + 연산이용\n(풀이2) += 이용\n(풀이3) 리스트 특수기능 .append()를 이용"
   },
   {
     "objectID": "posts/01_PythonBasic/2023-03-20-3wk-1.html#a4와-a.append4의-차이점은",
     "href": "posts/01_PythonBasic/2023-03-20-3wk-1.html#a4와-a.append4의-차이점은",
     "title": "03wk-1: 파이썬의 자료형 (4) – draft",
     "section": "a+[4]와 a.append(4)의 차이점은?",
-    "text": "a+[4]와 a.append(4)의 차이점은?\n(관찰1)\n\na=[1,2,3]\na+[4] ## 리스트 a와 리스트 [4]의 연산결과를 알려줘 \n\n[1, 2, 3, 4]\n\n\n\na ## a는 그대로임. 변화없음 \n\n[1, 2, 3]\n\n\n(관찰2)\n\na=[1,2,3]\na.append(4)\n\n\na ## a자체가 변화함 \n\n[1, 2, 3, 4]\n\n\n비슷해보이지만 굉장히 미묘한 차이가 있음\na.append(4): a에 4를 append하라 \\(\\to\\) a가 변함\na+[4]: a와 4를 연산하라"
+    "text": "a+[4]와 a.append(4)의 차이점은?\n(관찰1)\n\na=[1,2,3]\na+[4] ## 리스트 a와 리스트 [4]의 연산결과를 알려줘 \n\n[1, 2, 3, 4]\n\n\n\na ## a는 그대로임. 변화없음 \n\n[1, 2, 3]\n\n\n(관찰2)\n\na=[1,2,3]\na.append(4)\n\n\na ## a자체가 변화함 \n\n[1, 2, 3, 4]\n\n\n비슷해보이지만 굉장히 미묘한 차이가 있음\na.append(4): a에 4를 append하라 \\(\\to\\) a가 변함\na+[4]: a와 [4]를 연산하라"
   },
   {
     "objectID": "posts/01_PythonBasic/2023-03-20-3wk-1.html#리스트-특수기능",
@@ -109,7 +109,7 @@
     "href": "posts/01_PythonBasic/2023-03-20-3wk-1.html#중첩리스트",
     "title": "03wk-1: 파이썬의 자료형 (4) – draft",
     "section": "중첩리스트",
-    "text": "중첩리스트\n\nA=[[1,2,3],[4,5,6],[7,8,9]]\nA\n\n[[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\n\n- A는 아래와 같은 매트릭스로 이해할 수 있다\n$\n\\[\\begin{bmatrix}\n1 & 2 & 3 \\\\\n4 & 5 & 6 \\\\\n7 & 8 & 9\n\\end{bmatrix}\\]\n$\n- A에서 (2,1)의 원소를 뽑고싶다 = 4를 뽑고싶다\n\nA[1,0]\n\nTypeError: list indices must be integers or slices, not tuple\n\n\n\n실패\n\n\nA[1][0]\n\n4\n\n\n\n성공\n\n- 성공의 이유를 분석해보자.\n\nA\n\n[[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\n\n\nA[1]\n\n[4, 5, 6]\n\n\n\nA[1][0]\n\n4\n\n\n- 매트릭스는 아니지만 매트릭스 같음! - 1차원 배열을 다차원 배열로 확장할 수 있는 기본 아이디어를 제공함"
+    "text": "중첩리스트\n- 리스트는 리스트를 원소로 받을 수 있으므로 아래와 같이 중첩된 리스트를 만들 수 있다.\n\nA=[[1,2,3],[4,5,6],[7,8,9]]\nA\n\n[[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\n\n- A는 1차원인 벡터가 아니라 2차원인 매트릭스로 이해할 수 있다. 구체적으로는 아래와 같은 매트릭스로 이해할 수 있다\n$\n\\[\\begin{bmatrix}\n1 & 2 & 3 \\\\\n4 & 5 & 6 \\\\\n7 & 8 & 9\n\\end{bmatrix}\\]\n$\n- A에서 (2,1)의 원소를 뽑고싶다 = 4를 뽑고싶다\n\nA[1,0] # R에서는 이게 가능했죠\n\nTypeError: list indices must be integers or slices, not tuple\n\n\n\n실패\n\n\nA[1][0]\n\n4\n\n\n\n성공\n\n- 성공의 이유를 분석해보자.\n\nA\n\n[[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\n\n\nA[1]\n\n[4, 5, 6]\n\n\n\nA[1][0]\n\n4\n\n\n- 매트릭스는 아니지만 매트릭스 같음! - 1차원 배열을 다차원 배열로 확장할 수 있는 기본 아이디어를 제공함"
   },
   {
     "objectID": "posts/01_PythonBasic/2023-03-20-3wk-1.html#예비학습1-for문-벼락치기",
@@ -123,7 +123,7 @@
     "href": "posts/01_PythonBasic/2023-03-20-3wk-1.html#예비학습2-range",
     "title": "03wk-1: 파이썬의 자료형 (4) – draft",
     "section": "예비학습2: range",
-    "text": "예비학습2: range\n\nrange(0,10)\n\nrange(0, 10)\n\n\n\n이게뭐야?\n\n\n_tmp = range(0,10)\n_tmp?\n\n\nType:        range\nString form: range(0, 10)\nLength:      10\nDocstring:  \nrange(stop) -> range object\nrange(start, stop[, step]) -> range object\nReturn an object that produces a sequence of integers from start (inclusive)\nto stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.\nstart defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.\nThese are exactly the valid indices for a list of 4 elements.\nWhen step is given, it specifies the increment (or decrement).\n\n\n\n\n\n우리가 아는 범위에서는 모르겠음.. 이런게 있나보다 하고 넘어가야 하겠음\n\n\nlist(range(0,10)) # 0을 포함, 10을 미포함 \n\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n\n\n\n이게 중요한것임. range(0,10)를 리스트화시키면 [0,1,2,…,9] 와 같은 리스트를 얻을 수 있음.\n\n\nlist(range(10)) # 0은 생략가능\n\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n\n\n\nlist(range(2,10)) # 2는 포함, 10은 미포함 \n\n[2, 3, 4, 5, 6, 7, 8, 9]\n\n\n\nlist(range(1,10,2)) # 2는 포함, 10은 미포함 \n\n[1, 3, 5, 7, 9]"
+    "text": "예비학습2: range\n- range(0,10) 선언해보기\n\nrange(0,10)\n\nrange(0, 10)\n\n\n\n이게뭐야?\n\n- 도움말 확인하기\n\n_tmp = range(0,10)\n_tmp?\n\n\nType:        range\nString form: range(0, 10)\nLength:      10\nDocstring:  \nrange(stop) -> range object\nrange(start, stop[, step]) -> range object\nReturn an object that produces a sequence of integers from start (inclusive)\nto stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.\nstart defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.\nThese are exactly the valid indices for a list of 4 elements.\nWhen step is given, it specifies the increment (or decrement).\n\n\n\n\n\n우리가 아는 범위에서는 모르겠음.. 이런게 있나보다 하고 넘어가야 하겠음\n\n- 형태변환으로 range(0,10)의 느낌 찾기\n\nlist(range(0,10)) # 0을 포함, 10을 미포함 \n\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n\n\n\n이게 중요한것임. range(0,10)를 리스트화시키면 [0,1,…,9] 와 같은 리스트를 얻을 수 있음. \\(\\Rightarrow\\) range(0,10)은 [0,1,…,9] 와 “비슷한 것” 임\n\n- range()의 활용\n\nlist(range(10)) # 0은 생략가능\n\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n\n\n\nlist(range(2,10)) # 2는 포함, 10은 미포함 \n\n[2, 3, 4, 5, 6, 7, 8, 9]\n\n\n\nlist(range(1,10,2)) # 2는 포함, 10은 미포함 \n\n[1, 3, 5, 7, 9]"
   },
   {
     "objectID": "posts/01_PythonBasic/2023-03-20-3wk-1.html#리스트-컴프리헨션",
