@@ -195,12 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#연산" id="toc-연산" class="nav-link" data-scroll-target="#연산">연산</a></li>
   <li><a href="#인덱싱" id="toc-인덱싱" class="nav-link" data-scroll-target="#인덱싱">인덱싱</a></li>
   </ul></li>
-  <li><a href="#튜플-고급내용" id="toc-튜플-고급내용" class="nav-link" data-scroll-target="#튜플-고급내용">튜플 고급내용</a>
-  <ul class="collapse">
-  <li><a href="#튜플을-왜-쓸까-1" id="toc-튜플을-왜-쓸까-1" class="nav-link" data-scroll-target="#튜플을-왜-쓸까-1">튜플을 왜 쓸까? (1)</a></li>
-  <li><a href="#슬기로운-튜플사용-starstarstarstarstar" id="toc-슬기로운-튜플사용-starstarstarstarstar" class="nav-link" data-scroll-target="#슬기로운-튜플사용-starstarstarstarstar">슬기로운 튜플사용 (<span class="math inline">\(\star\star\star\star\star\)</span>)</a></li>
-  <li><a href="#튜플을-왜-쓸까-2" id="toc-튜플을-왜-쓸까-2" class="nav-link" data-scroll-target="#튜플을-왜-쓸까-2">튜플을 왜 쓸까? (2)</a></li>
-  </ul></li>
+  <li><a href="#hw-0320-1" id="toc-hw-0320-1" class="nav-link" data-scroll-target="#hw-0320-1">HW 0320 (1)</a></li>
   </ul>
 </nav>
     </div>
@@ -936,8 +931,16 @@ When step is given, it specifies the increment (or decrement).</pre>
 <pre><code>[1, 2, 4, 8]</code></pre>
 </div>
 </div>
-<p><code>-</code> 리스트컴프리헨션의 문법 암기방법 - 집합에서 조건제시법을 연상 - <span class="math inline">\(\{2^0,2^1,2^2,2^3\}=\{2^i: i \in \{0,1,2,3\} \}\)</span></p>
-<p><code>-</code> 리스트컴프리헨션이란? - 리스트를 매우 효율적으로 만드는 테크닉 - for문에 비하여 가지고 있는 장점: (1) 코드가 간결하다 (2) 빠르다</p>
+<p><code>-</code> 리스트컴프리헨션의 문법 암기방법</p>
+<ul>
+<li>집합에서 조건제시법을 연상</li>
+<li><span class="math inline">\(\{2^0,2^1,2^2,2^3\}=\{2^i: i \in \{0,1,2,3\} \}\)</span></li>
+</ul>
+<p><code>-</code> 리스트컴프리헨션이란?</p>
+<ul>
+<li>리스트를 매우 효율적으로 만드는 테크닉</li>
+<li>for문에 비하여 가지고 있는 장점: (1) 코드가 간결하다 (2) 빠르다</li>
+</ul>
 </section>
 <section id="리스트-컴프리헨션-연습" class="level2">
 <h2 class="anchored" data-anchor-id="리스트-컴프리헨션-연습">리스트 컴프리헨션 연습</h2>
@@ -1025,10 +1028,10 @@ When step is given, it specifies the increment (or decrement).</pre>
 </div>
 </div>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="196">
+<div class="cell" data-execution_count="244">
 <div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb169-1"><a href="#cb169-1"></a>[<span class="st">'X'</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">13</span>)]</span>
-<span id="cb169-2"><a href="#cb169-2"></a>[<span class="st">'X'</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">13</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="196">
+<span id="cb169-2"><a href="#cb169-2"></a><span class="co">#['X'+str(i) for i in list(range(1,13))]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="244">
 <pre><code>['X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'X8', 'X9', 'X10', 'X11', 'X12']</code></pre>
 </div>
 </div>
@@ -1036,19 +1039,19 @@ When step is given, it specifies the increment (or decrement).</pre>
 <section id="리스트-컴프리헨션과-for문의-미묘한-차이" class="level2">
 <h2 class="anchored" data-anchor-id="리스트-컴프리헨션과-for문의-미묘한-차이">리스트 컴프리헨션과 for문의 미묘한 차이</h2>
 <p>(경우1)</p>
-<div class="cell" data-execution_count="205">
+<div class="cell" data-execution_count="245">
 <div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1"></a>x<span class="op">=</span><span class="dv">777</span> </span>
 <span id="cb171-2"><a href="#cb171-2"></a>lst <span class="op">=</span> [] </span>
 <span id="cb171-3"><a href="#cb171-3"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="st">'jbnu'</span>: </span>
 <span id="cb171-4"><a href="#cb171-4"></a>    lst <span class="op">=</span> lst <span class="op">+</span> [x]</span>
 <span id="cb171-5"><a href="#cb171-5"></a>lst    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="205">
+<div class="cell-output cell-output-display" data-execution_count="245">
 <pre><code>['j', 'b', 'n', 'u']</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="202">
+<div class="cell" data-execution_count="246">
 <div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb173-1"><a href="#cb173-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="202">
+<div class="cell-output cell-output-display" data-execution_count="246">
 <pre><code>'u'</code></pre>
 </div>
 </div>
@@ -1233,330 +1236,10 @@ When step is given, it specifies the increment (or decrement).</pre>
 </div>
 </section>
 </section>
-<section id="튜플-고급내용" class="level1">
-<h1>튜플 고급내용</h1>
-<section id="튜플을-왜-쓸까-1" class="level2">
-<h2 class="anchored" data-anchor-id="튜플을-왜-쓸까-1">튜플을 왜 쓸까? (1)</h2>
-<div class="cell" data-execution_count="242">
-<div class="sourceCode cell-code" id="cb222"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb222-1"><a href="#cb222-1"></a>_a <span class="op">=</span> <span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span> </span>
-<span id="cb222-2"><a href="#cb222-2"></a>_b <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>-</code> 책의 설명 (이 설명이 꼭 파이썬에 한정되는 것은 아님. 모든 언어에 존재하는 불변형 객체에 적용가능한 설명)</p>
-<ul>
-<li>실수방지</li>
-<li>빠르다, 다중작업에 유리하다, 여러사람과 작업하기에 유리하다, 깊은복사/얕은복사시 원하지않는 오류(side effect이라고 함)를 방지할 수 있다, 메모리관리에도 유리함…</li>
-<li>느낌: 불변형은 기능제한이 있는데 가볍고 빠른, 가변형은 기능은 풍부하지만 약간 느리고 무거운 느낌임 (불변형:라면사리, 가변형:라면)</li>
-</ul>
-</section>
-<section id="슬기로운-튜플사용-starstarstarstarstar" class="level2">
-<h2 class="anchored" data-anchor-id="슬기로운-튜플사용-starstarstarstarstar">슬기로운 튜플사용 (<span class="math inline">\(\star\star\star\star\star\)</span>)</h2>
-<p><code>-</code> 예제: 여러변수를 동시에 출력하고 싶을 경우 (다중출력?)</p>
-<p>변수를 아래와 같이 선언하였다고 하자.</p>
-<div class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb223"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb223-1"><a href="#cb223-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb223-2"><a href="#cb223-2"></a>b<span class="op">=</span><span class="dv">2</span></span>
-<span id="cb223-3"><a href="#cb223-3"></a>c<span class="op">=</span><span class="dv">3</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>선언된 값을 확인하려면?</p>
-<div class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb224"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb224-1"><a href="#cb224-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="46">
-<pre><code>1</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb226"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb226-1"><a href="#cb226-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="47">
-<pre><code>2</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb228"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb228-1"><a href="#cb228-1"></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="48">
-<pre><code>3</code></pre>
-</div>
-</div>
-<p>튜플을 이용하면?</p>
-<div class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb230"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb230-1"><a href="#cb230-1"></a>a,b,c <span class="co"># 괄호하나 생략하는것이 이렇게 편하다..</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="51">
-<pre><code>(1, 2, 3)</code></pre>
-</div>
-</div>
-<p><code>-</code> 예제: 다중할당1 (여러개의 변수를 동시에 선언하고 싶을 경우)</p>
-<div class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb232"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb232-1"><a href="#cb232-1"></a>name, age, sex, height, weight <span class="op">=</span> <span class="st">'Tom'</span>, <span class="dv">20</span>, <span class="st">'M'</span>, <span class="dv">180</span>, <span class="dv">70</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb233"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb233-1"><a href="#cb233-1"></a>name, age, sex, height, weight</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="54">
-<pre><code>('Tom', 20, 'M', 180, 70)</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb235"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb235-1"><a href="#cb235-1"></a>height</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="56">
-<pre><code>180</code></pre>
-</div>
-</div>
-<p><code>-</code> 예제: 다중할당2, 위도와 경도</p>
-<div class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb237"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb237-1"><a href="#cb237-1"></a>coor <span class="op">=</span> (<span class="dv">37</span>,<span class="dv">127</span>) <span class="co"># 서울 </span></span>
-<span id="cb237-2"><a href="#cb237-2"></a>coor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="62">
-<pre><code>(37, 127)</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="63">
-<div class="sourceCode cell-code" id="cb239"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb239-1"><a href="#cb239-1"></a>lat, <span class="bu">long</span> <span class="op">=</span> coor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="64">
-<div class="sourceCode cell-code" id="cb240"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb240-1"><a href="#cb240-1"></a>lat </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="64">
-<pre><code>37</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb242"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb242-1"><a href="#cb242-1"></a><span class="bu">long</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="65">
-<pre><code>127</code></pre>
-</div>
-</div>
-<p><code>-</code> 잠깐만: 다중할당은 꼭 튜플에서만 가능한가?</p>
-<p>그건 아니다…</p>
-<div class="cell" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb244"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb244-1"><a href="#cb244-1"></a>[x,y,z] <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] </span>
-<span id="cb244-2"><a href="#cb244-2"></a>x,y,z <span class="co"># 다중출력 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="70">
-<pre><code>(1, 2, 3)</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb246"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb246-1"><a href="#cb246-1"></a>[x,y] <span class="op">=</span> <span class="st">'hi'</span></span>
-<span id="cb246-2"><a href="#cb246-2"></a>x,y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="71">
-<pre><code>('h', 'i')</code></pre>
-</div>
-</div>
-<p>튜플과 같이 사용하면 가독성이 극대화 (그래서 다중할당은 거의 튜플과 세트로 사용함)</p>
-<div class="cell" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb248"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb248-1"><a href="#cb248-1"></a>x,y,z <span class="op">=</span> <span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span></span>
-<span id="cb248-2"><a href="#cb248-2"></a>x,y,z <span class="co"># 다중출력 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="72">
-<pre><code>(1, 2, 3)</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb250"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb250-1"><a href="#cb250-1"></a>x,y <span class="op">=</span> <span class="st">'hi'</span></span>
-<span id="cb250-2"><a href="#cb250-2"></a>x,y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="73">
-<pre><code>('h', 'i')</code></pre>
-</div>
-</div>
-<p><code>-</code> 예제: 임시변수 사용없이 두 변수의 값을 교환</p>
-<div class="cell" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb252"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb252-1"><a href="#cb252-1"></a>a<span class="op">=</span><span class="dv">10</span></span>
-<span id="cb252-2"><a href="#cb252-2"></a>b<span class="op">=</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="67">
-<div class="sourceCode cell-code" id="cb253"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb253-1"><a href="#cb253-1"></a>a,b <span class="op">=</span> b,a </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="68">
-<div class="sourceCode cell-code" id="cb254"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb254-1"><a href="#cb254-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="68">
-<pre><code>20</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="69">
-<div class="sourceCode cell-code" id="cb256"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb256-1"><a href="#cb256-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="69">
-<pre><code>10</code></pre>
-</div>
-</div>
-<p><code>-</code> 예제: for문과 튜플</p>
-<div class="cell" data-execution_count="74">
-<div class="sourceCode cell-code" id="cb258"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb258-1"><a href="#cb258-1"></a>lst <span class="op">=</span> [[<span class="st">'guebin'</span>, <span class="dv">202112345</span>, <span class="st">'M'</span>],</span>
-<span id="cb258-2"><a href="#cb258-2"></a>       [<span class="st">'iu'</span>,<span class="dv">202254321</span>, <span class="st">'F'</span>],</span>
-<span id="cb258-3"><a href="#cb258-3"></a>       [<span class="st">'hodong'</span>, <span class="dv">202011223</span>, <span class="st">'M'</span>]]</span>
-<span id="cb258-4"><a href="#cb258-4"></a>lst</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="74">
-<pre><code>[['guebin', 202112345, 'M'],
- ['iu', 202254321, 'F'],
- ['hodong', 202011223, 'M']]</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="76">
-<div class="sourceCode cell-code" id="cb260"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb260-1"><a href="#cb260-1"></a><span class="cf">for</span> i <span class="kw">in</span> lst: </span>
-<span id="cb260-2"><a href="#cb260-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>['guebin', 202112345, 'M']
-['iu', 202254321, 'F']
-['hodong', 202011223, 'M']</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="81">
-<div class="sourceCode cell-code" id="cb262"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb262-1"><a href="#cb262-1"></a><span class="cf">for</span> name,studentid,sex <span class="kw">in</span> lst: </span>
-<span id="cb262-2"><a href="#cb262-2"></a>    <span class="bu">print</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>guebin
-iu
-hodong</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="82">
-<div class="sourceCode cell-code" id="cb264"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb264-1"><a href="#cb264-1"></a><span class="cf">for</span> name,studentid,sex <span class="kw">in</span> lst: </span>
-<span id="cb264-2"><a href="#cb264-2"></a>    <span class="bu">print</span>(name,sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>guebin M
-iu F
-hodong M</code></pre>
-</div>
-</div>
-<p><code>-</code> 예제: for문과 튜플, dummy variable <code>_</code></p>
-<div class="cell" data-execution_count="84">
-<div class="sourceCode cell-code" id="cb266"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb266-1"><a href="#cb266-1"></a><span class="cf">for</span> name,studentid,sex <span class="kw">in</span> lst: </span>
-<span id="cb266-2"><a href="#cb266-2"></a>    <span class="bu">print</span>(studentid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>202112345
-202254321
-202011223</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="85">
-<div class="sourceCode cell-code" id="cb268"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb268-1"><a href="#cb268-1"></a><span class="cf">for</span> _,studentid,_ <span class="kw">in</span> lst: </span>
-<span id="cb268-2"><a href="#cb268-2"></a>    <span class="bu">print</span>(studentid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>202112345
-202254321
-202011223</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="86">
-<div class="sourceCode cell-code" id="cb270"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb270-1"><a href="#cb270-1"></a><span class="cf">for</span> _,_,sex <span class="kw">in</span> lst: </span>
-<span id="cb270-2"><a href="#cb270-2"></a>    <span class="bu">print</span>(sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>M
-F
-M</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="87">
-<div class="sourceCode cell-code" id="cb272"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb272-1"><a href="#cb272-1"></a><span class="cf">for</span> name,_,sex <span class="kw">in</span> lst: </span>
-<span id="cb272-2"><a href="#cb272-2"></a>    <span class="bu">print</span>(name,sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>guebin M
-iu F
-hodong M</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb274"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb274-1"><a href="#cb274-1"></a><span class="cf">for</span> name,_  <span class="kw">in</span> lst: </span>
-<span id="cb274-2"><a href="#cb274-2"></a>    <span class="bu">print</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>ValueError: too many values to unpack (expected 2)</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="89">
-<div class="sourceCode cell-code" id="cb276"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb276-1"><a href="#cb276-1"></a><span class="cf">for</span> name,<span class="op">*</span>args  <span class="kw">in</span> lst: </span>
-<span id="cb276-2"><a href="#cb276-2"></a>    <span class="bu">print</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>guebin
-iu
-hodong</code></pre>
-</div>
-</div>
-<p><code>-</code> 예제: 튜플과 언패킹연산자 <code>*</code></p>
-<div class="cell" data-execution_count="95">
-<div class="sourceCode cell-code" id="cb278"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb278-1"><a href="#cb278-1"></a>head, body, <span class="op">*</span>tail <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>) </span>
-<span id="cb278-2"><a href="#cb278-2"></a>head, body, tail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="95">
-<pre><code>(1, 2, [3, 4, 5, 6, 7, 8, 9, 10])</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="96">
-<div class="sourceCode cell-code" id="cb280"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb280-1"><a href="#cb280-1"></a>head1,head2, <span class="op">*</span>body, tail1,tail2,tail3 <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>) </span>
-<span id="cb280-2"><a href="#cb280-2"></a>head1,head2, body, tail1,tail2,tail3 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="96">
-<pre><code>(1, 2, [3, 4, 5, 6, 7], 8, 9, 10)</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="99">
-<div class="sourceCode cell-code" id="cb282"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb282-1"><a href="#cb282-1"></a><span class="op">*</span>head, body, tail <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>) </span>
-<span id="cb282-2"><a href="#cb282-2"></a>head, body, tail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="99">
-<pre><code>([1, 2, 3, 4, 5, 6, 7, 8], 9, 10)</code></pre>
-</div>
-</div>
-<p>(관찰)</p>
-<p>그러고 보니까..</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb284-1"><a href="#cb284-1"></a>head1,head2, body, tail1,tail2,tail3  <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, [<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>], <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
-<span id="cb284-2"><a href="#cb284-2"></a>head1,head2, <span class="op">*</span>body, tail1,tail2,tail3   <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>이렇다는 거잖아?</p>
-<p><code>*</code>를 붙이면 1차원 자료구조가 풀린다..?</p>
-<div class="cell" data-execution_count="103">
-<div class="sourceCode cell-code" id="cb285"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb285-1"><a href="#cb285-1"></a><span class="op">*</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>SyntaxError: can't use starred expression here (386627056.py, line 1)</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="104">
-<div class="sourceCode cell-code" id="cb287"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb287-1"><a href="#cb287-1"></a><span class="bu">print</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1, 2, 3]</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb289"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb289-1"><a href="#cb289-1"></a><span class="bu">print</span>(<span class="op">*</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]) <span class="co">## 이런 느낌이란 말이지..</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1 2 3</code></pre>
-</div>
-</div>
-</section>
-<section id="튜플을-왜-쓸까-2" class="level2">
-<h2 class="anchored" data-anchor-id="튜플을-왜-쓸까-2">튜플을 왜 쓸까? (2)</h2>
-<p><code>-</code> 책의 설명 (이 설명이 꼭 파이썬에 한정되는 것은 아님. 모든 언어에 존재하는 불변형 객체에 적용가능한 설명)</p>
-<ul>
-<li>실수방지</li>
-<li>빠르다, 다중작업에 유리하다, 여러사람과 작업하기에 유리하다, 깊은복사/얕은복사시 원하지않는 오류(side effect이라고 함)를 방지할 수 있다, 메모리관리에도 유리함…</li>
-<li>느낌: 불변형은 기능제한이 있는데 가볍고 빠른, 가변형은 기능은 풍부하지만 약간 느리고 무거운 느낌임 (불변형:라면사리, 가변형:라면)</li>
-</ul>
-<p><code>-</code> 내 설명: 소괄화 생략할 수 있어서 쓰는거야</p>
-<ul>
-<li>튜플의 장점은 소괄호의 생략에 있음 (이것은 파이썬과 줄리아만 가능)</li>
-<li>소괄호생략 + 언패킹 <span class="math inline">\(\Rightarrow\)</span> 엄청난 가독성</li>
-<li>컴공과 사람들 의견: 튜플 + 언패킹 <span class="math inline">\(\Rightarrow\)</span> 엄청난 가독성 <span class="math inline">\(\Rightarrow\)</span> 충격 <span class="math inline">\(\Rightarrow\)</span> “파이썬 편하더라고요..”</li>
-</ul>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb291"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb291-1"><a href="#cb291-1"></a><span class="kw">def</span> mycal(a,b):</span>
-<span id="cb291-2"><a href="#cb291-2"></a>    <span class="cf">return</span> a<span class="op">+</span>b, a<span class="op">-</span>b, a<span class="op">*</span>b, a<span class="op">/</span>b  <span class="co">#여러개의 값을 리턴하는듯 보임. -&gt; 사실은 길이가 4인 튜플 1개를 리턴</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb292"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb292-1"><a href="#cb292-1"></a>mycal(<span class="dv">2</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>(5, -1, 6, 0.6666666666666666)</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb294"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb294-1"><a href="#cb294-1"></a>_, _, mulrslt, _ <span class="op">=</span> mycal(<span class="dv">2</span>,<span class="dv">3</span>) <span class="co"># 병렬할당 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb295"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb295-1"><a href="#cb295-1"></a>mulrslt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>6</code></pre>
-</div>
-</div>
-<p><code>-</code> 의문: 왜 튜플만 괄호를 생략할 수 있지?</p>
-<p>답이 없는 문제인데 답을 해보겠습니다.</p>
-<ul>
-<li>튜플을 먼저 만들고, 괄호를 생략하는 문법을 추가한것은 아닐것임</li>
-<li>원래 괄호없이 컴마만 대충찍어서 선언가능한 아주간단한 타입의 벡터형을 만들고 싶었을 것임.</li>
-<li>왜? 괄호없는 벡터를 만들고, 언패킹을 사용하면 여러가지 구문들이 엄청나게 간단해짐.</li>
-<li>컴마컴마로 선언하는 벡터는 한 두번 쓰고 버리는 경우가 많으며 대부분 이름도 필요없음 <span class="math inline">\(\to\)</span> 원소에 접근해서 sorting하여 순서를 바꾸고 싶다던가 원소를 추가할 이유가 없음 <span class="math inline">\(\to\)</span> 비싼 가변형으로 만들 이유가 없다는 것..</li>
-<li>우리가 필요한 것: 데이터가 벡터의 형태로 모여있기만 하면 된다!</li>
-</ul>
+<section id="hw-0320-1" class="level1">
+<h1>HW 0320 (1)</h1>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
