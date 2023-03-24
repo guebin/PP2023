@@ -1284,11 +1284,13 @@ When step is given, it specifies the increment (or decrement).</pre>
 <pre><code>2</code></pre>
 </div>
 </div>
+<p>(풀이)</p>
+<p>생략</p>
 <p><code>2</code>. 다음과 같은 리스트를 고려하자.</p>
-<div class="cell" data-execution_count="126">
+<div class="cell" data-execution_count="77">
 <div class="sourceCode cell-code" id="cb226"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb226-1"><a href="#cb226-1"></a>x <span class="op">=</span> [<span class="dv">80</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">90</span>,<span class="dv">55</span>,<span class="dv">85</span>,<span class="dv">95</span>,<span class="dv">100</span>,<span class="dv">35</span>,<span class="dv">70</span>,<span class="dv">75</span>,<span class="dv">65</span>,<span class="dv">95</span>]</span>
 <span id="cb226-2"><a href="#cb226-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="126">
+<div class="cell-output cell-output-display" data-execution_count="77">
 <pre><code>[80, 60, 80, 90, 55, 85, 95, 100, 35, 70, 75, 65, 95]</code></pre>
 </div>
 </div>
@@ -1296,43 +1298,72 @@ When step is given, it specifies the increment (or decrement).</pre>
 <p><span class="math inline">\({\bf x} = [x_1,\dots,x_{13}]=[80,60,80,90,55,85,95,100,35,70,75,65,95]\)</span></p>
 <p>리스트의 원소중 “<span class="math inline">\(x_i&gt;80\)</span>” 의 조건을 만족하는 원소는 모두 몇개인가?</p>
 <p><strong>hint:</strong> 리스트컴프리헨션과 <code>sum()</code>함수를 이용할 것</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb228"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb228-1"><a href="#cb228-1"></a><span class="bu">sum</span>([xi <span class="op">&gt;</span><span class="dv">80</span> <span class="cf">for</span> xi <span class="kw">in</span> x])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="78">
+<pre><code>5</code></pre>
+</div>
+</div>
 <p><code>3</code>. 다음과 같은 리스트를 고려하자.</p>
-<div class="cell" data-execution_count="254">
-<div class="sourceCode cell-code" id="cb228"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb228-1"><a href="#cb228-1"></a>[<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>,<span class="st">'D'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'A'</span>,<span class="st">'F'</span>,<span class="st">'C'</span>,<span class="st">'C'</span>,<span class="st">'C'</span>,<span class="st">'A'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="254">
+<div class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb230"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb230-1"><a href="#cb230-1"></a>[<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>,<span class="st">'D'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'A'</span>,<span class="st">'F'</span>,<span class="st">'C'</span>,<span class="st">'C'</span>,<span class="st">'C'</span>,<span class="st">'A'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
 <pre><code>['A', 'B', 'C', 'D', 'A', 'A', 'B', 'A', 'F', 'C', 'C', 'C', 'A']</code></pre>
 </div>
 </div>
 <p>이 리스트에서 ‘A’ 혹은 ’B’의 숫자는 모두 몇개인가?</p>
 <p><strong>hint:</strong> 아래를 관찰</p>
 <div class="cell" data-execution_count="259">
-<div class="sourceCode cell-code" id="cb230"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb230-1"><a href="#cb230-1"></a><span class="co">'A'</span> <span class="op">&lt;</span> <span class="st">'C'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb232"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb232-1"><a href="#cb232-1"></a><span class="co">'A'</span> <span class="op">&lt;</span> <span class="st">'C'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="259">
 <pre><code>True</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="260">
-<div class="sourceCode cell-code" id="cb232"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb232-1"><a href="#cb232-1"></a><span class="co">'B'</span> <span class="op">&lt;</span> <span class="st">'C'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb234"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb234-1"><a href="#cb234-1"></a><span class="co">'B'</span> <span class="op">&lt;</span> <span class="st">'C'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="260">
 <pre><code>True</code></pre>
+</div>
+</div>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb236"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb236-1"><a href="#cb236-1"></a>lst <span class="op">=</span> [<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>,<span class="st">'D'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'A'</span>,<span class="st">'F'</span>,<span class="st">'C'</span>,<span class="st">'C'</span>,<span class="st">'C'</span>,<span class="st">'A'</span>]</span>
+<span id="cb236-2"><a href="#cb236-2"></a><span class="bu">sum</span>([l <span class="op">&lt;</span><span class="st">'C'</span> <span class="cf">for</span> l <span class="kw">in</span> lst])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="74">
+<pre><code>7</code></pre>
 </div>
 </div>
 <p><code>4</code>. 아래와 같은 리스트가 있다고 하자.</p>
 <p><span class="math inline">\({\bf x} = [1,2,1,5,6,2,4,7]\)</span></p>
 <p><span class="math inline">\({\bf y} = [3,2,4,1,2,5,6,7]\)</span></p>
 <p>이러한 벡터를 파이썬에서 표현하기 위해서 아래와 같은 리스트를 만들었다고 하자.</p>
-<div class="cell" data-execution_count="198">
-<div class="sourceCode cell-code" id="cb234"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb234-1"><a href="#cb234-1"></a>x<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">7</span>]</span>
-<span id="cb234-2"><a href="#cb234-2"></a>y<span class="op">=</span>[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb238"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb238-1"><a href="#cb238-1"></a>x<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">7</span>]</span>
+<span id="cb238-2"><a href="#cb238-2"></a>y<span class="op">=</span>[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>리스트컴프리헨션을 이용하여</p>
 <p><span class="math display">\[{\bf z}=[x_1^2+y_1^2, \dots, x_{8}^2+y_{8}^2]=[x_i^2+y_i^2: \text{for $i = 1,2,3,\dots,8$}]\]</span></p>
 <p>와 같은 리스트를 생성하라.</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb239"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb239-1"><a href="#cb239-1"></a>[x[i]<span class="op">**</span><span class="dv">2</span><span class="op">+</span>y[i]<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="71">
+<pre><code>[10, 8, 17, 26, 40, 29, 52, 98]</code></pre>
+</div>
+</div>
 <p><code>5</code>. 아래와 같은 문자열이 있다고 하자.</p>
-<div class="cell" data-execution_count="97">
-<div class="sourceCode cell-code" id="cb235"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb235-1"><a href="#cb235-1"></a>test_arr <span class="op">=</span> <span class="st">'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSUGPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XAt3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/EnmZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbxNrRFi9wrf+M7Q== schacon@mylaptop.local'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb241"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb241-1"><a href="#cb241-1"></a>test_arr <span class="op">=</span> <span class="st">'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSUGPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XAt3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/EnmZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbxNrRFi9wrf+M7Q== schacon@mylaptop.local'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>이 문자열에서 대문자의 수를 count하라. (2022년 파이썬입문 중간고사 1-(5) 참고)</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb242"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb242-1"><a href="#cb242-1"></a><span class="bu">sum</span>([s.isupper() <span class="cf">for</span> s <span class="kw">in</span> test_arr ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
+<pre><code>155</code></pre>
+</div>
+</div>
 <p><code>6</code>. 리스트컴프리헨션을 이용하여 아래와 같은 리스트를 생성하라. (2022년 파이썬입문 중간고사 1-(7) 참고)</p>
 <pre><code>['a',
  'aa',
@@ -1344,37 +1375,61 @@ When step is given, it specifies the increment (or decrement).</pre>
  'aaaaaaaa',
  'aaaaaaaaa',
  'aaaaaaaaaa'] &lt;- a가 10개있음</code></pre>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb245"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb245-1"><a href="#cb245-1"></a>[<span class="st">'a'</span><span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
+<pre><code>['a',
+ 'aa',
+ 'aaa',
+ 'aaaa',
+ 'aaaaa',
+ 'aaaaaa',
+ 'aaaaaaa',
+ 'aaaaaaaa',
+ 'aaaaaaaaa',
+ 'aaaaaaaaaa']</code></pre>
+</div>
+</div>
 <p><code>7</code>. 아래와 같은 list가 있다고 하자.</p>
-<div class="cell" data-execution_count="208">
-<div class="sourceCode cell-code" id="cb237"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb237-1"><a href="#cb237-1"></a>test_lst <span class="op">=</span> [[<span class="st">'g'</span>,<span class="dv">1</span>],[<span class="st">'u'</span>,<span class="dv">5</span>],[<span class="st">'e'</span>,<span class="dv">2</span>],[<span class="st">'b'</span>,<span class="dv">8</span>],[<span class="st">'i'</span>,<span class="dv">2</span>],[<span class="st">'n'</span>,<span class="dv">9</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb247"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb247-1"><a href="#cb247-1"></a>test_lst <span class="op">=</span> [[<span class="st">'g'</span>,<span class="dv">1</span>],[<span class="st">'u'</span>,<span class="dv">5</span>],[<span class="st">'e'</span>,<span class="dv">2</span>],[<span class="st">'b'</span>,<span class="dv">8</span>],[<span class="st">'i'</span>,<span class="dv">2</span>],[<span class="st">'n'</span>,<span class="dv">9</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>test_lst</code>와 리스트컴프리헨션을 이용하여 아래를 출력하는 코드를 구현하라. (2022년 파이썬입문 중간고사 1-(9) 참고)</p>
-<div class="cell" data-execution_count="101">
-<div class="sourceCode cell-code" id="cb238"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb238-1"><a href="#cb238-1"></a>[<span class="st">'g'</span>, <span class="st">'uuuuu'</span>, <span class="st">'ee'</span>, <span class="st">'bbbbbbbb'</span>, <span class="st">'ii'</span>, <span class="st">'nnnnnnnnn'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="101">
+<div class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb248"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb248-1"><a href="#cb248-1"></a>[<span class="st">'g'</span>, <span class="st">'uuuuu'</span>, <span class="st">'ee'</span>, <span class="st">'bbbbbbbb'</span>, <span class="st">'ii'</span>, <span class="st">'nnnnnnnnn'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
+<pre><code>['g', 'uuuuu', 'ee', 'bbbbbbbb', 'ii', 'nnnnnnnnn']</code></pre>
+</div>
+</div>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb250"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb250-1"><a href="#cb250-1"></a>[l[<span class="dv">0</span>]<span class="op">*</span>l[<span class="dv">1</span>] <span class="cf">for</span> l <span class="kw">in</span> test_lst]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="62">
 <pre><code>['g', 'uuuuu', 'ee', 'bbbbbbbb', 'ii', 'nnnnnnnnn']</code></pre>
 </div>
 </div>
 <p><code>8</code>. 아래와 같은 list를 생성하라.</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb240-1"><a href="#cb240-1"></a>[<span class="dv">1</span>,</span>
-<span id="cb240-2"><a href="#cb240-2"></a> <span class="dv">2</span>,<span class="dv">2</span>,</span>
-<span id="cb240-3"><a href="#cb240-3"></a> <span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,</span>
-<span id="cb240-4"><a href="#cb240-4"></a> <span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,</span>
-<span id="cb240-5"><a href="#cb240-5"></a> <span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,</span>
-<span id="cb240-6"><a href="#cb240-6"></a> ...</span>
-<span id="cb240-7"><a href="#cb240-7"></a> <span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>] <span class="op">&lt;-</span> <span class="dv">9</span><span class="er">가</span> <span class="dv">9</span><span class="er">개</span> 있음 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>(풀이1)</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb252-1"><a href="#cb252-1"></a>[<span class="dv">1</span>,</span>
+<span id="cb252-2"><a href="#cb252-2"></a> <span class="dv">2</span>,<span class="dv">2</span>,</span>
+<span id="cb252-3"><a href="#cb252-3"></a> <span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,</span>
+<span id="cb252-4"><a href="#cb252-4"></a> <span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,</span>
+<span id="cb252-5"><a href="#cb252-5"></a> <span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,</span>
+<span id="cb252-6"><a href="#cb252-6"></a> ...</span>
+<span id="cb252-7"><a href="#cb252-7"></a> <span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>] <span class="op">&lt;-</span> <span class="dv">9</span><span class="er">가</span> <span class="dv">9</span><span class="er">개</span> 있음 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(풀이1) – 의도한 풀이</p>
 <div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb241"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb241-1"><a href="#cb241-1"></a>lst <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb241-2"><a href="#cb241-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">10</span>):</span>
-<span id="cb241-3"><a href="#cb241-3"></a>    lst <span class="op">=</span> lst <span class="op">+</span> [i]<span class="op">*</span>i</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb253"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb253-1"><a href="#cb253-1"></a>lst <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb253-2"><a href="#cb253-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">10</span>):</span>
+<span id="cb253-3"><a href="#cb253-3"></a>    lst <span class="op">=</span> lst <span class="op">+</span> [i]<span class="op">*</span>i</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(풀이2)</p>
-<div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb242"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb242-1"><a href="#cb242-1"></a>lst <span class="op">=</span> [[i]<span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">10</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(풀이3) – 이걸 의도한건 아니었음…</p>
+<div class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb254"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb254-1"><a href="#cb254-1"></a>lst <span class="op">=</span> [[i]<span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">10</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb243"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb243-1"><a href="#cb243-1"></a><span class="bu">print</span>(<span class="bu">str</span>(lst).replace(<span class="st">' '</span>,<span class="st">''</span>).replace(<span class="st">',['</span>,<span class="st">''</span>).replace(<span class="st">']'</span>,<span class="st">',</span><span class="ch">\n</span><span class="st"> '</span>).replace(<span class="st">'[['</span>,<span class="st">'['</span>).replace(<span class="st">',</span><span class="ch">\n</span><span class="st"> ,'</span>,<span class="st">']'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb255"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb255-1"><a href="#cb255-1"></a><span class="bu">print</span>(<span class="bu">str</span>(lst).replace(<span class="st">' '</span>,<span class="st">''</span>).replace(<span class="st">',['</span>,<span class="st">''</span>).replace(<span class="st">']'</span>,<span class="st">',</span><span class="ch">\n</span><span class="st"> '</span>).replace(<span class="st">'[['</span>,<span class="st">'['</span>).replace(<span class="st">',</span><span class="ch">\n</span><span class="st"> ,'</span>,<span class="st">']'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1,
  2,2,
@@ -1389,13 +1444,13 @@ When step is given, it specifies the increment (or decrement).</pre>
 </div>
 </div>
 <p><code>9</code>. 아래와 같은 리스트를 관찰하라.</p>
-<div class="cell" data-execution_count="140">
-<div class="sourceCode cell-code" id="cb245"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb245-1"><a href="#cb245-1"></a>lst <span class="op">=</span> [<span class="st">'2022/09/21'</span>,<span class="st">'2022/10/30'</span>,<span class="st">'2022/12/25'</span>,<span class="st">'2023/01/01'</span>,<span class="st">'2023/01/31'</span>,<span class="st">'2023/03/20'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb257"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb257-1"><a href="#cb257-1"></a>lst <span class="op">=</span> [<span class="st">'2022/09/21'</span>,<span class="st">'2022/10/30'</span>,<span class="st">'2022/12/25'</span>,<span class="st">'2023/01/01'</span>,<span class="st">'2023/01/31'</span>,<span class="st">'2023/03/20'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>이러한 리스트를 아래와 같은 리스트로 변환하는 코드를 작성하라.</p>
-<div class="cell" data-execution_count="143">
-<div class="sourceCode cell-code" id="cb246"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb246-1"><a href="#cb246-1"></a>[<span class="st">'2022-09-21'</span>, <span class="st">'2022-10-30'</span>, <span class="st">'2022-12-25'</span>, <span class="st">'2023-01-01'</span>, <span class="st">'2023-01-31'</span>, <span class="st">'2023-03-20'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="143">
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb258"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb258-1"><a href="#cb258-1"></a>[<span class="st">'2022-09-21'</span>, <span class="st">'2022-10-30'</span>, <span class="st">'2022-12-25'</span>, <span class="st">'2023-01-01'</span>, <span class="st">'2023-01-31'</span>, <span class="st">'2023-03-20'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>['2022-09-21',
  '2022-10-30',
  '2022-12-25',
@@ -1405,53 +1460,81 @@ When step is given, it specifies the increment (or decrement).</pre>
 </div>
 </div>
 <p><strong>hint: string의 <code>.replace()</code>기능과 리스트 컴프리헨션의 응용</strong></p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb260"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb260-1"><a href="#cb260-1"></a>[s.replace(<span class="st">'/'</span>,<span class="st">'-'</span>) <span class="cf">for</span> s <span class="kw">in</span> lst]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="52">
+<pre><code>['2022-09-21',
+ '2022-10-30',
+ '2022-12-25',
+ '2023-01-01',
+ '2023-01-31',
+ '2023-03-20']</code></pre>
+</div>
+</div>
 <p><code>10</code>. 아래와 같은 문자열을 고려하라.</p>
 <div class="cell" data-execution_count="165">
-<div class="sourceCode cell-code" id="cb248"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb248-1"><a href="#cb248-1"></a><span class="co">'2021. 01. 05.'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb262"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb262-1"><a href="#cb262-1"></a><span class="co">'2021. 01. 05.'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="165">
 <pre><code>'2021. 01. 05.'</code></pre>
 </div>
 </div>
 <p>띄어쓰기를 제거하는 코드를 구현하라. 즉 출력결과가 아래와 같도록 만드는 코드를 구현하라.</p>
 <div class="cell" data-execution_count="166">
-<div class="sourceCode cell-code" id="cb250"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb250-1"><a href="#cb250-1"></a><span class="co">'2021.01.05'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb264"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb264-1"><a href="#cb264-1"></a><span class="co">'2021.01.05'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="166">
 <pre><code>'2021.01.05'</code></pre>
 </div>
 </div>
 <p><strong>hint</strong>: 아래코드 관찰</p>
 <div class="cell" data-execution_count="167">
-<div class="sourceCode cell-code" id="cb252"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb252-1"><a href="#cb252-1"></a><span class="co">'asdf'</span>.replace(<span class="st">'a'</span>,<span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb266"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb266-1"><a href="#cb266-1"></a><span class="co">'asdf'</span>.replace(<span class="st">'a'</span>,<span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="167">
 <pre><code>'sdf'</code></pre>
 </div>
 </div>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb268"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb268-1"><a href="#cb268-1"></a><span class="co">'2021. 01. 05.'</span>.replace(<span class="st">' '</span>,<span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<pre><code>'2021.01.05.'</code></pre>
+</div>
+</div>
 <p><code>11</code>. 아래의 코드를 관찰하라.</p>
 <div class="cell" data-execution_count="168">
-<div class="sourceCode cell-code" id="cb254"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb254-1"><a href="#cb254-1"></a><span class="co">'-'</span>.join([<span class="st">'2022'</span>,<span class="st">'01'</span>,<span class="st">'05'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb270"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb270-1"><a href="#cb270-1"></a><span class="co">'-'</span>.join([<span class="st">'2022'</span>,<span class="st">'01'</span>,<span class="st">'05'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="168">
 <pre><code>'2022-01-05'</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="169">
-<div class="sourceCode cell-code" id="cb256"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb256-1"><a href="#cb256-1"></a><span class="co">'.'</span>.join([<span class="st">'2022'</span>,<span class="st">'01'</span>,<span class="st">'05'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb272"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb272-1"><a href="#cb272-1"></a><span class="co">'.'</span>.join([<span class="st">'2022'</span>,<span class="st">'01'</span>,<span class="st">'05'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="169">
 <pre><code>'2022.01.05'</code></pre>
 </div>
 </div>
 <p>ChatGPT를 이용하여 이 코드가 의미하는 내용을 유추하라.</p>
-<p><code>12</code> 아래와 같이 하나의 특수문자로 이루어진 리스트를 고려하자.</p>
-<div class="cell" data-execution_count="181">
-<div class="sourceCode cell-code" id="cb258"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb258-1"><a href="#cb258-1"></a>block <span class="op">=</span> [<span class="st">'■'</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(풀이)</p>
+<p>생략</p>
+<p><code>12</code>. 아래와 같이 하나의 특수문자로 이루어진 리스트를 고려하자.</p>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb274"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb274-1"><a href="#cb274-1"></a>block <span class="op">=</span> [<span class="st">'■'</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>이를 이용하여 아래와 같은 결과를 출력하라.</p>
-<div class="cell" data-execution_count="183">
-<div class="sourceCode cell-code" id="cb259"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb259-1"><a href="#cb259-1"></a><span class="co">'■-■-■-■-■-■-■-■-■-■'</span> <span class="co"># 여기에서 '■'는 모두 10개 있음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="183">
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb275"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb275-1"><a href="#cb275-1"></a><span class="co">'■-■-■-■-■-■-■-■-■-■'</span> <span class="co"># 여기에서 '■'는 모두 10개 있음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
 <pre><code>'■-■-■-■-■-■-■-■-■-■'</code></pre>
 </div>
 </div>
 <p><strong>hint:</strong> 11번 문제의 코드를 응용할 것</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb277"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb277-1"><a href="#cb277-1"></a><span class="co">'-'</span>.join(block<span class="op">*</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>'■-■-■-■-■-■-■-■-■-■'</code></pre>
+</div>
+</div>
 
 
 </section>
