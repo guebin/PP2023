@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-03-22">
 
-<title>PP2023 - 03wk-2: 파이썬의 자료형 (5)</title>
+<title>PP2023 - 03wk-2: 파이썬의 자료형 (5) – draft</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -169,7 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">03wk-2: 파이썬의 자료형 (5)</h1>
+      <h1 class="title">03wk-2: 파이썬의 자료형 (5) – draft</h1>
                       </div>
   </div>
     
@@ -202,13 +202,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">강의영상</a></li>
-  <li><a href="#튜플-고급내용" id="toc-튜플-고급내용" class="nav-link" data-scroll-target="#튜플-고급내용">튜플 고급내용</a>
+  <li><a href="#튜플-고급내용" id="toc-튜플-고급내용" class="nav-link active" data-scroll-target="#튜플-고급내용">튜플 고급내용</a>
   <ul class="collapse">
   <li><a href="#튜플을-왜-쓸까-1" id="toc-튜플을-왜-쓸까-1" class="nav-link" data-scroll-target="#튜플을-왜-쓸까-1">튜플을 왜 쓸까? (1)</a></li>
   <li><a href="#슬기로운-튜플사용-starstarstarstarstar" id="toc-슬기로운-튜플사용-starstarstarstarstar" class="nav-link" data-scroll-target="#슬기로운-튜플사용-starstarstarstarstar">슬기로운 튜플사용 (<span class="math inline">\(\star\star\star\star\star\)</span>)</a></li>
   <li><a href="#튜플을-왜-쓸까-2" id="toc-튜플을-왜-쓸까-2" class="nav-link" data-scroll-target="#튜플을-왜-쓸까-2">튜플을 왜 쓸까? (2)</a></li>
   </ul></li>
+  <li><a href="#hw-03-22-2" id="toc-hw-03-22-2" class="nav-link" data-scroll-target="#hw-03-22-2">HW: 03-22 (2)</a></li>
   </ul>
 </nav>
     </div>
@@ -219,12 +219,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p><a href="https://colab.research.google.com/github/guebin/PP2023/blob/main/posts/01_PythonBasic/2023-03-22-3wk-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
-<section id="강의영상" class="level1">
-<h1>강의영상</h1>
-<blockquote class="blockquote">
-<p>youtube: <a href="https://youtube.com/playlist?list=PLQqh36zP38-wD3v6CSCfWfbiSNfiajUh0" class="uri">https://youtube.com/playlist?list=PLQqh36zP38-wD3v6CSCfWfbiSNfiajUh0</a></p>
-</blockquote>
-</section>
 <section id="튜플-고급내용" class="level1">
 <h1>튜플 고급내용</h1>
 <section id="튜플을-왜-쓸까-1" class="level2">
@@ -524,9 +518,99 @@ hodong</code></pre>
 <li>컴마컴마로 선언하는 벡터는 한 두번 쓰고 버리는 경우가 많으며 대부분 이름도 필요없음 <span class="math inline">\(\to\)</span> 원소에 접근해서 sorting하여 순서를 바꾸고 싶다던가 원소를 추가할 이유가 없음 <span class="math inline">\(\to\)</span> 비싼 가변형으로 만들 이유가 없다는 것..</li>
 <li>우리가 필요한 것: 데이터가 벡터의 형태로 모여있기만 하면 된다!</li>
 </ul>
-
-
 </section>
+</section>
+<section id="hw-03-22-2" class="level1">
+<h1>HW: 03-22 (2)</h1>
+<p><code>1</code>. 길이가 1인 튜플을 만들어 자신의 학번을 저장하라. 길이가 1인 튜플을 만들어 자신의 영문이름을 저장하라. 두 튜플을 + 연산자로 합쳐아래와 같은 출력결과를 얻어라. 최종 결과는 예를들면 아래와 같아야 한다.</p>
+<div class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>(<span class="st">'2021-43052'</span>, <span class="st">'GuebinChoi'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+<pre><code>('2021-43052', 'GuebinChoi')</code></pre>
+</div>
+</div>
+<p><code>2-5</code>. 아래는 파이썬프로그래밍 수강생들의 학번, 이름, 출석점수, 과제점수, 중간고사점수, 기말고사점수를 저장한 중첩리스트이다.</p>
+<div class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>lst <span class="op">=</span> [[<span class="st">'2021-43052'</span>, <span class="st">'GuebinChoi'</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">25</span>],</span>
+<span id="cb73-2"><a href="#cb73-2"></a>       [<span class="st">'2019-12342'</span>, <span class="st">'Son Heung-min'</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">15</span>],</span>
+<span id="cb73-3"><a href="#cb73-3"></a>       [<span class="st">'2018-32234'</span>, <span class="st">'hynn'</span>, <span class="dv">7</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">15</span>],</span>
+<span id="cb73-4"><a href="#cb73-4"></a>       [<span class="st">'2022-42323'</span>, <span class="st">'Minji'</span>, <span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">35</span>],</span>
+<span id="cb73-5"><a href="#cb73-5"></a>       [<span class="st">'2023-55342'</span>, <span class="st">'Hanni'</span>, <span class="dv">7</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">35</span>],</span>
+<span id="cb73-6"><a href="#cb73-6"></a>       [<span class="st">'2022-46624'</span>, <span class="st">'Danielle'</span>, <span class="dv">3</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">40</span>],</span>
+<span id="cb73-7"><a href="#cb73-7"></a>       [<span class="st">'2022-11239'</span>, <span class="st">'Haerin'</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>],</span>
+<span id="cb73-8"><a href="#cb73-8"></a>       [<span class="st">'2022-32114'</span>, <span class="st">'Hyein'</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">35</span>]]</span>
+<span id="cb73-9"><a href="#cb73-9"></a>lst </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="78">
+<pre><code>[['2021-43052', 'GuebinChoi', 5, 10, 20, 25],
+ ['2019-12342', 'Son Heung-min', 10, 15, 30, 15],
+ ['2018-32234', 'hynn', 7, 20, 30, 15],
+ ['2022-42323', 'Minji', 8, 20, 20, 35],
+ ['2023-55342', 'Hanni', 7, 20, 30, 35],
+ ['2022-46624', 'Danielle', 3, 15, 30, 40],
+ ['2022-11239', 'Haerin', 10, 20, 30, 40],
+ ['2022-32114', 'Hyein', 10, 20, 20, 35]]</code></pre>
+</div>
+</div>
+<p><code>2</code>. 파이썬프로그래밍 수강생의 수는 모두 몇명인가?</p>
+<p><code>3</code>. 전북대학교 지침에 따라 출석점수가 7보다 작은 학생은 (즉 <code>출석점수 &lt; 7</code> 일 경우 F학점을 부여하게 되어있다. 이 기준에 따르면 F를 받는 학생은 모두 몇명인가?</p>
+<p><code>4</code>. 파이썬프로그래밍 수업의 경우 <code>출석+레포트 &lt; 21</code> 일 경우 F학점을 부여한다고 한다. 이 기준에 따르면 F를 받는 학생은 모두 몇명인가?</p>
+<p><code>5</code>. 리스트의 정렬순서를 [학번, 이름, …, 기말고사점수] 가 아니라 [이름, 학번, … , 기말고사점수] 와 같이 되도록 변경하는 코드를 작성하라.</p>
+<p>(출력예시)</p>
+<div class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+<pre><code>[['GuebinChoi', '2021-43052', 5, 10, 20, 25],
+ ['Son Heung-min', '2019-12342', 10, 15, 30, 15],
+ ['hynn', '2018-32234', 7, 20, 30, 15],
+ ['Minji', '2022-42323', 8, 20, 20, 35],
+ ['Hanni', '2023-55342', 7, 20, 30, 35],
+ ['Danielle', '2022-46624', 3, 15, 30, 40],
+ ['Haerin', '2022-11239', 10, 20, 30, 40],
+ ['Hyein', '2022-32114', 10, 20, 20, 35]]</code></pre>
+</div>
+</div>
+<p><code>6</code>. 아래의 코드를 관찰하라.</p>
+<div class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a><span class="co">'2023-03-22'</span>.split(<span class="st">'-'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="89">
+<pre><code>['2023', '03', '22']</code></pre>
+</div>
+</div>
+<p>이 코드를 바탕으로 split의 기능을 유추하라. (ChatGPT 활용해도 무방함)</p>
+<p><code>7</code>. 6의 실행결과를 되돌리는 코드를 작성하라. 즉</p>
+<div class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>[<span class="st">'2023'</span>, <span class="st">'03'</span>, <span class="st">'22'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="90">
+<pre><code>['2023', '03', '22']</code></pre>
+</div>
+</div>
+<p>와 같은 리스트를 아래의 string으로 바꾸는 코드를 작성하라.</p>
+<div class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a><span class="co">'2023-03-22'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="91">
+<pre><code>'2023-03-22'</code></pre>
+</div>
+</div>
+<p><strong>hint:</strong> join을 이용할 것</p>
+<hr>
+<p>다음은 인터넷에서 긁어온 어떠한 텍스트이다.</p>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>text <span class="op">=</span> <span class="st">"국내뿐 아니라 해외 인기도 심상치 않다. 2023년 1월 18일 'Ditto'가 빌보드 핫 100에 96위로 진입했다. 이는 K-pop 역사상 데뷔후 최단 빌보드 Hot 100 차트 입성 기록이다. 다른 뮤지션들이 보통 데뷔 후 수년간 쌓아온 팬덤을 기반으로 빌보드에 입성한데 비해, 뉴진스의 기록은 이례적인 것으로 평가받고 있다. 또한 'OMG'가 빌보드 핫 100에 91위로 진입한 동시에 'Ditto'는 85위로 순위가 상승, 핫 100 주간차트에 두 곡을 올려놓았다. K-Pop 역사상 이 차트에 두 곡 이상을 진입시킨 아티스트는 방탄소년단과 블랙핑크가 유일하다. 'Ditto'는 1월 셋째주 기준, 빌보드뿐만 아니라 영국 오피셜 싱글 차트 '톱 100'에 2주 연속 진입하기도 했다."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>8</code>. text는 총 몇개의 문장으로 이루어져 있는가?</p>
+<p><strong>hint:</strong> 이 텍스트의 문장은 모두 <code>.</code>로 끝난다.</p>
+<p><code>9</code>. 각 문장은 몇개의 단어로 이루어져 있는가?</p>
+<p><strong>hint:</strong> 각 단어는 ’ ’으로 구분된다.</p>
+<p><code>10</code>. <code>100</code>이라는 단어가 포함된 문장은 모두 몇 개 인가?</p>
+<p><strong>hint:</strong> 아래의 코드를 관찰</p>
+<div class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a><span class="co">'a'</span> <span class="kw">in</span> <span class="st">'abcd'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
+<pre><code>True</code></pre>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
