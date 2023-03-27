@@ -1582,23 +1582,17 @@ hanni의 중간고사 점수는 80점 입니다.</code></pre>
 <p><code>8</code>. 강아지 그림과 고양이 그림이 각각 몇 장씩 포함되어 있는지 파악하는 코드를 구현하라.</p>
 <p><code>9</code>. 포메라니안 종의 그림이 몇장있는지 파악하는 코드를 구현하라.</p>
 <p><strong>hint:</strong> 포메라니안 그림은 파일명에 ‘pomeranian’ 을 포함한다.</p>
-<div class="cell" data-execution_count="74">
-<div class="sourceCode cell-code" id="cb282"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb282-1"><a href="#cb282-1"></a><span class="bu">sum</span>([<span class="st">'pomeranian'</span> <span class="kw">in</span> fname <span class="cf">for</span> fname <span class="kw">in</span> fname_list])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="74">
-<pre><code>200</code></pre>
-</div>
-</div>
 <p><code>10</code>. 아래의 <code>dct</code>는 포메라니안과 사모예드가 각각 몇장씩 포함되어있는지 정리하기 위해 임시로 정리한 dictionary이다. 각 종이 몇 장씩 포함되어있는지 구하여 <code>dct</code>를 수정하라.</p>
 <div class="cell" data-execution_count="87">
-<div class="sourceCode cell-code" id="cb284"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb284-1"><a href="#cb284-1"></a>dct <span class="op">=</span> {<span class="st">'pomeranian'</span>:<span class="dv">0</span>, <span class="st">'samoyed'</span>:<span class="dv">0</span>} </span>
-<span id="cb284-2"><a href="#cb284-2"></a>dct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb282"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb282-1"><a href="#cb282-1"></a>dct <span class="op">=</span> {<span class="st">'pomeranian'</span>:<span class="dv">0</span>, <span class="st">'samoyed'</span>:<span class="dv">0</span>} </span>
+<span id="cb282-2"><a href="#cb282-2"></a>dct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="87">
 <pre><code>{'pomeranian': 0, 'samoyed': 0}</code></pre>
 </div>
 </div>
 <p>예를들어 포메라니안과 사모에예드의 그림이 각각 200장씩 있다면 아래와 같이 딕셔너리를 수정해야한다.</p>
 <div class="cell" data-execution_count="92">
-<div class="sourceCode cell-code" id="cb286"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb286-1"><a href="#cb286-1"></a>{<span class="st">'pomeranian'</span>:<span class="dv">200</span>, <span class="st">'samoyed'</span>:<span class="dv">200</span>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb284"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb284-1"><a href="#cb284-1"></a>{<span class="st">'pomeranian'</span>:<span class="dv">200</span>, <span class="st">'samoyed'</span>:<span class="dv">200</span>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="92">
 <pre><code>{'pomeranian': 200, 'samoyed': 200}</code></pre>
 </div>
@@ -1627,14 +1621,14 @@ hanni의 중간고사 점수는 80점 입니다.</code></pre>
 </table>
 <p>이를 딕셔너리로 표현하면 아래와 같다.</p>
 <div class="cell" data-execution_count="121">
-<div class="sourceCode cell-code" id="cb288"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb288-1"><a href="#cb288-1"></a>dct <span class="op">=</span> {<span class="st">'a'</span>:<span class="dv">0</span>, <span class="st">'b'</span>:<span class="dv">1</span>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb286"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb286-1"><a href="#cb286-1"></a>dct <span class="op">=</span> {<span class="st">'a'</span>:<span class="dv">0</span>, <span class="st">'b'</span>:<span class="dv">1</span>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>위 규칙에 따라서 아래의 리스트의 원소를 문자로 각각 변환하라.</p>
 <div class="cell" data-execution_count="120">
-<div class="sourceCode cell-code" id="cb289"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb289-1"><a href="#cb289-1"></a>lst <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb287"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb287-1"><a href="#cb287-1"></a>lst <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode" id="cb290"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb290-1"><a href="#cb290-1"></a><span class="co"># 출력은 아래와 같아야 한다. </span></span>
-<span id="cb290-2"><a href="#cb290-2"></a>[<span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'b'</span>, <span class="st">'b'</span>, <span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb288-1"><a href="#cb288-1"></a><span class="co"># 출력은 아래와 같아야 한다. </span></span>
+<span id="cb288-2"><a href="#cb288-2"></a>[<span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'b'</span>, <span class="st">'b'</span>, <span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>2</code>. 아래와 같은 맵핑을 고려하자.</p>
 <table class="table">
 <thead>
@@ -1664,10 +1658,10 @@ hanni의 중간고사 점수는 80점 입니다.</code></pre>
 </table>
 <p>이러한 규칙에 맞게 아래의 리스트를 적절한 문자열로 변환하라.</p>
 <div class="cell" data-execution_count="151">
-<div class="sourceCode cell-code" id="cb291"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb291-1"><a href="#cb291-1"></a>month <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb289"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb289-1"><a href="#cb289-1"></a>month <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode" id="cb292"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb292-1"><a href="#cb292-1"></a><span class="co">## 출력은 아래와 같아야 한다. </span></span>
-<span id="cb292-2"><a href="#cb292-2"></a>[<span class="st">'겨울방학'</span>, <span class="st">'겨울방학'</span>, <span class="st">'겨울방학'</span>, <span class="st">'1학기'</span>, <span class="st">'1학기'</span>, <span class="st">'1학기'</span>, <span class="st">'1학기'</span>, <span class="st">'여름방학'</span>, <span class="st">'여름방학'</span>, <span class="st">'2학기'</span>, <span class="st">'2학기'</span>, <span class="st">'2학기'</span>, <span class="st">'2학기'</span>, <span class="st">'2학기'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb290-1"><a href="#cb290-1"></a><span class="co">## 출력은 아래와 같아야 한다. </span></span>
+<span id="cb290-2"><a href="#cb290-2"></a>[<span class="st">'겨울방학'</span>, <span class="st">'겨울방학'</span>, <span class="st">'겨울방학'</span>, <span class="st">'1학기'</span>, <span class="st">'1학기'</span>, <span class="st">'1학기'</span>, <span class="st">'1학기'</span>, <span class="st">'여름방학'</span>, <span class="st">'여름방학'</span>, <span class="st">'2학기'</span>, <span class="st">'2학기'</span>, <span class="st">'2학기'</span>, <span class="st">'2학기'</span>, <span class="st">'2학기'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>합성변환</code> 3-5.</p>
 <p>아래와 같은 맵핑을 고려하자.</p>
 <p>(규칙1)</p>
@@ -1734,41 +1728,41 @@ hanni의 중간고사 점수는 80점 입니다.</code></pre>
 </table>
 <p>각각의 규칙을 나타내는 딕셔너리는 아래와 같이 선언되어있다고 하자.</p>
 <div class="cell" data-execution_count="167">
-<div class="sourceCode cell-code" id="cb293"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb293-1"><a href="#cb293-1"></a>dct1 <span class="op">=</span> {<span class="st">'바나나'</span>:<span class="dv">0</span>, <span class="st">'사과'</span>:<span class="dv">1</span>, <span class="st">'오토바이'</span>:<span class="dv">2</span>, <span class="st">'자동차'</span>:<span class="dv">3</span>, <span class="st">'자전거'</span>:<span class="dv">4</span>} </span>
-<span id="cb293-2"><a href="#cb293-2"></a>dct2 <span class="op">=</span> {<span class="st">'과일'</span>:[<span class="st">'바나나'</span>,<span class="st">'사과'</span>], <span class="st">'탈것'</span>:[<span class="st">'오토바이'</span>,<span class="st">'자동차'</span>,<span class="st">'자전거'</span>]} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb291"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb291-1"><a href="#cb291-1"></a>dct1 <span class="op">=</span> {<span class="st">'바나나'</span>:<span class="dv">0</span>, <span class="st">'사과'</span>:<span class="dv">1</span>, <span class="st">'오토바이'</span>:<span class="dv">2</span>, <span class="st">'자동차'</span>:<span class="dv">3</span>, <span class="st">'자전거'</span>:<span class="dv">4</span>} </span>
+<span id="cb291-2"><a href="#cb291-2"></a>dct2 <span class="op">=</span> {<span class="st">'과일'</span>:[<span class="st">'바나나'</span>,<span class="st">'사과'</span>], <span class="st">'탈것'</span>:[<span class="st">'오토바이'</span>,<span class="st">'자동차'</span>,<span class="st">'자전거'</span>]} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>3</code>. 규칙1를 이용하여 아래와 같은 리스트를 변환하는 함수를 구현하고 그 함수를 f라 선언하라..</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb294-1"><a href="#cb294-1"></a><span class="co"># 입력 </span></span>
-<span id="cb294-2"><a href="#cb294-2"></a>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">4</span>]</span>
-<span id="cb294-3"><a href="#cb294-3"></a></span>
-<span id="cb294-4"><a href="#cb294-4"></a><span class="co"># 출력 </span></span>
-<span id="cb294-5"><a href="#cb294-5"></a>[<span class="st">'바나나'</span>, <span class="st">'사과'</span>, <span class="st">'바나나'</span>, <span class="st">'사과'</span>, <span class="st">'자전거'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb292-1"><a href="#cb292-1"></a><span class="co"># 입력 </span></span>
+<span id="cb292-2"><a href="#cb292-2"></a>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">4</span>]</span>
+<span id="cb292-3"><a href="#cb292-3"></a></span>
+<span id="cb292-4"><a href="#cb292-4"></a><span class="co"># 출력 </span></span>
+<span id="cb292-5"><a href="#cb292-5"></a>[<span class="st">'바나나'</span>, <span class="st">'사과'</span>, <span class="st">'바나나'</span>, <span class="st">'사과'</span>, <span class="st">'자전거'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(사용예시)</p>
 <div class="cell" data-execution_count="202">
-<div class="sourceCode cell-code" id="cb295"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb295-1"><a href="#cb295-1"></a>f([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb293"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb293-1"><a href="#cb293-1"></a>f([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="202">
 <pre><code>['바나나', '사과', '바나나', '사과', '자전거']</code></pre>
 </div>
 </div>
 <p><code>4</code>. 규칙2를 이용하여 아래와 같이 리스트를 변환하는 함수를 구현하고 그 함수를 g라고 선언하라.</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb297-1"><a href="#cb297-1"></a><span class="co"># 입력 </span></span>
-<span id="cb297-2"><a href="#cb297-2"></a>[<span class="st">'바나나'</span>,<span class="st">'바나나'</span>,<span class="st">'바나나'</span>,<span class="st">'자동차'</span>]</span>
-<span id="cb297-3"><a href="#cb297-3"></a></span>
-<span id="cb297-4"><a href="#cb297-4"></a><span class="co"># 출력 </span></span>
-<span id="cb297-5"><a href="#cb297-5"></a>[<span class="st">'과일'</span>,<span class="st">'과일'</span>,<span class="st">'과일'</span>,<span class="st">'탈것'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb295-1"><a href="#cb295-1"></a><span class="co"># 입력 </span></span>
+<span id="cb295-2"><a href="#cb295-2"></a>[<span class="st">'바나나'</span>,<span class="st">'바나나'</span>,<span class="st">'바나나'</span>,<span class="st">'자동차'</span>]</span>
+<span id="cb295-3"><a href="#cb295-3"></a></span>
+<span id="cb295-4"><a href="#cb295-4"></a><span class="co"># 출력 </span></span>
+<span id="cb295-5"><a href="#cb295-5"></a>[<span class="st">'과일'</span>,<span class="st">'과일'</span>,<span class="st">'과일'</span>,<span class="st">'탈것'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(사용예시)</p>
 <div class="cell" data-execution_count="201">
-<div class="sourceCode cell-code" id="cb298"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb298-1"><a href="#cb298-1"></a>g([<span class="st">'바나나'</span>,<span class="st">'바나나'</span>,<span class="st">'바나나'</span>,<span class="st">'자동차'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb296"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb296-1"><a href="#cb296-1"></a>g([<span class="st">'바나나'</span>,<span class="st">'바나나'</span>,<span class="st">'바나나'</span>,<span class="st">'자동차'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="201">
 <pre><code>['과일', '과일', '과일', '탈것']</code></pre>
 </div>
 </div>
 <p><code>5</code>. 규칙1-2를 이용하여 아래와 같은 숫자로 이루어진 입력을 ‘과일’, ‘탈것’ 중 하나로 바꾸는 코드를 구현하라.</p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb300-1"><a href="#cb300-1"></a><span class="co"># 입력 </span></span>
-<span id="cb300-2"><a href="#cb300-2"></a>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">0</span>]</span>
-<span id="cb300-3"><a href="#cb300-3"></a></span>
-<span id="cb300-4"><a href="#cb300-4"></a><span class="co"># 출력 </span></span>
-<span id="cb300-5"><a href="#cb300-5"></a>[<span class="st">'과일'</span>, <span class="st">'과일'</span>, <span class="st">'과일'</span>, <span class="st">'과일'</span>, <span class="st">'탈것'</span>, <span class="st">'탈것'</span>, <span class="st">'탈것'</span>, <span class="st">'탈것'</span>, <span class="st">'탈것'</span>, <span class="st">'탈것'</span>, <span class="st">'과일'</span>, <span class="st">'과일'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb298-1"><a href="#cb298-1"></a><span class="co"># 입력 </span></span>
+<span id="cb298-2"><a href="#cb298-2"></a>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">0</span>]</span>
+<span id="cb298-3"><a href="#cb298-3"></a></span>
+<span id="cb298-4"><a href="#cb298-4"></a><span class="co"># 출력 </span></span>
+<span id="cb298-5"><a href="#cb298-5"></a>[<span class="st">'과일'</span>, <span class="st">'과일'</span>, <span class="st">'과일'</span>, <span class="st">'과일'</span>, <span class="st">'탈것'</span>, <span class="st">'탈것'</span>, <span class="st">'탈것'</span>, <span class="st">'탈것'</span>, <span class="st">'탈것'</span>, <span class="st">'탈것'</span>, <span class="st">'과일'</span>, <span class="st">'과일'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>hint</strong> <span class="math inline">\(g(f(x))\)</span> 를 이용하라.</p>
 
 
