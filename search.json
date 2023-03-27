@@ -413,125 +413,6 @@
     "text": "리스트의 원소 삭제\n(예제1) del을 이용한 원소삭제\n아래와 같이 문자로 된 리스트를 선언하자.\n\na=['g','u','e','b','i','n']\na\n\n['g', 'u', 'e', 'b', 'i', 'n']\n\n\n사실 더 쉽게 선언할 수 있음\n\nlist('guebin')\n\n['g', 'u', 'e', 'b', 'i', 'n']\n\n\n첫번째 원소를 삭제하고 싶다면?\n\ndel a[0]\na\n\n['u', 'e', 'b', 'i', 'n']\n\n\n이 상태에서 다시 첫번째 원소를 삭제한다면?\n\ndel a[0]\na\n\n['e', 'b', 'i', 'n']\n\n\n(예제2) pop을 이용한 원소삭제\n\na=list('guebin')\na\n\n['g', 'u', 'e', 'b', 'i', 'n']\n\n\n\na.pop(0)\n\n'g'\n\n\n\na\n\n['u', 'e', 'b', 'i', 'n']\n\n\n\na.pop(0)\n\n'u'\n\n\n\na\n\n['e', 'b', 'i', 'n']"
   },
   {
-    "objectID": "posts/01_PythonBasic/lecture.html",
-    "href": "posts/01_PythonBasic/lecture.html",
-    "title": "PP2023",
-    "section": "",
-    "text": "- 스트라이딩 [start:stop:step]\n\nlst = list('abcdefgh')\nlst\n\n['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n\n\n\nlst[0:8:2]\n\n['a', 'c', 'e', 'g']\n\n\n- 생략\n\nlst[::2]\n\n['a', 'c', 'e', 'g']\n\n\n\nlst[0::2]\n\n['a', 'c', 'e', 'g']\n\n\n\nlst[:8:2]\n\n['a', 'c', 'e', 'g']\n\n\n- 예제: 짝수/홀수 원소 추출\n\nlst\n\n['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n\n\n\nlst[::2] # 1,3,5,7, ... \n\n['a', 'c', 'e', 'g']\n\n\n\nlst[1::2] # 2,4,6,8, ... \n\n['b', 'd', 'f', 'h']\n\n\n- step = -1 이면?\n\nlst\n\n['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n\n\n\nlst[::-1]\n\n['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']\n\n\n(reverse)와 비교\n관찰1: reverse 메소드는 리스트 자체를 변화시킴\n\nlst = list('abcdefgh')\nlst\n\n['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n\n\n\nlst.reverse() #리버스는 \nlst\n\n['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']\n\n\n관찰2: [::-1]는 리스트는 변화시키지 않음\n\nlst = list('abcdefgh')\nlst\n\n['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n\n\n\nlst[::-1]\n\n['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']\n\n\n\nlst\n\n['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n\n\n- 사실 -step은 쓰는 것이 조금 까다롭다.\n(예제) 처음과 끝을 생략하지 않고 아래와 동일한 효과를 주는 코드를 만들어 보자.\n\nlst = list('abcdefgh')\nlst[::-1]\n\n['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']\n\n\n(풀이)\n결국 lst[?:?:-1]의 꼴에서 적당히 ?의 값을 채우면 된다.\n\nlst[-1::-1] # 일단 첫 시작은 제일 마지막 원소 \n\n['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']\n\n\n\nlst[-1:0:-1] # 앗 마지막 인덱스는 포함 안되는거였지? \n\n['h', 'g', 'f', 'e', 'd', 'c', 'b']\n\n\n\nlst[-1:-1:-1] # 어쩌지??\n\n[]\n\n\n잠깐 인덱스를 생각해보자.\n\n\n\na\nb\nc\nd\ne\nf\ng\nh\n\n\n\n\n0\n1\n2\n3\n4\n5\n6\n7\n\n\n-8\n-7\n-6\n-5\n-4\n-3\n-2\n-1\n\n\n\n\nlst[-1:-9:-1] # 아..\n\n['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']\n\n\n결론: -step을 자주 쓰진 말자?\n\n\n\n- 예제: 제곱수중에서 12로 나누어 떨어지는 수만 원소로 가지는 리스트를 만들고 싶다. - 제곱수: 1,4,9,16,25,36, … - 12로 나누어 떨어지는 수: 36, …\n(예비학습)\n\n12 % 4 # %는 나머지를 계산하는 연산자, 12를 4로 나누면 나머지가 0\n\n0\n\n\n\n12 % 5 # %는 나머지를 계산하는 연산자, 12를 5로 나누면 나머지가 2\n\n2\n\n\n(풀이1)\n\nlst = [] \nfor i in range(1,101): \n    if (i**2 % 12 == 0): \n        lst.append(i**2)\n\n\nlst\n\n[36,\n 144,\n 324,\n 576,\n 900,\n 1296,\n 1764,\n 2304,\n 2916,\n 3600,\n 4356,\n 5184,\n 6084,\n 7056,\n 8100,\n 9216]\n\n\n(풀이2)\n\n[i**2 for i in range(1,101) if (i**2 % 12 == 0)]\n\n[36,\n 144,\n 324,\n 576,\n 900,\n 1296,\n 1764,\n 2304,\n 2916,\n 3600,\n 4356,\n 5184,\n 6084,\n 7056,\n 8100,\n 9216]\n\n\n\n\n\n- 홀수/짝수를 판별하는 함수 만들기 1\n\ndef test(a):\n    if a % 2 ==0: \n        return 'even'\n    else:\n        return 'odd'\n\n\ntest(1)\n\n'odd'\n\n\n\ntest(2)\n\n'even'\n\n\n\ntest(3)\n\n'odd'\n\n\n\ntest(4)\n\n'even'\n\n\n\n[test(a) for a in range(1,11)]\n\n['odd', 'even', 'odd', 'even', 'odd', 'even', 'odd', 'even', 'odd', 'even']\n\n\n- 홀수/짝수를 판별하는 함수 만들기 2\n\ndef test(a):\n    return 'even' if a%2 ==0 else 'odd'\n\n\ntest(3)\n\n'odd'\n\n\n\n[test(a) for a in range(1,11)]\n\n['odd', 'even', 'odd', 'even', 'odd', 'even', 'odd', 'even', 'odd', 'even']\n\n\n\n\n\n- 0차원 자료형은 len함수가 동작하지 않음\n\na=1 \nlen(a)\n\nTypeError: object of type 'int' has no len()\n\n\n\na=True\nlen(a)\n\nTypeError: object of type 'bool' has no len()\n\n\n\na=3.14\nlen(a)\n\nTypeError: object of type 'float' has no len()\n\n\n\nnote: 이것이 어떠한 수학적인 의미를 가지거나 0차원의 본질적진리를 뜻하는 것은 안미. R에서는 1,3.14,TRUE의 길이가 1로 존재함.\n\n- 1차원 자료형은 len함수가 동작\n\na='guebin'\nlen(a)\n\n6\n\n\n\na=[1,2,3,4,5,6]\nlen(a)\n\n6\n\n\n\na=1,2,3,4,5,6 \nlen(a)\n\n6\n\n\n\na=range(10)\nlen(a)\n\n10\n\n\n- 길이가 1인 1차원 자료형과 0차원 자료형은 다른것임\n\na='g'\nlen(a)\n\n1\n\n\n\na=[1] \nlen(a)\n\n1\n\n\n\na=(1,)\nlen(a)\n\n1\n\n\n\na=range(1)\nlen(a)\n\n1\n\n\n- 길이가 0인 1차원 자료형도 존재함\n\na=''\nlen(a)\n\n0\n\n\n\na=[]\nlen(a)\n\n0\n\n\n\na=()\nlen(a)\n\n0\n\n\n\na=range(0)\nlen(a)\n\n0"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#intro-str-list-tuple-정리",
-    "href": "posts/01_PythonBasic/lecture.html#intro-str-list-tuple-정리",
-    "title": "PP2023",
-    "section": "intro: str, list, tuple 정리",
-    "text": "intro: str, list, tuple 정리\n- str, list, tuple은 모두 시퀀스형이라는 공통점이 있다. \\(\\to\\) 원소의 위치번호로 인덱싱이 가능\n\nlst = [1,2,3,4]\n\n\nlst[0] # 위치번호=0\n\n1\n\n\n\nlst[-1] # 위치번호=-1\n\n4\n\n\n- str, list, tuple은 차이점도 존재함. 잠깐 정리해보자.\n시퀀스형의 카테고리\n\n컨테니어형: list, tuple\n균일형: str\n가변형: list\n불변형: tuple, str\n\n표로 정리하면\n\n\n\n\n컨테니어형\n균일형\n\n\n\n\n가변형\nlist\n.\n\n\n불변형\ntuple\nstr\n\n\n\n- 시퀀스형이 아닌 1차원 자료형도 있을까? 원소의 위치번호로 인덱싱이 불가능한 자료형\n- 왜 이런게 필요할까? - 벡터에서 원소를 뽑는것은 정보의 모임에서 정보를 검색하는 것과 같다. - 정보를 순서대로 나열한뒤에 그 순서를 이용하여 검색하는 방법은 유용하다. - 하지만 경우에 따라서는 키워드를 기억해서 그 키워드를 바탕으로 정보에 접근하는 방법이 유용할 수 있다.\n카카오톡 대화내용검색\n(상황1) 오늘아침에 와이프가 뭔가를 카톡으로 부탁했었음. 그런데 그 뭔가가 기억안남.\n(상황2) 개강전에 동료교수와 함께 저녁약속을 카톡으로 잡았었음. 그런데 그게 언제인지 기억안남.\n(상황3) 오늘아침 동료교수와 함께 점심약속을 카톡으로 잡았었음. 그런데 그 장소가 기억나지 않음.\n- 순서대로 정리된 자료를 검색할때는 시퀀스형이 유리하다. 그런데 키워드로 검색하고 싶을 경우는 딕셔너리 타입이 유리하다."
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#선언",
-    "href": "posts/01_PythonBasic/lecture.html#선언",
-    "title": "PP2023",
-    "section": "선언",
-    "text": "선언\n- 방법1\n\nscore={'guebin':49, 'iu':80}\nscore\n\n{'guebin': 49, 'iu': 80}\n\n\n\ntype(score)\n\ndict\n\n\n- 방법2\n\nscore=dict(guebin=49, iu=80)\nscore\n\n{'guebin': 49, 'iu': 80}\n\n\n\ntype(score)\n\ndict\n\n\n- 방법3\n\n_lst = [['guebin',49],['iu',80]]\n_lst \n\n[['guebin', 49], ['iu', 80]]\n\n\n\ndict(_lst)\n\n{'guebin': 49, 'iu': 80}\n\n\n- 방법4\n\n_tpl = ('guebin',49), ('iu',80)\n_tpl\n\n(('guebin', 49), ('iu', 80))\n\n\n\ndict(_tpl)\n\n{'guebin': 49, 'iu': 80}"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#원소추출",
-    "href": "posts/01_PythonBasic/lecture.html#원소추출",
-    "title": "PP2023",
-    "section": "원소추출",
-    "text": "원소추출\n\nscore = {'guebin':49, 'iu':80}\nscore\n\n{'guebin': 49, 'iu': 80}\n\n\nguebin의 점수를 추출하고 싶다면?\n\nscore[0] # 이렇게 뽑는것이 아니고! \n\nKeyError: 0\n\n\n\nscore['guebin'] \n\n49\n\n\n- 리스트로 저장했다면?\n\nscore=[['guebin',49],['iu',80]]\nscore\n\n[['guebin', 49], ['iu', 80]]\n\n\nguebin의 점수를 추출하고 싶다면?\n(방법1)\n\nscore[0][1] # guebin의 점수를 출력하란 의미\n\n49\n\n\n(방법2)\n\n_keys = [score[i][0] for i in range(len(score))] # 리스트컴프리헨션\n_keys\n\n['guebin', 'iu']\n\n\n\n[score[i][1] for i in range(len(score)) if score[i][0] =='guebin' ] \n\n[49]\n\n\n\n어지럽죠?"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#원소추가-변경-삭제",
-    "href": "posts/01_PythonBasic/lecture.html#원소추가-변경-삭제",
-    "title": "PP2023",
-    "section": "원소추가, 변경, 삭제",
-    "text": "원소추가, 변경, 삭제\n\nscore={'guebin':49, 'iu':80}\nscore\n\n{'guebin': 49, 'iu': 80}\n\n\n- 원소에 접근\n\nscore['guebin']\n\n49\n\n\n- 추가\n\nscore['hynn'] = 99 # 추가 \nscore \n\n{'guebin': 49, 'iu': 80, 'hynn': 99}\n\n\n- 변경\n\nscore['iu'] = 99  # 변경 \nscore \n\n{'guebin': 49, 'iu': 99, 'hynn': 99}\n\n\n- 삭제\n(방법1)\n\nscore={'guebin':49, 'iu':80, 'hynn':99}\ndel score['guebin']  \nscore\n\n{'iu': 80, 'hynn': 99}\n\n\n(방법2)\n\nscore={'guebin':49, 'iu':80, 'hynn':99} \nscore.pop('guebin')\n\n49\n\n\n\nscore\n\n{'iu': 80, 'hynn': 99}\n\n\n- 참고로 리스트였다면 이러한 삭제작업역시 비효율적이었을 것임\n\nscore = [['guebin',49],['iu',80],['hynn',99]] \nscore\n\n[['guebin', 49], ['iu', 80], ['hynn', 99]]\n\n\n\nscore = [[key,val] for key,val in score if key != 'guebin'] \nscore\n\n[['iu', 80], ['hynn', 99]]"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#연산",
-    "href": "posts/01_PythonBasic/lecture.html#연산",
-    "title": "PP2023",
-    "section": "연산",
-    "text": "연산\n- 하나있어요..\n\nscore = {'guebin':49, 'iu':80} \nscore \n\n{'guebin': 49, 'iu': 80}\n\n\n\n'guebin' in score\n\nTrue\n\n\n\n'iu' in score\n\nTrue\n\n\n\n'hynn' in score\n\nFalse\n\n\n- in은 사실 다른자료형도 가능했음\n(관찰1)\n\n'a' in 'guebin' \n\nFalse\n\n\n\n'b' in 'guebin' \n\nTrue\n\n\n\n'c' in 'guebin' \n\nFalse\n\n\n(관찰2)\n\ntpl = 1,2,3 \ntpl\n\n(1, 2, 3)\n\n\n\n1 in tpl\n\nTrue\n\n\n\n4 in tpl\n\nFalse\n\n\n(관찰3)\n\nscore = [['guebin',49],['iu',80],['hynn',99]] \nscore\n\n[['guebin', 49], ['iu', 80], ['hynn', 99]]\n\n\n\n['guebin',49] in score \n\nTrue\n\n\n- in연산자가 dict형에 사용되면 key를 기준으로 True, False를 판단한다."
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#딕셔너리-특수기능",
-    "href": "posts/01_PythonBasic/lecture.html#딕셔너리-특수기능",
-    "title": "PP2023",
-    "section": "딕셔너리 특수기능",
-    "text": "딕셔너리 특수기능\n(get)\n\nscore = {'guebin':49, 'iu':80} \nscore \n\n{'guebin': 49, 'iu': 80}\n\n\n\nscore.get('guebin') \n\n49\n\n\n아래와 같은 기능\n\nscore['guebin']\n\n49\n\n\n미묘한 차이점이 존재함\n\nscore['hynn'] # hynn이 없어서 키에러 출력, 그런 key는 없다.. \n\nKeyError: 'hynn'\n\n\n\nscore.get('hynn') # hynn이 없으면 아무것도 출력안함 \n\n(keys,values,items)\n- .keys()는 딕셔너리의 키를 리턴한다.\n\nscore = {'guebin':49, 'iu':80} \nscore \n\n{'guebin': 49, 'iu': 80}\n\n\n\n_keys=score.keys()\n_keys\n\ndict_keys(['guebin', 'iu'])\n\n\n\ntype(_keys) # 리턴된 자료형은 이상한것임\n\ndict_keys\n\n\n\nlist(_keys) # 아무튼 그 이상한 자료형도 리스트화 가능 \n\n['guebin', 'iu']\n\n\n- .values()는 딕셔너리의 값들을 리턴한다.\n\n_values =score.values()\n_values \n\ndict_values([49, 80])\n\n\n\ntype(_values)\n\ndict_values\n\n\n\nlist(_values)\n\n[49, 80]\n\n\n- .items()는 딕셔너리의 (키,값)을 리턴한다.\n\n_items = score.items()\n_items \n\ndict_items([('guebin', 49), ('iu', 80)])\n\n\n\ntype(_items)\n\ndict_items\n\n\n\nlist(_items)\n\n[('guebin', 49), ('iu', 80)]"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#for문과-dict-star",
-    "href": "posts/01_PythonBasic/lecture.html#for문과-dict-star",
-    "title": "PP2023",
-    "section": "for문과 dict (\\(\\star\\))",
-    "text": "for문과 dict (\\(\\star\\))\n(예시1)\n\nfor i in score.keys():\n    print(i)\n\nguebin\niu\n\n\n\nfor i in score:\n    print(i)\n\nguebin\niu\n\n\n\n딕셔너리 그자체도 for문에 넣을 수 있다.\ni에는 value가 삭제되어 들어간다. (즉 key만)\n결과를 보면 score대신에 score.keys()와 list(score)를 넣었을때와 결과가 같다.\n\n\nNote: list(score) 하면 key만 리턴된다.\n\n(예시2)\n\nfor i in score.values():\n    print(i)\n\n49\n80\n\n\n(예시3)\n\nfor k in score.items():\n    print(k)\n\n('guebin', 49)\n('iu', 80)\n\n\n(예시4)\n\nfor i,j in score.items():\n    print(i,j)\n\nguebin 49\niu 80\n\n\n(예시5)\n\nfor i,j in score.items():\n    print(i + '의 중간고사 점수는 %s점 입니다.' % j)\n\nguebin의 중간고사 점수는 49점 입니다.\niu의 중간고사 점수는 80점 입니다.\n\n\n[보충학습] 문자열 새치기\n\n'제 이름은 %s입니다' % '최규빈'\n\n'제 이름은 최규빈입니다'\n\n\n\n%는 새치기연산자임. %s는 새치기하는 자리라고 생각\n\n보충학습끝"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#바꿔치기-1",
-    "href": "posts/01_PythonBasic/lecture.html#바꿔치기-1",
-    "title": "PP2023",
-    "section": "바꿔치기 (1)",
-    "text": "바꿔치기 (1)\n- 예제1\n\nlst = list('abcd'*2)\nlst\n\n['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']\n\n\n\ndct = {'a':[1,0,0,0], 'b':[0,1,0,0], 'c':[0,0,1,0], 'd':[0,0,0,1]}\ndct\n\n{'a': [1, 0, 0, 0], 'b': [0, 1, 0, 0], 'c': [0, 0, 1, 0], 'd': [0, 0, 0, 1]}\n\n\n\nlst2 = [dct[key] for key in lst]\nlst2\n\n[[1, 0, 0, 0],\n [0, 1, 0, 0],\n [0, 0, 1, 0],\n [0, 0, 0, 1],\n [1, 0, 0, 0],\n [0, 1, 0, 0],\n [0, 0, 1, 0],\n [0, 0, 0, 1]]\n\n\n- 예제2: 예제1을 역변환하라.\n(풀이1)\n\n[key for key in dct]\n\n['a', 'b', 'c', 'd']\n\n\n\ndct2= {tuple(v): k for k, v in dct.items()}\ndct2\n\n{(1, 0, 0, 0): 'a', (0, 1, 0, 0): 'b', (0, 0, 1, 0): 'c', (0, 0, 0, 1): 'd'}\n\n\n\n[dct2[tuple(key)] for key in lst2]\n\n['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']\n\n\n(풀이2)\n\nlst = list('abcd'*2)\ndct = {'a':[1,0,0,0], 'b':[0,1,0,0], 'c':[0,0,1,0], 'd':[0,0,0,1]}\nlst2 = [dct[key] for key in lst]\n\n\nlst2\n\n[[1, 0, 0, 0],\n [0, 1, 0, 0],\n [0, 0, 1, 0],\n [0, 0, 0, 1],\n [1, 0, 0, 0],\n [0, 1, 0, 0],\n [0, 0, 1, 0],\n [0, 0, 0, 1]]\n\n\n\n[x for l in lst2 for x,y in dct.items() if l==y]\n\n['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#바꿔치기-2",
-    "href": "posts/01_PythonBasic/lecture.html#바꿔치기-2",
-    "title": "PP2023",
-    "section": "바꿔치기 (2)",
-    "text": "바꿔치기 (2)\n- 예제1: 아래와 같은 리스트를 고려하자.\n\nlst = ['딸기','사과','바나나','딸기','사과','오토바이','자동차','버스','기차','오토바이','자동차']\n\n다음의 맵핑규칙에 따라서 위의 리스트의 원소를 바꾸어라.\n\n\n\n변환전\n변환후\n\n\n\n\n딸기\n과일\n\n\n사과\n과일\n\n\n바나나\n과일\n\n\n오토바이\n탈것\n\n\n자동차\n탈것\n\n\n버스\n탈것\n\n\n기차\n탈것"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#선언-1",
-    "href": "posts/01_PythonBasic/lecture.html#선언-1",
-    "title": "PP2023",
-    "section": "선언",
-    "text": "선언\n\na={'notebook','desktop'}"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#원소추출-1",
-    "href": "posts/01_PythonBasic/lecture.html#원소추출-1",
-    "title": "PP2023",
-    "section": "원소추출",
-    "text": "원소추출\n- 일단 인덱스로는 못합니다.\n\na={'notebook','desktop'}\na[0]\n\nTypeError: 'set' object is not subscriptable\n\n\n- 딱히 하는 방법이 없어요.. 그리고 이걸 하는 의미가 없어요.. (원소에 접근해서 뭐하려고??)"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#원소추가",
-    "href": "posts/01_PythonBasic/lecture.html#원소추가",
-    "title": "PP2023",
-    "section": "원소추가",
-    "text": "원소추가\n- 이건 의미가 있음\n\na={'notebook','desktop'} \na\n\n{'desktop', 'notebook'}\n\n\n\na.add('ipad')\na\n\n{'desktop', 'ipad', 'notebook'}\n\n\n\na.add('notebook') # 이미 원소로 있는건 추가되지 않음. \na\n\n{'desktop', 'ipad', 'notebook'}"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#원소삭제",
-    "href": "posts/01_PythonBasic/lecture.html#원소삭제",
-    "title": "PP2023",
-    "section": "원소삭제",
-    "text": "원소삭제\n\na={'desktop', 'ipad', 'notebook'}\na\n\n{'desktop', 'ipad', 'notebook'}\n\n\n\na.remove('notebook')\n\n\na\n\n{'desktop', 'ipad'}"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#연산-1",
-    "href": "posts/01_PythonBasic/lecture.html#연산-1",
-    "title": "PP2023",
-    "section": "연산",
-    "text": "연산\n- in 연산자\n\na={'desktop', 'ipad', 'notebook'}\na\n\n{'desktop', 'ipad', 'notebook'}\n\n\n\n'notebook' in a\n\nTrue\n\n\n\n참고로 in연산자는 집합에서만 쓰는것은 아님\n\n- 합집합, 교집합, 차집합\n\nday1 = {'notebook','desktop'}\nday2 = {'notebook','ipad'}\n\n\nday1 | day2 # 합집합\n\n{'desktop', 'ipad', 'notebook'}\n\n\n\nday1 & day2 # 교집합\n\n{'notebook'}\n\n\n\nday1 - day2 # 차집합 \n\n{'desktop'}\n\n\n\nday2 - day1 # 차집합\n\n{'ipad'}\n\n\n- 부분집합\n\nday1 = {'notebook', 'desktop'}\nday2 = day1 | {'ipad'} \n\n\nday1 < day2  # day1는 day2의 부분집합인가? \n\nTrue\n\n\n\nday2 < day1\n\nFalse"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#메소드",
-    "href": "posts/01_PythonBasic/lecture.html#메소드",
-    "title": "PP2023",
-    "section": "메소드",
-    "text": "메소드\n- 합집합\n\nday1 = {'notebook', 'desktop'}\nday2 = {'notebook','ipad'}\n\n\nday1.union(day2)\n\n{'desktop', 'ipad', 'notebook'}\n\n\n- 나머지 메소드는 스스로 찾아보세요"
-  },
-  {
-    "objectID": "posts/01_PythonBasic/lecture.html#for문과-set",
-    "href": "posts/01_PythonBasic/lecture.html#for문과-set",
-    "title": "PP2023",
-    "section": "for문과 set",
-    "text": "for문과 set\n\nday1 = {'notebook', 'desktop'}\nday2 = {'notebook','ipad'}\n\n\nfor i in day1|day2: \n    print(i)\n\nipad\nnotebook\ndesktop"
-  },
-  {
     "objectID": "posts/01_PythonBasic/2023-03-08-1wk-2.html",
     "href": "posts/01_PythonBasic/2023-03-08-1wk-2.html",
     "title": "01wk-2: 파이썬의 자료형 (1)",
@@ -550,6 +431,6 @@
     "href": "index.html",
     "title": "파이썬 프로그래밍 (2023)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS:\n\n강의노트\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\n\n\n잡기술 (하지만 유용해)\n\n\n\n\n\n\nMar 27, 2023\n\n\n04wk-1: 파이썬의 자료형 (6) – draft\n\n\n최규빈\n\n\n\n\nMar 22, 2023\n\n\n03wk-2: 파이썬의 자료형 (5)\n\n\n최규빈\n\n\n\n\nMar 20, 2023\n\n\n03wk-1: 파이썬의 자료형 (4)\n\n\n최규빈\n\n\n\n\nMar 15, 2023\n\n\n02wk-2: 파이썬의 자료형 (3)\n\n\n최규빈\n\n\n\n\nMar 13, 2023\n\n\n02wk-1: 파이썬의 자료형 (2)\n\n\n최규빈\n\n\n\n\nMar 7, 2023\n\n\n01wk-2: 파이썬의 자료형 (1)\n\n\n최규빈\n\n\n\n\nMar 6, 2023\n\n\n01wk-1: 강의소개\n\n\n최규빈\n\n\n\n\nJun 6, 2022\n\n\n참고자료: 2022-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2022\n\n\n참고자료: 2022-04-mid\n\n\n최규빈\n\n\n\n\nJun 6, 2021\n\n\n참고자료: 2021-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2021\n\n\n참고자료: 2021-04-mid\n\n\n최규빈\n\n\n\n\n\n\nNo matching items"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS:\n\n강의노트\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMar 27, 2023\n\n\n04wk-1: 파이썬의 자료형 (6) – draft\n\n\n최규빈\n\n\n\n\nMar 22, 2023\n\n\n03wk-2: 파이썬의 자료형 (5)\n\n\n최규빈\n\n\n\n\nMar 20, 2023\n\n\n03wk-1: 파이썬의 자료형 (4)\n\n\n최규빈\n\n\n\n\nMar 15, 2023\n\n\n02wk-2: 파이썬의 자료형 (3)\n\n\n최규빈\n\n\n\n\nMar 13, 2023\n\n\n02wk-1: 파이썬의 자료형 (2)\n\n\n최규빈\n\n\n\n\nMar 7, 2023\n\n\n01wk-2: 파이썬의 자료형 (1)\n\n\n최규빈\n\n\n\n\nMar 6, 2023\n\n\n01wk-1: 강의소개\n\n\n최규빈\n\n\n\n\nJun 6, 2022\n\n\n참고자료: 2022-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2022\n\n\n참고자료: 2022-04-mid\n\n\n최규빈\n\n\n\n\nJun 6, 2021\n\n\n참고자료: 2021-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2021\n\n\n참고자료: 2021-04-mid\n\n\n최규빈\n\n\n\n\n\n\nNo matching items"
   }
 ]
