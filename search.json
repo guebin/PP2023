@@ -410,7 +410,7 @@
     "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#바꿔치기-3",
     "title": "04wk-2: 파이썬의 자료형 (7)",
     "section": "바꿔치기 (3)",
-    "text": "바꿔치기 (3)\n- 예제1: 아래와 같은 리스트가 있다고 하자.\n\nlst = list('abcd'*2)\nlst\n\n['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']\n\n\n아래의 규칙에 의하여 lst의 각 원소의 값을 바꾸고 싶다고 하자.\n\n\n\n변환전\n변환후\n\n\n\n\n‘a’\n[1,0,0,0]\n\n\n‘b’\n[0,1,0,0]\n\n\n‘c’\n[0,0,1,0]\n\n\n‘d’\n[0,0,0,1]\n\n\n\n이를 구현하는 코드를 작성하고, 역변환하는 코드를 작성하라.\nhint: 아래의 dct를 이용할 것\n\ndct = {'a':[1,0,0,0], 'b':[0,1,0,0], 'c':[0,0,1,0], 'd':[0,0,0,1]}\ndct\n\n{'a': [1, 0, 0, 0], 'b': [0, 1, 0, 0], 'c': [0, 0, 1, 0], 'd': [0, 0, 0, 1]}\n\n\n(풀이)\n변환하는 코드를 구현하면\n\nlst2= [dct[l] for l in lst] \nlst2\n\n[[1, 0, 0, 0],\n [0, 1, 0, 0],\n [0, 0, 1, 0],\n [0, 0, 0, 1],\n [1, 0, 0, 0],\n [0, 1, 0, 0],\n [0, 0, 1, 0],\n [0, 0, 0, 1]]\n\n\n역변환하는 코드를 구현하면\n(1단계)\n\ndct_inv = {tuple(v):k for k,v in dct.items()}\ndct_inv\n\n{(1, 0, 0, 0): 'a', (0, 1, 0, 0): 'b', (0, 0, 1, 0): 'c', (0, 0, 0, 1): 'd'}\n\n\n(2단계)\n\n[dct_inv[tuple(l)] for l in lst2]\n\n['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']\n\n\n- 참고로 어차피 이러한 테크닉을 써도 아래와 같은 변환은 수행할 수 없다.\n\n\n\n변환전\n변환후\n\n\n\n\n딸기\n과일\n\n\n사과\n과일\n\n\n바나나\n과일\n\n\n오토바이\n탈것\n\n\n자동차\n탈것\n\n\n버스\n탈것\n\n\n기차\n탈것"
+    "text": "바꿔치기 (3)\n- 예제1: 아래와 같은 리스트가 있다고 하자.\n\nlst = list('abcd'*2)\nlst\n\n['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']\n\n\n아래의 규칙에 의하여 lst의 각 원소의 값을 바꾸고 싶다고 하자.\n\n\n\n변환전\n변환후\n\n\n\n\n‘a’\n[1,0,0,0]\n\n\n‘b’\n[0,1,0,0]\n\n\n‘c’\n[0,0,1,0]\n\n\n‘d’\n[0,0,0,1]\n\n\n\n이를 구현하는 코드를 작성하고, 역변환하는 코드를 작성하라.\nhint: 아래의 dct를 이용할 것\n\ndct = {'a':[1,0,0,0], 'b':[0,1,0,0], 'c':[0,0,1,0], 'd':[0,0,0,1]}\ndct\n\n{'a': [1, 0, 0, 0], 'b': [0, 1, 0, 0], 'c': [0, 0, 1, 0], 'd': [0, 0, 0, 1]}\n\n\n(풀이)\n변환하는 코드를 구현하면\n\nlst2= [dct[l] for l in lst] \nlst2\n\n[[1, 0, 0, 0],\n [0, 1, 0, 0],\n [0, 0, 1, 0],\n [0, 0, 0, 1],\n [1, 0, 0, 0],\n [0, 1, 0, 0],\n [0, 0, 1, 0],\n [0, 0, 0, 1]]\n\n\n역변환하는 코드를 구현하면\n(1단계)\n\ndct_inv = {tuple(v):k for k,v in dct.items()}\ndct_inv\n\n{(1, 0, 0, 0): 'a', (0, 1, 0, 0): 'b', (0, 0, 1, 0): 'c', (0, 0, 0, 1): 'd'}\n\n\n(2단계)\n\n[dct_inv[tuple(l)] for l in lst2]\n\n['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']\n\n\n내생각\n위와 같은 코드는 경우에 따라서 아래와 같은 복잡합 코드를 피할 수 있는 장점이 있다.\n\n[x for l in lst2 for x,y in dct.items() if l==y]\n\n['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']\n\n\n이는 중첩된 for문과 if문까지 포함된 복잡한 형태의 컴프리헨션을 구현하지 않아도 된다는 점에서 장점이 있다. 하지만 아래와 같은 자료구조를 만날때는 결국 중첩된 for문과 if문이 포함된 컴프리헨션을 구현하는게 편리할 때가 많다.\n\n\n\n변환전\n변환후\n\n\n\n\n딸기\n과일\n\n\n사과\n과일\n\n\n바나나\n과일\n\n\n오토바이\n탈것\n\n\n자동차\n탈것\n\n\n버스\n탈것\n\n\n기차\n탈것\n\n\n\n(왜??)\n위의 변환을 수행하려면 dict가 아래와 같은 형식으로 주어져야 하는데\n\ndct = {'딸기':'과일',\n       '사과':'과일',\n       '바나나':'과일',\n       '오토바이':'탈것',\n       '자동차':'탈것',\n       '버스':'탈것',\n       '기차':'탈것'}\n\n이러한 형태보다 보통 아래와 같은 형태로 주어지는 경우가 많기 때문임\n\ndct = {'과일':['딸기','사과','바나나'], '탈것':['오토바이','자동차','버스','기차']}"
   },
   {
     "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#선언",
@@ -459,7 +459,7 @@
     "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#for문과-set",
     "title": "04wk-2: 파이썬의 자료형 (7)",
     "section": "for문과 set",
-    "text": "for문과 set\n\nday1 = {'notebook', 'desktop'}\nday2 = {'notebook','ipad'}\n\n\nfor i in day1|day2: \n    print(i)\n\nnotebook\nipad\ndesktop"
+    "text": "for문과 set\n\nday1 = {'notebook', 'desktop'}\nday2 = {'notebook', 'ipad'}\n\n\nfor i in day1|day2: \n    print(i)\n\nnotebook\nipad\ndesktop"
   },
   {
     "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#set-컴프리헨션",
@@ -473,7 +473,7 @@
     "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#유니크한-원소",
     "title": "04wk-2: 파이썬의 자료형 (7)",
     "section": "유니크한 원소",
-    "text": "유니크한 원소\n- 예제1: 아래의 list는 모두 몇 종류의 문자로 이루어져 있는가?\n\nlst=list('asdfasssdfdsasdfasdfasdfasdf')\n\n(풀이)\n\nset(lst)\n\n{'a', 'd', 'f', 's'}\n\n\n\nlen(set(lst))\n\n4\n\n\n- 예제2: 아래의 txt에서 각각 몇 종류의 문자가 사용되었는지 빈도를 구하는 코드를 작성하라.\n\ntxt = 'asdkflkjahsdlkjfhlaksglkjdhflkgjhlskdfjhglkajhsdlkfjhalsdkf'\ntxt\n\n'asdkflkjahsdlkjfhlaksglkjdhflkgjhlskdfjhglkajhsdlkfjhalsdkf'\n\n\n(풀이)"
+    "text": "유니크한 원소\n- 예제1: 아래의 list는 모두 몇 종류의 문자로 이루어져 있는가?\n\nlst=list('asdfasssdfdsasdfasdfasdfasdf')\n\n(풀이)\n\nset(lst)\n\n{'a', 'd', 'f', 's'}\n\n\n\nlen(set(lst))\n\n4\n\n\n- 예제2: 아래의 txt에서 어떠한 종류의 문자가 각각 몇번씩 사용되었는지 빈도를 구하는 코드를 작성하라.\n\ntxt = 'asdkflkjahsdlkjfhlaksglkjdhflkgjhlskdfjhglkajhsdlkfjhalsdkf'\ntxt\n\n'asdkflkjahsdlkjfhlaksglkjdhflkgjhlskdfjhglkajhsdlkfjhalsdkf'\n\n\n(풀이)\n\n{k:list(txt).count(k) for k in set(txt)}\n\n{'s': 6, 'a': 5, 'g': 3, 'k': 10, 'j': 7, 'h': 7, 'd': 6, 'l': 9, 'f': 6}"
   },
   {
     "objectID": "index.html",
