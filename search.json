@@ -385,10 +385,101 @@
     "text": "바꿔치기 (2)\n- 예제1: 아래와 같은 리스트를 고려하자.\n\nlst = ['딸기','사과','바나나','딸기','사과','오토바이','자동차','버스','기차','오토바이','자동차']\n\n다음의 맵핑규칙에 따라서 위의 리스트의 원소를 바꾸어라.\n\n\n\n변환전\n변환후\n\n\n\n\n딸기\n과일\n\n\n사과\n과일\n\n\n바나나\n과일\n\n\n오토바이\n탈것\n\n\n자동차\n탈것\n\n\n버스\n탈것\n\n\n기차\n탈것\n\n\n\n(풀이)\n\ndct = {'과일':['딸기','사과','바나나'], '탈것':['오토바이','자동차','버스','기차']}\ndct\n\n{'과일': ['딸기', '사과', '바나나'], '탈것': ['오토바이', '자동차', '버스', '기차']}\n\n\n\n[x for l in lst for x,y in dct.items() if l in y]\n\n['과일', '과일', '과일', '과일', '과일', '탈것', '탈것', '탈것', '탈것', '탈것', '탈것']"
   },
   {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#key의-조건",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#key의-조건",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "key의 조건",
+    "text": "key의 조건\n- 조건1: 키로 쓸 수 있는 자료형은 정해져 있다.\n\nint O, float O, bool O, str O, list X, tuple O, dict X, set X\n\n(예시1) dict의 키로 int를 사용\n\ndct = {0:[1,2,3], 1:[2,3,4]} \ndct[0] # 인덱싱 하는거 같네?\n\n[1, 2, 3]\n\n\n\ndct[-1] # 속았지?\n\nKeyError: -1\n\n\n(예시2) dict의 키로 float을 사용 <– 이렇게 쓰는 사람 본적이 없어요\n\ndct = {3.14:'π', 2.178:'e'}\ndct[3.14]\n\n'π'\n\n\n(예시3) dict의 키로 bool을 사용\n\ndct = {True: '참이다', False: '거짓이다.'} \ndct\n\n{True: '참이다', False: '거짓이다.'}\n\n\n\ndct[1<2]\n\n'참이다'\n\n\n(예시4) dict의 키로 str을 사용 (\\(\\star\\))\n\ndct = {'guebin':[10,20,30,30], 'hanni':[10,20,25,40]}\ndct['guebin']\n\n[10, 20, 30, 30]\n\n\n(예시5) dict의 키로 list를 사용 \\(\\Rightarrow\\) 불가능\n\ndct = {[10,20,30,40]: 'guebin', [10,20,25,40]: 'hanni'} \ndct\n\nTypeError: unhashable type: 'list'\n\n\n(예시6) dict의 키로 tuple 사용 (\\(\\star\\))\n\ndct = {(10,20,30,40): 'guebin', (10,20,25,40): 'hanni'} \ndct\n\n{(10, 20, 30, 40): 'guebin', (10, 20, 25, 40): 'hanni'}\n\n\n\ndct[(10,20,30,40)]\n\n'guebin'\n\n\n\ndct[10,20,30,40]\n\n'guebin'\n\n\n(예시7) dict의 키로 dict사용 \\(\\Rightarrow\\) 불가능\n\ndct = {{0:1}: 'guebin', {1:2}: 'hanni'} \ndct\n\nTypeError: unhashable type: 'dict'\n\n\n(예시8) dict의 키로 set사용 \\(\\Rightarrow\\) 불가능\n\ndct = {{'샌드위치','딸기우유'}:'점심', {'불고기','된장찌개','김','콩자반'}: '저녁'}\ndct\n\nTypeError: unhashable type: 'set'\n\n\n- 조건2: 키는 중복해서 쓸 수 없다.\n(예시1)\n\ndct = {0:[1,2,3], 1:[2,3,4], 0:[3,4,5]} # 이렇게 쓰지 마세요\ndct \n\n{0: [3, 4, 5], 1: [2, 3, 4]}"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#value의-조건",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#value의-조건",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "value의 조건",
+    "text": "value의 조건\n- 없다… \\(\\Rightarrow\\) dict는 컨테이너형!!"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#딕셔너리-컴프리헨션",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#딕셔너리-컴프리헨션",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "딕셔너리 컴프리헨션",
+    "text": "딕셔너리 컴프리헨션\n- 예시1\n\nlst = [['딸기','사과'],['오토바이','자동차'],['컴퓨터','아이패드','마우스']]\nlst  \n\n[['딸기', '사과'], ['오토바이', '자동차'], ['컴퓨터', '아이패드', '마우스']]\n\n\n\n{i:lst[i] for i in range(3)}\n\n{0: ['딸기', '사과'], 1: ['오토바이', '자동차'], 2: ['컴퓨터', '아이패드', '마우스']}\n\n\n- 예시2: key, val을 서로 바꾸는 예시\n\ndct = {'a':(1,0,0,0), 'b':(0,1,0,0), 'c':(0,0,1,0), 'd':(0,0,0,1)}\ndct\n\n{'a': (1, 0, 0, 0), 'b': (0, 1, 0, 0), 'c': (0, 0, 1, 0), 'd': (0, 0, 0, 1)}\n\n\n\n{v:k for k,v in dct.items() }\n\n{(1, 0, 0, 0): 'a', (0, 1, 0, 0): 'b', (0, 0, 1, 0): 'c', (0, 0, 0, 1): 'd'}"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#바꿔치기-3",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#바꿔치기-3",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "바꿔치기 (3)",
+    "text": "바꿔치기 (3)\n- 예제1: 아래와 같은 리스트가 있다고 하자.\n\nlst = list('abcd'*2)\nlst\n\n['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']\n\n\n아래의 규칙에 의하여 lst의 각 원소의 값을 바꾸고 싶다고 하자.\n\n\n\n변환전\n변환후\n\n\n\n\n‘a’\n[1,0,0,0]\n\n\n‘b’\n[0,1,0,0]\n\n\n‘c’\n[0,0,1,0]\n\n\n‘d’\n[0,0,0,1]\n\n\n\n이를 구현하는 코드를 작성하고, 역변환하는 코드를 작성하라.\nhint: 아래의 dct를 이용할 것\n\ndct = {'a':[1,0,0,0], 'b':[0,1,0,0], 'c':[0,0,1,0], 'd':[0,0,0,1]}\ndct\n\n{'a': [1, 0, 0, 0], 'b': [0, 1, 0, 0], 'c': [0, 0, 1, 0], 'd': [0, 0, 0, 1]}\n\n\n(풀이)\n변환하는 코드를 구현하면\n\nlst2= [dct[l] for l in lst] \nlst2\n\n[[1, 0, 0, 0],\n [0, 1, 0, 0],\n [0, 0, 1, 0],\n [0, 0, 0, 1],\n [1, 0, 0, 0],\n [0, 1, 0, 0],\n [0, 0, 1, 0],\n [0, 0, 0, 1]]\n\n\n역변환하는 코드를 구현하면\n(1단계)\n\ndct_inv = {tuple(v):k for k,v in dct.items()}\ndct_inv\n\n{(1, 0, 0, 0): 'a', (0, 1, 0, 0): 'b', (0, 0, 1, 0): 'c', (0, 0, 0, 1): 'd'}\n\n\n(2단계)\n\n[dct_inv[tuple(l)] for l in lst2]\n\n['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']\n\n\n- 참고로 어차피 이러한 테크닉을 써도 아래와 같은 변환은 수행할 수 없다.\n\n\n\n변환전\n변환후\n\n\n\n\n딸기\n과일\n\n\n사과\n과일\n\n\n바나나\n과일\n\n\n오토바이\n탈것\n\n\n자동차\n탈것\n\n\n버스\n탈것\n\n\n기차\n탈것"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#선언",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#선언",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "선언",
+    "text": "선언\n\nwishlist={'notebook','desktop'}\nwishlist\n\n{'desktop', 'notebook'}"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#원소추출",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#원소추출",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "원소추출",
+    "text": "원소추출\n- 일단 인덱스로는 못합니다.\n\nwishlist={'notebook','desktop'}\nwishlist[0]\n\nTypeError: 'set' object is not subscriptable\n\n\n- 딱히 하는 방법이 없어요.. 그리고 이걸 하는 의미가 없어요.. (원소에 접근해서 뭐하려고??)"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#원소추가",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#원소추가",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "원소추가",
+    "text": "원소추가\n- 이건 의미가 있음\n\nwishlist={'notebook','desktop'} \nwishlist\n\n{'desktop', 'notebook'}\n\n\n\nwishlist.add('ipad')\nwishlist\n\n{'desktop', 'ipad', 'notebook'}\n\n\n\nwishlist.add('notebook') # 이미 원소로 있는건 추가되지 않음. \nwishlist\n\n{'desktop', 'ipad', 'notebook'}"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#원소삭제",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#원소삭제",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "원소삭제",
+    "text": "원소삭제\n\nwishlist={'desktop', 'ipad', 'notebook'}\nwishlist\n\n{'desktop', 'ipad', 'notebook'}\n\n\n\nwishlist.remove('notebook')\n\n\nwishlist\n\n{'desktop', 'ipad'}"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#연산",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#연산",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "연산",
+    "text": "연산\n- in 연산자\n\nwishlist={'desktop', 'ipad', 'notebook'}\nwishlist\n\n{'desktop', 'ipad', 'notebook'}\n\n\n\n'notebook' in wishlist\n\nTrue\n\n\n\n참고로 in연산자는 집합에서만 쓰는것은 아님\n\n- 합집합, 교집합, 차집합\n\nday1 = {'notebook','desktop'}\nday2 = {'notebook','ipad'}\n\n\nday1 | day2 # 합집합\n\n{'desktop', 'ipad', 'notebook'}\n\n\n\nday1 & day2 # 교집합\n\n{'notebook'}\n\n\n\nday1 - day2 # 차집합 \n\n{'desktop'}\n\n\n\nday2 - day1 # 차집합\n\n{'ipad'}\n\n\n- 부분집합\n\nday1 = {'notebook', 'desktop'}\nday2 = day1 | {'ipad'} \n\n\nday1 < day2  # day1는 day2의 부분집합인가? \n\nTrue\n\n\n\nday2 < day1\n\nFalse"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#집합-특수기능",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#집합-특수기능",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "집합 특수기능",
+    "text": "집합 특수기능\n- 합집합\n\nday1 = {'notebook', 'desktop'}\nday2 = {'notebook','ipad'}\n\n\nday1.union(day2)\n\n{'desktop', 'ipad', 'notebook'}\n\n\n- 나머지 메소드는 스스로 찾아보세요"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#for문과-set",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#for문과-set",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "for문과 set",
+    "text": "for문과 set\n\nday1 = {'notebook', 'desktop'}\nday2 = {'notebook','ipad'}\n\n\nfor i in day1|day2: \n    print(i)\n\nnotebook\nipad\ndesktop"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#set-컴프리헨션",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#set-컴프리헨션",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "set 컴프리헨션",
+    "text": "set 컴프리헨션\n- 예시1\n\nlst = [1,2,1,1,3,4,5]\n{l for l in lst}\n\n{1, 2, 3, 4, 5}"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#유니크한-원소",
+    "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#유니크한-원소",
+    "title": "04wk-2: 파이썬의 자료형 (7)",
+    "section": "유니크한 원소",
+    "text": "유니크한 원소\n- 예제1: 아래의 list는 모두 몇 종류의 문자로 이루어져 있는가?\n\nlst=list('asdfasssdfdsasdfasdfasdfasdf')\n\n(풀이)\n\nset(lst)\n\n{'a', 'd', 'f', 's'}\n\n\n\nlen(set(lst))\n\n4\n\n\n- 예제2: 아래의 txt에서 각각 몇 종류의 문자가 사용되었는지 빈도를 구하는 코드를 작성하라.\n\ntxt = 'asdkflkjahsdlkjfhlaksglkjdhflkgjhlskdfjhglkajhsdlkfjhalsdkf'\ntxt\n\n'asdkflkjahsdlkjfhlaksglkjdhflkgjhlskdfjhglkajhsdlkfjhalsdkf'\n\n\n(풀이)"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "파이썬 프로그래밍 (2023)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS:\n\n강의노트\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMar 27, 2023\n\n\n04wk-1: 파이썬의 자료형 (6)\n\n\n최규빈\n\n\n\n\nMar 22, 2023\n\n\n03wk-2: 파이썬의 자료형 (5)\n\n\n최규빈\n\n\n\n\nMar 20, 2023\n\n\n03wk-1: 파이썬의 자료형 (4)\n\n\n최규빈\n\n\n\n\nMar 15, 2023\n\n\n02wk-2: 파이썬의 자료형 (3)\n\n\n최규빈\n\n\n\n\nMar 13, 2023\n\n\n02wk-1: 파이썬의 자료형 (2)\n\n\n최규빈\n\n\n\n\nMar 7, 2023\n\n\n01wk-2: 파이썬의 자료형 (1)\n\n\n최규빈\n\n\n\n\nMar 6, 2023\n\n\n01wk-1: 강의소개\n\n\n최규빈\n\n\n\n\nJun 6, 2022\n\n\n참고자료: 2022-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2022\n\n\n참고자료: 2022-04-mid\n\n\n최규빈\n\n\n\n\nJun 6, 2021\n\n\n참고자료: 2021-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2021\n\n\n참고자료: 2021-04-mid\n\n\n최규빈\n\n\n\n\n\n\nNo matching items"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS:\n\n강의노트\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMar 29, 2023\n\n\n04wk-2: 파이썬의 자료형 (7)\n\n\n최규빈\n\n\n\n\nMar 27, 2023\n\n\n04wk-1: 파이썬의 자료형 (6)\n\n\n최규빈\n\n\n\n\nMar 22, 2023\n\n\n03wk-2: 파이썬의 자료형 (5)\n\n\n최규빈\n\n\n\n\nMar 20, 2023\n\n\n03wk-1: 파이썬의 자료형 (4)\n\n\n최규빈\n\n\n\n\nMar 15, 2023\n\n\n02wk-2: 파이썬의 자료형 (3)\n\n\n최규빈\n\n\n\n\nMar 13, 2023\n\n\n02wk-1: 파이썬의 자료형 (2)\n\n\n최규빈\n\n\n\n\nMar 7, 2023\n\n\n01wk-2: 파이썬의 자료형 (1)\n\n\n최규빈\n\n\n\n\nMar 6, 2023\n\n\n01wk-1: 강의소개\n\n\n최규빈\n\n\n\n\nJun 6, 2022\n\n\n참고자료: 2022-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2022\n\n\n참고자료: 2022-04-mid\n\n\n최규빈\n\n\n\n\nJun 6, 2021\n\n\n참고자료: 2021-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2021\n\n\n참고자료: 2021-04-mid\n\n\n최규빈\n\n\n\n\n\n\nNo matching items"
   }
 ]
