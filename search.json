@@ -385,6 +385,97 @@
     "text": "바꿔치기 (2)\n- 예제1: 아래와 같은 리스트를 고려하자.\n\nlst = ['딸기','사과','바나나','딸기','사과','오토바이','자동차','버스','기차','오토바이','자동차']\n\n다음의 맵핑규칙에 따라서 위의 리스트의 원소를 바꾸어라.\n\n\n\n변환전\n변환후\n\n\n\n\n딸기\n과일\n\n\n사과\n과일\n\n\n바나나\n과일\n\n\n오토바이\n탈것\n\n\n자동차\n탈것\n\n\n버스\n탈것\n\n\n기차\n탈것\n\n\n\n(풀이)\n\ndct = {'과일':['딸기','사과','바나나'], '탈것':['오토바이','자동차','버스','기차']}\ndct\n\n{'과일': ['딸기', '사과', '바나나'], '탈것': ['오토바이', '자동차', '버스', '기차']}\n\n\n\n[x for l in lst for x,y in dct.items() if l in y]\n\n['과일', '과일', '과일', '과일', '과일', '탈것', '탈것', '탈것', '탈것', '탈것', '탈것']"
   },
   {
+    "objectID": "posts/01_PythonBasic/2023-04-05-5wk-2.html",
+    "href": "posts/01_PythonBasic/2023-04-05-5wk-2.html",
+    "title": "05wk-2: 모듈, 패키지, 라이브러리",
+    "section": "",
+    "text": "youtube: https://youtube.com/playlist?list=PLQqh36zP38-yzovneTfJptA4K705FOG1f"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-05-5wk-2.html#해결1",
+    "href": "posts/01_PythonBasic/2023-04-05-5wk-2.html#해결1",
+    "title": "05wk-2: 모듈, 패키지, 라이브러리",
+    "section": "해결1",
+    "text": "해결1\n- 자주 사용하는 함수를 myfuns.py에 저장한다.\n# myfuns.py\ndef vec2_add(a,b): \n    return [a[0]+b[0], a[1]+b[1]]\n- %run myfuns를 실행\n준비: “00” -> 커널재시작\n\n%run myfuns \n\n\nvec2_add([1,2],[3,4])\n\n[4, 6]"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-05-5wk-2.html#해결2",
+    "href": "posts/01_PythonBasic/2023-04-05-5wk-2.html#해결2",
+    "title": "05wk-2: 모듈, 패키지, 라이브러리",
+    "section": "해결2",
+    "text": "해결2\n- 자주 사용하는 함수를 myfuns.py에 저장한다.\n# myfuns.py\ndef vec2_add(a,b): \n    return [a[0]+b[0], a[1]+b[1]]\n- import myfuns를 이용\n(준비) “00” -> 커널재시작\n\nimport myfuns \n\n\na=[1,2]\nb=[3,4]\nmyfuns.vec2_add(a,b)\n\n[4, 6]"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-05-5wk-2.html#사용방법",
+    "href": "posts/01_PythonBasic/2023-04-05-5wk-2.html#사용방법",
+    "title": "05wk-2: 모듈, 패키지, 라이브러리",
+    "section": "사용방법",
+    "text": "사용방법\n- 사용방법1\n준비: “00” -> 커널재시작\n\nimport myfuns \n\n\nmyfuns.vec2_add([1,2],[3,4]) \n\n[4, 6]\n\n\n\nmyfuns.vec2_add 의 의미: myfuns.py 라는 파일안에 vec2_add라는 함수가 있음. 그것을 실행하라.\n.의 의미: 상위.하위의 개념!\n\n(주의) 아래와 같이 사용불가능 하다.\n\nvec2_add([1,2],[3,4])\n\nNameError: name 'vec2_add' is not defined\n\n\n- 사용방법2\n준비: “00” -> 커널재시작\n\nfrom myfuns import vec2_add \n\n\nvec2_add([1,2],[3,4])\n\n[4, 6]\n\n\n(주의) 이 경우는 오히려 아래가 불가능함\n\nmyfuns.vec2_add([1,2],[3,4]) # myfuns안의 vec2_add만 임포트했지 myfuns자체를 임포트 한것은 아님 \n\nNameError: name 'myfuns' is not defined\n\n\n- 사용방법3\n준비: “00” -> 커널재시작\n\nimport myfuns\nfrom myfuns import vec2_add\n\n\nmyfuns.vec2_add([1,2],[3,4])\n\n[4, 6]\n\n\n\nvec2_add([1,2],[3,4])\n\n[4, 6]\n\n\n- 사용방법4\n준비: “00” -> 커널재시작\n\nfrom myfuns import vec2_add, vec2_sub \n\n\nvec2_add([1,2],[3,4])\n\n[4, 6]\n\n\n\nvec2_sub([1,2],[3,4])\n\n[-2, -2]\n\n\n- 사용방법5\n준비: “00” -> 커널재시작\n\nfrom myfuns import * #*는 all의 의미 \n\n\nvec2_add([1,2],[3,4])\n\n[4, 6]\n\n\n\nvec2_sub([1,2],[3,4])\n\n[-2, -2]\n\n\n- 사용방법6\n준비: “00” -> 커널재시작\n\nimport myfuns as mf \n\n\nmf.vec2_add([1,2],[3,4])\n\n[4, 6]\n\n\n\nmf.vec2_sub([1,2],[3,4])\n\n[-2, -2]\n\n\n(오히려 아래는 실행불가능)\n\nmyfuns.vec2_add([1,2],[3,4])\n\nNameError: name 'myfuns' is not defined\n\n\n\nmyfuns.vec2_sub([1,2],[3,4])\n\nNameError: name 'myfuns' is not defined\n\n\n- 잘못된 사용방법1\n준비: “00” -> 커널재시작\n\nimport myfuns as mf \nfrom mf import vec2_add \n\nModuleNotFoundError: No module named 'mf'\n\n\n- 사용방법7\n준비: “00” -> 커널재시작\n\nimport myfuns as mf \nfrom myfuns import vec2_add \n\n\nmf.vec2_add([1,2],[3,4])\n\n[4, 6]\n\n\n\nvec2_add([1,2],[3,4])\n\n[4, 6]\n\n\n- 사용방법8\n준비: “00” -> 커널재시작\n\nimport myfuns as mf \nfrom myfuns import vec2_add as add \n\n\nmf.vec2_add([1,2],[3,4])\n\n[4, 6]\n\n\n\nvec2_add([1,2],[3,4])\n\nNameError: name 'vec2_add' is not defined\n\n\n\nadd([1,2],[3,4])\n\n[4, 6]"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-05-5wk-2.html#도움말-작성기능",
+    "href": "posts/01_PythonBasic/2023-04-05-5wk-2.html#도움말-작성기능",
+    "title": "05wk-2: 모듈, 패키지, 라이브러리",
+    "section": "도움말 작성기능",
+    "text": "도움말 작성기능\n- mf란 무엇인가?\n준비: “00” -> 커널재시작\n\nimport myfuns as mf \n\n\nmf\n\n<module 'myfuns' from '/home/cgb3/Dropbox/07_lectures/IP2022/_notebooks/myfuns.py'>\n\n\n\nmf?\n\n\nType:        module\nString form: <module 'myfuns' from '/home/cgb3/Dropbox/07_lectures/IP2022/_notebooks/myfuns.py'>\nFile:        ~/Dropbox/07_lectures/IP2022/_notebooks/myfuns.py\nDocstring:   <no docstring>\n\n\n\n\n\ntype(mf)\n\nmodule\n\n\n\nmf의 타입은 모듈이라고 나옴, 현재 단계에서는 무엇인지 알기 어려움\n\n- Docstring의 내용을 채울 수 있을까?\n준비1: myfuns.py 파일을 아래와 같이 수정한다.\n준비2: “00” -> 커널재시작\n\nimport myfuns as mf \n\n\nmf?\n\n\nType:        module\nString form: <module 'myfuns' from '/home/cgb3/Dropbox/07_lectures/IP2022/_notebooks/myfuns.py'>\nFile:        ~/Dropbox/07_lectures/IP2022/_notebooks/myfuns.py\nDocstring:   이것은 길이가 2인 벡터의 합 혹은 차를 구하는 모듈입니다.\n\n\n\n\n\n주의점\n- myfuns.py는 최초 한번만 import 된다.\n준비: “00” -> 커널재시작\n\nimport myfuns\n\n\nmyfuns.vec2_add([1,2],[3,4])\n\n[4, 6]\n\n\nmyfuns.py파일을 열고 함수를 아래와 같이 바꾸자.\n\"\"\"이것은 길이가 2인 벡터의 합 혹은 차를 구하는 모듈입니다.\"\"\" \ndef vec2_add(a,b): \n    print(\"이것은 myfuns.py에 정의된 함수입니다\") \n    return [a[0]+b[0], a[1]+b[1]]\ndef vec2_sub(a,b): \n    return [a[0]-b[0], a[1]-b[1]]\n다시 myfuns를 로드하고 myfuns.vec2_add 를 실행하여 보자.\n\nimport myfuns\n\n\nmyfuns.vec2_add([1,2],[3,4])\n\n[4, 6]\n\n\n바뀐내용이 적용되지 않는다.\n커널을 다시 시작하고 임포트해보자.\n“00” -> 커널재시작\n\nimport myfuns\n\n\nmyfuns.vec2_add([1,2],[3,4])\n\n이것은 myfuns.py에 정의된 함수입니다\n\n\n[4, 6]\n\n\n- myfuns.py는 주피터노트북파일과 같은 폴더에 존재해야 한다.\n준비1: “00” -> 커널재시작\n준비2: myfuns.py을 복사하여 다른 폴더로 이동. 예를들면 IP0403 폴더를 만들고 그 폴더안에 myfuns.py파일을 복사해서 붙여넣은뒤에 파일이름을 myfuns2.py 로 변경.\n\nimport myfuns # 주피터노트북파일과 같은 폴더에 있는 myfuns는 잘 로드되지만 \n\n\nimport myfuns2 # 주피터노트북파일과 다른 폴더에 있는 myfuns2는 그렇지 않다. \n\nModuleNotFoundError: No module named 'myfuns2'\n\n\n- IP0403 폴더에 있는 myfuns2.py를 실행하기 위해서는 아래와 같이 할 수 있다.\n준비: “00” -> 커널재시작\n\nfrom IP0403 import myfuns2\n\n\nmyfuns2.vec2_add([1,2],[3,4]) \n\n이것은 myfuns2.py에 정의된 함수입니다\n\n\n[4, 6]\n\n\n- 아래도 가능하다.\n준비: “00” -> 커널재시작\n\nfrom IP0403.myfuns2 import vec2_add as add \n\n\nadd([1,2],[3,4])\n\n이것은 myfuns2.py에 정의된 함수입니다\n\n\n[4, 6]\n\n\n참고로 아래는 모두 정의되지 않음\n\nIP0403.myfuns2.vec2_add([1,2],[3,4]) \n\nNameError: name 'IP0403' is not defined\n\n\n\nmyfuns2.vec2_add([1,2],[3,4]) \n\nNameError: name 'myfuns2' is not defined\n\n\n\nvec2_add([1,2],[3,4]) \n\nNameError: name 'vec2_add' is not defined"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-05-5wk-2.html#폴더와-함께-사용할시",
+    "href": "posts/01_PythonBasic/2023-04-05-5wk-2.html#폴더와-함께-사용할시",
+    "title": "05wk-2: 모듈, 패키지, 라이브러리",
+    "section": "폴더와 함께 사용할시",
+    "text": "폴더와 함께 사용할시\n- 언뜻 생각하면 아래가 가능할 것 같다.\nimport IP0403 \nIP0403.myfuns2.vec2_add([1,2],[3,4]) \n- 하지만 불가능하다.\n준비: “00” -> 커널재시작\n\nimport IP0403 \n\n\n되는거아냐?\n\n\nIP0403.myfuns2.vec2_add([1,2],[3,4])\n\nAttributeError: module 'IP0403' has no attribute 'myfuns2'\n\n\n\n여기서 불가능하다.\n\n- (암기) IP0403 폴더안에 __init__.py라는 파일을 만들고 내용에 아래와 같이 쓰면 가능하다.\n# ./IP0403/__init__.py \nfrom . import myfuns2\n준비1: 위의 지침을 따른다.\n준비2: “00” -> 커널재시작\n\nimport IP0403 \n\n\nIP0403.myfuns2.vec2_add([1,2],[3,4])\n\n이것은 myfuns2.py에 정의된 함수입니다\n\n\n[4, 6]\n\n\n컴퓨터 상식 - .: 현재폴더를 의미 - ..: 상위폴더를 의미 - ./myfuns.py: 현재폴더안에 있는 myfuns.py를 의미 - ./IP0403/myfuns2.py: 현재폴더만에 IP0403폴더안의 myfuns2.py 파일을 의미 - ../myfuns.py: 현재폴더보다 한단계상위폴더에 있는 myfuns.py를 의미 - cd ./IP0403: 현재폴더안에 있는 IP0403폴더로 이동해라. (cd IP0403으로 줄여쓸 수 있음) - cd .. 현재폴더보다 한단계 상위폴더로 이동하라.\n따라서 from . import myfuns2는 현재폴더에서 myfuns2를 찾아서 임포트 하라는 의미로 해석가능\n- 의미상으로 보면 아래가 실행가능할듯 한데 불가능하다.\n\n#import myfuns\nfrom . import myfuns\n\nImportError: attempted relative import with no known parent package"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-05-5wk-2.html#site-packages-실습금지",
+    "href": "posts/01_PythonBasic/2023-04-05-5wk-2.html#site-packages-실습금지",
+    "title": "05wk-2: 모듈, 패키지, 라이브러리",
+    "section": "site-packages (실습금지)",
+    "text": "site-packages (실습금지)\n- 의문: 왜 현재폴더에 numpy.py라든가 numpy라는 이름의 폴더가 없는데도 import 가능한지?\n준비: “00” -> 커널재시작\n\nimport numpy as np\n\n\nimport IP0403 as ip \n\n\nip?\n\n\nType:        module\nString form: <module 'IP0403' from '/home/cgb3/Dropbox/07_lectures/IP2022/_notebooks/IP0403/__init__.py'>\nFile:        ~/Dropbox/07_lectures/IP2022/_notebooks/IP0403/__init__.py\nDocstring:   <no docstring>\n\n\n\n\n\nnp?\n\n\nType:        module\nString form: <module 'numpy' from '/home/cgb3/anaconda3/envs/py310/lib/python3.10/site-packages/numpy/__init__.py'>\nFile:        ~/anaconda3/envs/py310/lib/python3.10/site-packages/numpy/__init__.py\nDocstring:  \nNumPy\n=====\nProvides\n  1. An array object of arbitrary homogeneous items\n  2. Fast mathematical operations over arrays\n  3. Linear Algebra, Fourier Transforms, Random Number Generation\nHow to use the documentation\n----------------------------\nDocumentation is available in two forms: docstrings provided\nwith the code, and a loose standing reference guide, available from\n`the NumPy homepage <https://www.scipy.org>`_.\nWe recommend exploring the docstrings using\n`IPython <https://ipython.org>`_, an advanced Python shell with\nTAB-completion and introspection capabilities.  See below for further\ninstructions.\nThe docstring examples assume that `numpy` has been imported as `np`::\n  >>> import numpy as np\nCode snippets are indicated by three greater-than signs::\n  >>> x = 42\n  >>> x = x + 1\nUse the built-in ``help`` function to view a function's docstring::\n  >>> help(np.sort)\n  ... # doctest: +SKIP\nFor some objects, ``np.info(obj)`` may provide additional help.  This is\nparticularly true if you see the line \"Help on ufunc object:\" at the top\nof the help() page.  Ufuncs are implemented in C, not Python, for speed.\nThe native Python help() does not know how to view their help, but our\nnp.info() function does.\nTo search for documents containing a keyword, do::\n  >>> np.lookfor('keyword')\n  ... # doctest: +SKIP\nGeneral-purpose documents like a glossary and help on the basic concepts\nof numpy are available under the ``doc`` sub-module::\n  >>> from numpy import doc\n  >>> help(doc)\n  ... # doctest: +SKIP\nAvailable subpackages\n---------------------\ndoc\n    Topical documentation on broadcasting, indexing, etc.\nlib\n    Basic functions used by several sub-packages.\nrandom\n    Core Random Tools\nlinalg\n    Core Linear Algebra Tools\nfft\n    Core FFT routines\npolynomial\n    Polynomial tools\ntesting\n    NumPy testing tools\nf2py\n    Fortran to Python Interface Generator.\ndistutils\n    Enhancements to distutils with support for\n    Fortran compilers support and more.\nUtilities\n---------\ntest\n    Run numpy unittests\nshow_config\n    Show numpy build configuration\ndual\n    Overwrite certain functions with high-performance SciPy tools.\n    Note: `numpy.dual` is deprecated.  Use the functions from NumPy or Scipy\n    directly instead of importing them from `numpy.dual`.\nmatlib\n    Make everything matrices.\n__version__\n    NumPy version string\nViewing documentation using IPython\n-----------------------------------\nStart IPython with the NumPy profile (``ipython -p numpy``), which will\nimport `numpy` under the alias `np`.  Then, use the ``cpaste`` command to\npaste examples into the shell.  To see which functions are available in\n`numpy`, type ``np.<TAB>`` (where ``<TAB>`` refers to the TAB key), or use\n``np.*cos*?<ENTER>`` (where ``<ENTER>`` refers to the ENTER key) to narrow\ndown the list.  To view the docstring for a function, use\n``np.cos?<ENTER>`` (to view the docstring) and ``np.cos??<ENTER>`` (to view\nthe source code).\nCopies vs. in-place operation\n-----------------------------\nMost of the functions in `numpy` return a copy of the array argument\n(e.g., `np.sort`).  In-place versions of these functions are often\navailable as array methods, i.e. ``x = np.array([1,2,3]); x.sort()``.\nExceptions to this rule are documented.\n\n\n\n\n- 추측: ~/anaconda3/envs/py310/lib/python3.10/site-packages/를 찾아가보자. 그곳에 numpy폴더가 있을 것이다.\n\n!ls ~/anaconda3/envs/py310/lib/python3.10/site-packages | grep numpy\n\nnumpy\nnumpy-1.22.2.dist-info\n\n\n- 추측2: ~/anaconda3/envs/py310/lib/python3.10/site-packages/에 내가 자주 쓰는 기능을 폴더로 만들어서 모아두면 어디서든지 import 할 수 있다.\n\n!mkdir ~/anaconda3/envs/py310/lib/python3.10/site-packages/guebin # guebin 폴더 생성 \n\n\n!cp ./myfuns.py ~/anaconda3/envs/py310/lib/python3.10/site-packages/guebin \n# 현폴더에 있는 myfuns.py를 아까만든 guebin 폴더로 복사 \n\n\nfrom guebin import myfuns\n\n\nmyfuns?\n\n\nType:        module\nString form: <module 'guebin.myfuns' from '/home/cgb3/anaconda3/envs/py310/lib/python3.10/site-packages/guebin/myfuns.py'>\nFile:        ~/anaconda3/envs/py310/lib/python3.10/site-packages/guebin/myfuns.py\nDocstring:   이것은 길이가 2인 벡터의 합 혹은 차를 구하는 모듈입니다.\n\n\n\n\n\n!rm  ~/anaconda3/envs/py310/lib/python3.10/site-packages/guebin -rf # guebin 폴더삭제 \n\n- 추측3: guebin이 사라진 상태에서는 from guebin import myfuns 이 동작하지 않을 것이다.\n준비: “00” -> 커널재시작\n\nfrom guebin import myfuns\n\nModuleNotFoundError: No module named 'guebin'\n\n\n- 추측4: ~/anaconda3/envs/py310/lib/python3.10/site-packages/에서 numpy를 지운다면 numpy를 import할 수 없다.\n준비: “00” -> 커널재시작\n\nimport numpy as np\n\nModuleNotFoundError: No module named 'numpy'\n\n\n- 추측5: !pip install numpy를 하면 다시 폴더가 생길 것이다.\n\n!pip uninstall numpy -y \n\nFound existing installation: numpy 1.22.2\nUninstalling numpy-1.22.2:\n  Successfully uninstalled numpy-1.22.2\n\n\n\n!pip install numpy \n\nCollecting numpy\n  Downloading numpy-1.22.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)\n     |████████████████████████████████| 16.8 MB 11.4 MB/s eta 0:00:01\nInstalling collected packages: numpy\nSuccessfully installed numpy-1.22.3"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-03-5wk-1.html",
+    "href": "posts/01_PythonBasic/2023-04-03-5wk-1.html",
+    "title": "05wk-1: 개발환경의 변화",
+    "section": "",
+    "text": "youtube: https://youtube.com/playlist?list=PLQqh36zP38-zcnjAged1xIatgznRTy93c"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-03-5wk-1.html#개발환경-구축방법이-많은-이유",
+    "href": "posts/01_PythonBasic/2023-04-03-5wk-1.html#개발환경-구축방법이-많은-이유",
+    "title": "05wk-1: 개발환경의 변화",
+    "section": "개발환경 구축방법이 많은 이유?",
+    "text": "개발환경 구축방법이 많은 이유?\n- 파이썬 개발환경 구축은 수많은 방법이 있다.\n- 이는 마치 라면의 레시피를 검색하면 수많은 방법이 나오는것과 유사함.\n\n방법1: 스프를 먼저 넣고 끓인다음 라면을 넣어야 합니다.\n방법2: 양은냄비에 물넣고 물이 끊으면 라면과 스프를 같이 넣고 마지막에 계란을 넣는다.\n방법3: 먹다남은 삼겹살을 후라이팬에 볶은다음에 물을 붓고 라면을 넣는다.\n방법4: 용기에 라면+스프+뜨거운물 랩을 씌운뒤에 젓가락으로 구멍을 뚫고 전자렌지에 돌린다.\n…\n\n- 우리는 모든 방법을 나열할 순 없지만 모든 방법을 이해할 수 있다. 왜냐하면 라면을 끓이는 공통적인 맥락을 우리는 알고 있으니까\n- 파이썬을 설치하는 다양한 방법 역시 공통맥락을 파악하면 이해하기 쉽다.\n- 저의 목적: 파이썬을 설치하고 실행하는 공통맥락을 설명하고 싶음\n- 설치하는 방법이 다양한 이유? 파이썬이 인기있음 + 다양한 방법을 설치를 하면 각자의 장점이 뚜렷해서"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-03-5wk-1.html#python",
+    "href": "posts/01_PythonBasic/2023-04-03-5wk-1.html#python",
+    "title": "05wk-1: 개발환경의 변화",
+    "section": "python",
+    "text": "python\n- 윈도우에서 anaconda prompt 실행 -> python\n(base) C:\\Users\\python>python\nPython 3.9.7 (default, Sep 16 2021, 16:59:28) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> [1,2,3]+[4]\n[1, 2, 3, 4]\n>>> a=[1,2,3]+[4]\n>>> a\n[1, 2, 3, 4]\n- 2개를 실행할 수도 있음. (두 환경은 각각 서로 독립적인 파이썬, 변수가 공유되지 않음) \\(\\star\\)\n- 아쉬운점: `?list’와 같이 도움말 기능이 동작하지 않음\n>>> ?list\n  File \"<stdin>\", line 1\n    ?list\n    ^\nSyntaxError: invalid syntax\n>>>"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-03-5wk-1.html#ipython",
+    "href": "posts/01_PythonBasic/2023-04-03-5wk-1.html#ipython",
+    "title": "05wk-1: 개발환경의 변화",
+    "section": "ipython",
+    "text": "ipython\n- 윈도우에서 anaconda prompt 실행 -> ipython\n(base) C:\\Users\\python>ipython\nPython 3.9.7 (default, Sep 16 2021, 16:59:28) [MSC v.1916 64 bit (AMD64)]\nType 'copyright', 'credits' or 'license' for more information\nIPython 7.29.0 -- An enhanced Interactive Python. Type '?' for help.\n\nIn [1]: a=[1,2,3]\n\nIn [2]: a\nOut[2]: [1, 2, 3]\n\nIn [3]: a+[4]\nOut[3]: [1, 2, 3, 4]\n- ?list가 가능\nIn [4]: ?list\nInit signature: list(iterable=(), /)\nDocstring:\nBuilt-in mutable sequence.\n\nIf no argument is given, the constructor creates a new empty list.\nThe argument must be an iterable if specified.\nType:           type\nSubclasses:     _HashedSeq, StackSummary, DeferredConfigList, SList, _ImmutableLineList, FormattedText, NodeList, _ExplodedList, Stack, _Accumulator, ...\n\n- 색깔이 알록달록해서 문법을 보기 편하다. (구문강조)"
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-03-5wk-1.html#세대-프로그래머의-삶-with-python",
+    "href": "posts/01_PythonBasic/2023-04-03-5wk-1.html#세대-프로그래머의-삶-with-python",
+    "title": "05wk-1: 개발환경의 변화",
+    "section": "1세대 프로그래머의 삶 with python",
+    "text": "1세대 프로그래머의 삶 with python\n- 1부터 10까지 합을 구하는 프로그램을 만들고 싶음\n- 시도1: python을 키고 아래와 같이 실행\n(base) C:\\Users\\python>python\nPython 3.9.7 (default, Sep 16 2021, 16:59:28) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> total = 0\n>>> for i in range(10):\n...     total=total+i\n...\n>>> total\n45\n>>>\n- 반성: 정답은 55인데 45가 출력되었다! \\(\\to\\) range(10)을 range(1,11)으로 바꿔야겠다!\n- 시도2: range(1,11)을 바꿔야겠다고 생각하고 다시 입력하다가 오타가 발생\n>>> total =0\n>>> for i in range(1,11):\n...     total = totla +i\n...\n\n앗 totla이라고 잘못쳤다.\n\n- 반성: 다음에는 정신을 똑바로 차려야겠다.\n- 불편한점: … 다.."
+  },
+  {
+    "objectID": "posts/01_PythonBasic/2023-04-03-5wk-1.html#세대-프로그래머의-삶-with-ipython",
+    "href": "posts/01_PythonBasic/2023-04-03-5wk-1.html#세대-프로그래머의-삶-with-ipython",
+    "title": "05wk-1: 개발환경의 변화",
+    "section": "1세대 프로그래머의 삶 with ipython",
+    "text": "1세대 프로그래머의 삶 with ipython\n- ipython을 사용한 프로그래머는 좀 더 상황이 낫다\n(base) C:\\Users\\python>ipython\nPython 3.9.7 (default, Sep 16 2021, 16:59:28) [MSC v.1916 64 bit (AMD64)]\nType 'copyright', 'credits' or 'license' for more information\nIPython 7.29.0 -- An enhanced Interactive Python. Type '?' for help.\n\nIn [1]: total = 0\n\nIn [2]: for i in range(1,11):\n   ...:     total = total + i\n   ...:\n\nIn [3]: total\nOut[3]: 55\n\n편한점1: 자동으로 들여쓰기가 되어서 편함\n편한점2: 화살표를 이용해서 for문을 쓰는 도중에 위아래로 이동가능\n불편한점1: 화살표로 이동할수는 있는데 마우스로는 이동할 수 없다.\n불편한점2: 내가 작성한 코드를 관리하기 어렵다."
+  },
+  {
     "objectID": "posts/01_PythonBasic/2023-03-29-4wk-2.html#key의-조건",
     "href": "posts/01_PythonBasic/2023-03-29-4wk-2.html#key의-조건",
     "title": "04wk-2: 파이썬의 자료형 (7)",
@@ -480,6 +571,6 @@
     "href": "index.html",
     "title": "파이썬 프로그래밍 (2023)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS:\n\n강의노트\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMar 29, 2023\n\n\n04wk-2: 파이썬의 자료형 (7)\n\n\n최규빈\n\n\n\n\nMar 27, 2023\n\n\n04wk-1: 파이썬의 자료형 (6)\n\n\n최규빈\n\n\n\n\nMar 22, 2023\n\n\n03wk-2: 파이썬의 자료형 (5)\n\n\n최규빈\n\n\n\n\nMar 20, 2023\n\n\n03wk-1: 파이썬의 자료형 (4)\n\n\n최규빈\n\n\n\n\nMar 15, 2023\n\n\n02wk-2: 파이썬의 자료형 (3)\n\n\n최규빈\n\n\n\n\nMar 13, 2023\n\n\n02wk-1: 파이썬의 자료형 (2)\n\n\n최규빈\n\n\n\n\nMar 7, 2023\n\n\n01wk-2: 파이썬의 자료형 (1)\n\n\n최규빈\n\n\n\n\nMar 6, 2023\n\n\n01wk-1: 강의소개\n\n\n최규빈\n\n\n\n\nJun 6, 2022\n\n\n참고자료: 2022-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2022\n\n\n참고자료: 2022-04-mid\n\n\n최규빈\n\n\n\n\nJun 6, 2021\n\n\n참고자료: 2021-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2021\n\n\n참고자료: 2021-04-mid\n\n\n최규빈\n\n\n\n\n\n\nNo matching items"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS:\n\n강의노트\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 5, 2023\n\n\n05wk-2: 모듈, 패키지, 라이브러리\n\n\n최규빈\n\n\n\n\nApr 3, 2023\n\n\n05wk-1: 개발환경의 변화\n\n\n최규빈\n\n\n\n\nMar 29, 2023\n\n\n04wk-2: 파이썬의 자료형 (7)\n\n\n최규빈\n\n\n\n\nMar 27, 2023\n\n\n04wk-1: 파이썬의 자료형 (6)\n\n\n최규빈\n\n\n\n\nMar 22, 2023\n\n\n03wk-2: 파이썬의 자료형 (5)\n\n\n최규빈\n\n\n\n\nMar 20, 2023\n\n\n03wk-1: 파이썬의 자료형 (4)\n\n\n최규빈\n\n\n\n\nMar 15, 2023\n\n\n02wk-2: 파이썬의 자료형 (3)\n\n\n최규빈\n\n\n\n\nMar 13, 2023\n\n\n02wk-1: 파이썬의 자료형 (2)\n\n\n최규빈\n\n\n\n\nMar 7, 2023\n\n\n01wk-2: 파이썬의 자료형 (1)\n\n\n최규빈\n\n\n\n\nMar 6, 2023\n\n\n01wk-1: 강의소개\n\n\n최규빈\n\n\n\n\nJun 6, 2022\n\n\n참고자료: 2022-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2022\n\n\n참고자료: 2022-04-mid\n\n\n최규빈\n\n\n\n\nJun 6, 2021\n\n\n참고자료: 2021-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2021\n\n\n참고자료: 2021-04-mid\n\n\n최규빈\n\n\n\n\n\n\nNo matching items"
   }
 ]
