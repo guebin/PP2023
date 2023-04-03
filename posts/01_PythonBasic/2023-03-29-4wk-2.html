@@ -225,6 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#set-컴프리헨션" id="toc-set-컴프리헨션" class="nav-link" data-scroll-target="#set-컴프리헨션">set 컴프리헨션</a></li>
   <li><a href="#유니크한-원소" id="toc-유니크한-원소" class="nav-link" data-scroll-target="#유니크한-원소">유니크한 원소</a></li>
   </ul></li>
+  <li><a href="#hw" id="toc-hw" class="nav-link" data-scroll-target="#hw">HW</a></li>
   </ul>
 </nav>
     </div>
@@ -785,9 +786,154 @@ desktop</code></pre>
 <pre><code>{'s': 6, 'a': 5, 'g': 3, 'k': 10, 'j': 7, 'h': 7, 'd': 6, 'l': 9, 'f': 6}</code></pre>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="hw" class="level1">
+<h1>HW</h1>
+<p><code>Oxford-III</code>: 1–5 // <a href="https://www.robots.ox.ac.uk/~vgg/data/pets/">reference</a></p>
+<p>아래는 이미지 파일명들이 저장된 string을 불러오는 코드이다.</p>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a><span class="im">import</span> requests</span>
+<span id="cb111-2"><a href="#cb111-2"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/guebin/PP2023/main/posts/01_PythonBasic/Oxford-IIIT.txt'</span></span>
+<span id="cb111-3"><a href="#cb111-3"></a>txt <span class="op">=</span> requests.get(url).content.decode()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>이미지파일이 저장된 형식은 아래와 같다.</p>
+<pre><code>Abyssinian_1.jpg
+British_Shorthair_129.jpg</code></pre>
+<p><code>1</code>. txt를 적당히 변환하여 아래와 같은 list를 만들어라.</p>
+<div class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1"></a>lst[:<span class="dv">10</span>], lst[<span class="op">-</span><span class="dv">10</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="110">
+<pre><code>(['Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian'],
+ ['yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier'])</code></pre>
+</div>
+</div>
+<p><strong>hint1</strong></p>
+<div class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1"></a><span class="co">'Abyssinian_1.jpg</span><span class="ch">\n</span><span class="co">Abyssinian_10.jpg'</span>.split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="89">
+<pre><code>['Abyssinian_1.jpg', 'Abyssinian_10.jpg']</code></pre>
+</div>
+</div>
+<p><strong>hint2</strong></p>
+<div class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a><span class="co">''</span>.join([<span class="st">'British'</span>, <span class="st">'Shorthair'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="90">
+<pre><code>'BritishShorthair'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1"></a><span class="co">''</span>.join([<span class="st">'Abyssinian'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="91">
+<pre><code>'Abyssinian'</code></pre>
+</div>
+</div>
+<p><code>2</code>. 그림파일에는 총 몇가지 종류의 고양이와, 몇가지 종류의 강아지가 있는가?</p>
+<p><strong>note</strong>: 12종의 고양이, 25종의 강아지가 있음</p>
+<p><code>3</code>. 아래는 1번의 결과로 얻어진 lst의 첫 10개의 원소와 마지막 10개의 원소이다.</p>
+<div class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1"></a>lst[:<span class="dv">10</span>], lst[<span class="op">-</span><span class="dv">10</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="141">
+<pre><code>(['Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian',
+  'Abyssinian'],
+ ['yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier',
+  'yorkshireterrier'])</code></pre>
+</div>
+</div>
+<p>적당한 변환을 정의하여 lst를 아래와 같이 바꾸어라.</p>
+<div class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1"></a>lst2[:<span class="dv">10</span>], lst2[<span class="op">-</span><span class="dv">10</span>:] <span class="co"># 바뀐 lst</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="142">
+<pre><code>(['cat', 'cat', 'cat', 'cat', 'cat', 'cat', 'cat', 'cat', 'cat', 'cat'],
+ ['dog', 'dog', 'dog', 'dog', 'dog', 'dog', 'dog', 'dog', 'dog', 'dog'])</code></pre>
+</div>
+</div>
+<p><code>4</code>. txt에는 강아지사진과 고양이사진이 모두 몇장씩 들어있는가?</p>
+<div class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1"></a><span class="co">## 출력예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="145">
+<pre><code>{'dog': 4990, 'cat': 2403}</code></pre>
+</div>
+</div>
+<p><code>5</code>. txt에 각 종별로 몇장의 사진이 있는지 조사하라.</p>
+<div class="cell" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1"></a><span class="co">## 출력예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="150">
+<pre><code>{'beagle': 200,
+ 'scottishterrier': 199,
+ 'newfoundland': 200,
+ 'Birman': 200,
+ 'Bombay': 200,
+ 'pug': 200,
+ 'germanshorthaired': 200,
+ 'samoyed': 200,
+ 'Sphynx': 200,
+ 'englishsetter': 200,
+ 'Bengal': 200,
+ 'MaineCoon': 200,
+ 'Persian': 200,
+ 'boxer': 200,
+ 'staffordshirebullterrier': 191,
+ 'Siamese': 200,
+ 'bassethound': 200,
+ 'wheatenterrier': 200,
+ 'englishcockerspaniel': 200,
+ 'Ragdoll': 200,
+ 'yorkshireterrier': 200,
+ 'EgyptianMau': 200,
+ 'BritishShorthair': 200,
+ 'keeshond': 200,
+ 'RussianBlue': 200,
+ 'saintbernard': 200,
+ 'americanbulldog': 200,
+ 'Abyssinian': 203,
+ 'leonberger': 200,
+ 'greatpyrenees': 200,
+ 'japanesechin': 200,
+ 'pomeranian': 200,
+ 'chihuahua': 200,
+ 'shibainu': 200,
+ 'americanpitbullterrier': 200,
+ 'miniaturepinscher': 200,
+ 'havanese': 200}</code></pre>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
