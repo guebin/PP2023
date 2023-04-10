@@ -728,20 +728,6 @@
     "text": "유니크한 원소\n- 예제1: 아래의 list는 모두 몇 종류의 문자로 이루어져 있는가?\n\nlst=list('asdfasssdfdsasdfasdfasdfasdf')\n\n(풀이)\n\nset(lst)\n\n{'a', 'd', 'f', 's'}\n\n\n\nlen(set(lst))\n\n4\n\n\n- 예제2: 아래의 txt에서 어떠한 종류의 문자가 각각 몇번씩 사용되었는지 빈도를 구하는 코드를 작성하라.\n\ntxt = 'asdkflkjahsdlkjfhlaksglkjdhflkgjhlskdfjhglkajhsdlkfjhalsdkf'\ntxt\n\n'asdkflkjahsdlkjfhlaksglkjdhflkgjhlskdfjhglkajhsdlkfjhalsdkf'\n\n\n(풀이)\n\n{k:list(txt).count(k) for k in set(txt)}\n\n{'s': 6, 'a': 5, 'g': 3, 'k': 10, 'j': 7, 'h': 7, 'd': 6, 'l': 9, 'f': 6}"
   },
   {
-    "objectID": "1_essays.html",
-    "href": "1_essays.html",
-    "title": "강의소개",
-    "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "2_cgsp.html",
-    "href": "2_cgsp.html",
-    "title": "CGSP",
-    "section": "",
-    "text": "No matching items"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "파이썬 프로그래밍 (2023)",
