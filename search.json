@@ -95,7 +95,7 @@
     "href": "posts/02_PY4DS/2023-04-10-6wk-1.html#기본연산-브로드캐스팅",
     "title": "06wk-1: Numpy (1) – draft",
     "section": "기본연산 브로드캐스팅",
-    "text": "기본연산 브로드캐스팅\n- 사칙연산가능\n\na+1 ## [1,2,3] + 1 = [2,3,4]\n\narray([2, 3, 4])\n\n\n\nl+1\n\nTypeError: can only concatenate list (not \"int\") to list\n\n\n\na*2\n\narray([2, 4, 6])\n\n\n\nl*2\n\n[1, 2, 3, 1, 2, 3]\n\n\n\na/2\n\narray([0.5, 1. , 1.5])\n\n\n\nl/2\n\nTypeError: unsupported operand type(s) for /: 'list' and 'int'\n\n\n\na**2\n\narray([1, 4, 9])\n\n\n\nl**2\n\nTypeError: unsupported operand type(s) for ** or pow(): 'list' and 'int'\n\n\n- 나머지 연산가능\n\na%2 # %2 = 2로 나눈 나머지를 리턴 a=[1,2,3] \n\narray([1, 0, 1])\n\n\n\nl%2\n\nTypeError: unsupported operand type(s) for %: 'list' and 'int'"
+    "text": "기본연산 브로드캐스팅\n- 사칙연산가능\n\na+1\n\narray([1, 2, 3])\n\n\n\na+1 ## [1,2,3] + 1 = [2,3,4]\n\narray([2, 3, 4])\n\n\n\nl+1\n\nTypeError: can only concatenate list (not \"int\") to list\n\n\n\na*2\n\narray([2, 4, 6])\n\n\n\nl*2\n\n[1, 2, 3, 1, 2, 3]\n\n\n\na/2\n\narray([0.5, 1. , 1.5])\n\n\n\nl/2\n\nTypeError: unsupported operand type(s) for /: 'list' and 'int'\n\n\n\na**2\n\narray([1, 4, 9])\n\n\n\nl**2\n\nTypeError: unsupported operand type(s) for ** or pow(): 'list' and 'int'\n\n\n- 나머지 연산가능\n\na%2 # %2 = 2로 나눈 나머지를 리턴 a=[1,2,3] \n\narray([1, 0, 1])\n\n\n\nl%2\n\nTypeError: unsupported operand type(s) for %: 'list' and 'int'"
   },
   {
     "objectID": "posts/02_PY4DS/2023-04-10-6wk-1.html#기타수학연산지원",
