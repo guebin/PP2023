@@ -1,8 +1,16 @@
 [
   {
+    "listing": "/1_essays.html",
+    "items": []
+  },
+  {
+    "listing": "/2_cgsp.html",
+    "items": []
+  },
+  {
     "listing": "/index.html",
     "items": [
-      "/posts/02_ImportantLibraries/2023-04-10-6wk-1.html",
+      "/posts/02_PY4DS/2023-04-10-6wk-1.html",
       "/posts/01_PythonBasic/2023-04-05-5wk-2.html",
       "/posts/01_PythonBasic/2023-04-03-5wk-1.html",
       "/posts/01_PythonBasic/2023-03-29-4wk-2.html",
@@ -13,10 +21,10 @@
       "/posts/01_PythonBasic/2023-03-13-2wk-1.html",
       "/posts/01_PythonBasic/2023-03-08-1wk-2.html",
       "/posts/2023-03-06-1wk-1.html",
-      "/posts/04_Appendix/2022-06-14-final.html",
-      "/posts/04_Appendix/2022-05-03-mid.html",
-      "/posts/04_Appendix/2021-06-09-final.html",
-      "/posts/04_Appendix/2021-04-20-mid.html"
+      "/posts/Appendix/2022-06-14-final.html",
+      "/posts/Appendix/2022-05-03-mid.html",
+      "/posts/Appendix/2021-06-09-final.html",
+      "/posts/Appendix/2021-04-20-mid.html"
     ]
   }
 ]
