@@ -240,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="강의영상" class="level1">
 <h1>강의영상</h1>
 <blockquote class="blockquote">
-<p>youtube:</p>
+<p>youtube: <a href="https://youtube.com/playlist?list=PLQqh36zP38-xvHU3Dnl1w3YEd6uLZhThJ" class="uri">https://youtube.com/playlist?list=PLQqh36zP38-xvHU3Dnl1w3YEd6uLZhThJ</a></p>
 </blockquote>
 </section>
 <section id="예비학습" class="level1">
@@ -1372,20 +1372,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
        [ 4,  8, 12, 16]])</code></pre>
 </div>
 </div>
-<p><strong>참고</strong></p>
-<div class="cell" data-execution_count="398">
+<p><strong>참고: 평균을 구하는 신기한 코드</strong></p>
+<div class="cell" data-execution_count="78">
 <div class="sourceCode cell-code" id="cb274"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb274-1"><a href="#cb274-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="401">
-<div class="sourceCode cell-code" id="cb275"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb275-1"><a href="#cb275-1"></a>np.array([<span class="dv">1</span><span class="op">/</span><span class="dv">100</span>]<span class="op">*</span><span class="dv">100</span>) <span class="op">@</span> x </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="401">
-<pre><code>-0.036351786323824346</code></pre>
+<div class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb275"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb275-1"><a href="#cb275-1"></a>np.array([<span class="dv">1</span><span class="op">/</span><span class="dv">100</span>]<span class="op">*</span><span class="dv">100</span>) <span class="op">@</span> x  <span class="co">## x의 평균을 구하라는 의미</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="79">
+<pre><code>0.04274275334613641</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="402">
+<div class="cell" data-execution_count="80">
 <div class="sourceCode cell-code" id="cb277"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb277-1"><a href="#cb277-1"></a>np.mean(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="402">
-<pre><code>-0.03635178632382437</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="80">
+<pre><code>0.04274275334613641</code></pre>
 </div>
 </div>
 
