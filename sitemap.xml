@@ -2,74 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://guebin.github.io/PP2023/about.html</loc>
-    <lastmod>2023-04-10T11:31:52.171Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/02_PY4DS/2023-04-10-6wk-1.html</loc>
-    <lastmod>2023-04-10T11:31:52.583Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/02_PY4DS/2023-04-12-6wk-2.html</loc>
-    <lastmod>2023-04-10T11:31:52.919Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-29-4wk-2.html</loc>
-    <lastmod>2023-04-10T11:31:53.211Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-27-4wk-1.html</loc>
-    <lastmod>2023-04-10T11:31:53.735Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-22-3wk-2.html</loc>
-    <lastmod>2023-04-10T11:31:54.003Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-20-3wk-1.html</loc>
-    <lastmod>2023-04-10T11:31:54.455Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-13-2wk-1.html</loc>
-    <lastmod>2023-04-10T11:31:54.723Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-15-2wk-2.html</loc>
-    <lastmod>2023-04-10T11:31:54.991Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-08-1wk-2.html</loc>
-    <lastmod>2023-04-10T11:31:55.195Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-04-03-5wk-1.html</loc>
-    <lastmod>2023-04-10T11:31:55.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-04-05-5wk-2.html</loc>
-    <lastmod>2023-04-10T11:31:55.711Z</lastmod>
+    <lastmod>2023-04-12T04:54:23.534Z</lastmod>
   </url>
   <url>
     <loc>https://guebin.github.io/PP2023/posts/Appendix/2022-06-14-final.html</loc>
-    <lastmod>2023-04-10T11:31:56.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/Appendix/2021-06-09-final.html</loc>
-    <lastmod>2023-04-10T11:31:56.291Z</lastmod>
-  </url>
-  <url>
-    <loc>https://guebin.github.io/PP2023/posts/Appendix/2022-05-03-mid.html</loc>
-    <lastmod>2023-04-10T11:31:56.719Z</lastmod>
+    <lastmod>2023-04-12T04:54:24.026Z</lastmod>
   </url>
   <url>
     <loc>https://guebin.github.io/PP2023/posts/Appendix/2021-04-20-mid.html</loc>
-    <lastmod>2023-04-10T11:31:56.935Z</lastmod>
+    <lastmod>2023-04-12T04:54:24.290Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/Appendix/2022-05-03-mid.html</loc>
+    <lastmod>2023-04-12T04:54:24.814Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/Appendix/2021-06-09-final.html</loc>
+    <lastmod>2023-04-12T04:54:25.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/02_PY4DS/2023-04-10-6wk-1.html</loc>
+    <lastmod>2023-04-12T04:54:25.502Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/02_PY4DS/2023-04-12-6wk-2.html</loc>
+    <lastmod>2023-04-12T04:54:25.902Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/02_PY4DS/lecture.html</loc>
+    <lastmod>2023-04-12T04:54:26.062Z</lastmod>
   </url>
   <url>
     <loc>https://guebin.github.io/PP2023/posts/2023-03-06-1wk-1.html</loc>
-    <lastmod>2023-04-10T11:31:57.091Z</lastmod>
+    <lastmod>2023-04-12T04:54:26.230Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-22-3wk-2.html</loc>
+    <lastmod>2023-04-12T04:54:26.534Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-08-1wk-2.html</loc>
+    <lastmod>2023-04-12T04:54:26.774Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-20-3wk-1.html</loc>
+    <lastmod>2023-04-12T04:54:27.286Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-15-2wk-2.html</loc>
+    <lastmod>2023-04-12T04:54:27.602Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-13-2wk-1.html</loc>
+    <lastmod>2023-04-12T04:54:27.910Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-27-4wk-1.html</loc>
+    <lastmod>2023-04-12T04:54:28.518Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-04-05-5wk-2.html</loc>
+    <lastmod>2023-04-12T04:54:28.870Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-04-03-5wk-1.html</loc>
+    <lastmod>2023-04-12T04:54:29.106Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-29-4wk-2.html</loc>
+    <lastmod>2023-04-12T04:54:29.438Z</lastmod>
   </url>
   <url>
     <loc>https://guebin.github.io/PP2023/index.html</loc>
-    <lastmod>2023-04-10T11:31:57.303Z</lastmod>
+    <lastmod>2023-04-12T04:54:29.678Z</lastmod>
   </url>
 </urlset>
