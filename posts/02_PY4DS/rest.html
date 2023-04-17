@@ -122,6 +122,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -171,7 +172,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#스무딩하니-샤프하니" id="toc-스무딩하니-샤프하니" class="nav-link active" data-scroll-target="#스무딩하니-샤프하니">스무딩하니, 샤프하니</a></li>
+  <li><a href="#회귀분석" id="toc-회귀분석" class="nav-link active" data-scroll-target="#회귀분석">회귀분석</a></li>
+  <li><a href="#스무딩하니-샤프하니" id="toc-스무딩하니-샤프하니" class="nav-link" data-scroll-target="#스무딩하니-샤프하니">스무딩하니, 샤프하니</a></li>
   <li><a href="#이미지자료-분석" id="toc-이미지자료-분석" class="nav-link" data-scroll-target="#이미지자료-분석">이미지자료 분석</a></li>
   <li><a href="#브로드캐스팅" id="toc-브로드캐스팅" class="nav-link" data-scroll-target="#브로드캐스팅">브로드캐스팅</a></li>
   <li><a href="#확률변수" id="toc-확률변수" class="nav-link" data-scroll-target="#확률변수">확률변수</a></li>
@@ -183,6 +185,159 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<p><code>4-8</code>. 시계열 자료와 이동평균</p>
+<p><code>4</code>. 아래의 수식에 따르는 수열 <span class="math inline">\(x_t\)</span>를 생성하라. 단, <span class="math inline">\(T=1000\)</span> 으로 설정하고 랜덤시드는 <code>np.random.seed(2)</code>와 같이 설정한다.</p>
+<ul>
+<li><span class="math inline">\(x_1=\epsilon_1\)</span></li>
+<li><span class="math inline">\(x_2=\epsilon_1+\epsilon_2\)</span></li>
+<li><span class="math inline">\(x_3=\epsilon_1+\epsilon_2+\epsilon_3\)</span></li>
+<li><span class="math inline">\(\dots\)</span></li>
+<li><span class="math inline">\(x_T=\sum_{t=1}^{T} \epsilon_t\)</span></li>
+</ul>
+<p>생성결과를 시각화하라.</p>
+<div class="cell" data-execution_count="251">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="rest_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><strong>hint</strong> 아래의 코드를 활용하면 쉽다.</p>
+<div class="cell" data-execution_count="253">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>np.cumsum([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="253">
+<pre><code>array([ 1,  3,  6, 10])</code></pre>
+</div>
+</div>
+<p><code>5</code>. 아래와 같은 변환을 수행하고 결과를 시각화 하라.</p>
+<ul>
+<li><span class="math inline">\(x_1= \frac{1}{3}(x_1+x_2)\)</span></li>
+<li><span class="math inline">\(x_2= \frac{1}{3}(x_1+x_2+x_3)\)</span></li>
+<li><span class="math inline">\(x_3= \frac{1}{3}(x_2+x_3+x_4)\)</span></li>
+<li><span class="math inline">\(\dots\)</span></li>
+<li><span class="math inline">\(x_{T-1}= \frac{1}{3}(x_{T-1}+x_{T-1}+x_T)\)</span></li>
+<li><span class="math inline">\(x_{T}= \frac{1}{3}(x_{T-1}+x_T)\)</span></li>
+</ul>
+<p>시각화 예시는 아래와 같다.</p>
+<div class="cell" data-execution_count="273">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="rest_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Note: 마지막의 끝이 올라간 이유가 무엇이라고 생각하는가?</p>
+</blockquote>
+<p><code>6</code>. 아래와 같은 변환을 수행하고 결과를 시각화하라.</p>
+<ul>
+<li><span class="math inline">\(x_1= \frac{1}{3}(x_1+x_1+x_2)\)</span></li>
+<li><span class="math inline">\(x_2= \frac{1}{3}(x_1+x_2+x_3)\)</span></li>
+<li><span class="math inline">\(x_3= \frac{1}{3}(x_2+x_3+x_4)\)</span></li>
+<li><span class="math inline">\(\dots\)</span></li>
+<li><span class="math inline">\(x_{T-1}= \frac{1}{3}(x_{T-1}+x_{T-1}+x_T)\)</span></li>
+<li><span class="math inline">\(x_{T}= \frac{1}{3}(x_{T-1}+x_T+x_T)\)</span></li>
+</ul>
+<div class="cell" data-execution_count="278">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="rest_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>7</code>. 6번의 변환을 100번 반복하고 시각화하라.</p>
+<div class="cell" data-execution_count="290">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="rest_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>8</code>. 6번의 변환을 1000번 반복하고 시각화하라.</p>
+<div class="cell" data-execution_count="291">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="rest_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="회귀분석" class="level2">
+<h2 class="anchored" data-anchor-id="회귀분석">회귀분석</h2>
+<p><code>1--7</code>. 아래의 모형을 고려하자.</p>
+<ul>
+<li><span class="math inline">\(y_i = 2+3x_i +\epsilon_i,\quad \epsilon_i \overset{iid}{\sim} N(0,1)\)</span></li>
+</ul>
+<p><span class="math inline">\(x_i\)</span>는 아래와 같이 주어졌다고 가정하자.</p>
+<div class="cell" data-execution_count="305">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>x <span class="op">=</span>  np.array([<span class="fl">0.00983</span>, <span class="fl">0.01098</span>, <span class="fl">0.02951</span>, <span class="fl">0.0384</span> , <span class="fl">0.03973</span>, <span class="fl">0.04178</span>, <span class="fl">0.0533</span> ,</span>
+<span id="cb8-2"><a href="#cb8-2"></a>               <span class="fl">0.058</span>  , <span class="fl">0.09454</span>, <span class="fl">0.1103</span> , <span class="fl">0.1328</span> , <span class="fl">0.1412</span> , <span class="fl">0.1497</span> , <span class="fl">0.1664</span> ,</span>
+<span id="cb8-3"><a href="#cb8-3"></a>               <span class="fl">0.1906</span> , <span class="fl">0.1923</span> , <span class="fl">0.198</span>  , <span class="fl">0.2141</span> , <span class="fl">0.2393</span> , <span class="fl">0.2433</span> , <span class="fl">0.3157</span> ,</span>
+<span id="cb8-4"><a href="#cb8-4"></a>               <span class="fl">0.3228</span> , <span class="fl">0.3418</span> , <span class="fl">0.3552</span> , <span class="fl">0.3918</span> , <span class="fl">0.3962</span> , <span class="fl">0.4</span>    , <span class="fl">0.4482</span> ,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>               <span class="fl">0.496</span>  , <span class="fl">0.507</span>  , <span class="fl">0.53</span>   , <span class="fl">0.5654</span> , <span class="fl">0.582</span>  , <span class="fl">0.5854</span> , <span class="fl">0.5854</span> ,</span>
+<span id="cb8-6"><a href="#cb8-6"></a>               <span class="fl">0.6606</span> , <span class="fl">0.7007</span> , <span class="fl">0.723</span>  , <span class="fl">0.7305</span> , <span class="fl">0.7383</span> , <span class="fl">0.7656</span> , <span class="fl">0.7725</span> ,</span>
+<span id="cb8-7"><a href="#cb8-7"></a>               <span class="fl">0.831</span>  , <span class="fl">0.8896</span> , <span class="fl">0.9053</span> , <span class="fl">0.914</span>  , <span class="fl">0.949</span>  , <span class="fl">0.952</span>  , <span class="fl">0.9727</span> ,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>               <span class="fl">0.982</span>  ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>1</code>. 제시된 모형에 맞추어서 <span class="math inline">\(y_i\)</span>를 생성하라. <span class="math inline">\((x_i,y_i)\)</span>를 산점도를 이용하여 시각화하라.</p>
+<div class="cell" data-execution_count="309">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="rest_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>2</code>. <code>1</code>과 같은 자료를 잘 표현할 수 있는 적절한 추세선 <span class="math inline">\((x_i, \hat{y}_i)\)</span>를 그리기 위하여 아래의 모형을 가정하자.</p>
+<ul>
+<li><span class="math inline">\(\hat{y}_i = ax_i+b\)</span></li>
+</ul>
+<p><code>(a)</code> <span class="math inline">\(a=1\)</span>, <span class="math inline">\(b=0\)</span> 으로 선택 <span class="math inline">\(\Rightarrow\)</span> 추세선을 <span class="math inline">\(\hat{y}_i = x_i\)</span> 로 선택.</p>
+<p><code>(b)</code> <span class="math inline">\(a=2.5\)</span>, <span class="math inline">\(b=2\)</span> 으로 선택 <span class="math inline">\(\Rightarrow\)</span> 추세선을 <span class="math inline">\(\hat{y}_i = 2.5 x_i + 2\)</span> 로 선택.</p>
+<p><code>(c)</code> <span class="math inline">\(a=3\)</span>, <span class="math inline">\(b=2\)</span> 로 선택 <span class="math inline">\(\Rightarrow\)</span> 추세선을 <span class="math inline">\(\hat{y}_i = 3 x_i + 2\)</span> 로 선택.</p>
+<p>어떠한 추세선이 가장 옳은 선택일까? 각각의 선택에 대한 <span class="math inline">\((x_i, \hat{y}_i)\)</span>를 <span class="math inline">\((x_i,y_i)\)</span>와 겹쳐서 그려보고 스스로 생각해보라.</p>
+<div class="cell" data-execution_count="318">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># (a)의 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="rest_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="321">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># (b)의 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="rest_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="322">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># (c)의 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="rest_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>3</code>. 아래를 각각 계산하라.</p>
+<p><code>(a)</code> <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}(y_i-x_i)^2\)</span></p>
+<p><code>(b)</code> <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}(y_i-2-2.5x_i)^2\)</span></p>
+<p><code>(c)</code> <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}(y_i-2-3x_i)^2\)</span></p>
+<p>가장 작은 값을 가지는 것은 무엇인가?</p>
+<p><code>4</code>. 3의 결과를 근거로 (a)-(c)중 가장 적절한 추세선을 판단하고 적절한 순서대로 나열하라.</p>
+<p><code>(풀이)</code></p>
+<p>3-(a),(b),(c)는 각각</p>
+<ul>
+<li><span class="math inline">\(\hat{y}_i=x_i\)</span></li>
+<li><span class="math inline">\(\hat{y}_i=2+2.5x_i\)</span></li>
+<li><span class="math inline">\(\hat{y}_i=2+3x_i\)</span></li>
+</ul>
+<p>일 경우</p>
+<p><span class="math display">\[{\tt mse}({\boldsymbol y}, \hat{\boldsymbol y}) = \frac{1}{n}\sum_{i=1}^{n}(y_i -\hat{y}_i)^2\]</span></p>
+<p>를 계산한 것이라 해석할 수 있다. 그런데 <span class="math inline">\({\tt mse}({\boldsymbol y}, \hat{\boldsymbol y})\)</span>의 값은</p>
+<ul>
+<li><span class="math inline">\(y_1 \approx \hat{y}_1\)</span></li>
+<li><span class="math inline">\(y_2 \approx \hat{y}_2\)</span></li>
+<li><span class="math inline">\(\dots\)</span></li>
+<li><span class="math inline">\(y_n \approx \hat{y}_n\)</span></li>
+</ul>
+<p>일수록 작은 값을 가진다. 그리고 위의 조건은 더 적절하게 추세선을 그렸을때 만족된다. 요약하면</p>
+<ul>
+<li>적절한 추세선을 그림 <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(y_i \approx \hat{y}_i\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\({\tt mse}({\boldsymbol y}, \hat{\boldsymbol y})\)</span> 값이 작아짐</li>
+</ul>
+<p>와 같은 관계가 있음을 파악할 수 있다. 따라서 <span class="math inline">\({\tt mse}({\boldsymbol y}, \hat{\boldsymbol y})\)</span>의 값이 작을수록 적절한 추세선이라 생각할 수 있다.</p>
+<p><code>5</code>. 아래와 같은 수식을 이용하여 <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1\)</span> 을 계산하라.</p>
+<p><span class="math display">\[\begin{bmatrix} \hat{\beta}_0 \\ \hat{\beta}_1 \end{bmatrix} = ({\bf X}^T {\bf X})^{-1}{\bf X}^T {\boldsymbol y}, \quad {\bf X}=\begin{bmatrix} 1 &amp; x_1 \\ 1 &amp; x_2 \\ \dots \\ 1 &amp; x_n \end{bmatrix}\]</span></p>
+<p><code>6</code>. <code>4</code>에서 계산된 <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1\)</span>을 각각 <span class="math inline">\(b=\hat{\beta}_0, a=\hat{\beta}_1\)</span>으로 생각하고 적절한 추세선 <span class="math inline">\((x_i, y_i)\)</span>를 그려라. (단, <span class="math inline">\(y_i=ax_i+b\)</span> 이다)</p>
+<p><code>7</code>. 4의 기준에 따르면, <span class="math inline">\((a,b)=(3,2)\)</span> 일때 만들어지는 추세선과 <span class="math inline">\((a,b)=(\hat{\beta}_1,\hat{\beta}_0)\)</span> 일때 만들어지는 추세선은 어떤 것이 더 적절한가?</p>
+</section>
 <section id="스무딩하니-샤프하니" class="level1">
 <h1>스무딩하니, 샤프하니</h1>
 </section>
@@ -198,11 +353,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>-</code> 지수분포의 합</p>
 <p><code>-</code></p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>arr <span class="op">=</span> np.array([[<span class="dv">8</span>,<span class="dv">1</span>], [<span class="dv">4</span>,<span class="dv">3</span>], [<span class="dv">5</span>,<span class="dv">2</span>]])</span>
-<span id="cb2-2"><a href="#cb2-2"></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>arr <span class="op">=</span> np.array([[<span class="dv">8</span>,<span class="dv">1</span>], [<span class="dv">4</span>,<span class="dv">3</span>], [<span class="dv">5</span>,<span class="dv">2</span>]])</span>
+<span id="cb14-2"><a href="#cb14-2"></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>array([[8, 1],
        [4, 3],
@@ -210,13 +365,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>np.apply_along_axis(func1d<span class="op">=</span>np.<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>np.apply_along_axis(func1d<span class="op">=</span>np.<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>array([9, 7, 7])</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>np.apply_along_axis(func1d<span class="op">=</span><span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span>,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>np.apply_along_axis(func1d<span class="op">=</span><span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span>,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>array([[9, 2],
        [5, 4],

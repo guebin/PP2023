@@ -195,7 +195,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#그래프" id="toc-그래프" class="nav-link" data-scroll-target="#그래프">그래프</a></li>
   <li><a href="#자료를-저장하는-행렬" id="toc-자료를-저장하는-행렬" class="nav-link" data-scroll-target="#자료를-저장하는-행렬">자료를 저장하는 행렬</a></li>
   <li><a href="#변환을-의미하는-행렬" id="toc-변환을-의미하는-행렬" class="nav-link" data-scroll-target="#변환을-의미하는-행렬">변환을 의미하는 행렬</a></li>
-  <li><a href="#회귀분석" id="toc-회귀분석" class="nav-link" data-scroll-target="#회귀분석">회귀분석</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -205,12 +204,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell" data-execution_count="326">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="예비학습-matplotlib" class="level1">
 <h1>예비학습: matplotlib</h1>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="line-plot" class="level2">
@@ -218,11 +217,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="기본플랏" class="level3">
 <h3 class="anchored" data-anchor-id="기본플랏">기본플랏</h3>
 <p><code>-</code> 예시1</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>x<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
 <span id="cb3-2"><a href="#cb3-2"></a>y<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>plt.plot(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
@@ -467,7 +466,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="그래프" class="level2">
 <h2 class="anchored" data-anchor-id="그래프">그래프</h2>
 <p><code>1</code>. <span class="math inline">\(y(t)=\cos(2t)\)</span>와 <span class="math inline">\(x(t)=\sin(t)\)</span>를 고려하자. <span class="math inline">\(y(t)=x(t)\)</span>는 <span class="math inline">\(-3.14\leq t \leq 3.14\)</span> 에서 몇 개의 해를 가지는가? 그래프를 통하여 확인하라.</p>
-<div class="cell" data-execution_count="51">
+<p>(풀이)</p>
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>t <span class="op">=</span> np.linspace(<span class="op">-</span><span class="fl">3.14</span>,<span class="fl">3.14</span>,<span class="dv">1000</span>) </span>
 <span id="cb23-2"><a href="#cb23-2"></a>x <span class="op">=</span> np.sin(t)</span>
 <span id="cb23-3"><a href="#cb23-3"></a>y <span class="op">=</span> np.cos(<span class="dv">2</span><span class="op">*</span>t)</span>
@@ -483,13 +483,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(a(x)=\frac{1}{1+e^{-x}}\)</span></li>
 </ul>
 <p><code>2</code>. <span class="math inline">\(x \in [-5,5]\)</span>의 범위에서 <span class="math inline">\(a(l(x))\)</span>의 그래프를 그려라. 단 이때 <span class="math inline">\(w_0=0, w_1=1\)</span>로 설정한다.</p>
-<div class="cell" data-execution_count="67">
+<p>(풀이)</p>
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">def</span> l(w0,w1,x): </span>
 <span id="cb24-2"><a href="#cb24-2"></a>    <span class="cf">return</span> w0<span class="op">+</span>w1<span class="op">*</span>x </span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="kw">def</span> a(x):</span>
 <span id="cb24-4"><a href="#cb24-4"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>np.exp(<span class="op">-</span>x)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="74">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">100</span>)</span>
 <span id="cb25-2"><a href="#cb25-2"></a>plt.plot(x,a(l(<span class="dv">0</span>,<span class="dv">1</span>,x)))</span>
 <span id="cb25-3"><a href="#cb25-3"></a>plt.plot(x,a(l(<span class="dv">0</span>,<span class="dv">5</span>,x)))</span>
@@ -501,7 +502,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>3</code>. 아래는 <span class="math inline">\(a(l(x))\)</span>의 성질에 대하여 토의한 내용이다. 올바르게 서술한 학생을 골라라.</p>
 <ul>
 <li>하영: <span class="math inline">\(w_1&gt;0\)</span> 이라면 <span class="math inline">\(a(l(x))\)</span>는 증가하는 함수이다.</li>
-<li>재인: <span class="math inline">\(w_0=0\)</span> 인 경우 <span class="math inline">\(a(l(x))\)</span>의 그래프는</li>
+<li>재인:</li>
 <li>서연:</li>
 <li>보람:</li>
 <li>지윤:</li>
@@ -510,7 +511,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="자료를-저장하는-행렬" class="level2">
 <h2 class="anchored" data-anchor-id="자료를-저장하는-행렬">자료를 저장하는 행렬</h2>
 <p><code>1-2</code>. 아래와 같은 자료를 관측하였다고 하자.</p>
-<div class="cell" data-execution_count="75">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>X <span class="op">=</span> np.array([[<span class="fl">11.75</span> ,  <span class="fl">5.72</span> ],</span>
 <span id="cb26-2"><a href="#cb26-2"></a>              [<span class="fl">12.39</span> ,  <span class="fl">7.695</span>],</span>
 <span id="cb26-3"><a href="#cb26-3"></a>              [<span class="fl">11.75</span> ,  <span class="fl">6.93</span> ],</span>
@@ -524,30 +525,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>1</code>. X를 평균과 표준편차를 columnwise 하게 구하라. 즉 1열의 평균, 2열의 평균, 1열의 표준편차, 2열의 표준편차를 구하라.</p>
 <p><strong>note:</strong> 표준편차는 <code>ddof=1</code>과 함께 <code>np.std()</code>를 사용할 것</p>
-<div class="cell" data-execution_count="72">
+<p>(풀이)</p>
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="72">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>array([11.8651,  5.418 ])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="73">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>X.std(ddof<span class="op">=</span><span class="dv">1</span>,axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="73">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>array([0.87420064, 2.09762829])</code></pre>
 </div>
 </div>
 <p><code>2</code>. X를 columnwise 하게 표준화하라.</p>
 <p><strong>hint:</strong> 아래의 함수를 관찰하고 이용</p>
 <p>(예시1)</p>
-<div class="cell" data-execution_count="85">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="85">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>array([118.651,  54.18 ])</code></pre>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>), np.apply_along_axis(np.<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">0</span>,arr<span class="op">=</span>X) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="83">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>(array([118.651,  54.18 ]), array([118.651,  54.18 ]))</code></pre>
 </div>
 </div>
@@ -579,33 +581,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         [0.   , 2.619]]))</code></pre>
 </div>
 </div>
-<p><code>3-5</code>. 아래는 이미지파일을 불러오는 코드이다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="im">import</span> PIL </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">def</span> f(x):</span>
+<span id="cb37-2"><a href="#cb37-2"></a>    <span class="cf">return</span> (x<span class="op">-</span> np.mean(x))<span class="op">/</span> np.std(x,ddof<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="168">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="op">!</span>wget https:<span class="op">//</span>raw.githubusercontent.com<span class="op">/</span>guebin<span class="op">/</span>SC2022<span class="op">/</span>main<span class="op">/</span>hani.jpeg</span>
-<span id="cb38-2"><a href="#cb38-2"></a>hani <span class="op">=</span> np.einsum(<span class="st">'ijk-&gt;jik'</span>,np.array(PIL.Image.<span class="bu">open</span>(<span class="st">'hani.jpeg'</span>),dtype<span class="op">=</span>np.int64)<span class="op">/</span><span class="dv">255</span>)</span>
-<span id="cb38-3"><a href="#cb38-3"></a><span class="op">!</span>rm hani.jpeg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>np.apply_along_axis(f,axis<span class="op">=</span><span class="dv">0</span>,arr<span class="op">=</span>X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>array([[-0.13166314,  0.14397212],
+       [ 0.60043424,  1.08551168],
+       [-0.13166314,  0.72081408],
+       [-0.27465091, -0.58303943],
+       [ 0.84065369,  0.62737522],
+       [-0.84088247,  0.60544569],
+       [ 0.42884892,  0.91150563],
+       [ 1.96854122, -2.07186374],
+       [-1.10397997, -0.61641045],
+       [-1.35563844, -0.82331079]])</code></pre>
+</div>
+</div>
+<p><code>3-5</code>. 아래는 이미지파일을 불러오는 코드이다.</p>
+<div class="cell" data-execution_count="100">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="im">import</span> PIL </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="op">!</span>wget https:<span class="op">//</span>raw.githubusercontent.com<span class="op">/</span>guebin<span class="op">/</span>SC2022<span class="op">/</span>main<span class="op">/</span>hani.jpeg</span>
+<span id="cb41-2"><a href="#cb41-2"></a>hani <span class="op">=</span> np.einsum(<span class="st">'ijk-&gt;jik'</span>,np.array(PIL.Image.<span class="bu">open</span>(<span class="st">'hani.jpeg'</span>),dtype<span class="op">=</span>np.int64)<span class="op">/</span><span class="dv">255</span>)</span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="op">!</span>rm hani.jpeg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>--2023-04-17 10:44:15--  https://raw.githubusercontent.com/guebin/SC2022/main/hani.jpeg
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.109.133, 185.199.108.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+<pre><code>--2023-04-17 14:59:01--  https://raw.githubusercontent.com/guebin/SC2022/main/hani.jpeg
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.110.133, 185.199.109.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 2445959 (2.3M) [image/jpeg]
 Saving to: ‘hani.jpeg’
 
 hani.jpeg           100%[===================&gt;]   2.33M  --.-KB/s    in 0.04s   
 
-2023-04-17 10:44:15 (58.6 MB/s) - ‘hani.jpeg’ saved [2445959/2445959]
+2023-04-17 14:59:01 (57.0 MB/s) - ‘hani.jpeg’ saved [2445959/2445959]
 </code></pre>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="op">!</span>git add .</span>
-<span id="cb40-2"><a href="#cb40-2"></a><span class="op">!</span>git commit <span class="op">-</span>m .</span>
-<span id="cb40-3"><a href="#cb40-3"></a><span class="op">!</span>git push </span>
-<span id="cb40-4"><a href="#cb40-4"></a><span class="op">!</span>quarto publish <span class="op">--</span>no<span class="op">-</span>browser <span class="op">--</span>no<span class="op">-</span>prompt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>note: 위 코드는 코랩 혹은 리눅스기반 환경에서 동작가능.</p></li>
@@ -619,7 +635,7 @@ hani.jpeg           100%[===================&gt;]   2.33M  --.-KB/s    in 0.04s
 </ul>
 <p>불러온 이미지는 아래와 같다.</p>
 <div class="cell" data-execution_count="169">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>hani, hani.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>hani, hani.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="169">
 <pre><code>(array([[[0.44705882, 0.48627451, 0.49411765],
          [0.43137255, 0.46666667, 0.48627451],
@@ -678,41 +694,47 @@ hani.jpeg           100%[===================&gt;]   2.33M  --.-KB/s    in 0.04s
 </ul>
 <p>이미지를 보는 방법은 아래와 같다.</p>
 <div class="cell" data-execution_count="170">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>plt.imshow(hani) <span class="co"># 모든이미지, 하니매트릭스</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>plt.imshow(hani) <span class="co"># 모든이미지, 하니매트릭스</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="170">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7fd421d57a30&gt;</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-37-output-2.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="171">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>plt.imshow(hani[<span class="dv">1000</span>:<span class="dv">1500</span>, <span class="dv">1000</span>:<span class="dv">2000</span>,:]) <span class="co"># 얼굴만 확대, 하니의 서브매트릭스 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="171">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd421cce9d0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-38-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>3</code>. 하니이미지를 나타내는 어레이를 변형하여 빨간색을 의미하는 칼라만 남겨서 “빨간하니”를 만들고 이미지를 출력하라.</p>
-<div class="cell" data-execution_count="164">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># 출력예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="164">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd44c1ad880&gt;</code></pre>
+<div class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>plt.imshow(hani[<span class="dv">1000</span>:<span class="dv">1500</span>, <span class="dv">1000</span>:<span class="dv">2000</span>,:]) <span class="co"># 얼굴만 확대, 하니의 서브매트릭스 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="135">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7ff6b8ca1d90&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-39-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>4</code>. 하니의 모든 값에 루트를 취하여 “루트하니”를 만들고 “원본하니”와 “루트하니”를 좌우로 나란히 배치하여 출력하라.</p>
-<div class="cell" data-execution_count="172">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># 출력예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="172">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd421c3c490&gt;</code></pre>
+<p><code>3</code>. 하니이미지를 나타내는 어레이를 변형하여 빨간색을 의미하는 칼라만 남겨서 “빨간하니”를 만들고 이미지를 출력하라.</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="144">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>red_hani <span class="op">=</span> hani<span class="op">*</span><span class="dv">0</span> </span>
+<span id="cb49-2"><a href="#cb49-2"></a>red_hani[:,:,<span class="dv">0</span>] <span class="op">=</span> hani[:,:,<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>plt.imshow(red_hani)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="145">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7ff6b8b32c10&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-40-output-2.png" class="img-fluid"></p>
+<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-41-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>4</code>. 하니의 모든 값에 루트를 취하여 “루트하니”를 만들고 “원본하니”와 “루트하니”를 좌우로 나란히 배치하여 출력하라.</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="153">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>plt.imshow(np.concatenate([hani, np.sqrt(hani)],axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="153">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7ff6b8a4d820&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-42-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>“루트하니”의 이미지는 “원본하니”의 이미지와 비교하여 어떤가? 왜 그러한 결과가 나왔다고 생각하는가?</p>
@@ -721,45 +743,50 @@ hani.jpeg           100%[===================&gt;]   2.33M  --.-KB/s    in 0.04s
 <li><span class="math inline">\(f(x)=\begin{cases} \sqrt{x} &amp; x&gt;0.7 \\ x &amp; x \leq 0.7 \end{cases}\)</span></li>
 </ul>
 <p>함수의 결과로 얻어진 매트릭스를 “후광하니”라고 부르자. “원본하니”와 “후광하니”를 좌우로 나란히 배치하여 출력하라.</p>
-<div class="cell" data-execution_count="192">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># 출력예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="192">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd421677e80&gt;</code></pre>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="165">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>shiny_hani <span class="op">=</span> (hani<span class="op">&gt;</span><span class="fl">0.7</span>)<span class="op">*</span>np.sqrt(hani)<span class="op">+</span>(hani<span class="op">&lt;=</span><span class="fl">0.7</span>)<span class="op">*</span>hani</span>
+<span id="cb54-2"><a href="#cb54-2"></a>plt.imshow(np.concatenate([hani,shiny_hani],axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="165">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7ff6b877feb0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-41-output-2.png" class="img-fluid"></p>
+<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-43-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="변환을-의미하는-행렬" class="level2">
 <h2 class="anchored" data-anchor-id="변환을-의미하는-행렬">변환을 의미하는 행렬</h2>
 <p><code>1-3</code>. 아래는 우산모양의 scatter plot을 그릴 수 있는 <span class="math inline">\((x_i,y_i)\)</span> 좌표값을 불러와서 시각화하는 코드이다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="237">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># 자료저장 </span></span>
-<span id="cb54-2"><a href="#cb54-2"></a>dalgona <span class="op">=</span> np.array(pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/2021IR/master/_notebooks/round2.csv'</span>))</span>
-<span id="cb54-3"><a href="#cb54-3"></a>x,y <span class="op">=</span> dalgona.T</span>
-<span id="cb54-4"><a href="#cb54-4"></a>x,y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="237">
+<div class="cell" data-tags="[]" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># 자료저장 </span></span>
+<span id="cb57-2"><a href="#cb57-2"></a>dalgona <span class="op">=</span> np.array(pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/2021IR/master/_notebooks/round2.csv'</span>))</span>
+<span id="cb57-3"><a href="#cb57-3"></a>x,y <span class="op">=</span> dalgona.T</span>
+<span id="cb57-4"><a href="#cb57-4"></a>x,y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>(array([ 12,  12,  13, ..., 636, 636, 637]),
  array([313, 314, 279, ..., 416, 417, 409]))</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="230">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># 시각화</span></span>
-<span id="cb56-2"><a href="#cb56-2"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>)) <span class="co"># 그림크기고정</span></span>
-<span id="cb56-3"><a href="#cb56-3"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># 시각화</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>)) <span class="co"># 그림크기고정</span></span>
+<span id="cb59-3"><a href="#cb59-3"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-44-output-1.png" class="img-fluid"></p>
+<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-46-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>1</code>. x와 y를 각각 표준화하여 저장하라. 결과를 시각화하라.</p>
-<div class="cell" data-execution_count="238">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>x<span class="op">=</span> (x<span class="op">-</span>np.mean(x)) <span class="op">/</span> np.std(x,ddof<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb60-2"><a href="#cb60-2"></a>y<span class="op">=</span> (y<span class="op">-</span>np.mean(y)) <span class="op">/</span> np.std(y,ddof<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb60-3"><a href="#cb60-3"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>)) <span class="co"># 그림크기고정</span></span>
+<span id="cb60-4"><a href="#cb60-4"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-45-output-1.png" class="img-fluid"></p>
+<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-47-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>2</code>. 아래와 같은 규칙에 따라 <span class="math inline">\((x_i,y_i)\)</span>를 <span class="math inline">\((\tilde{x}_i,\tilde{y}_i\)</span>)로 변환하라. 단 여기에서 <span class="math inline">\(\theta= \frac{\pi}{4}\)</span>로 가정한다.</p>
@@ -768,292 +795,22 @@ hani.jpeg           100%[===================&gt;]   2.33M  --.-KB/s    in 0.04s
 <li><span class="math inline">\(\tilde{y}_i = (\sin\theta) x_i + (\cos\theta) y_i\)</span></li>
 </ul>
 <p><span class="math inline">\((x_i,y_i)\)</span>와 <span class="math inline">\((\tilde{x}_i, \tilde{y}_i)\)</span>를 겹쳐서 시각화 하라. 이 변환이 의미하는 바는 무엇이라고 생각하는가?</p>
-<div class="cell" data-execution_count="239">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(풀이1)</p>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>theta <span class="op">=</span> np.pi<span class="op">/</span><span class="dv">4</span> </span>
+<span id="cb61-2"><a href="#cb61-2"></a>xx <span class="op">=</span> np.cos(theta)<span class="op">*</span>x <span class="op">-</span> np.sin(theta)<span class="op">*</span>y</span>
+<span id="cb61-3"><a href="#cb61-3"></a>yy <span class="op">=</span> np.sin(theta)<span class="op">*</span>x <span class="op">+</span> np.cos(theta)<span class="op">*</span>y</span>
+<span id="cb61-4"><a href="#cb61-4"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
+<span id="cb61-5"><a href="#cb61-5"></a>plt.plot(x,y,<span class="st">'o'</span>)</span>
+<span id="cb61-6"><a href="#cb61-6"></a>plt.plot(xx,yy,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-46-output-1.png" class="img-fluid"></p>
+<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-48-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><strong>hint</strong>: 위의 변환은 아래의 매트릭스로 이해할 수 있다.</p>
-<p><span class="math display">\[\begin{bmatrix} \tilde{x}_i \\ \tilde{y}_i \end{bmatrix}=\begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{bmatrix}\begin{bmatrix} x_i \\ y_i \end{bmatrix}\]</span></p>
+<p>(풀이2)</p>
+<p>– 추후재촬영</p>
 <p><code>3</code>. 2번과 같은 변환을 8번 연속진행한 결과를 시각화하라.</p>
-<hr>
-<p><code>4-8</code>. 시계열 자료와 이동평균</p>
-<p><code>4</code>. 아래의 수식에 따르는 수열 <span class="math inline">\(x_t\)</span>를 생성하라. 단, <span class="math inline">\(T=1000\)</span> 으로 설정하고 랜덤시드는 <code>np.random.seed(2)</code>와 같이 설정한다.</p>
-<ul>
-<li><span class="math inline">\(x_1=\epsilon_1\)</span></li>
-<li><span class="math inline">\(x_2=\epsilon_1+\epsilon_2\)</span></li>
-<li><span class="math inline">\(x_3=\epsilon_1+\epsilon_2+\epsilon_3\)</span></li>
-<li><span class="math inline">\(\dots\)</span></li>
-<li><span class="math inline">\(x_T=\sum_{t=1}^{T} \epsilon_t\)</span></li>
-</ul>
-<p>생성결과를 시각화하라.</p>
-<div class="cell" data-execution_count="251">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-47-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><strong>hint</strong> 아래의 코드를 활용하면 쉽다.</p>
-<div class="cell" data-execution_count="253">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>np.cumsum([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="253">
-<pre><code>array([ 1,  3,  6, 10])</code></pre>
-</div>
-</div>
-<p><code>5</code>. 아래와 같은 변환을 수행하고 결과를 시각화 하라.</p>
-<ul>
-<li><span class="math inline">\(x_1= \frac{1}{3}(x_1+x_2)\)</span></li>
-<li><span class="math inline">\(x_2= \frac{1}{3}(x_1+x_2+x_3)\)</span></li>
-<li><span class="math inline">\(x_3= \frac{1}{3}(x_2+x_3+x_4)\)</span></li>
-<li><span class="math inline">\(\dots\)</span></li>
-<li><span class="math inline">\(x_{T-1}= \frac{1}{3}(x_{T-1}+x_{T-1}+x_T)\)</span></li>
-<li><span class="math inline">\(x_{T}= \frac{1}{3}(x_{T-1}+x_T)\)</span></li>
-</ul>
-<p>시각화 예시는 아래와 같다.</p>
-<div class="cell" data-execution_count="273">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-49-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<blockquote class="blockquote">
-<p>Note: 마지막의 끝이 올라간 이유가 무엇이라고 생각하는가?</p>
-</blockquote>
-<p><code>6</code>. 아래와 같은 변환을 수행하고 결과를 시각화하라.</p>
-<ul>
-<li><span class="math inline">\(x_1= \frac{1}{3}(x_1+x_1+x_2)\)</span></li>
-<li><span class="math inline">\(x_2= \frac{1}{3}(x_1+x_2+x_3)\)</span></li>
-<li><span class="math inline">\(x_3= \frac{1}{3}(x_2+x_3+x_4)\)</span></li>
-<li><span class="math inline">\(\dots\)</span></li>
-<li><span class="math inline">\(x_{T-1}= \frac{1}{3}(x_{T-1}+x_{T-1}+x_T)\)</span></li>
-<li><span class="math inline">\(x_{T}= \frac{1}{3}(x_{T-1}+x_T+x_T)\)</span></li>
-</ul>
-<div class="cell" data-execution_count="278">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-50-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>7</code>. 6번의 변환을 100번 반복하고 시각화하라.</p>
-<div class="cell" data-execution_count="290">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-51-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>8</code>. 6번의 변환을 1000번 반복하고 시각화하라.</p>
-<div class="cell" data-execution_count="291">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-52-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="회귀분석" class="level2">
-<h2 class="anchored" data-anchor-id="회귀분석">회귀분석</h2>
-<p><code>1--7</code>. 아래의 모형을 고려하자.</p>
-<ul>
-<li><span class="math inline">\(y_i = 2+3x_i +\epsilon_i,\quad \epsilon_i \overset{iid}{\sim} N(0,1)\)</span></li>
-</ul>
-<p><span class="math inline">\(x_i\)</span>는 아래와 같이 주어졌다고 가정하자.</p>
-<div class="cell" data-execution_count="305">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>x <span class="op">=</span>  np.array([<span class="fl">0.00983</span>, <span class="fl">0.01098</span>, <span class="fl">0.02951</span>, <span class="fl">0.0384</span> , <span class="fl">0.03973</span>, <span class="fl">0.04178</span>, <span class="fl">0.0533</span> ,</span>
-<span id="cb66-2"><a href="#cb66-2"></a>               <span class="fl">0.058</span>  , <span class="fl">0.09454</span>, <span class="fl">0.1103</span> , <span class="fl">0.1328</span> , <span class="fl">0.1412</span> , <span class="fl">0.1497</span> , <span class="fl">0.1664</span> ,</span>
-<span id="cb66-3"><a href="#cb66-3"></a>               <span class="fl">0.1906</span> , <span class="fl">0.1923</span> , <span class="fl">0.198</span>  , <span class="fl">0.2141</span> , <span class="fl">0.2393</span> , <span class="fl">0.2433</span> , <span class="fl">0.3157</span> ,</span>
-<span id="cb66-4"><a href="#cb66-4"></a>               <span class="fl">0.3228</span> , <span class="fl">0.3418</span> , <span class="fl">0.3552</span> , <span class="fl">0.3918</span> , <span class="fl">0.3962</span> , <span class="fl">0.4</span>    , <span class="fl">0.4482</span> ,</span>
-<span id="cb66-5"><a href="#cb66-5"></a>               <span class="fl">0.496</span>  , <span class="fl">0.507</span>  , <span class="fl">0.53</span>   , <span class="fl">0.5654</span> , <span class="fl">0.582</span>  , <span class="fl">0.5854</span> , <span class="fl">0.5854</span> ,</span>
-<span id="cb66-6"><a href="#cb66-6"></a>               <span class="fl">0.6606</span> , <span class="fl">0.7007</span> , <span class="fl">0.723</span>  , <span class="fl">0.7305</span> , <span class="fl">0.7383</span> , <span class="fl">0.7656</span> , <span class="fl">0.7725</span> ,</span>
-<span id="cb66-7"><a href="#cb66-7"></a>               <span class="fl">0.831</span>  , <span class="fl">0.8896</span> , <span class="fl">0.9053</span> , <span class="fl">0.914</span>  , <span class="fl">0.949</span>  , <span class="fl">0.952</span>  , <span class="fl">0.9727</span> ,</span>
-<span id="cb66-8"><a href="#cb66-8"></a>               <span class="fl">0.982</span>  ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>1</code>. 제시된 모형에 맞추어서 <span class="math inline">\(y_i\)</span>를 생성하라. <span class="math inline">\((x_i,y_i)\)</span>를 산점도를 이용하여 시각화하라.</p>
-<div class="cell" data-execution_count="309">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-54-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>2</code>. <code>1</code>과 같은 자료를 잘 표현할 수 있는 적절한 추세선 <span class="math inline">\((x_i, \hat{y}_i)\)</span>를 그리기 위하여 아래의 모형을 가정하자.</p>
-<ul>
-<li><span class="math inline">\(\hat{y}_i = ax_i+b\)</span></li>
-</ul>
-<p><code>(a)</code> <span class="math inline">\(a=1\)</span>, <span class="math inline">\(b=0\)</span> 으로 선택 <span class="math inline">\(\Rightarrow\)</span> 추세선을 <span class="math inline">\(\hat{y}_i = x_i\)</span> 로 선택.</p>
-<p><code>(b)</code> <span class="math inline">\(a=2.5\)</span>, <span class="math inline">\(b=2\)</span> 으로 선택 <span class="math inline">\(\Rightarrow\)</span> 추세선을 <span class="math inline">\(\hat{y}_i = 2.5 x_i + 2\)</span> 로 선택.</p>
-<p><code>(c)</code> <span class="math inline">\(a=3\)</span>, <span class="math inline">\(b=2\)</span> 로 선택 <span class="math inline">\(\Rightarrow\)</span> 추세선을 <span class="math inline">\(\hat{y}_i = 3 x_i + 2\)</span> 로 선택.</p>
-<p>어떠한 추세선이 가장 옳은 선택일까? 각각의 선택에 대한 <span class="math inline">\((x_i, \hat{y}_i)\)</span>를 <span class="math inline">\((x_i,y_i)\)</span>와 겹쳐서 그려보고 스스로 생각해보라.</p>
-<div class="cell" data-execution_count="318">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># (a)의 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-55-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="321">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># (b)의 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-56-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="322">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># (c)의 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1-Copy1_files/figure-html/cell-57-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>3</code>. 아래를 각각 계산하라.</p>
-<p><code>(a)</code> <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}(y_i-x_i)^2\)</span></p>
-<p><code>(b)</code> <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}(y_i-2-2.5x_i)^2\)</span></p>
-<p><code>(c)</code> <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}(y_i-2-3x_i)^2\)</span></p>
-<p>가장 작은 값을 가지는 것은 무엇인가?</p>
-<p><code>4</code>. 3의 결과를 근거로 (a)-(c)중 가장 적절한 추세선을 판단하고 적절한 순서대로 나열하라.</p>
-<p><code>(풀이)</code></p>
-<p>3-(a),(b),(c)는 각각</p>
-<ul>
-<li><span class="math inline">\(\hat{y}_i=x_i\)</span></li>
-<li><span class="math inline">\(\hat{y}_i=2+2.5x_i\)</span></li>
-<li><span class="math inline">\(\hat{y}_i=2+3x_i\)</span></li>
-</ul>
-<p>일 경우</p>
-<p><span class="math display">\[{\tt mse}({\boldsymbol y}, \hat{\boldsymbol y}) = \frac{1}{n}\sum_{i=1}^{n}(y_i -\hat{y}_i)^2\]</span></p>
-<p>를 계산한 것이라 해석할 수 있다. 그런데 <span class="math inline">\({\tt mse}({\boldsymbol y}, \hat{\boldsymbol y})\)</span>의 값은</p>
-<ul>
-<li><span class="math inline">\(y_1 \approx \hat{y}_1\)</span></li>
-<li><span class="math inline">\(y_2 \approx \hat{y}_2\)</span></li>
-<li><span class="math inline">\(\dots\)</span></li>
-<li><span class="math inline">\(y_n \approx \hat{y}_n\)</span></li>
-</ul>
-<p>일수록 작은 값을 가진다. 그리고 위의 조건은 더 적절하게 추세선을 그렸을때 만족된다. 요약하면</p>
-<ul>
-<li>적절한 추세선을 그림 <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(y_i \approx \hat{y}_i\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\({\tt mse}({\boldsymbol y}, \hat{\boldsymbol y})\)</span> 값이 작아짐</li>
-</ul>
-<p>와 같은 관계가 있음을 파악할 수 있다. 따라서 <span class="math inline">\({\tt mse}({\boldsymbol y}, \hat{\boldsymbol y})\)</span>의 값이 작을수록 적절한 추세선이라 생각할 수 있다.</p>
-<p><code>5</code>. 아래와 같은 수식을 이용하여 <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1\)</span> 을 계산하라.</p>
-<p><span class="math display">\[\begin{bmatrix} \hat{\beta}_0 \\ \hat{\beta}_1 \end{bmatrix} = ({\bf X}^T {\bf X})^{-1}{\bf X}^T {\boldsymbol y}, \quad {\bf X}=\begin{bmatrix} 1 &amp; x_1 \\ 1 &amp; x_2 \\ \dots \\ 1 &amp; x_n \end{bmatrix}\]</span></p>
-<p><code>6</code>. <code>4</code>에서 계산된 <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1\)</span>을 각각 <span class="math inline">\(b=\hat{\beta}_0, a=\hat{\beta}_1\)</span>으로 생각하고 적절한 추세선 <span class="math inline">\((x_i, y_i)\)</span>를 그려라. (단, <span class="math inline">\(y_i=ax_i+b\)</span> 이다)</p>
-<p><code>7</code>. 4의 기준에 따르면, <span class="math inline">\((a,b)=(3,2)\)</span> 일때 만들어지는 추세선과 <span class="math inline">\((a,b)=(\hat{\beta}_1,\hat{\beta}_0)\)</span> 일때 만들어지는 추세선은 어떤 것이 더 적절한가?</p>
-<div class="cell" data-execution_count="327">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="op">!</span>git add .</span>
-<span id="cb71-2"><a href="#cb71-2"></a><span class="op">!</span>git commit <span class="op">-</span>m .</span>
-<span id="cb71-3"><a href="#cb71-3"></a><span class="op">!</span>git push </span>
-<span id="cb71-4"><a href="#cb71-4"></a><span class="op">!</span>quarto publish <span class="op">--</span>no<span class="op">-</span>browser <span class="op">--</span>no<span class="op">-</span>prompt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[main 3294283] .
- 9 files changed, 5230 insertions(+), 6 deletions(-)
- create mode 100644 posts/02_PY4DS/.ipynb_checkpoints/2021-08-25-Hani01-checkpoint.jpeg
- create mode 100644 posts/02_PY4DS/.ipynb_checkpoints/2023-04-16-7wk-1-checkpoint.ipynb
- create mode 100644 posts/02_PY4DS/.ipynb_checkpoints/rest-checkpoint.ipynb
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1.ipynb
- create mode 100644 posts/02_PY4DS/rest.ipynb
-Enumerating objects: 15, done.
-Counting objects: 100% (15/15), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (10/10), done.
-Writing objects: 100% (10/10), 903.94 KiB | 21.02 MiB/s, done.
-Total 10 (delta 6), reused 0 (delta 0)
-remote: Resolving deltas: 100% (6/6), completed with 3 local objects.
-To https://github.com/guebin/PP2023.git
-   c2936f6..3294283  main -&gt; main
-From https://github.com/guebin/PP2023
- * branch            gh-pages   -&gt; FETCH_HEAD
-Rendering for publish:
-
-[ 1/20] about.qmd
-[ 2/20] posts/Appendix/2022-06-14-final.ipynb
-[ 3/20] posts/Appendix/2021-04-20-mid.ipynb
-[ 4/20] posts/Appendix/2022-05-03-mid.ipynb
-[ 5/20] posts/Appendix/2021-06-09-final.ipynb
-[ 6/20] posts/02_PY4DS/2023-04-10-6wk-1.ipynb
-[ 7/20] posts/02_PY4DS/2023-04-16-7wk-1.ipynb
-[ 8/20] posts/02_PY4DS/2023-04-12-6wk-2.ipynb
-[ 9/20] posts/02_PY4DS/rest.ipynb
-[10/20] posts/2023-03-06-1wk-1.ipynb
-[11/20] posts/01_PythonBasic/2023-03-22-3wk-2.ipynb
-[12/20] posts/01_PythonBasic/2023-03-08-1wk-2.ipynb
-[13/20] posts/01_PythonBasic/2023-03-20-3wk-1.ipynb
-[14/20] posts/01_PythonBasic/2023-03-15-2wk-2.ipynb
-[15/20] posts/01_PythonBasic/2023-03-13-2wk-1.ipynb
-[16/20] posts/01_PythonBasic/2023-03-27-4wk-1.ipynb
-[17/20] posts/01_PythonBasic/2023-04-05-5wk-2.ipynb
-[18/20] posts/01_PythonBasic/2023-04-03-5wk-1.ipynb
-[19/20] posts/01_PythonBasic/2023-03-29-4wk-2.ipynb
-[20/20] index.qmd
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/Appendix/2022-06-14-final.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/Appendix/2021-04-20-mid.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/Appendix/2022-05-03-mid.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/Appendix/2021-06-09-final.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_PY4DS/2023-04-10-6wk-1.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_PY4DS/2023-04-16-7wk-1.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_PY4DS/2023-04-12-6wk-2.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_PY4DS/rest.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/2023-03-06-1wk-1.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-22-3wk-2.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-08-1wk-2.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-20-3wk-1.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-15-2wk-2.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-13-2wk-1.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-27-4wk-1.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-04-05-5wk-2.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-04-03-5wk-1.ipynb in the listing 'listing' contains no metadata.
-WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-29-4wk-2.ipynb in the listing 'listing' contains no metadata.
-
-Preparing worktree (resetting branch 'gh-pages'; was at 7d74fba)
-Branch 'gh-pages' set up to track remote branch 'gh-pages' from 'origin'.
-HEAD is now at 7d74fba Built site for gh-pages
-[gh-pages d1cbec2] Built site for gh-pages
- 45 files changed, 1595 insertions(+), 46 deletions(-)
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1.html
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-10-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-11-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-12-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-13-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-14-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-15-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-16-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-17-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-18-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-19-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-20-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-21-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-23-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-24-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-33-output-2.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-34-output-2.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-35-output-2.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-36-output-2.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-37-output-2.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-40-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-41-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-42-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-43-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-45-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-46-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-47-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-48-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-5-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-50-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-51-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-52-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-53-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-6-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-7-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-8-output-1.png
- create mode 100644 posts/02_PY4DS/2023-04-16-7wk-1_files/figure-html/cell-9-output-1.png
- create mode 100644 posts/02_PY4DS/rest.html
-origin  https://github.com/guebin/PP2023.git (fetch)
-origin  https://github.com/guebin/PP2023.git (push)
-To https://github.com/guebin/PP2023.git
-   7d74fba..d1cbec2  HEAD -&gt; gh-pages
-
-NOTE: GitHub Pages sites use caching so you might need to click the refresh
-button within your web browser to see changes after deployment.
-
-[✓] Published to https://guebin.github.io/PP2023/
-
-NOTE: GitHub Pages deployments normally take a few minutes (your site updates
-will be visible once the deploy completes)
-</code></pre>
-</div>
-</div>
+<p>– 추후재촬영</p>
 
 
 </section>
