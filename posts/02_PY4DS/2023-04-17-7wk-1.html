@@ -226,7 +226,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#그래프" id="toc-그래프" class="nav-link" data-scroll-target="#그래프">그래프</a></li>
   <li><a href="#자료를-저장하는-행렬" id="toc-자료를-저장하는-행렬" class="nav-link" data-scroll-target="#자료를-저장하는-행렬">자료를 저장하는 행렬</a></li>
-  <li><a href="#변환을-의미하는-행렬" id="toc-변환을-의미하는-행렬" class="nav-link" data-scroll-target="#변환을-의미하는-행렬">변환을 의미하는 행렬</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -243,6 +242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>youtube: <a href="https://youtube.com/playlist?list=PLQqh36zP38-ymffyqSCkU7zE4L7VC4Rg7" class="uri">https://youtube.com/playlist?list=PLQqh36zP38-ymffyqSCkU7zE4L7VC4Rg7</a></p>
 </blockquote>
+<p>– 위의 강의영상이 깨짐을 확인하였습니다. (소리만 녹음되고 영상은 멈춰있음) 해당영상은 주말중 재촬영할 예정이니 그때 학습하시기 바랍니다. 학습에 불편을 드려 죄송합니다.</p>
 </section>
 <section id="import" class="level1">
 <h1>import</h1>
@@ -800,63 +800,6 @@ hani.jpeg           100%[===================&gt;]   2.33M  --.-KB/s    in 0.04s
 <p><img src="2023-04-17-7wk-1_files/figure-html/cell-43-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-</section>
-<section id="변환을-의미하는-행렬" class="level2">
-<h2 class="anchored" data-anchor-id="변환을-의미하는-행렬">변환을 의미하는 행렬</h2>
-<p><code>1-3</code>. 아래는 우산모양의 scatter plot을 그릴 수 있는 <span class="math inline">\((x_i,y_i)\)</span> 좌표값을 불러와서 시각화하는 코드이다.</p>
-<div class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># import pandas as pd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-tags="[]" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># 자료저장 </span></span>
-<span id="cb57-2"><a href="#cb57-2"></a>dalgona <span class="op">=</span> np.array(pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/2021IR/master/_notebooks/round2.csv'</span>))</span>
-<span id="cb57-3"><a href="#cb57-3"></a>x,y <span class="op">=</span> dalgona.T</span>
-<span id="cb57-4"><a href="#cb57-4"></a>x,y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
-<pre><code>(array([ 12,  12,  13, ..., 636, 636, 637]),
- array([313, 314, 279, ..., 416, 417, 409]))</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># 시각화</span></span>
-<span id="cb59-2"><a href="#cb59-2"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>)) <span class="co"># 그림크기고정</span></span>
-<span id="cb59-3"><a href="#cb59-3"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1_files/figure-html/cell-46-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>1</code>. x와 y를 각각 표준화하여 저장하라. 결과를 시각화하라.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>x<span class="op">=</span> (x<span class="op">-</span>np.mean(x)) <span class="op">/</span> np.std(x,ddof<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb60-2"><a href="#cb60-2"></a>y<span class="op">=</span> (y<span class="op">-</span>np.mean(y)) <span class="op">/</span> np.std(y,ddof<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb60-3"><a href="#cb60-3"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>)) <span class="co"># 그림크기고정</span></span>
-<span id="cb60-4"><a href="#cb60-4"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1_files/figure-html/cell-47-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>2</code>. 아래와 같은 규칙에 따라 <span class="math inline">\((x_i,y_i)\)</span>를 <span class="math inline">\((\tilde{x}_i,\tilde{y}_i\)</span>)로 변환하라. 단 여기에서 <span class="math inline">\(\theta= \frac{\pi}{4}\)</span>로 가정한다.</p>
-<ul>
-<li><span class="math inline">\(\tilde{x}_i = (\cos\theta) x_i - (\sin\theta) y_i\)</span></li>
-<li><span class="math inline">\(\tilde{y}_i = (\sin\theta) x_i + (\cos\theta) y_i\)</span></li>
-</ul>
-<p><span class="math inline">\((x_i,y_i)\)</span>와 <span class="math inline">\((\tilde{x}_i, \tilde{y}_i)\)</span>를 겹쳐서 시각화 하라. 이 변환이 의미하는 바는 무엇이라고 생각하는가?</p>
-<p>(풀이1)</p>
-<div class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>theta <span class="op">=</span> np.pi<span class="op">/</span><span class="dv">4</span> </span>
-<span id="cb61-2"><a href="#cb61-2"></a>xx <span class="op">=</span> np.cos(theta)<span class="op">*</span>x <span class="op">-</span> np.sin(theta)<span class="op">*</span>y</span>
-<span id="cb61-3"><a href="#cb61-3"></a>yy <span class="op">=</span> np.sin(theta)<span class="op">*</span>x <span class="op">+</span> np.cos(theta)<span class="op">*</span>y</span>
-<span id="cb61-4"><a href="#cb61-4"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
-<span id="cb61-5"><a href="#cb61-5"></a>plt.plot(x,y,<span class="st">'o'</span>)</span>
-<span id="cb61-6"><a href="#cb61-6"></a>plt.plot(xx,yy,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-04-17-7wk-1_files/figure-html/cell-48-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>(풀이2)</p>
-<p>– 추후재촬영</p>
-<p><code>3</code>. 2번과 같은 변환을 8번 연속진행한 결과를 시각화하라.</p>
-<p>– 추후재촬영</p>
 
 
 </section>
