@@ -306,16 +306,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
        ['90', '90', '80', '90', '2022-12354']], dtype='&lt;U21')</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="91">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>arr[arr[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'2022-12363'</span>,<span class="dv">0</span>] <span class="co"># 읽기어려운 코드</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="91">
 <pre><code>array(['65'], dtype='&lt;U21')</code></pre>
 </div>
 </div>
 <p><strong>(풀이2)가 (풀이1)에 비하여 불편한 점</strong></p>
 <ul>
-<li>arr 마지마칼럼이 student id 이고 첫번쨰 칼럼은 att라는 사실을 암기하고 있어야 한다.</li>
-<li>자료형이 문자로 저장되어있음</li>
+<li>arr 마지마칼럼이 student id 이고 첫번째 칼럼은 att라는 사실을 암기하고 있어야 한다.</li>
+<li>자료형이 문자로 강제로 바뀌어서 저장되어있음</li>
 <li>작성한 코드의 가독성이 없다. (위치로 접근하기 때문)</li>
 </ul>
 <p><code>-</code> 요약: hash 스타일로 정보를 추출하는 것이 유용할 때가 있다. 그리고 보통 hash 스타일로 정보를 뽑는 것이 유리하다. (사실 numpy는 정보추출을 위해 개발된 자료형이 아니라 행렬 및 벡터의 수학연산을 지원하기 위해 개발된 자료형이다)</p>
