@@ -207,9 +207,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">강의영상</a></li>
   <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">import</a></li>
-  <li><a href="#부분-데이터-꺼내기-판다스를-왜-써야할까" id="toc-부분-데이터-꺼내기-판다스를-왜-써야할까" class="nav-link" data-scroll-target="#부분-데이터-꺼내기-판다스를-왜-써야할까">부분 데이터 꺼내기: 판다스를 왜 써야할까?</a></li>
   <li><a href="#pandas-개발동기" id="toc-pandas-개발동기" class="nav-link" data-scroll-target="#pandas-개발동기">pandas 개발동기</a>
   <ul class="collapse">
+  <li><a href="#부분-데이터-꺼내기-판다스를-왜-써야할까" id="toc-부분-데이터-꺼내기-판다스를-왜-써야할까" class="nav-link" data-scroll-target="#부분-데이터-꺼내기-판다스를-왜-써야할까">부분 데이터 꺼내기: 판다스를 왜 써야할까?</a></li>
   <li><a href="#엑셀처럼-데이터를-테이블-형태로-정리하고-싶다" id="toc-엑셀처럼-데이터를-테이블-형태로-정리하고-싶다" class="nav-link" data-scroll-target="#엑셀처럼-데이터를-테이블-형태로-정리하고-싶다">엑셀처럼 데이터를 테이블 형태로 정리하고 싶다</a></li>
   <li><a href="#해싱으로-원하는-정보를-뽑으면-좋겠다-마치-딕셔너리처럼" id="toc-해싱으로-원하는-정보를-뽑으면-좋겠다-마치-딕셔너리처럼" class="nav-link" data-scroll-target="#해싱으로-원하는-정보를-뽑으면-좋겠다-마치-딕셔너리처럼">해싱으로 원하는 정보를 뽑으면 좋겠다 (마치 딕셔너리처럼)</a></li>
   <li><a href="#인덱싱으로-정보를-뽑는-기능도-지원을-하면-좋겠다-마치-리스트나-넘파이처럼" id="toc-인덱싱으로-정보를-뽑는-기능도-지원을-하면-좋겠다-마치-리스트나-넘파이처럼" class="nav-link" data-scroll-target="#인덱싱으로-정보를-뽑는-기능도-지원을-하면-좋겠다-마치-리스트나-넘파이처럼">인덱싱으로 정보를 뽑는 기능도 지원을 하면 좋겠다 (마치 리스트나 넘파이처럼)</a></li>
@@ -253,8 +253,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="부분-데이터-꺼내기-판다스를-왜-써야할까" class="level1">
-<h1>부분 데이터 꺼내기: 판다스를 왜 써야할까?</h1>
+<section id="pandas-개발동기" class="level1">
+<h1>pandas 개발동기</h1>
+<section id="부분-데이터-꺼내기-판다스를-왜-써야할까" class="level2">
+<h2 class="anchored" data-anchor-id="부분-데이터-꺼내기-판다스를-왜-써야할까">부분 데이터 꺼내기: 판다스를 왜 써야할까?</h2>
 <p><code>-</code> 예시1: 때로는 인덱스로 때로는 key로 데이터를 부르고 싶다.</p>
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
@@ -321,8 +323,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>-</code> 요약: hash 스타일로 정보를 추출하는 것이 유용할 때가 있다. 그리고 보통 hash 스타일로 정보를 뽑는 것이 유리하다. (사실 numpy는 정보추출을 위해 개발된 자료형이 아니라 행렬 및 벡터의 수학연산을 지원하기 위해 개발된 자료형이다)</p>
 <p><code>-</code> 소망: 정보를 추출할때는 hash 스타일도 유용하다는 것은 이해함 <span class="math inline">\(\to\)</span> 하지만 나는 가끔 넘파이스타일로 정보를 뽑고 싶은걸? 그리고 딕셔너리 형태가 아니고 엑셀처럼(행렬처럼) 데이터를 보고 싶은걸? <span class="math inline">\(\to\)</span> pandas의 개발</p>
 </section>
-<section id="pandas-개발동기" class="level1">
-<h1>pandas 개발동기</h1>
 <section id="엑셀처럼-데이터를-테이블-형태로-정리하고-싶다" class="level2">
 <h2 class="anchored" data-anchor-id="엑셀처럼-데이터를-테이블-형태로-정리하고-싶다">엑셀처럼 데이터를 테이블 형태로 정리하고 싶다</h2>
 <p>(방법1) – 넘파이</p>
