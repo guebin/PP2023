@@ -236,10 +236,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://colab.research.google.com/github/guebin/PP2023/blob/main/posts/02_PY4DS/2023-04-26-8wk-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <section id="강의영상" class="level1">
 <h1>강의영상</h1>
+<blockquote class="blockquote">
+<p>youtube: <a href="https://youtube.com/playlist?list=PLQqh36zP38-zfy1Ym_3c6h8ih5XePRK55" class="uri">https://youtube.com/playlist?list=PLQqh36zP38-zfy1Ym_3c6h8ih5XePRK55</a></p>
+</blockquote>
 </section>
 <section id="import" class="level1">
 <h1>import</h1>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -249,11 +252,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>-</code> df자료형의 메소드를 알아보자.</p>
 <section id="전치" class="level2">
 <h2 class="anchored" data-anchor-id="전치">전치</h2>
-<div class="cell" data-execution_count="248">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>arr <span class="op">=</span> np.arange(<span class="dv">2</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>df <span class="op">=</span> pd.DataFrame(ndarray)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>df <span class="op">=</span> pd.DataFrame(arr)</span>
 <span id="cb2-3"><a href="#cb2-3"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="248">
+<div class="cell-output cell-output-display" data-execution_count="16">
 
 <div>
 
@@ -284,17 +287,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="249">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>arr.T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="249">
-<pre><code>array([[0, 3],
-       [1, 4],
-       [2, 5]])</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="250">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="250">
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df.T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
 
 <div>
 
@@ -330,41 +325,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="합" class="level2">
 <h2 class="anchored" data-anchor-id="합">합</h2>
-<div class="cell" data-execution_count="251">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>arr.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="251">
-<pre><code>array([3, 5, 7])</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="252">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="252">
-<pre><code>0    3
-1    5
-2    7
-dtype: int64</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="254">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>arr.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="254">
-<pre><code>array([ 3, 12])</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="255">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="255">
-<pre><code>0     3
-1    12
-dtype: int64</code></pre>
-</div>
-</div>
-</section>
-<section id="cumsum" class="level2">
-<h2 class="anchored" data-anchor-id="cumsum">cumsum</h2>
-<div class="cell" data-execution_count="256">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="256">
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
 
 <div>
 
@@ -395,16 +358,29 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="257">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>arr.cumsum(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="257">
-<pre><code>array([[0, 1, 2],
-       [3, 5, 7]])</code></pre>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>0    3
+1    5
+2    7
+dtype: int64</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="258">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>df.cumsum(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="258">
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>0     3
+1    12
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="cumsum" class="level2">
+<h2 class="anchored" data-anchor-id="cumsum">cumsum</h2>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
 
 <div>
 
@@ -427,24 +403,17 @@ dtype: int64</code></pre>
     <tr>
       <th>1</th>
       <td>3</td>
+      <td>4</td>
       <td>5</td>
-      <td>7</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="259">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>arr.cumsum(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="259">
-<pre><code>array([[ 0,  1,  3],
-       [ 3,  7, 12]])</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="260">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>df.cumsum(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="260">
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>df.cumsum(axis<span class="op">=</span><span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
 
 <div>
 
@@ -478,28 +447,55 @@ dtype: int64</code></pre>
 </section>
 <section id="형태변환" class="level2">
 <h2 class="anchored" data-anchor-id="형태변환">형태변환</h2>
-<div class="cell" data-execution_count="261">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>arr.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="261">
-<pre><code>[[0, 1, 2], [3, 4, 5]]</code></pre>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
-<div class="cell" data-execution_count="262">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>df.to_dict()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="262">
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df.to_dict()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>{0: {0: 0, 1: 3}, 1: {0: 1, 1: 4}, 2: {0: 2, 1: 5}}</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="263">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>df.to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="263">
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>df.to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>array([[0, 1, 2],
        [3, 4, 5]])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="264">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df.to_numpy().tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="264">
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>df.to_numpy().tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>[[0, 1, 2], [3, 4, 5]]</code></pre>
 </div>
 </div>
@@ -510,16 +506,16 @@ dtype: int64</code></pre>
 </section>
 <section id="pandas-공부-4단계" class="level1">
 <h1>pandas 공부 4단계</h1>
-<div class="cell" data-execution_count="74">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb29-2"><a href="#cb29-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb29-3"><a href="#cb29-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb29-4"><a href="#cb29-4"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb29-5"><a href="#cb29-5"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb29-6"><a href="#cb29-6"></a>key <span class="op">=</span> [<span class="st">'2022-12'</span><span class="op">+</span><span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> np.random.choice(np.arange(<span class="dv">300</span>,<span class="dv">501</span>),<span class="dv">20</span>,replace<span class="op">=</span><span class="va">False</span>)]</span>
-<span id="cb29-7"><a href="#cb29-7"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin},index<span class="op">=</span>key)</span>
-<span id="cb29-8"><a href="#cb29-8"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="74">
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb18-4"><a href="#cb18-4"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb18-5"><a href="#cb18-5"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb18-6"><a href="#cb18-6"></a>key <span class="op">=</span> [<span class="st">'2022-12'</span><span class="op">+</span><span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> np.random.choice(np.arange(<span class="dv">300</span>,<span class="dv">501</span>),<span class="dv">20</span>,replace<span class="op">=</span><span class="va">False</span>)]</span>
+<span id="cb18-7"><a href="#cb18-7"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin},index<span class="op">=</span>key)</span>
+<span id="cb18-8"><a href="#cb18-8"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
 
 <div>
 
@@ -569,12 +565,155 @@ dtype: int64</code></pre>
       <td>30</td>
       <td>100</td>
     </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="query-star" class="level2">
+<h2 class="anchored" data-anchor-id="query-star">query (<span class="math inline">\(\star\)</span>)</h2>
+<p><code>-</code> 예제1: att==90 and fin&gt;30</p>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>df.query(<span class="st">'att ==90 and fin &gt;30'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
     <tr>
-      <th>2022-12377</th>
-      <td>75</td>
-      <td>40</td>
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-12354</th>
+      <td>90</td>
+      <td>90</td>
+      <td>80</td>
+      <td>90</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>-</code> 예제2: att&lt;rep and mid&lt;fin</p>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>df.query(<span class="st">'att&lt;rep and mid&lt;fin'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-12370</th>
+      <td>95</td>
       <td>100</td>
+      <td>50</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>2022-12488</th>
+      <td>55</td>
+      <td>80</td>
+      <td>75</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>2022-12458</th>
+      <td>50</td>
+      <td>55</td>
       <td>15</td>
+      <td>85</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>-</code> 예제3: att &lt; rep &lt; 80</p>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>df.query(<span class="st">'att&lt;rep&lt;80'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="50">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-12318</th>
+      <td>55</td>
+      <td>75</td>
+      <td>35</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>2022-12458</th>
+      <td>50</td>
+      <td>55</td>
+      <td>15</td>
+      <td>85</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>-</code> 예제4: 50 &lt; att &lt;= 90 and mid &lt; fin</p>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>df.query(<span class="st">'50&lt;att&lt;=90 and mid&lt;fin'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-12488</th>
+      <td>55</td>
+      <td>80</td>
+      <td>75</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>2022-12312</th>
+      <td>80</td>
+      <td>30</td>
+      <td>30</td>
+      <td>100</td>
     </tr>
     <tr>
       <th>2022-12463</th>
@@ -584,11 +723,134 @@ dtype: int64</code></pre>
       <td>90</td>
     </tr>
     <tr>
-      <th>2022-12471</th>
-      <td>60</td>
-      <td>60</td>
-      <td>25</td>
-      <td>0</td>
+      <th>2022-12452</th>
+      <td>65</td>
+      <td>55</td>
+      <td>15</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2022-12354</th>
+      <td>90</td>
+      <td>90</td>
+      <td>80</td>
+      <td>90</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>-</code> 예제5: (mid+fin)/2 &gt;=60</p>
+<div class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>df.query(<span class="st">'(mid+fin)/2&gt;=60'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="56">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-12370</th>
+      <td>95</td>
+      <td>100</td>
+      <td>50</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>2022-12488</th>
+      <td>55</td>
+      <td>80</td>
+      <td>75</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>2022-12312</th>
+      <td>80</td>
+      <td>30</td>
+      <td>30</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2022-12463</th>
+      <td>65</td>
+      <td>45</td>
+      <td>45</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>2022-12396</th>
+      <td>95</td>
+      <td>30</td>
+      <td>30</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>2022-12354</th>
+      <td>90</td>
+      <td>90</td>
+      <td>80</td>
+      <td>90</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>-</code> 예제6: att &gt; mean(att)</p>
+<div class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>_mean <span class="op">=</span> df[<span class="st">'att'</span>].mean() </span>
+<span id="cb24-2"><a href="#cb24-2"></a>_mean </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+<pre><code>73.0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df.query(<span class="st">'att&gt; @_mean'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="67">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-12370</th>
+      <td>95</td>
+      <td>100</td>
+      <td>50</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>2022-12312</th>
+      <td>80</td>
+      <td>30</td>
+      <td>30</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2022-12377</th>
+      <td>75</td>
+      <td>40</td>
+      <td>100</td>
+      <td>15</td>
     </tr>
     <tr>
       <th>2022-12400</th>
@@ -605,13 +867,6 @@ dtype: int64</code></pre>
       <td>20</td>
     </tr>
     <tr>
-      <th>2022-12318</th>
-      <td>55</td>
-      <td>75</td>
-      <td>35</td>
-      <td>25</td>
-    </tr>
-    <tr>
       <th>2022-12432</th>
       <td>95</td>
       <td>95</td>
@@ -626,46 +881,11 @@ dtype: int64</code></pre>
       <td>35</td>
     </tr>
     <tr>
-      <th>2022-12367</th>
-      <td>50</td>
-      <td>80</td>
-      <td>40</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>2022-12458</th>
-      <td>50</td>
-      <td>55</td>
-      <td>15</td>
-      <td>85</td>
-    </tr>
-    <tr>
       <th>2022-12396</th>
       <td>95</td>
       <td>30</td>
       <td>30</td>
       <td>95</td>
-    </tr>
-    <tr>
-      <th>2022-12482</th>
-      <td>50</td>
-      <td>50</td>
-      <td>45</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>2022-12452</th>
-      <td>65</td>
-      <td>55</td>
-      <td>15</td>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>2022-12387</th>
-      <td>70</td>
-      <td>70</td>
-      <td>40</td>
-      <td>35</td>
     </tr>
     <tr>
       <th>2022-12354</th>
@@ -679,31 +899,23 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<section id="query-star" class="level2">
-<h2 class="anchored" data-anchor-id="query-star">query (<span class="math inline">\(\star\)</span>)</h2>
-<p><code>-</code> 예제1: att==90 and mid&gt;30</p>
-<p><code>-</code> 예제2: att&lt;rep and mid&lt;fin</p>
-<p><code>-</code> 예제3: att &lt; rep &lt; 80</p>
-<p><code>-</code> 예제4: 50 &lt; att &lt;= 90 and mid &lt; fin</p>
-<p><code>-</code> 예제5: (mid+fin)/2 &gt;=60</p>
-<p><code>-</code> 예제6: att &gt; mean(att)</p>
 </section>
 <section id="시계열자료" class="level2">
 <h2 class="anchored" data-anchor-id="시계열자료">시계열자료</h2>
 <p><code>-</code> 시계열자료</p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>pd.date_range(<span class="st">'20211226'</span>,periods<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>pd.date_range(<span class="st">'20211226'</span>,periods<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="68">
 <pre><code>DatetimeIndex(['2021-12-26', '2021-12-27', '2021-12-28', '2021-12-29',
                '2021-12-30', '2021-12-31', '2022-01-01', '2022-01-02',
                '2022-01-03', '2022-01-04'],
               dtype='datetime64[ns]', freq='D')</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>df<span class="op">=</span>pd.DataFrame(np.random.normal(size<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">4</span>)),columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'ABCD'</span>),index<span class="op">=</span>pd.date_range(<span class="st">'20211226'</span>,periods<span class="op">=</span><span class="dv">10</span>))</span>
-<span id="cb32-2"><a href="#cb32-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>df<span class="op">=</span>pd.DataFrame(np.random.normal(size<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">4</span>)),columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'ABCD'</span>),index<span class="op">=</span>pd.date_range(<span class="st">'20211226'</span>,periods<span class="op">=</span><span class="dv">10</span>))</span>
+<span id="cb29-2"><a href="#cb29-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="71">
 
 <div>
 
@@ -720,73 +932,73 @@ dtype: int64</code></pre>
   <tbody>
     <tr>
       <th>2021-12-26</th>
-      <td>-2.658986</td>
-      <td>-0.454728</td>
-      <td>-0.464535</td>
-      <td>-1.169608</td>
+      <td>0.638090</td>
+      <td>-0.706648</td>
+      <td>0.214164</td>
+      <td>1.683409</td>
     </tr>
     <tr>
       <th>2021-12-27</th>
-      <td>-0.192147</td>
-      <td>2.030259</td>
-      <td>0.664386</td>
-      <td>0.952542</td>
+      <td>-0.922290</td>
+      <td>0.614785</td>
+      <td>0.405039</td>
+      <td>0.034917</td>
     </tr>
     <tr>
       <th>2021-12-28</th>
-      <td>0.365968</td>
-      <td>-0.331578</td>
-      <td>1.406415</td>
-      <td>2.000335</td>
+      <td>0.402721</td>
+      <td>-0.066538</td>
+      <td>1.015060</td>
+      <td>-2.030076</td>
     </tr>
     <tr>
       <th>2021-12-29</th>
-      <td>-1.218406</td>
-      <td>-0.128681</td>
-      <td>-0.577439</td>
-      <td>0.751631</td>
+      <td>0.117482</td>
+      <td>-0.241408</td>
+      <td>-0.178216</td>
+      <td>-0.594159</td>
     </tr>
     <tr>
       <th>2021-12-30</th>
-      <td>1.662317</td>
-      <td>-0.269270</td>
-      <td>1.199374</td>
-      <td>-0.491857</td>
+      <td>-1.178254</td>
+      <td>0.334073</td>
+      <td>0.108820</td>
+      <td>-1.038094</td>
     </tr>
     <tr>
       <th>2021-12-31</th>
-      <td>0.343982</td>
-      <td>0.720184</td>
-      <td>-0.622415</td>
-      <td>0.577259</td>
+      <td>0.903143</td>
+      <td>0.390493</td>
+      <td>0.793207</td>
+      <td>-0.855129</td>
     </tr>
     <tr>
       <th>2022-01-01</th>
-      <td>-0.767349</td>
-      <td>0.017995</td>
-      <td>1.058768</td>
-      <td>-0.660882</td>
+      <td>-0.146165</td>
+      <td>0.109616</td>
+      <td>-0.811606</td>
+      <td>-0.224088</td>
     </tr>
     <tr>
       <th>2022-01-02</th>
-      <td>1.143322</td>
-      <td>0.403276</td>
-      <td>1.303369</td>
-      <td>-1.073962</td>
+      <td>0.318889</td>
+      <td>-0.817596</td>
+      <td>1.300542</td>
+      <td>0.576502</td>
     </tr>
     <tr>
       <th>2022-01-03</th>
-      <td>0.887379</td>
-      <td>-1.270920</td>
-      <td>-0.021559</td>
-      <td>1.298922</td>
+      <td>-0.252256</td>
+      <td>-1.078405</td>
+      <td>-0.569968</td>
+      <td>-1.664744</td>
     </tr>
     <tr>
       <th>2022-01-04</th>
-      <td>-1.554196</td>
-      <td>1.344636</td>
-      <td>0.396388</td>
-      <td>-0.405718</td>
+      <td>-0.252979</td>
+      <td>0.334156</td>
+      <td>-0.756330</td>
+      <td>-0.367841</td>
     </tr>
   </tbody>
 </table>
@@ -794,13 +1006,191 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제1: 시계열자료에서의 인덱싱</p>
+<div class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>df.loc[<span class="st">'2021-12-28'</span>:<span class="st">'2022-01-02'</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="74">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-12-28</th>
+      <td>0.402721</td>
+      <td>-0.066538</td>
+      <td>1.015060</td>
+      <td>-2.030076</td>
+    </tr>
+    <tr>
+      <th>2021-12-29</th>
+      <td>0.117482</td>
+      <td>-0.241408</td>
+      <td>-0.178216</td>
+      <td>-0.594159</td>
+    </tr>
+    <tr>
+      <th>2021-12-30</th>
+      <td>-1.178254</td>
+      <td>0.334073</td>
+      <td>0.108820</td>
+      <td>-1.038094</td>
+    </tr>
+    <tr>
+      <th>2021-12-31</th>
+      <td>0.903143</td>
+      <td>0.390493</td>
+      <td>0.793207</td>
+      <td>-0.855129</td>
+    </tr>
+    <tr>
+      <th>2022-01-01</th>
+      <td>-0.146165</td>
+      <td>0.109616</td>
+      <td>-0.811606</td>
+      <td>-0.224088</td>
+    </tr>
+    <tr>
+      <th>2022-01-02</th>
+      <td>0.318889</td>
+      <td>-0.817596</td>
+      <td>1.300542</td>
+      <td>0.576502</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 <p><code>-</code> 예제3: 스트라이딩 (샘플링)</p>
+<div class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>df.loc[::<span class="dv">3</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-12-26</th>
+      <td>0.638090</td>
+      <td>-0.706648</td>
+      <td>0.214164</td>
+      <td>1.683409</td>
+    </tr>
+    <tr>
+      <th>2021-12-29</th>
+      <td>0.117482</td>
+      <td>-0.241408</td>
+      <td>-0.178216</td>
+      <td>-0.594159</td>
+    </tr>
+    <tr>
+      <th>2022-01-01</th>
+      <td>-0.146165</td>
+      <td>0.109616</td>
+      <td>-0.811606</td>
+      <td>-0.224088</td>
+    </tr>
+    <tr>
+      <th>2022-01-04</th>
+      <td>-0.252979</td>
+      <td>0.334156</td>
+      <td>-0.756330</td>
+      <td>-0.367841</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 <p><code>-</code> 예제4: query를 이용한 인덱싱</p>
+<div class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>df.query(<span class="st">"index &lt;= '2021-12-30' or index=='2022-01-02'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="83">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-12-26</th>
+      <td>0.638090</td>
+      <td>-0.706648</td>
+      <td>0.214164</td>
+      <td>1.683409</td>
+    </tr>
+    <tr>
+      <th>2021-12-27</th>
+      <td>-0.922290</td>
+      <td>0.614785</td>
+      <td>0.405039</td>
+      <td>0.034917</td>
+    </tr>
+    <tr>
+      <th>2021-12-28</th>
+      <td>0.402721</td>
+      <td>-0.066538</td>
+      <td>1.015060</td>
+      <td>-2.030076</td>
+    </tr>
+    <tr>
+      <th>2021-12-29</th>
+      <td>0.117482</td>
+      <td>-0.241408</td>
+      <td>-0.178216</td>
+      <td>-0.594159</td>
+    </tr>
+    <tr>
+      <th>2021-12-30</th>
+      <td>-1.178254</td>
+      <td>0.334073</td>
+      <td>0.108820</td>
+      <td>-1.038094</td>
+    </tr>
+    <tr>
+      <th>2022-01-02</th>
+      <td>0.318889</td>
+      <td>-0.817596</td>
+      <td>1.300542</td>
+      <td>0.576502</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
 <section id="더러운-자료-1" class="level2">
 <h2 class="anchored" data-anchor-id="더러운-자료-1">더러운 자료 (1)</h2>
 <p><strong><em>예비학습: 하나의 col을 선택하는 가장 좋은 방법</em></strong></p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="86">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
 <span id="cb33-2"><a href="#cb33-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
 <span id="cb33-3"><a href="#cb33-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
@@ -809,7 +1199,7 @@ dtype: int64</code></pre>
 <span id="cb33-6"><a href="#cb33-6"></a>key <span class="op">=</span> [<span class="st">'2022-12'</span><span class="op">+</span><span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> np.random.choice(np.arange(<span class="dv">300</span>,<span class="dv">501</span>),<span class="dv">20</span>,replace<span class="op">=</span><span class="va">False</span>)]</span>
 <span id="cb33-7"><a href="#cb33-7"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin},index<span class="op">=</span>key)</span>
 <span id="cb33-8"><a href="#cb33-8"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="86">
 
 <div>
 
@@ -865,14 +1255,40 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p><code>-</code> att 선택</p>
-<p><code>-</code> 단점: 변수이름에 스페이스가 있으면 쓸 수 없음.</p>
+<div class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df.att</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="93">
+<pre><code>2022-12380    65
+2022-12370    95
+2022-12363    65
+2022-12488    55
+2022-12312    80
+2022-12377    75
+2022-12463    65
+2022-12471    60
+2022-12400    95
+2022-12469    90
+2022-12318    55
+2022-12432    95
+2022-12443    95
+2022-12367    50
+2022-12458    50
+2022-12396    95
+2022-12482    50
+2022-12452    65
+2022-12387    70
+2022-12354    90
+Name: att, dtype: int64</code></pre>
+</div>
+</div>
+<p><code>-</code> 단점: 칼럼이름에 스페이스가 있으면 쓸 수 없음.</p>
 <p><strong><em>예비학습끝</em></strong></p>
 <hr>
 <p><code>-</code> 누가 자료를 아래와 같이 주었다고 하자. (엑셀특)</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df.columns <span class="op">=</span> pd.Index([<span class="st">'att score'</span>, <span class="st">'rep score'</span>, <span class="st">'mid score'</span>, <span class="st">'fin score'</span>])</span>
-<span id="cb34-2"><a href="#cb34-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell" data-execution_count="115">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>df.columns <span class="op">=</span> pd.Index([<span class="st">'att score'</span>, <span class="st">'rep score'</span>, <span class="st">'mid score'</span>, <span class="st">'fin score'</span>])</span>
+<span id="cb36-2"><a href="#cb36-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="115">
 
 <div>
 
@@ -928,23 +1344,249 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p><code>-</code> 출석점수를 뽑고 싶다면?</p>
+<div class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>df[<span class="st">'att score'</span>]</span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="co"># df.att score # 이코드는 실행불가능</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="102">
+<pre><code>2022-12380    65
+2022-12370    95
+2022-12363    65
+2022-12488    55
+2022-12312    80
+2022-12377    75
+2022-12463    65
+2022-12471    60
+2022-12400    95
+2022-12469    90
+2022-12318    55
+2022-12432    95
+2022-12443    95
+2022-12367    50
+2022-12458    50
+2022-12396    95
+2022-12482    50
+2022-12452    65
+2022-12387    70
+2022-12354    90
+Name: att score, dtype: int64</code></pre>
+</div>
+</div>
 <p><code>-</code> 출석점수가 90보다 작은 학생을 뽑고 싶다면?</p>
+<div class="cell" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>df.loc[df[<span class="st">'att score'</span>] <span class="op">&lt;</span> <span class="dv">90</span>, :] </span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="co"># df.query('att score &lt; 90')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>att score</th>
+      <th>rep score</th>
+      <th>mid score</th>
+      <th>fin score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-12380</th>
+      <td>65</td>
+      <td>55</td>
+      <td>50</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>2022-12363</th>
+      <td>65</td>
+      <td>90</td>
+      <td>60</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>2022-12488</th>
+      <td>55</td>
+      <td>80</td>
+      <td>75</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>2022-12312</th>
+      <td>80</td>
+      <td>30</td>
+      <td>30</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2022-12377</th>
+      <td>75</td>
+      <td>40</td>
+      <td>100</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>2022-12463</th>
+      <td>65</td>
+      <td>45</td>
+      <td>45</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>2022-12471</th>
+      <td>60</td>
+      <td>60</td>
+      <td>25</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2022-12318</th>
+      <td>55</td>
+      <td>75</td>
+      <td>35</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>2022-12367</th>
+      <td>50</td>
+      <td>80</td>
+      <td>40</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>2022-12458</th>
+      <td>50</td>
+      <td>55</td>
+      <td>15</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>2022-12482</th>
+      <td>50</td>
+      <td>50</td>
+      <td>45</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2022-12452</th>
+      <td>65</td>
+      <td>55</td>
+      <td>15</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2022-12387</th>
+      <td>70</td>
+      <td>70</td>
+      <td>40</td>
+      <td>35</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 <p><code>-</code> 그냥 컬럼이름을 바꾸고 하는것도 방법임</p>
+<div class="cell" data-execution_count="125">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>df.columns <span class="op">=</span> pd.Index([l.replace(<span class="st">' '</span>,<span class="st">'_'</span>) <span class="cf">for</span> l <span class="kw">in</span> <span class="bu">list</span>(df.columns)])</span>
+<span id="cb40-2"><a href="#cb40-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="125">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>att_score</th>
+      <th>rep_score</th>
+      <th>mid_score</th>
+      <th>fin_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-12380</th>
+      <td>65</td>
+      <td>55</td>
+      <td>50</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>2022-12370</th>
+      <td>95</td>
+      <td>100</td>
+      <td>50</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>2022-12363</th>
+      <td>65</td>
+      <td>90</td>
+      <td>60</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>2022-12488</th>
+      <td>55</td>
+      <td>80</td>
+      <td>75</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>2022-12312</th>
+      <td>80</td>
+      <td>30</td>
+      <td>30</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="126">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>df.query(<span class="st">'att_score&lt;90'</span>)</span>
+<span id="cb41-2"><a href="#cb41-2"></a>df.att_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="126">
+<pre><code>2022-12380    65
+2022-12370    95
+2022-12363    65
+2022-12488    55
+2022-12312    80
+2022-12377    75
+2022-12463    65
+2022-12471    60
+2022-12400    95
+2022-12469    90
+2022-12318    55
+2022-12432    95
+2022-12443    95
+2022-12367    50
+2022-12458    50
+2022-12396    95
+2022-12482    50
+2022-12452    65
+2022-12387    70
+2022-12354    90
+Name: att_score, dtype: int64</code></pre>
+</div>
+</div>
 <p><code>-</code> 그렇지만 col이름을 바꾸는게 항상 만능은 아니다.</p>
 </section>
 <section id="개인습관" class="level2">
 <h2 class="anchored" data-anchor-id="개인습관">개인습관</h2>
 <p><code>-</code> row의 이름은 없는게 낫다고 생각함 // 시계열자료는 예외</p>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb35-2"><a href="#cb35-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb35-3"><a href="#cb35-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb35-4"><a href="#cb35-4"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb35-5"><a href="#cb35-5"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb35-6"><a href="#cb35-6"></a>key <span class="op">=</span> [<span class="st">'2022-12'</span><span class="op">+</span><span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> np.random.choice(np.arange(<span class="dv">300</span>,<span class="dv">501</span>),<span class="dv">20</span>,replace<span class="op">=</span><span class="va">False</span>)]</span>
-<span id="cb35-7"><a href="#cb35-7"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin},index<span class="op">=</span>key)</span>
-<span id="cb35-8"><a href="#cb35-8"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell" data-execution_count="127">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb43-2"><a href="#cb43-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb43-3"><a href="#cb43-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb43-4"><a href="#cb43-4"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb43-5"><a href="#cb43-5"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb43-6"><a href="#cb43-6"></a>key <span class="op">=</span> [<span class="st">'2022-12'</span><span class="op">+</span><span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> np.random.choice(np.arange(<span class="dv">300</span>,<span class="dv">501</span>),<span class="dv">20</span>,replace<span class="op">=</span><span class="va">False</span>)]</span>
+<span id="cb43-7"><a href="#cb43-7"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin},index<span class="op">=</span>key)</span>
+<span id="cb43-8"><a href="#cb43-8"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="127">
 
 <div>
 
@@ -999,10 +1641,10 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>df2<span class="op">=</span> df.reset_index().rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'student_id'</span>})</span>
-<span id="cb36-2"><a href="#cb36-2"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell" data-execution_count="132">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>df2 <span class="op">=</span> df.reset_index().rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'student_id'</span>})</span>
+<span id="cb44-2"><a href="#cb44-2"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="132">
 
 <div>
 
@@ -1058,139 +1700,19 @@ dtype: int64</code></pre>
       <td>30</td>
       <td>100</td>
     </tr>
-    <tr>
-      <th>5</th>
-      <td>2022-12377</td>
-      <td>75</td>
-      <td>40</td>
-      <td>100</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2022-12463</td>
-      <td>65</td>
-      <td>45</td>
-      <td>45</td>
-      <td>90</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2022-12471</td>
-      <td>60</td>
-      <td>60</td>
-      <td>25</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2022-12400</td>
-      <td>95</td>
-      <td>65</td>
-      <td>20</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2022-12469</td>
-      <td>90</td>
-      <td>80</td>
-      <td>80</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>2022-12318</td>
-      <td>55</td>
-      <td>75</td>
-      <td>35</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>2022-12432</td>
-      <td>95</td>
-      <td>95</td>
-      <td>45</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>2022-12443</td>
-      <td>95</td>
-      <td>55</td>
-      <td>15</td>
-      <td>35</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>2022-12367</td>
-      <td>50</td>
-      <td>80</td>
-      <td>40</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>2022-12458</td>
-      <td>50</td>
-      <td>55</td>
-      <td>15</td>
-      <td>85</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>2022-12396</td>
-      <td>95</td>
-      <td>30</td>
-      <td>30</td>
-      <td>95</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>2022-12482</td>
-      <td>50</td>
-      <td>50</td>
-      <td>45</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>2022-12452</td>
-      <td>65</td>
-      <td>55</td>
-      <td>15</td>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>2022-12387</td>
-      <td>70</td>
-      <td>70</td>
-      <td>40</td>
-      <td>35</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>2022-12354</td>
-      <td>90</td>
-      <td>90</td>
-      <td>80</td>
-      <td>90</td>
-    </tr>
   </tbody>
 </table>
 </div>
 </div>
 </div>
 <p><code>-</code> 편해</p>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>df2.loc[<span class="dv">0</span>,<span class="st">'student_id'</span>:<span class="st">'rep'</span>] </span>
-<span id="cb37-2"><a href="#cb37-2"></a>df2.loc[[<span class="dv">0</span>],<span class="st">'student_id'</span>:<span class="st">'rep'</span>] </span>
-<span id="cb37-3"><a href="#cb37-3"></a>df2.loc[[<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">5</span>],<span class="st">'student_id'</span>:<span class="st">'rep'</span>] </span>
-<span id="cb37-4"><a href="#cb37-4"></a>df2.loc[<span class="bu">range</span>(<span class="dv">5</span>),<span class="st">'student_id'</span>:<span class="st">'rep'</span>] <span class="co">## 끝점포함</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a>df2.loc[<span class="dv">5</span>::<span class="dv">2</span>,<span class="st">'student_id'</span>:<span class="st">'rep'</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co">#df2.loc[0,'student_id':'rep'] </span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="co">#df2.loc[[0],'student_id':'rep'] </span></span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="co">#df2.loc[[0,4,5],'student_id':'rep'] </span></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="co">#df2.loc[range(5),'student_id':'rep'] </span></span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="co">#df2.loc[5::2,'student_id':'rep'] </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="142">
 
 <div>
 
@@ -1205,52 +1727,34 @@ dtype: int64</code></pre>
   </thead>
   <tbody>
     <tr>
-      <th>5</th>
-      <td>2022-12377</td>
-      <td>75</td>
-      <td>40</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2022-12471</td>
-      <td>60</td>
-      <td>60</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2022-12469</td>
-      <td>90</td>
-      <td>80</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>2022-12432</td>
-      <td>95</td>
-      <td>95</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>2022-12367</td>
-      <td>50</td>
-      <td>80</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>2022-12396</td>
-      <td>95</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>2022-12452</td>
+      <th>0</th>
+      <td>2022-12380</td>
       <td>65</td>
       <td>55</td>
     </tr>
     <tr>
-      <th>19</th>
-      <td>2022-12354</td>
+      <th>1</th>
+      <td>2022-12370</td>
+      <td>95</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-12363</td>
+      <td>65</td>
       <td>90</td>
-      <td>90</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-12488</td>
+      <td>55</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-12312</td>
+      <td>80</td>
+      <td>30</td>
     </tr>
   </tbody>
 </table>
@@ -1261,19 +1765,19 @@ dtype: int64</code></pre>
 <section id="새로운-열의-추가-starstarstar" class="level2">
 <h2 class="anchored" data-anchor-id="새로운-열의-추가-starstarstar">새로운 열의 추가 (<span class="math inline">\(\star\star\star\)</span>)</h2>
 <p><code>-</code> 자료</p>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb38-2"><a href="#cb38-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb38-3"><a href="#cb38-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb38-4"><a href="#cb38-4"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb38-5"><a href="#cb38-5"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb38-6"><a href="#cb38-6"></a>student_id <span class="op">=</span> [ <span class="st">'2023-12362'</span>, <span class="st">'2022-12471'</span>, <span class="st">'2023-12333'</span>, <span class="st">'2022-12400'</span>, <span class="st">'2022-12377'</span>,</span>
-<span id="cb38-7"><a href="#cb38-7"></a>               <span class="st">'2022-12469'</span>, <span class="st">'2023-12314'</span>, <span class="st">'2022-12363'</span>, <span class="st">'2023-12445'</span>, <span class="st">'2023-12336'</span>,</span>
-<span id="cb38-8"><a href="#cb38-8"></a>               <span class="st">'2023-12426'</span>, <span class="st">'2022-12380'</span>, <span class="st">'2023-12422'</span>, <span class="st">'2022-12488'</span>, <span class="st">'2022-12370'</span>,</span>
-<span id="cb38-9"><a href="#cb38-9"></a>               <span class="st">'2023-12443'</span>, <span class="st">'2022-12463'</span>, <span class="st">'2023-12491'</span>, <span class="st">'2023-12340'</span>, <span class="st">'2022-12312'</span> ]</span>
-<span id="cb38-10"><a href="#cb38-10"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'student_id'</span>:student_id,<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin})</span>
-<span id="cb38-11"><a href="#cb38-11"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb46-2"><a href="#cb46-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb46-3"><a href="#cb46-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb46-4"><a href="#cb46-4"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb46-5"><a href="#cb46-5"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb46-6"><a href="#cb46-6"></a>student_id <span class="op">=</span> [ <span class="st">'2023-12362'</span>, <span class="st">'2022-12471'</span>, <span class="st">'2023-12333'</span>, <span class="st">'2022-12400'</span>, <span class="st">'2022-12377'</span>,</span>
+<span id="cb46-7"><a href="#cb46-7"></a>               <span class="st">'2022-12469'</span>, <span class="st">'2023-12314'</span>, <span class="st">'2022-12363'</span>, <span class="st">'2023-12445'</span>, <span class="st">'2023-12336'</span>,</span>
+<span id="cb46-8"><a href="#cb46-8"></a>               <span class="st">'2023-12426'</span>, <span class="st">'2022-12380'</span>, <span class="st">'2023-12422'</span>, <span class="st">'2022-12488'</span>, <span class="st">'2022-12370'</span>,</span>
+<span id="cb46-9"><a href="#cb46-9"></a>               <span class="st">'2023-12443'</span>, <span class="st">'2022-12463'</span>, <span class="st">'2023-12491'</span>, <span class="st">'2023-12340'</span>, <span class="st">'2022-12312'</span> ]</span>
+<span id="cb46-10"><a href="#cb46-10"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'student_id'</span>:student_id,<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin})</span>
+<span id="cb46-11"><a href="#cb46-11"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="143">
 
 <div>
 
@@ -1455,36 +1959,763 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p><code>-</code> 방법1: assign을 이용한 추가</p>
+<div class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>df.assign(total <span class="op">=</span> df.att<span class="op">*</span><span class="fl">0.1</span> <span class="op">+</span> df.rep<span class="op">*</span><span class="fl">0.2</span> <span class="op">+</span> df.mid<span class="op">*</span><span class="fl">0.3</span> <span class="op">+</span> df.fin<span class="op">*</span><span class="fl">0.4</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="149">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>student_id</th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+      <th>total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2023-12362</td>
+      <td>65</td>
+      <td>55</td>
+      <td>50</td>
+      <td>40</td>
+      <td>48.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-12471</td>
+      <td>95</td>
+      <td>100</td>
+      <td>50</td>
+      <td>80</td>
+      <td>76.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2023-12333</td>
+      <td>65</td>
+      <td>90</td>
+      <td>60</td>
+      <td>30</td>
+      <td>54.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-12400</td>
+      <td>55</td>
+      <td>80</td>
+      <td>75</td>
+      <td>80</td>
+      <td>76.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-12377</td>
+      <td>80</td>
+      <td>30</td>
+      <td>30</td>
+      <td>100</td>
+      <td>63.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2022-12469</td>
+      <td>75</td>
+      <td>40</td>
+      <td>100</td>
+      <td>15</td>
+      <td>51.5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2023-12314</td>
+      <td>65</td>
+      <td>45</td>
+      <td>45</td>
+      <td>90</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2022-12363</td>
+      <td>60</td>
+      <td>60</td>
+      <td>25</td>
+      <td>0</td>
+      <td>25.5</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2023-12445</td>
+      <td>95</td>
+      <td>65</td>
+      <td>20</td>
+      <td>10</td>
+      <td>32.5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2023-12336</td>
+      <td>90</td>
+      <td>80</td>
+      <td>80</td>
+      <td>20</td>
+      <td>57.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2023-12426</td>
+      <td>55</td>
+      <td>75</td>
+      <td>35</td>
+      <td>25</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2022-12380</td>
+      <td>95</td>
+      <td>95</td>
+      <td>45</td>
+      <td>0</td>
+      <td>42.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2023-12422</td>
+      <td>95</td>
+      <td>55</td>
+      <td>15</td>
+      <td>35</td>
+      <td>39.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2022-12488</td>
+      <td>50</td>
+      <td>80</td>
+      <td>40</td>
+      <td>30</td>
+      <td>45.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2022-12370</td>
+      <td>50</td>
+      <td>55</td>
+      <td>15</td>
+      <td>85</td>
+      <td>54.5</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2023-12443</td>
+      <td>95</td>
+      <td>30</td>
+      <td>30</td>
+      <td>95</td>
+      <td>62.5</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2022-12463</td>
+      <td>50</td>
+      <td>50</td>
+      <td>45</td>
+      <td>10</td>
+      <td>32.5</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2023-12491</td>
+      <td>65</td>
+      <td>55</td>
+      <td>15</td>
+      <td>45</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2023-12340</td>
+      <td>70</td>
+      <td>70</td>
+      <td>40</td>
+      <td>35</td>
+      <td>47.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2022-12312</td>
+      <td>90</td>
+      <td>90</td>
+      <td>80</td>
+      <td>90</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 <p><code>-</code> 방법2: eval을 이용한 추가</p>
+<div class="cell" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>df.<span class="bu">eval</span>(<span class="st">'total = att*0.1 + rep*0.2 + mid*0.3 + fin*0.4'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="150">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>student_id</th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+      <th>total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2023-12362</td>
+      <td>65</td>
+      <td>55</td>
+      <td>50</td>
+      <td>40</td>
+      <td>48.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-12471</td>
+      <td>95</td>
+      <td>100</td>
+      <td>50</td>
+      <td>80</td>
+      <td>76.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2023-12333</td>
+      <td>65</td>
+      <td>90</td>
+      <td>60</td>
+      <td>30</td>
+      <td>54.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-12400</td>
+      <td>55</td>
+      <td>80</td>
+      <td>75</td>
+      <td>80</td>
+      <td>76.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-12377</td>
+      <td>80</td>
+      <td>30</td>
+      <td>30</td>
+      <td>100</td>
+      <td>63.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2022-12469</td>
+      <td>75</td>
+      <td>40</td>
+      <td>100</td>
+      <td>15</td>
+      <td>51.5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2023-12314</td>
+      <td>65</td>
+      <td>45</td>
+      <td>45</td>
+      <td>90</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2022-12363</td>
+      <td>60</td>
+      <td>60</td>
+      <td>25</td>
+      <td>0</td>
+      <td>25.5</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2023-12445</td>
+      <td>95</td>
+      <td>65</td>
+      <td>20</td>
+      <td>10</td>
+      <td>32.5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2023-12336</td>
+      <td>90</td>
+      <td>80</td>
+      <td>80</td>
+      <td>20</td>
+      <td>57.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2023-12426</td>
+      <td>55</td>
+      <td>75</td>
+      <td>35</td>
+      <td>25</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2022-12380</td>
+      <td>95</td>
+      <td>95</td>
+      <td>45</td>
+      <td>0</td>
+      <td>42.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2023-12422</td>
+      <td>95</td>
+      <td>55</td>
+      <td>15</td>
+      <td>35</td>
+      <td>39.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2022-12488</td>
+      <td>50</td>
+      <td>80</td>
+      <td>40</td>
+      <td>30</td>
+      <td>45.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2022-12370</td>
+      <td>50</td>
+      <td>55</td>
+      <td>15</td>
+      <td>85</td>
+      <td>54.5</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2023-12443</td>
+      <td>95</td>
+      <td>30</td>
+      <td>30</td>
+      <td>95</td>
+      <td>62.5</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2022-12463</td>
+      <td>50</td>
+      <td>50</td>
+      <td>45</td>
+      <td>10</td>
+      <td>32.5</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2023-12491</td>
+      <td>65</td>
+      <td>55</td>
+      <td>15</td>
+      <td>45</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2023-12340</td>
+      <td>70</td>
+      <td>70</td>
+      <td>40</td>
+      <td>35</td>
+      <td>47.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2022-12312</td>
+      <td>90</td>
+      <td>90</td>
+      <td>80</td>
+      <td>90</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 <p><code>-</code> 방법3: <code>df['total']</code> 을 이용한 할당 // 추천X</p>
+<div class="cell" data-execution_count="154">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>df[<span class="st">'total'</span>] <span class="op">=</span> df.att<span class="op">*</span><span class="fl">0.1</span> <span class="op">+</span> df.rep<span class="op">*</span><span class="fl">0.2</span> <span class="op">+</span> df.mid<span class="op">*</span><span class="fl">0.3</span> <span class="op">+</span> df.fin<span class="op">*</span><span class="fl">0.4</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="154">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>student_id</th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+      <th>total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2023-12362</td>
+      <td>65</td>
+      <td>55</td>
+      <td>50</td>
+      <td>40</td>
+      <td>48.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-12471</td>
+      <td>95</td>
+      <td>100</td>
+      <td>50</td>
+      <td>80</td>
+      <td>76.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2023-12333</td>
+      <td>65</td>
+      <td>90</td>
+      <td>60</td>
+      <td>30</td>
+      <td>54.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-12400</td>
+      <td>55</td>
+      <td>80</td>
+      <td>75</td>
+      <td>80</td>
+      <td>76.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-12377</td>
+      <td>80</td>
+      <td>30</td>
+      <td>30</td>
+      <td>100</td>
+      <td>63.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2022-12469</td>
+      <td>75</td>
+      <td>40</td>
+      <td>100</td>
+      <td>15</td>
+      <td>51.5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2023-12314</td>
+      <td>65</td>
+      <td>45</td>
+      <td>45</td>
+      <td>90</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2022-12363</td>
+      <td>60</td>
+      <td>60</td>
+      <td>25</td>
+      <td>0</td>
+      <td>25.5</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2023-12445</td>
+      <td>95</td>
+      <td>65</td>
+      <td>20</td>
+      <td>10</td>
+      <td>32.5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2023-12336</td>
+      <td>90</td>
+      <td>80</td>
+      <td>80</td>
+      <td>20</td>
+      <td>57.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2023-12426</td>
+      <td>55</td>
+      <td>75</td>
+      <td>35</td>
+      <td>25</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2022-12380</td>
+      <td>95</td>
+      <td>95</td>
+      <td>45</td>
+      <td>0</td>
+      <td>42.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2023-12422</td>
+      <td>95</td>
+      <td>55</td>
+      <td>15</td>
+      <td>35</td>
+      <td>39.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2022-12488</td>
+      <td>50</td>
+      <td>80</td>
+      <td>40</td>
+      <td>30</td>
+      <td>45.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2022-12370</td>
+      <td>50</td>
+      <td>55</td>
+      <td>15</td>
+      <td>85</td>
+      <td>54.5</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2023-12443</td>
+      <td>95</td>
+      <td>30</td>
+      <td>30</td>
+      <td>95</td>
+      <td>62.5</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2022-12463</td>
+      <td>50</td>
+      <td>50</td>
+      <td>45</td>
+      <td>10</td>
+      <td>32.5</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2023-12491</td>
+      <td>65</td>
+      <td>55</td>
+      <td>15</td>
+      <td>45</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2023-12340</td>
+      <td>70</td>
+      <td>70</td>
+      <td>40</td>
+      <td>35</td>
+      <td>47.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2022-12312</td>
+      <td>90</td>
+      <td>90</td>
+      <td>80</td>
+      <td>90</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 <p><code>-</code> 아래의 자료에서 입학년도를 추가하고 싶다면?</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb39-2"><a href="#cb39-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb39-3"><a href="#cb39-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb39-4"><a href="#cb39-4"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb39-5"><a href="#cb39-5"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
-<span id="cb39-6"><a href="#cb39-6"></a>student_id <span class="op">=</span> [ <span class="st">'2023-12362'</span>, <span class="st">'2022-12471'</span>, <span class="st">'2023-12333'</span>, <span class="st">'2022-12400'</span>, <span class="st">'2022-12377'</span>,</span>
-<span id="cb39-7"><a href="#cb39-7"></a>               <span class="st">'2022-12469'</span>, <span class="st">'2023-12314'</span>, <span class="st">'2022-12363'</span>, <span class="st">'2023-12445'</span>, <span class="st">'2023-12336'</span>,</span>
-<span id="cb39-8"><a href="#cb39-8"></a>               <span class="st">'2023-12426'</span>, <span class="st">'2022-12380'</span>, <span class="st">'2023-12422'</span>, <span class="st">'2022-12488'</span>, <span class="st">'2022-12370'</span>,</span>
-<span id="cb39-9"><a href="#cb39-9"></a>               <span class="st">'2023-12443'</span>, <span class="st">'2022-12463'</span>, <span class="st">'2023-12491'</span>, <span class="st">'2023-12340'</span>, <span class="st">'2022-12312'</span> ]</span>
-<span id="cb39-10"><a href="#cb39-10"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'student_id'</span>:student_id,<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="155">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb50-2"><a href="#cb50-2"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb50-3"><a href="#cb50-3"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb50-4"><a href="#cb50-4"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb50-5"><a href="#cb50-5"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb50-6"><a href="#cb50-6"></a>student_id <span class="op">=</span> [ <span class="st">'2023-12362'</span>, <span class="st">'2022-12471'</span>, <span class="st">'2023-12333'</span>, <span class="st">'2022-12400'</span>, <span class="st">'2022-12377'</span>,</span>
+<span id="cb50-7"><a href="#cb50-7"></a>               <span class="st">'2022-12469'</span>, <span class="st">'2023-12314'</span>, <span class="st">'2022-12363'</span>, <span class="st">'2023-12445'</span>, <span class="st">'2023-12336'</span>,</span>
+<span id="cb50-8"><a href="#cb50-8"></a>               <span class="st">'2023-12426'</span>, <span class="st">'2022-12380'</span>, <span class="st">'2023-12422'</span>, <span class="st">'2022-12488'</span>, <span class="st">'2022-12370'</span>,</span>
+<span id="cb50-9"><a href="#cb50-9"></a>               <span class="st">'2023-12443'</span>, <span class="st">'2022-12463'</span>, <span class="st">'2023-12491'</span>, <span class="st">'2023-12340'</span>, <span class="st">'2022-12312'</span> ]</span>
+<span id="cb50-10"><a href="#cb50-10"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'student_id'</span>:student_id,<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="166">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>df.assign(year<span class="op">=</span>[l.split(<span class="st">'-'</span>)[<span class="dv">0</span>] <span class="cf">for</span> l <span class="kw">in</span> <span class="bu">list</span>(df.student_id)]).query(<span class="st">'year=="2022"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="166">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>student_id</th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>2022-12471</td>
+      <td>95</td>
+      <td>100</td>
+      <td>50</td>
+      <td>80</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-12400</td>
+      <td>55</td>
+      <td>80</td>
+      <td>75</td>
+      <td>80</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-12377</td>
+      <td>80</td>
+      <td>30</td>
+      <td>30</td>
+      <td>100</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2022-12469</td>
+      <td>75</td>
+      <td>40</td>
+      <td>100</td>
+      <td>15</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2022-12363</td>
+      <td>60</td>
+      <td>60</td>
+      <td>25</td>
+      <td>0</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2022-12380</td>
+      <td>95</td>
+      <td>95</td>
+      <td>45</td>
+      <td>0</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2022-12488</td>
+      <td>50</td>
+      <td>80</td>
+      <td>40</td>
+      <td>30</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2022-12370</td>
+      <td>50</td>
+      <td>55</td>
+      <td>15</td>
+      <td>85</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2022-12463</td>
+      <td>50</td>
+      <td>50</td>
+      <td>45</td>
+      <td>10</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2022-12312</td>
+      <td>90</td>
+      <td>90</td>
+      <td>80</td>
+      <td>90</td>
+      <td>2022</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
 </div>
 </section>
 </section>
 <section id="hw" class="level1">
 <h1>HW</h1>
 <div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>np.random.seed(<span class="dv">20230426</span>)</span>
-<span id="cb40-2"><a href="#cb40-2"></a>day <span class="op">=</span> [<span class="st">'2023-04-24(Mon)'</span>,<span class="st">'2023-04-25(Tue)'</span>,<span class="st">'2023-04-26(Wed)'</span>,<span class="st">'2023-04-27(Thu)'</span>,<span class="st">'2023-04-28(Fri)'</span>,</span>
-<span id="cb40-3"><a href="#cb40-3"></a>       <span class="st">'2023-05-01(Mon)'</span>,<span class="st">'2023-05-02(Tue)'</span>,<span class="st">'2023-05-03(Wed)'</span>,<span class="st">'2023-05-04(Thu)'</span>,<span class="st">'2023-05-05(Fri)'</span>,</span>
-<span id="cb40-4"><a href="#cb40-4"></a>       <span class="st">'2023-05-08(Mon)'</span>,<span class="st">'2023-05-09(Tue)'</span>,<span class="st">'2023-05-10(Wed)'</span>,<span class="st">'2023-05-11(Thu)'</span>,<span class="st">'2023-05-12(Fri)'</span>]</span>
-<span id="cb40-5"><a href="#cb40-5"></a>hours1 <span class="op">=</span> np.random.randn(<span class="dv">15</span>).cumsum()<span class="op">*</span><span class="dv">2</span></span>
-<span id="cb40-6"><a href="#cb40-6"></a>hours1 <span class="op">=</span> hours1 <span class="op">-</span> hours1.<span class="bu">min</span>() <span class="op">+</span><span class="dv">1</span></span>
-<span id="cb40-7"><a href="#cb40-7"></a>hours2 <span class="op">=</span> np.random.randn(<span class="dv">15</span>).cumsum()<span class="op">*</span><span class="dv">2</span></span>
-<span id="cb40-8"><a href="#cb40-8"></a>hours2 <span class="op">=</span> hours2 <span class="op">-</span> hours2.<span class="bu">min</span>() <span class="op">+</span><span class="dv">1</span></span>
-<span id="cb40-9"><a href="#cb40-9"></a></span>
-<span id="cb40-10"><a href="#cb40-10"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'hours(R)'</span>:hours1, <span class="st">'hours(Python)'</span>:hours2},index<span class="op">=</span>day)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>np.random.seed(<span class="dv">20230426</span>)</span>
+<span id="cb52-2"><a href="#cb52-2"></a>day <span class="op">=</span> [<span class="st">'2023-04-24(Mon)'</span>,<span class="st">'2023-04-25(Tue)'</span>,<span class="st">'2023-04-26(Wed)'</span>,<span class="st">'2023-04-27(Thu)'</span>,<span class="st">'2023-04-28(Fri)'</span>,</span>
+<span id="cb52-3"><a href="#cb52-3"></a>       <span class="st">'2023-05-01(Mon)'</span>,<span class="st">'2023-05-02(Tue)'</span>,<span class="st">'2023-05-03(Wed)'</span>,<span class="st">'2023-05-04(Thu)'</span>,<span class="st">'2023-05-05(Fri)'</span>,</span>
+<span id="cb52-4"><a href="#cb52-4"></a>       <span class="st">'2023-05-08(Mon)'</span>,<span class="st">'2023-05-09(Tue)'</span>,<span class="st">'2023-05-10(Wed)'</span>,<span class="st">'2023-05-11(Thu)'</span>,<span class="st">'2023-05-12(Fri)'</span>]</span>
+<span id="cb52-5"><a href="#cb52-5"></a>hours1 <span class="op">=</span> np.random.randn(<span class="dv">15</span>).cumsum()<span class="op">*</span><span class="dv">2</span></span>
+<span id="cb52-6"><a href="#cb52-6"></a>hours1 <span class="op">=</span> hours1 <span class="op">-</span> hours1.<span class="bu">min</span>() <span class="op">+</span><span class="dv">1</span></span>
+<span id="cb52-7"><a href="#cb52-7"></a>hours2 <span class="op">=</span> np.random.randn(<span class="dv">15</span>).cumsum()<span class="op">*</span><span class="dv">2</span></span>
+<span id="cb52-8"><a href="#cb52-8"></a>hours2 <span class="op">=</span> hours2 <span class="op">-</span> hours2.<span class="bu">min</span>() <span class="op">+</span><span class="dv">1</span></span>
+<span id="cb52-9"><a href="#cb52-9"></a></span>
+<span id="cb52-10"><a href="#cb52-10"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'hours(R)'</span>:hours1, <span class="st">'hours(Python)'</span>:hours2},index<span class="op">=</span>day)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
