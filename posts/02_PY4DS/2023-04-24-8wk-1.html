@@ -1814,6 +1814,655 @@ dtype: float64</code></pre>
 </section>
 <section id="hw" class="level1">
 <h1>HW</h1>
+<p><code>(1)</code> 아래와 같은 데이터 프레임을 선언하라.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML </span>
+<span id="cb92-2"><a href="#cb92-2"></a>HTML(<span class="st">'&lt;table border="1" class="dataframe"&gt;</span><span class="ch">\n</span><span class="st">  &lt;thead&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr style="text-align: right;"&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;A&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;B&lt;/th&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/thead&gt;</span><span class="ch">\n</span><span class="st">  &lt;tbody&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;0&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;1&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-4&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>-2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>-3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>-4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<p><code>(2)</code> Column을 이름을 X1, X2로 변경하라. 출력결과는 아래와 같아야 한다.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML </span>
+<span id="cb93-2"><a href="#cb93-2"></a>HTML(<span class="st">'&lt;table border="1" class="dataframe"&gt;</span><span class="ch">\n</span><span class="st">  &lt;thead&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr style="text-align: right;"&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;X1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;X2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/thead&gt;</span><span class="ch">\n</span><span class="st">  &lt;tbody&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;0&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;1&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;1&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;2&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;-4&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>X1</th>
+      <th>X2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>-2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>-3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>-4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<p><code>(3)-(5)</code> 아래와 같은 자료를 고려하자.</p>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.normal(size<span class="op">=</span>(<span class="dv">100</span>,<span class="dv">5</span>)),columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'ABCDE'</span>))</span>
+<span id="cb94-2"><a href="#cb94-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="50">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.418772</td>
+      <td>-0.696117</td>
+      <td>-0.991782</td>
+      <td>0.699132</td>
+      <td>0.383106</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.043035</td>
+      <td>0.368485</td>
+      <td>0.496954</td>
+      <td>1.856436</td>
+      <td>-0.044173</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.740777</td>
+      <td>0.661799</td>
+      <td>-0.202878</td>
+      <td>-0.815515</td>
+      <td>0.113802</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.252643</td>
+      <td>-0.556405</td>
+      <td>0.195918</td>
+      <td>2.348348</td>
+      <td>0.138151</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.338199</td>
+      <td>0.701314</td>
+      <td>-0.796320</td>
+      <td>1.805240</td>
+      <td>0.023359</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>-1.186282</td>
+      <td>0.888573</td>
+      <td>0.033064</td>
+      <td>0.593482</td>
+      <td>-0.469767</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>1.360826</td>
+      <td>1.066167</td>
+      <td>-0.591643</td>
+      <td>-2.357730</td>
+      <td>0.378024</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>-0.896493</td>
+      <td>-0.308818</td>
+      <td>-0.106333</td>
+      <td>0.266530</td>
+      <td>0.241442</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>-0.032422</td>
+      <td>0.845386</td>
+      <td>0.120278</td>
+      <td>-1.009388</td>
+      <td>-0.646064</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>-0.065882</td>
+      <td>0.013868</td>
+      <td>0.003193</td>
+      <td>0.424534</td>
+      <td>-0.164168</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 5 columns</p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> B,D열을 선택하라.</p>
+<p><code>(4)</code> 마지막 10개의 row를 출력하라.</p>
+<p><code>(5)</code> A,B 열의 처음 10개의 row를 출력하라.</p>
+<p><code>(6)-(9)</code> 아래와 같은 자료를 고려하자.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/movie.csv'</span>)</span>
+<span id="cb95-2"><a href="#cb95-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>color</th>
+      <th>director_name</th>
+      <th>num_critic_for_reviews</th>
+      <th>duration</th>
+      <th>director_facebook_likes</th>
+      <th>actor_3_facebook_likes</th>
+      <th>actor_2_name</th>
+      <th>actor_1_facebook_likes</th>
+      <th>gross</th>
+      <th>genres</th>
+      <th>...</th>
+      <th>num_user_for_reviews</th>
+      <th>language</th>
+      <th>country</th>
+      <th>content_rating</th>
+      <th>budget</th>
+      <th>title_year</th>
+      <th>actor_2_facebook_likes</th>
+      <th>imdb_score</th>
+      <th>aspect_ratio</th>
+      <th>movie_facebook_likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Color</td>
+      <td>James Cameron</td>
+      <td>723.0</td>
+      <td>178.0</td>
+      <td>0.0</td>
+      <td>855.0</td>
+      <td>Joel David Moore</td>
+      <td>1000.0</td>
+      <td>760505847.0</td>
+      <td>Action|Adventure|Fantasy|Sci-Fi</td>
+      <td>...</td>
+      <td>3054.0</td>
+      <td>English</td>
+      <td>USA</td>
+      <td>PG-13</td>
+      <td>237000000.0</td>
+      <td>2009.0</td>
+      <td>936.0</td>
+      <td>7.9</td>
+      <td>1.78</td>
+      <td>33000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Color</td>
+      <td>Gore Verbinski</td>
+      <td>302.0</td>
+      <td>169.0</td>
+      <td>563.0</td>
+      <td>1000.0</td>
+      <td>Orlando Bloom</td>
+      <td>40000.0</td>
+      <td>309404152.0</td>
+      <td>Action|Adventure|Fantasy</td>
+      <td>...</td>
+      <td>1238.0</td>
+      <td>English</td>
+      <td>USA</td>
+      <td>PG-13</td>
+      <td>300000000.0</td>
+      <td>2007.0</td>
+      <td>5000.0</td>
+      <td>7.1</td>
+      <td>2.35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Color</td>
+      <td>Sam Mendes</td>
+      <td>602.0</td>
+      <td>148.0</td>
+      <td>0.0</td>
+      <td>161.0</td>
+      <td>Rory Kinnear</td>
+      <td>11000.0</td>
+      <td>200074175.0</td>
+      <td>Action|Adventure|Thriller</td>
+      <td>...</td>
+      <td>994.0</td>
+      <td>English</td>
+      <td>UK</td>
+      <td>PG-13</td>
+      <td>245000000.0</td>
+      <td>2015.0</td>
+      <td>393.0</td>
+      <td>6.8</td>
+      <td>2.35</td>
+      <td>85000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Color</td>
+      <td>Christopher Nolan</td>
+      <td>813.0</td>
+      <td>164.0</td>
+      <td>22000.0</td>
+      <td>23000.0</td>
+      <td>Christian Bale</td>
+      <td>27000.0</td>
+      <td>448130642.0</td>
+      <td>Action|Thriller</td>
+      <td>...</td>
+      <td>2701.0</td>
+      <td>English</td>
+      <td>USA</td>
+      <td>PG-13</td>
+      <td>250000000.0</td>
+      <td>2012.0</td>
+      <td>23000.0</td>
+      <td>8.5</td>
+      <td>2.35</td>
+      <td>164000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>Doug Walker</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>131.0</td>
+      <td>NaN</td>
+      <td>Rob Walker</td>
+      <td>131.0</td>
+      <td>NaN</td>
+      <td>Documentary</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12.0</td>
+      <td>7.1</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4911</th>
+      <td>Color</td>
+      <td>Scott Smith</td>
+      <td>1.0</td>
+      <td>87.0</td>
+      <td>2.0</td>
+      <td>318.0</td>
+      <td>Daphne Zuniga</td>
+      <td>637.0</td>
+      <td>NaN</td>
+      <td>Comedy|Drama</td>
+      <td>...</td>
+      <td>6.0</td>
+      <td>English</td>
+      <td>Canada</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2013.0</td>
+      <td>470.0</td>
+      <td>7.7</td>
+      <td>NaN</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <th>4912</th>
+      <td>Color</td>
+      <td>NaN</td>
+      <td>43.0</td>
+      <td>43.0</td>
+      <td>NaN</td>
+      <td>319.0</td>
+      <td>Valorie Curry</td>
+      <td>841.0</td>
+      <td>NaN</td>
+      <td>Crime|Drama|Mystery|Thriller</td>
+      <td>...</td>
+      <td>359.0</td>
+      <td>English</td>
+      <td>USA</td>
+      <td>TV-14</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>593.0</td>
+      <td>7.5</td>
+      <td>16.00</td>
+      <td>32000</td>
+    </tr>
+    <tr>
+      <th>4913</th>
+      <td>Color</td>
+      <td>Benjamin Roberds</td>
+      <td>13.0</td>
+      <td>76.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Maxwell Moody</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>Drama|Horror|Thriller</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>English</td>
+      <td>USA</td>
+      <td>NaN</td>
+      <td>1400.0</td>
+      <td>2013.0</td>
+      <td>0.0</td>
+      <td>6.3</td>
+      <td>NaN</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>4914</th>
+      <td>Color</td>
+      <td>Daniel Hsia</td>
+      <td>14.0</td>
+      <td>100.0</td>
+      <td>0.0</td>
+      <td>489.0</td>
+      <td>Daniel Henney</td>
+      <td>946.0</td>
+      <td>10443.0</td>
+      <td>Comedy|Drama|Romance</td>
+      <td>...</td>
+      <td>9.0</td>
+      <td>English</td>
+      <td>USA</td>
+      <td>PG-13</td>
+      <td>NaN</td>
+      <td>2012.0</td>
+      <td>719.0</td>
+      <td>6.3</td>
+      <td>2.35</td>
+      <td>660</td>
+    </tr>
+    <tr>
+      <th>4915</th>
+      <td>Color</td>
+      <td>Jon Gunn</td>
+      <td>43.0</td>
+      <td>90.0</td>
+      <td>16.0</td>
+      <td>16.0</td>
+      <td>Brian Herzlinger</td>
+      <td>86.0</td>
+      <td>85222.0</td>
+      <td>Documentary</td>
+      <td>...</td>
+      <td>84.0</td>
+      <td>English</td>
+      <td>USA</td>
+      <td>PG</td>
+      <td>1100.0</td>
+      <td>2004.0</td>
+      <td>23.0</td>
+      <td>6.6</td>
+      <td>1.85</td>
+      <td>456</td>
+    </tr>
+  </tbody>
+</table>
+<p>4916 rows × 28 columns</p>
+</div>
+</div>
+</div>
+<p><code>(6)</code> 이 데이터프레임에는 몇개의 컬럼이 있는지 count하라.</p>
+<p><strong>hint</strong>: df.columns의 len을 조사</p>
+<p><code>(7)</code> 데이터프레임의 컬럼이름이 c혹은 d로 시작하는 열은 몇개 있는지 세어보라.</p>
+<p><strong>hint:</strong> 아래의 코드를 관찰</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a>lst <span class="op">=</span> [<span class="st">'color'</span>, <span class="st">'director_name'</span>, <span class="st">'num_critic_for_reviews'</span>, <span class="st">'duration'</span>] </span>
+<span id="cb96-2"><a href="#cb96-2"></a>[l <span class="cf">for</span> l <span class="kw">in</span> lst <span class="cf">if</span> l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'c'</span> <span class="kw">or</span> l[<span class="dv">0</span>]<span class="op">==</span><span class="st">'d'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>['color', 'director_name', 'duration']</code></pre>
+</div>
+</div>
+<p><code>(8)</code> 이 데이터프레임에서 ’actor’라는 단어가 포함된 열이 몇개있는지 세어보라.</p>
+<p><code>(9)</code> 이 데이터프레임에서 ’actor’라는 단어가 포함된 열을 출력하라.</p>
+<p><strong>hint</strong>: 아래의 코드를 관찰하라.</p>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a>_df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb98-2"><a href="#cb98-2"></a>    np.random.randint(<span class="dv">1</span>,<span class="dv">200</span>,size<span class="op">=</span>(<span class="dv">100</span>,<span class="dv">2</span>)),</span>
+<span id="cb98-3"><a href="#cb98-3"></a>    columns<span class="op">=</span>[<span class="st">'director_facebook_likes'</span>, <span class="st">'actor_3_facebook_likes'</span>]</span>
+<span id="cb98-4"><a href="#cb98-4"></a>)</span>
+<span id="cb98-5"><a href="#cb98-5"></a>_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>director_facebook_likes</th>
+      <th>actor_3_facebook_likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>33</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>40</td>
+      <td>136</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>85</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>127</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>38</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>51</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>155</td>
+      <td>184</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>138</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>44</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>166</td>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a>_df.loc[:,[<span class="st">'actor'</span> <span class="kw">in</span> colname <span class="cf">for</span> colname <span class="kw">in</span> _df.columns]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>actor_3_facebook_likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>136</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>184</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 1 columns</p>
+</div>
+</div>
+</div>
 
 
 </section>
