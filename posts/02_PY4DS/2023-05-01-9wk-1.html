@@ -203,10 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#회귀분석" id="toc-회귀분석" class="nav-link active" data-scroll-target="#회귀분석">회귀분석</a></li>
-  <li><a href="#스무딩하니-샤프하니" id="toc-스무딩하니-샤프하니" class="nav-link" data-scroll-target="#스무딩하니-샤프하니">스무딩하니, 샤프하니</a></li>
   <li><a href="#이미지자료-분석" id="toc-이미지자료-분석" class="nav-link" data-scroll-target="#이미지자료-분석">이미지자료 분석</a></li>
-  <li><a href="#브로드캐스팅" id="toc-브로드캐스팅" class="nav-link" data-scroll-target="#브로드캐스팅">브로드캐스팅</a></li>
-  <li><a href="#확률변수" id="toc-확률변수" class="nav-link" data-scroll-target="#확률변수">확률변수</a></li>
   </ul>
 </nav>
     </div>
@@ -298,52 +295,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>6</code>. <code>4</code>에서 계산된 <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1\)</span>을 각각 <span class="math inline">\(b=\hat{\beta}_0, a=\hat{\beta}_1\)</span>으로 생각하고 적절한 추세선 <span class="math inline">\((x_i, y_i)\)</span>를 그려라. (단, <span class="math inline">\(y_i=ax_i+b\)</span> 이다)</p>
 <p><code>7</code>. 4의 기준에 따르면, <span class="math inline">\((a,b)=(3,2)\)</span> 일때 만들어지는 추세선과 <span class="math inline">\((a,b)=(\hat{\beta}_1,\hat{\beta}_0)\)</span> 일때 만들어지는 추세선은 어떤 것이 더 적절한가?</p>
 </section>
-<section id="스무딩하니-샤프하니" class="level1">
-<h1>스무딩하니, 샤프하니</h1>
-</section>
 <section id="이미지자료-분석" class="level1">
 <h1>이미지자료 분석</h1>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">with</span> np.load(<span class="st">'mnist.npz'</span>, allow_pickle<span class="op">=</span><span class="va">True</span>) <span class="im">as</span> f:</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    x_train, y_train <span class="op">=</span> f[<span class="st">'x_train'</span>], f[<span class="st">'y_train'</span>]</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    x_test, y_test <span class="op">=</span> f[<span class="st">'x_test'</span>], f[<span class="st">'y_test'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="브로드캐스팅" class="level1">
-<h1>브로드캐스팅</h1>
-</section>
-<section id="확률변수" class="level1">
-<h1>확률변수</h1>
-<p><code>-</code> 베르누이분포의 합</p>
-<p><code>-</code> 지수분포의 합</p>
-<p><code>-</code></p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>arr <span class="op">=</span> np.array([[<span class="dv">8</span>,<span class="dv">1</span>], [<span class="dv">4</span>,<span class="dv">3</span>], [<span class="dv">5</span>,<span class="dv">2</span>]])</span>
-<span id="cb9-2"><a href="#cb9-2"></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>array([[8, 1],
-       [4, 3],
-       [5, 2]])</code></pre>
-</div>
-</div>
 <div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>np.apply_along_axis(func1d<span class="op">=</span>np.<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>array([9, 7, 7])</code></pre>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="im">import</span> requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="im">import</span> urllib.request</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># URL 설정</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>url <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/raw/main/posts/02_PY4DS/mnist.npz'</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co"># URL에서 파일 다운로드</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>urllib.request.urlretrieve(url, <span class="st">'./mnist.npz'</span>)</span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co"># 데이터 로드</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>data <span class="op">=</span> np.load(<span class="st">'./mnist.npz'</span>)</span>
+<span id="cb7-12"><a href="#cb7-12"></a>x_train, y_train, x_test, y_test <span class="op">=</span> data[<span class="st">'x_train'</span>], data[<span class="st">'y_train'</span>], data[<span class="st">'x_test'</span>], data[<span class="st">'y_test'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>img_mean <span class="op">=</span> [x_train[y_train<span class="op">==</span>i].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">for</span> jx_train</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
+<pre><code>(60000, 28, 28)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>np.apply_along_axis(func1d<span class="op">=</span><span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span>,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>array([[9, 2],
-       [5, 4],
-       [6, 3]])</code></pre>
+<div class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>loss <span class="op">=</span> np.array([[np.mean((x_train[j]<span class="op">-</span>img_mean[i])<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">60000</span>)])</span>
+<span id="cb11-2"><a href="#cb11-2"></a>loss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="85">
+<pre><code>array([[5485.67975482, 5707.43469781, 5212.58320665, ..., 5042.14784944,
+        4520.18103036, 5175.22874691],
+       [2299.95852798, 7474.87642164, 6154.99709965, ..., 6465.99947696,
+        5916.54634642, 6385.52525103],
+       [7018.40786764, 6343.5256079 , 5739.88155316, ..., 5600.23577882,
+        6146.0360002 , 5006.43715314],
+       ...,
+       [6131.80678276, 5476.76189891, 6378.32878155, ..., 4574.48767081,
+        4138.47180941, 4096.39084133],
+       [4476.0677341 , 5158.58155138, 4541.36535259, ..., 4978.2596727 ,
+        5424.14806569, 4728.64242366],
+       [5395.66844449, 4734.64601743, 4531.63864404, ..., 4629.62716134,
+        3804.82664409, 4252.74309784]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">sum</span>((loss.argmin(axis<span class="op">=</span><span class="dv">1</span>) <span class="op">==</span> y_train))<span class="op">/</span> <span class="bu">len</span>(y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="106">
+<pre><code>0.8079833333333334</code></pre>
 </div>
 </div>
 
