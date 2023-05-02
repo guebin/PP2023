@@ -3128,6 +3128,7 @@ Name: att_score, dtype: int64</code></pre>
 <li><span class="math inline">\(\tilde{y}_n= \frac{1}{3}(y_{n-1}+2y_{n})\)</span></li>
 </ul>
 <p>결과를 시각화하라.</p>
+<p>(풀이)</p>
 <div class="cell" data-execution_count="196">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>n <span class="op">=</span> <span class="bu">len</span>(y)</span>
 <span id="cb64-2"><a href="#cb64-2"></a>M <span class="op">=</span> np.array([<span class="bu">abs</span>(i<span class="op">-</span>j)<span class="op">&lt;</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n)]).reshape(n,n)<span class="op">/</span><span class="dv">3</span></span>
