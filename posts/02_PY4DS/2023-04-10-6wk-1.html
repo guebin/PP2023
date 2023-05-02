@@ -1425,27 +1425,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="hw" class="level1">
 <h1>HW</h1>
-<p><code>1</code>. shape이 ()인 numpy이 array를 만들어라. (즉 차원이 0인 np.array를 만들어라) // 2022-중간고사-1-(19)</p>
+<p><code>1</code>. shape이 ()인 numpy array를 만들어라. (즉 차원이 0인 np.array를 만들어라) // 2022-중간고사-1-(19)</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb281"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb281-1"><a href="#cb281-1"></a>a<span class="op">=</span> np.array(<span class="dv">0</span>)</span>
+<span id="cb281-2"><a href="#cb281-2"></a>a.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>()</code></pre>
+</div>
+</div>
 <p><code>2</code> a의 모든 원소에 1을 더하는 코드를 작성하라. // 2022-중간고사-1-(21)</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb281-1"><a href="#cb281-1"></a>a<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb283-1"><a href="#cb283-1"></a>a<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb284"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb284-1"><a href="#cb284-1"></a>a<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>]</span>
+<span id="cb284-2"><a href="#cb284-2"></a>np.array(a)<span class="op">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>array([ 2,  4,  3,  6, -2,  4,  9,  3,  4,  2])</code></pre>
+</div>
+</div>
 <p><code>3</code> 아래와 같은 수열을 생생성하라. // 2022-중간고사-1-(23)</p>
 <pre><code>0,1,2,3,4,5,...,99 </code></pre>
 <p>위의 수열에서 1,4,7,10,13,… 번째의 원소를 뽑아라. (첫번째 원소는 0이다)</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb287"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb287-1"><a href="#cb287-1"></a>np.arange(<span class="dv">100</span>)[::<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>array([ 0,  3,  6,  9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48,
+       51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99])</code></pre>
+</div>
+</div>
 <p><code>4</code>. shape이 (5,5)인 단위행렬을 만들어라. // 2022-중간고사-1-(20)</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb289"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb289-1"><a href="#cb289-1"></a>np.eye(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>array([[1., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0.],
+       [0., 0., 1., 0., 0.],
+       [0., 0., 0., 1., 0.],
+       [0., 0., 0., 0., 1.]])</code></pre>
+</div>
+</div>
 <p><code>5</code>. numpy를 이용하여 아래의 역행렬을 구하라. // 2022-중간고사-1-(24)</p>
 <p><span class="math display">\[\begin{bmatrix}
 1&amp;  0 \\
 0&amp;  3
 \end{bmatrix}\]</span></p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb291"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb291-1"><a href="#cb291-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">3</span>]])</span>
+<span id="cb291-2"><a href="#cb291-2"></a>np.linalg.inv(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>array([[1.        , 0.        ],
+       [0.        , 0.33333333]])</code></pre>
+</div>
+</div>
 <p><code>6</code>. 본인의 학번으로 랜덤시드를 설정하고 표준정규분포에서 1000개의 난수를 생성하라. // 2022-중간고사-1-(34)</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb283-1"><a href="#cb283-1"></a><span class="co"># 학번이 2021-43052 라면 아래와 같이 시드설정 </span></span>
-<span id="cb283-2"><a href="#cb283-2"></a>np.random.seed(<span class="dv">202143052</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb293-1"><a href="#cb293-1"></a><span class="co"># 학번이 2021-43052 라면 아래와 같이 시드설정 </span></span>
+<span id="cb293-2"><a href="#cb293-2"></a>np.random.seed(<span class="dv">202143052</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb294"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb294-1"><a href="#cb294-1"></a>np.random.seed(<span class="dv">202143052</span>)</span>
+<span id="cb294-2"><a href="#cb294-2"></a>x <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><code>7</code>. <code>6</code>의 결과로 나온 1000개의 난수중 1.96보다 크거나 -1.96보다 작은 작은값은 모두 몇개인가?</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb295"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb295-1"><a href="#cb295-1"></a><span class="bu">sum</span>(x<span class="op">&gt;</span><span class="fl">1.96</span>) <span class="op">+</span> <span class="bu">sum</span>(x<span class="op">&lt;-</span><span class="fl">1.96</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>54</code></pre>
+</div>
+</div>
 <p><code>8</code>. 아래와 같은 배열을 선언하라. // 2022-중간고사-1-(38)</p>
-<div class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb284"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb284-1"><a href="#cb284-1"></a>a<span class="op">=</span>np.arange(<span class="dv">12</span>).reshape(<span class="dv">3</span>,<span class="dv">4</span>)</span>
-<span id="cb284-2"><a href="#cb284-2"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="62">
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb297"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb297-1"><a href="#cb297-1"></a>a<span class="op">=</span>np.arange(<span class="dv">12</span>).reshape(<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb297-2"><a href="#cb297-2"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>array([[ 0,  1,  2,  3],
        [ 4,  5,  6,  7],
        [ 8,  9, 10, 11]])</code></pre>
@@ -1455,18 +1511,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>array([[0],
        [4],
        [8]])</code></pre>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb300"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb300-1"><a href="#cb300-1"></a>a[:,[<span class="dv">0</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>array([[0],
+       [4],
+       [8]])</code></pre>
+</div>
+</div>
 <p><code>9</code>. 아래의 코드를 관찰하라. // 2022-중간고사-1-(40)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb287"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb287-1"><a href="#cb287-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb287-2"><a href="#cb287-2"></a>a<span class="op">=</span>np.random.randint(low<span class="op">=</span><span class="dv">20</span>,high<span class="op">=</span><span class="dv">25</span>,size<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb302"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb302-1"><a href="#cb302-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb302-2"><a href="#cb302-2"></a>a<span class="op">=</span>np.random.randint(low<span class="op">=</span><span class="dv">20</span>,high<span class="op">=</span><span class="dv">25</span>,size<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>a에서 20,21,22는 각각 몇개씩 있는가?</p>
 <p><strong>note</strong> 공부를 위하여 <code>np.random.randint()</code>의 기능을 chatGPT등으로 확인해 볼 것</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb303"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb303-1"><a href="#cb303-1"></a>(a<span class="op">==</span><span class="dv">20</span>).<span class="bu">sum</span>(), (a<span class="op">==</span><span class="dv">21</span>).<span class="bu">sum</span>(), (a<span class="op">==</span><span class="dv">22</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>(17, 20, 19)</code></pre>
+</div>
+</div>
 <p><code>10</code>. 아래의 코드를 관찰하라.</p>
-<div class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb288"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb288-1"><a href="#cb288-1"></a>lst <span class="op">=</span> [[i<span class="op">==</span>j <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)]</span>
-<span id="cb288-2"><a href="#cb288-2"></a>lst</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb305"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb305-1"><a href="#cb305-1"></a>lst <span class="op">=</span> [[i<span class="op">==</span>j <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)]</span>
+<span id="cb305-2"><a href="#cb305-2"></a>lst</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>[[True, False, False, False, False],
  [False, True, False, False, False],
  [False, False, True, False, False],
@@ -1476,7 +1548,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>lst를 이용하여 shape이 (5,5)인 단위행렬을 만들어라.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb290"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb290-1"><a href="#cb290-1"></a><span class="co"># 출력결과는 아래와 같이 나와야 한다. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb307"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb307-1"><a href="#cb307-1"></a><span class="co"># 출력결과는 아래와 같이 나와야 한다. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>array([[1, 0, 0, 0, 0],
        [0, 1, 0, 0, 0],
@@ -1485,30 +1557,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
        [0, 0, 0, 0, 1]])</code></pre>
 </div>
 </div>
-<p><strong>hint</strong>: 아래의 <code>코드1</code> 혹은 <code>코드2</code>를 참고할 것</p>
-<p><code>코드1</code></p>
-<div class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb292"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb292-1"><a href="#cb292-1"></a>np.array([<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="47">
-<pre><code>array([ True,  True, False])</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb294"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb294-1"><a href="#cb294-1"></a>np.array([<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>])<span class="op">*</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="48">
-<pre><code>array([1, 1, 0])</code></pre>
-</div>
-</div>
-<p><code>코드2</code></p>
-<div class="cell" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb296"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb296-1"><a href="#cb296-1"></a>np.array([<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>],dtype<span class="op">=</span>np.int64)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="49">
-<pre><code>array([1, 1, 0])</code></pre>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb309"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb309-1"><a href="#cb309-1"></a>np.array([[i<span class="op">==</span>j <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)])<span class="op">*</span><span class="fl">1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>array([[1., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0.],
+       [0., 0., 1., 0., 0.],
+       [0., 0., 0., 1., 0.],
+       [0., 0., 0., 0., 1.]])</code></pre>
 </div>
 </div>
 <p><code>12</code>. 적당한 코드를 이용하여 아래와 같은 리스트를 생성하라.</p>
 <div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb298"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb298-1"><a href="#cb298-1"></a>lst</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb311"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb311-1"><a href="#cb311-1"></a>lst</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>[[0, 1, 2, 3, 4],
  [1, 2, 3, 4, 5],
@@ -1519,7 +1581,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>이를 이용하여 아래와 같은 행렬을 선언하라.</p>
 <div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb300"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb300-1"><a href="#cb300-1"></a>arr </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb313"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb313-1"><a href="#cb313-1"></a>arr </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>array([[0, 1, 2, 3, 4],
        [1, 2, 3, 4, 5],
@@ -1528,20 +1590,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
        [4, 5, 6, 7, 8]])</code></pre>
 </div>
 </div>
-<p><strong>hint</strong> 아래의 코드를 관찰</p>
-<div class="cell" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb302"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb302-1"><a href="#cb302-1"></a>[[i<span class="op">*</span>j <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="57">
-<pre><code>[[0, 0, 0, 0, 0],
- [0, 1, 2, 3, 4],
- [0, 2, 4, 6, 8],
- [0, 3, 6, 9, 12],
- [0, 4, 8, 12, 16]]</code></pre>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb315"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb315-1"><a href="#cb315-1"></a>np.array([[i<span class="op">+</span>j <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)] )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>array([[0, 1, 2, 3, 4],
+       [1, 2, 3, 4, 5],
+       [2, 3, 4, 5, 6],
+       [3, 4, 5, 6, 7],
+       [4, 5, 6, 7, 8]])</code></pre>
 </div>
 </div>
 <p><code>13</code>. 적당한 코드를 이용하여 아래와 같은 행렬을 선언하라.</p>
 <div class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb304"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb304-1"><a href="#cb304-1"></a><span class="co"># 출력결과는 아래와 같아야 한다.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb317"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb317-1"><a href="#cb317-1"></a><span class="co"># 출력결과는 아래와 같아야 한다.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>array([[1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
        [1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
@@ -1555,31 +1617,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
        [0, 0, 0, 0, 0, 0, 0, 0, 1, 1]])</code></pre>
 </div>
 </div>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb319"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb319-1"><a href="#cb319-1"></a>np.array([[<span class="bu">abs</span>(i<span class="op">-</span>j)<span class="op">&lt;</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)])<span class="op">*</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>array([[1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+       [1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+       [0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+       [0, 0, 1, 1, 1, 0, 0, 0, 0, 0],
+       [0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+       [0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+       [0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+       [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
+       [0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+       [0, 0, 0, 0, 0, 0, 0, 0, 1, 1]])</code></pre>
+</div>
+</div>
 <p><code>14</code>. 아래와 같은 배열이 있다고 하자. // 2022-중간고사-1-(31)</p>
-<div class="cell" data-execution_count="242">
-<div class="sourceCode cell-code" id="cb306"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb306-1"><a href="#cb306-1"></a>a<span class="op">=</span>np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
-<span id="cb306-2"><a href="#cb306-2"></a>b<span class="op">=</span>np.array([<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb321"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb321-1"><a href="#cb321-1"></a>a<span class="op">=</span>np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
+<span id="cb321-2"><a href="#cb321-2"></a>b<span class="op">=</span>np.array([<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>numpy의 <code>@</code> 연산자를 이용하여 <span class="math inline">\(\sum_{i=1}^{5}a_ib_i\)</span>를 계산하라.</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb322"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb322-1"><a href="#cb322-1"></a>a<span class="op">@</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>24</code></pre>
+</div>
+</div>
 <p><code>15</code>. 아래와 같은 배열을 생성하라. // 2022-중간고사-1-(32)</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb307-1"><a href="#cb307-1"></a>x<span class="op">=</span>np.random.randn(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb324-1"><a href="#cb324-1"></a>x<span class="op">=</span>np.random.randn(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>numpy의 <code>@</code>연산자를 이용하여 <span class="math inline">\(\sum_{i=1}^{100}x_i^2\)</span>을 계산하라.</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb325"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb325-1"><a href="#cb325-1"></a>x<span class="op">@</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>973.559744500584</code></pre>
+</div>
+</div>
 <p><code>16</code>. 아래와 같은 배열을 생성하라. // 2022-중간고사-1-(33)</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb308-1"><a href="#cb308-1"></a>a<span class="op">=</span>np.array([<span class="dv">1</span><span class="op">/</span><span class="dv">100</span>]<span class="op">*</span><span class="dv">100</span>)</span>
-<span id="cb308-2"><a href="#cb308-2"></a>x<span class="op">=</span>np.random.randn(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb327-1"><a href="#cb327-1"></a>a<span class="op">=</span>np.array([<span class="dv">1</span><span class="op">/</span><span class="dv">100</span>]<span class="op">*</span><span class="dv">100</span>)</span>
+<span id="cb327-2"><a href="#cb327-2"></a>x<span class="op">=</span>np.random.randn(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>numpy의 <code>@</code>연산자를 이용하여 <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}x_i\)</span>를 계산하라.</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb328"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb328-1"><a href="#cb328-1"></a>x<span class="op">@</span>x<span class="op">/</span><span class="dv">100</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>9.73559744500584</code></pre>
+</div>
+</div>
 <p><code>17</code>. 성공확률이 45%인 시행을 100번 반복하여 성공하면 True, 실패하면 False를 기록하는 난수열을 생성하라.</p>
 <p><strong>hint:</strong></p>
 <div class="cell" data-execution_count="92">
-<div class="sourceCode cell-code" id="cb309"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb309-1"><a href="#cb309-1"></a>np.random.rand() <span class="co"># 0~1사이의 값이 임의로 생성</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb330"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb330-1"><a href="#cb330-1"></a>np.random.rand() <span class="co"># 0~1사이의 값이 임의로 생성</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="92">
 <pre><code>0.1721011158345127</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="94">
-<div class="sourceCode cell-code" id="cb311"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb311-1"><a href="#cb311-1"></a>np.random.rand() <span class="op">&lt;</span> <span class="fl">0.45</span> <span class="co"># 0~1사이에 랜덤으로 생성된 값이 0.45보다 작다면 True를 리턴 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb332"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb332-1"><a href="#cb332-1"></a>np.random.rand() <span class="op">&lt;</span> <span class="fl">0.45</span> <span class="co"># 0~1사이에 랜덤으로 생성된 값이 0.45보다 작다면 True를 리턴 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="94">
 <pre><code>False</code></pre>
+</div>
+</div>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb334"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb334-1"><a href="#cb334-1"></a>np.random.rand(<span class="dv">100</span>)<span class="op">&lt;</span><span class="fl">0.45</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<pre><code>array([ True, False, False,  True,  True,  True,  True, False, False,
+        True,  True,  True,  True, False, False, False, False,  True,
+       False,  True, False,  True, False,  True,  True, False, False,
+       False, False,  True, False, False,  True,  True, False,  True,
+        True,  True, False,  True, False,  True, False,  True,  True,
+        True,  True, False, False, False,  True, False,  True,  True,
+        True, False,  True, False, False, False, False, False,  True,
+       False, False, False,  True, False,  True, False, False,  True,
+       False,  True,  True,  True, False, False,  True, False,  True,
+       False, False,  True, False, False, False, False,  True,  True,
+       False,  True,  True,  True,  True, False, False, False, False,
+       False])</code></pre>
 </div>
 </div>
 
