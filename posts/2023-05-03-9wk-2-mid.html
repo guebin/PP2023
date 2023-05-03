@@ -667,20 +667,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="fashion-mnist-data-60점" class="level1">
 <h1>2. fashion MNIST data (60점)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="op">!</span>git add .</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="op">!</span>git commit <span class="op">-</span>m .</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="op">!</span>git push </span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="op">!</span>quarto publish <span class="op">--</span>no<span class="op">-</span>browser <span class="op">--</span>no<span class="op">-</span>prompt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[main a361f82] .
+ 1 file changed, 60001 deletions(-)
+ delete mode 100644 posts/fashion-mnist_train.csv
+Enumerating objects: 33, done.
+Counting objects: 100% (33/33), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (28/28), done.
+Writing objects:  67% (19/28), 3.12 MiB | 1.41 MiB/s    </code></pre>
+</div>
+</div>
 <p>아래는 9가지의 의류이미지가 저장된 이미지데이터를 불러오는 코드이다.</p>
 <div class="cell" data-execution_count="138">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df_train<span class="op">=</span>pd.read_csv(<span class="st">'https://github.com/guebin/PP2023/blob/main/posts/fashion-mnist_train.csv'</span>)</span>
-<span id="cb11-2"><a href="#cb11-2"></a>df_test<span class="op">=</span>pd.read_csv(<span class="st">'https://github.com/guebin/PP2023/blob/main/posts/fashion-mnist_test.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>df_train<span class="op">=</span>pd.read_csv(<span class="st">'https://github.com/guebin/PP2023/blob/main/posts/fashion-mnist_train.csv'</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a>df_test<span class="op">=</span>pd.read_csv(<span class="st">'https://github.com/guebin/PP2023/blob/main/posts/fashion-mnist_test.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="139">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">def</span> rshp(row):</span>
-<span id="cb12-2"><a href="#cb12-2"></a>    <span class="cf">return</span> row.reshape(<span class="dv">28</span>,<span class="dv">28</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">def</span> rshp(row):</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="cf">return</span> row.reshape(<span class="dv">28</span>,<span class="dv">28</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="140">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>xtrain <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_train.iloc[:,<span class="dv">1</span>:]))</span>
-<span id="cb13-2"><a href="#cb13-2"></a>xtest  <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_test.iloc[:,<span class="dv">1</span>:]))</span>
-<span id="cb13-3"><a href="#cb13-3"></a>ytrain <span class="op">=</span> np.array(df_train.label)</span>
-<span id="cb13-4"><a href="#cb13-4"></a>ytest  <span class="op">=</span> np.array(df_test.label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>xtrain <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_train.iloc[:,<span class="dv">1</span>:]))</span>
+<span id="cb15-2"><a href="#cb15-2"></a>xtest  <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_test.iloc[:,<span class="dv">1</span>:]))</span>
+<span id="cb15-3"><a href="#cb15-3"></a>ytrain <span class="op">=</span> np.array(df_train.label)</span>
+<span id="cb15-4"><a href="#cb15-4"></a>ytest  <span class="op">=</span> np.array(df_test.label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>아래는 데이터에 대한 설명이다.</p>
 <ul>
@@ -696,62 +712,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>아래는 <span class="math inline">\({\tt xtrain}\)</span>의 두번째 이미지, 즉 <span class="math inline">\({\tt xtrain[1,:,:]}\)</span>를 확인하는 코드의 예시이다.</p>
 <div class="cell" data-execution_count="141">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># plt.imshow(xtrain[1,:,:],cmap='gray')</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>plt.imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co">## 같은코드임</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># plt.imshow(xtrain[1,:,:],cmap='gray')</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>plt.imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co">## 같은코드임</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="141">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7f4552a11df0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>이 이미지에 대한 label은 <span class="math inline">\({\tt ytrain[1]}\)</span>의 값으로 확인가능하다.</p>
 <div class="cell" data-execution_count="142">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>ytrain[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>ytrain[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="142">
 <pre><code>9</code></pre>
 </div>
 </div>
 <p>이미지와 라벨을 한번에 표현하는 코드는 아래와 같이 작성가능하다.</p>
 <div class="cell" data-execution_count="143">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>plt.imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb18-2"><a href="#cb18-2"></a>plt.title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(ytrain[<span class="dv">1</span>]))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>plt.imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb20-2"><a href="#cb20-2"></a>plt.title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(ytrain[<span class="dv">1</span>]))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>여기에서 9가 의미하는 것은 ’Ankel boot’이며, 다른 숫자가 의미하는 것은 각각 아래와 같다.</p>
 <div class="cell" data-execution_count="145">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>labels<span class="op">=</span> {<span class="dv">0</span>:<span class="st">'T-shirt/top'</span>, </span>
-<span id="cb19-2"><a href="#cb19-2"></a>         <span class="dv">1</span>:<span class="st">'Trouser'</span>, </span>
-<span id="cb19-3"><a href="#cb19-3"></a>         <span class="dv">2</span>:<span class="st">'Pullover'</span>, </span>
-<span id="cb19-4"><a href="#cb19-4"></a>         <span class="dv">3</span>:<span class="st">'Dress'</span>, </span>
-<span id="cb19-5"><a href="#cb19-5"></a>         <span class="dv">4</span>:<span class="st">'Coat'</span>, </span>
-<span id="cb19-6"><a href="#cb19-6"></a>         <span class="dv">5</span>:<span class="st">'Sandal'</span>, </span>
-<span id="cb19-7"><a href="#cb19-7"></a>         <span class="dv">6</span>:<span class="st">'Shirt'</span>, </span>
-<span id="cb19-8"><a href="#cb19-8"></a>         <span class="dv">7</span>:<span class="st">'Sneaker'</span>, </span>
-<span id="cb19-9"><a href="#cb19-9"></a>         <span class="dv">8</span>:<span class="st">'Bag'</span>, </span>
-<span id="cb19-10"><a href="#cb19-10"></a>         <span class="dv">9</span>:<span class="st">'Ankel boot'</span>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>labels<span class="op">=</span> {<span class="dv">0</span>:<span class="st">'T-shirt/top'</span>, </span>
+<span id="cb21-2"><a href="#cb21-2"></a>         <span class="dv">1</span>:<span class="st">'Trouser'</span>, </span>
+<span id="cb21-3"><a href="#cb21-3"></a>         <span class="dv">2</span>:<span class="st">'Pullover'</span>, </span>
+<span id="cb21-4"><a href="#cb21-4"></a>         <span class="dv">3</span>:<span class="st">'Dress'</span>, </span>
+<span id="cb21-5"><a href="#cb21-5"></a>         <span class="dv">4</span>:<span class="st">'Coat'</span>, </span>
+<span id="cb21-6"><a href="#cb21-6"></a>         <span class="dv">5</span>:<span class="st">'Sandal'</span>, </span>
+<span id="cb21-7"><a href="#cb21-7"></a>         <span class="dv">6</span>:<span class="st">'Shirt'</span>, </span>
+<span id="cb21-8"><a href="#cb21-8"></a>         <span class="dv">7</span>:<span class="st">'Sneaker'</span>, </span>
+<span id="cb21-9"><a href="#cb21-9"></a>         <span class="dv">8</span>:<span class="st">'Bag'</span>, </span>
+<span id="cb21-10"><a href="#cb21-10"></a>         <span class="dv">9</span>:<span class="st">'Ankel boot'</span>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>아래는 <span class="math inline">\({\tt xtrain}\)</span>의 처음 10개의 이미지를 라벨과 함께 출력하는 코드이다.</p>
 <div class="cell" data-execution_count="223">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
-<span id="cb20-2"><a href="#cb20-2"></a></span>
-<span id="cb20-3"><a href="#cb20-3"></a>ax[<span class="dv">0</span>][<span class="dv">0</span>].imshow(xtrain[<span class="dv">0</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">0</span>]]))<span class="op">;</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>ax[<span class="dv">0</span>][<span class="dv">1</span>].imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">1</span>]]))<span class="op">;</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>ax[<span class="dv">0</span>][<span class="dv">2</span>].imshow(xtrain[<span class="dv">2</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">2</span>]]))<span class="op">;</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a>ax[<span class="dv">0</span>][<span class="dv">3</span>].imshow(xtrain[<span class="dv">3</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">3</span>]]))<span class="op">;</span></span>
-<span id="cb20-7"><a href="#cb20-7"></a>ax[<span class="dv">0</span>][<span class="dv">4</span>].imshow(xtrain[<span class="dv">4</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">4</span>]]))<span class="op">;</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a></span>
-<span id="cb20-9"><a href="#cb20-9"></a>ax[<span class="dv">1</span>][<span class="dv">0</span>].imshow(xtrain[<span class="dv">5</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">5</span>]]))<span class="op">;</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a>ax[<span class="dv">1</span>][<span class="dv">1</span>].imshow(xtrain[<span class="dv">6</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">6</span>]]))<span class="op">;</span></span>
-<span id="cb20-11"><a href="#cb20-11"></a>ax[<span class="dv">1</span>][<span class="dv">2</span>].imshow(xtrain[<span class="dv">7</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">7</span>]]))<span class="op">;</span></span>
-<span id="cb20-12"><a href="#cb20-12"></a>ax[<span class="dv">1</span>][<span class="dv">3</span>].imshow(xtrain[<span class="dv">8</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">8</span>]]))<span class="op">;</span></span>
-<span id="cb20-13"><a href="#cb20-13"></a>ax[<span class="dv">1</span>][<span class="dv">4</span>].imshow(xtrain[<span class="dv">9</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">9</span>]]))<span class="op">;</span></span>
-<span id="cb20-14"><a href="#cb20-14"></a></span>
-<span id="cb20-15"><a href="#cb20-15"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a>ax[<span class="dv">0</span>][<span class="dv">0</span>].imshow(xtrain[<span class="dv">0</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">0</span>]]))<span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>ax[<span class="dv">0</span>][<span class="dv">1</span>].imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">1</span>]]))<span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>ax[<span class="dv">0</span>][<span class="dv">2</span>].imshow(xtrain[<span class="dv">2</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">2</span>]]))<span class="op">;</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a>ax[<span class="dv">0</span>][<span class="dv">3</span>].imshow(xtrain[<span class="dv">3</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">3</span>]]))<span class="op">;</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a>ax[<span class="dv">0</span>][<span class="dv">4</span>].imshow(xtrain[<span class="dv">4</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">4</span>]]))<span class="op">;</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a></span>
+<span id="cb22-9"><a href="#cb22-9"></a>ax[<span class="dv">1</span>][<span class="dv">0</span>].imshow(xtrain[<span class="dv">5</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">5</span>]]))<span class="op">;</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a>ax[<span class="dv">1</span>][<span class="dv">1</span>].imshow(xtrain[<span class="dv">6</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">6</span>]]))<span class="op">;</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a>ax[<span class="dv">1</span>][<span class="dv">2</span>].imshow(xtrain[<span class="dv">7</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">7</span>]]))<span class="op">;</span></span>
+<span id="cb22-12"><a href="#cb22-12"></a>ax[<span class="dv">1</span>][<span class="dv">3</span>].imshow(xtrain[<span class="dv">8</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">8</span>]]))<span class="op">;</span></span>
+<span id="cb22-13"><a href="#cb22-13"></a>ax[<span class="dv">1</span>][<span class="dv">4</span>].imshow(xtrain[<span class="dv">9</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">9</span>]]))<span class="op">;</span></span>
+<span id="cb22-14"><a href="#cb22-14"></a></span>
+<span id="cb22-15"><a href="#cb22-15"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <hr>
@@ -763,9 +779,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><span class="math inline">\({\tt imgmean[0]},\dots, {\tt imgmean[9]}\)</span>를 시각화 하라. 시각화예시는 아래와 같다.</p>
 <div class="cell" data-execution_count="237">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><strong>note</strong>: 그림에 대한 라벨은 시각화 하지 않아도 무방하다. (감점없음)</p>
@@ -816,18 +832,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>다음을 읽고 파이썬과 가상환경에 대하여 올바른 진술을 한 사람을 모두 골라라. (모두 맞출 경우만 정답으로 인정함)</p>
 <p><strong>민정</strong>: 구글코랩은 사용자의 컴퓨터에 설치된 아나콘다를 기반으로 동작하며, 실제적으로는 사용자의 ipython과 크롬과의 통신만을 담당한다. 따라서 구글코랩은 반드시 파이썬만 연결하여 사용가능하지 않으며 실제로 구글코랩에 R을 연결하여 사용하기도 한다.</p>
 <p><strong>구환</strong>: 아래와 같이 스크립트로 구성되 <code>mysum.py</code>와 같은 파이썬파일을 실행하기 위해서는 반드시 ipython 이나 주피터랩이 설치된 상태이어야 한다.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co">## mysum.py</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>total <span class="op">=</span> <span class="dv">0</span> </span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>): </span>
-<span id="cb24-4"><a href="#cb24-4"></a>    total <span class="op">=</span> total <span class="op">+</span> i</span>
-<span id="cb24-5"><a href="#cb24-5"></a><span class="bu">print</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="co">## mysum.py</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>total <span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>): </span>
+<span id="cb26-4"><a href="#cb26-4"></a>    total <span class="op">=</span> total <span class="op">+</span> i</span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="bu">print</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>슬기</strong>: 아나콘다를 이용하여 가상환경을 만들 경우 두 가지버전 이상의 python을 동시에 관리할 수 있다.</p>
 <p><strong>승민</strong>: 아래와 같이 <code>myfuns.py</code> 파일을 구성하였다고 하자.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># myfuns.py</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="kw">def</span> vec2_add(a,b): </span>
-<span id="cb25-3"><a href="#cb25-3"></a>    <span class="cf">return</span> [a[<span class="dv">0</span>]<span class="op">+</span>b[<span class="dv">0</span>], a[<span class="dv">1</span>]<span class="op">+</span>b[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># myfuns.py</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="kw">def</span> vec2_add(a,b): </span>
+<span id="cb27-3"><a href="#cb27-3"></a>    <span class="cf">return</span> [a[<span class="dv">0</span>]<span class="op">+</span>b[<span class="dv">0</span>], a[<span class="dv">1</span>]<span class="op">+</span>b[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>이 경우 아래와 같이 임의의 주피터 노트북에서 <code>myfuns</code>를 임포트하면 <code>vec2_add</code> 함수를 사용할 수 있다.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="im">import</span> myfuns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="im">import</span> myfuns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>단, 여기에서 <code>myfuns.py</code>는 현재 실행중인 노트북과 같은 폴더에 있다고 가정한다.</p>
 
 
