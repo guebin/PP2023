@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2023-05-03">
+
+<title>PP2023 - 09wk-2: 중간고사</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PP2023</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/PP2023"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">09wk-2: 중간고사</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>최규빈 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 3, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">Imports</a></li>
+  <li><a href="#pandas-and-numpy-35점" id="toc-pandas-and-numpy-35점" class="nav-link" data-scroll-target="#pandas-and-numpy-35점">1. pandas and numpy (35점)</a>
+  <ul class="collapse">
+  <li><a href="#fifa23" id="toc-fifa23" class="nav-link" data-scroll-target="#fifa23">FIFA23</a></li>
+  <li><a href="#삼성전자의-주가" id="toc-삼성전자의-주가" class="nav-link" data-scroll-target="#삼성전자의-주가">삼성전자의 주가</a></li>
+  <li><a href="#회귀모형" id="toc-회귀모형" class="nav-link" data-scroll-target="#회귀모형">회귀모형</a></li>
+  </ul></li>
+  <li><a href="#fashion-mnist-data-60점" id="toc-fashion-mnist-data-60점" class="nav-link" data-scroll-target="#fashion-mnist-data-60점">2. fashion MNIST data (60점)</a></li>
+  <li><a href="#파이썬의-설치-5점" id="toc-파이썬의-설치-5점" class="nav-link" data-scroll-target="#파이썬의-설치-5점">3. 파이썬의 설치 (5점)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><a href="https://colab.research.google.com/github/guebin/PP2023/blob/main/posts/02_PY4DS/2023-05-03-9wk-2-mid.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
+<p><strong>제출은 <code>*.ipynb</code>, <code>*.html</code>, <code>*.pdf</code> 파일로 제출할 것</strong></p>
+<ul>
+<li><code>ipynb</code> 파일형태제출을 권장함.</li>
+</ul>
+<section id="imports" class="level1">
+<h1>Imports</h1>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pandas-and-numpy-35점" class="level1">
+<h1>1. pandas and numpy (35점)</h1>
+<section id="fifa23" class="level2">
+<h2 class="anchored" data-anchor-id="fifa23">FIFA23</h2>
+<p><code>(1)--(3)</code> 아래는 FIFA23 자료를 불러오는 코드이다.</p>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/FIFA23_official_data.csv'</span>).drop(columns<span class="op">=</span>[<span class="st">'Loaned From'</span>, <span class="st">'Best Overall Rating'</span>]).dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Photo</th>
+      <th>Nationality</th>
+      <th>Flag</th>
+      <th>Overall</th>
+      <th>Potential</th>
+      <th>Club</th>
+      <th>Club Logo</th>
+      <th>...</th>
+      <th>Work Rate</th>
+      <th>Body Type</th>
+      <th>Real Face</th>
+      <th>Position</th>
+      <th>Joined</th>
+      <th>Contract Valid Until</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Release Clause</th>
+      <th>Kit Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>209658</td>
+      <td>L. Goretzka</td>
+      <td>27</td>
+      <td>https://cdn.sofifa.net/players/209/658/23_60.png</td>
+      <td>Germany</td>
+      <td>https://cdn.sofifa.net/flags/de.png</td>
+      <td>87</td>
+      <td>88</td>
+      <td>FC Bayern München</td>
+      <td>https://cdn.sofifa.net/teams/21/30.png</td>
+      <td>...</td>
+      <td>High/ Medium</td>
+      <td>Unique</td>
+      <td>Yes</td>
+      <td>&lt;span class="pos pos28"&gt;SUB</td>
+      <td>Jul 1, 2018</td>
+      <td>2026</td>
+      <td>189cm</td>
+      <td>82kg</td>
+      <td>€157M</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>212198</td>
+      <td>Bruno Fernandes</td>
+      <td>27</td>
+      <td>https://cdn.sofifa.net/players/212/198/23_60.png</td>
+      <td>Portugal</td>
+      <td>https://cdn.sofifa.net/flags/pt.png</td>
+      <td>86</td>
+      <td>87</td>
+      <td>Manchester United</td>
+      <td>https://cdn.sofifa.net/teams/11/30.png</td>
+      <td>...</td>
+      <td>High/ High</td>
+      <td>Unique</td>
+      <td>Yes</td>
+      <td>&lt;span class="pos pos15"&gt;LCM</td>
+      <td>Jan 30, 2020</td>
+      <td>2026</td>
+      <td>179cm</td>
+      <td>69kg</td>
+      <td>€155M</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>224334</td>
+      <td>M. Acuña</td>
+      <td>30</td>
+      <td>https://cdn.sofifa.net/players/224/334/23_60.png</td>
+      <td>Argentina</td>
+      <td>https://cdn.sofifa.net/flags/ar.png</td>
+      <td>85</td>
+      <td>85</td>
+      <td>Sevilla FC</td>
+      <td>https://cdn.sofifa.net/teams/481/30.png</td>
+      <td>...</td>
+      <td>High/ High</td>
+      <td>Stocky (170-185)</td>
+      <td>No</td>
+      <td>&lt;span class="pos pos7"&gt;LB</td>
+      <td>Sep 14, 2020</td>
+      <td>2024</td>
+      <td>172cm</td>
+      <td>69kg</td>
+      <td>€97.7M</td>
+      <td>19.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>192985</td>
+      <td>K. De Bruyne</td>
+      <td>31</td>
+      <td>https://cdn.sofifa.net/players/192/985/23_60.png</td>
+      <td>Belgium</td>
+      <td>https://cdn.sofifa.net/flags/be.png</td>
+      <td>91</td>
+      <td>91</td>
+      <td>Manchester City</td>
+      <td>https://cdn.sofifa.net/teams/10/30.png</td>
+      <td>...</td>
+      <td>High/ High</td>
+      <td>Unique</td>
+      <td>Yes</td>
+      <td>&lt;span class="pos pos13"&gt;RCM</td>
+      <td>Aug 30, 2015</td>
+      <td>2025</td>
+      <td>181cm</td>
+      <td>70kg</td>
+      <td>€198.9M</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>224232</td>
+      <td>N. Barella</td>
+      <td>25</td>
+      <td>https://cdn.sofifa.net/players/224/232/23_60.png</td>
+      <td>Italy</td>
+      <td>https://cdn.sofifa.net/flags/it.png</td>
+      <td>86</td>
+      <td>89</td>
+      <td>Inter</td>
+      <td>https://cdn.sofifa.net/teams/44/30.png</td>
+      <td>...</td>
+      <td>High/ High</td>
+      <td>Normal (170-)</td>
+      <td>Yes</td>
+      <td>&lt;span class="pos pos13"&gt;RCM</td>
+      <td>Sep 1, 2020</td>
+      <td>2026</td>
+      <td>172cm</td>
+      <td>68kg</td>
+      <td>€154.4M</td>
+      <td>23.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 27 columns</p>
+</div>
+</div>
+</div>
+<p><code>(1)</code> 공백이 포함된 column이름이 총 몇개인지 count하는 코드를 작성하라.</p>
+<p><strong>hint</strong> 모두 11개의 column name에 공백이 포함되어있음</p>
+<p><code>(2)</code> column name에 공백이 포함된 열을 출력하라.</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># 출력예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Club Logo</th>
+      <th>Preferred Foot</th>
+      <th>International Reputation</th>
+      <th>Weak Foot</th>
+      <th>Skill Moves</th>
+      <th>Work Rate</th>
+      <th>Body Type</th>
+      <th>Real Face</th>
+      <th>Contract Valid Until</th>
+      <th>Release Clause</th>
+      <th>Kit Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>https://cdn.sofifa.net/teams/21/30.png</td>
+      <td>Right</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>High/ Medium</td>
+      <td>Unique</td>
+      <td>Yes</td>
+      <td>2026</td>
+      <td>€157M</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>https://cdn.sofifa.net/teams/11/30.png</td>
+      <td>Right</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>High/ High</td>
+      <td>Unique</td>
+      <td>Yes</td>
+      <td>2026</td>
+      <td>€155M</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>https://cdn.sofifa.net/teams/481/30.png</td>
+      <td>Left</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>High/ High</td>
+      <td>Stocky (170-185)</td>
+      <td>No</td>
+      <td>2024</td>
+      <td>€97.7M</td>
+      <td>19.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>https://cdn.sofifa.net/teams/10/30.png</td>
+      <td>Right</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>High/ High</td>
+      <td>Unique</td>
+      <td>Yes</td>
+      <td>2025</td>
+      <td>€198.9M</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>https://cdn.sofifa.net/teams/44/30.png</td>
+      <td>Right</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>High/ High</td>
+      <td>Normal (170-)</td>
+      <td>Yes</td>
+      <td>2026</td>
+      <td>€154.4M</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>16359</th>
+      <td>https://cdn.sofifa.net/teams/114628/30.png</td>
+      <td>Right</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>Medium/ Medium</td>
+      <td>Normal (185+)</td>
+      <td>No</td>
+      <td>2027</td>
+      <td>€218K</td>
+      <td>35.0</td>
+    </tr>
+    <tr>
+      <th>16360</th>
+      <td>https://cdn.sofifa.net/teams/1478/30.png</td>
+      <td>Right</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>Medium/ Medium</td>
+      <td>Lean (185+)</td>
+      <td>No</td>
+      <td>2026</td>
+      <td>€188K</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>16361</th>
+      <td>https://cdn.sofifa.net/teams/113796/30.png</td>
+      <td>Right</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>Medium/ Medium</td>
+      <td>Lean (185+)</td>
+      <td>No</td>
+      <td>2023</td>
+      <td>€142K</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>16362</th>
+      <td>https://cdn.sofifa.net/teams/112260/30.png</td>
+      <td>Right</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>Medium/ Medium</td>
+      <td>Normal (185+)</td>
+      <td>No</td>
+      <td>2021</td>
+      <td>€214K</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>16363</th>
+      <td>https://cdn.sofifa.net/teams/702/30.png</td>
+      <td>Left</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>Medium/ Medium</td>
+      <td>Normal (185+)</td>
+      <td>No</td>
+      <td>2021</td>
+      <td>€131K</td>
+      <td>30.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>16364 rows × 11 columns</p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> 데이터프레임을 올바르게 해석한 사람을 모두 고르시오 (모두 맞출경우만 정답으로 인정)</p>
+<ul>
+<li>세민: 데이터프레임에는 모두 27개의 열이 있다.</li>
+<li>성재: 한국선수(<code>Nationality==Korea Republic</code>)와 일본선수(<code>Nationality==Japan</code>)의 <code>Overall</code>의 평균값은 일본이 더 높다.</li>
+<li>민정: 총 159개의 나라선수들이 포함되어 있다.</li>
+<li>슬기: 선수들의 연령이 25세이상(&gt;=)인 선수들은 그렇지 않은 선수들보다 평균적으로 키(<code>Height</code>)가크다.</li>
+</ul>
+</section>
+<section id="삼성전자의-주가" class="level2">
+<h2 class="anchored" data-anchor-id="삼성전자의-주가">삼성전자의 주가</h2>
+<p><code>(4)--(5)</code> 다음은 삼성전자의 주가를 크롤링하는 코드이다.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>start_date <span class="op">=</span> <span class="st">"2023-01-01"</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>end_date <span class="op">=</span> <span class="st">"2023-05-02"</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>y <span class="op">=</span> yf.download(<span class="st">"005930.KS"</span>, start<span class="op">=</span>start_date, end<span class="op">=</span>end_date)[<span class="st">'Adj Close'</span>].to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
+</div>
+</div>
+<p>삼성전자의 주가 <span class="math inline">\({\boldsymbol y}\)</span>를 시각화하면 아래와 같다.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.plot(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>(4)</code> 아래와 같은 변환을 이용하여 <span class="math inline">\({\boldsymbol y}\)</span>를 $ $로 변환하고 결과를 시각화하라.</p>
+<ul>
+<li><span class="math inline">\(\tilde{y}_1= \frac{1}{4}(3y_1 + y_2)\)</span></li>
+<li><span class="math inline">\(\tilde{y}_i= \frac{1}{4}(y_{i-1}+2y_i+y_{i+1})\)</span>, for <span class="math inline">\(i=2,3,\dots,n-1\)</span></li>
+<li><span class="math inline">\(\tilde{y}_n= \frac{1}{4}(y_{n-1}+3y_{n})\)</span></li>
+</ul>
+<p><strong>hint</strong>: 아래의 코드를 관찰</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>np.eye(<span class="dv">4</span>) <span class="op">+</span> np.array([<span class="bu">abs</span>(i<span class="op">-</span>j)<span class="op">&lt;</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)]).reshape(<span class="dv">4</span>,<span class="dv">4</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>array([[2., 1., 0., 0.],
+       [1., 2., 1., 0.],
+       [0., 1., 2., 1.],
+       [0., 0., 1., 2.]])</code></pre>
+</div>
+</div>
+<p><code>(5)</code> <code>(4)</code>의 변환을 50회 반복적용하고 결과를 시각화하라.</p>
+</section>
+<section id="회귀모형" class="level2">
+<h2 class="anchored" data-anchor-id="회귀모형">회귀모형</h2>
+<p><code>(6)--(7)</code> <span class="math inline">\((x_i,y_i)\)</span>가 아래와 같이 주어졌다고 가정하자.</p>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>x <span class="op">=</span>  np.array([<span class="fl">0.00983</span>, <span class="fl">0.01098</span>, <span class="fl">0.02951</span>, <span class="fl">0.0384</span> , <span class="fl">0.03973</span>, <span class="fl">0.04178</span>, <span class="fl">0.0533</span> ,</span>
+<span id="cb9-2"><a href="#cb9-2"></a>               <span class="fl">0.058</span>  , <span class="fl">0.09454</span>, <span class="fl">0.1103</span> , <span class="fl">0.1328</span> , <span class="fl">0.1412</span> , <span class="fl">0.1497</span> , <span class="fl">0.1664</span> ,</span>
+<span id="cb9-3"><a href="#cb9-3"></a>               <span class="fl">0.1906</span> , <span class="fl">0.1923</span> , <span class="fl">0.198</span>  , <span class="fl">0.2141</span> , <span class="fl">0.2393</span> , <span class="fl">0.2433</span> , <span class="fl">0.3157</span> ,</span>
+<span id="cb9-4"><a href="#cb9-4"></a>               <span class="fl">0.3228</span> , <span class="fl">0.3418</span> , <span class="fl">0.3552</span> , <span class="fl">0.3918</span> , <span class="fl">0.3962</span> , <span class="fl">0.4</span>    , <span class="fl">0.4482</span> ,</span>
+<span id="cb9-5"><a href="#cb9-5"></a>               <span class="fl">0.496</span>  , <span class="fl">0.507</span>  , <span class="fl">0.53</span>   , <span class="fl">0.5654</span> , <span class="fl">0.582</span>  , <span class="fl">0.5854</span> , <span class="fl">0.5854</span> ,</span>
+<span id="cb9-6"><a href="#cb9-6"></a>               <span class="fl">0.6606</span> , <span class="fl">0.7007</span> , <span class="fl">0.723</span>  , <span class="fl">0.7305</span> , <span class="fl">0.7383</span> , <span class="fl">0.7656</span> , <span class="fl">0.7725</span> ,</span>
+<span id="cb9-7"><a href="#cb9-7"></a>               <span class="fl">0.831</span>  , <span class="fl">0.8896</span> , <span class="fl">0.9053</span> , <span class="fl">0.914</span>  , <span class="fl">0.949</span>  , <span class="fl">0.952</span>  , <span class="fl">0.9727</span> ,</span>
+<span id="cb9-8"><a href="#cb9-8"></a>               <span class="fl">0.982</span>  ])</span>
+<span id="cb9-9"><a href="#cb9-9"></a>y <span class="op">=</span>  np.array([<span class="fl">0.7381</span>, <span class="fl">0.7043</span>, <span class="fl">0.3937</span>, <span class="fl">0.1365</span>, <span class="fl">0.3784</span>, <span class="fl">0.3028</span>, <span class="fl">0.1037</span>, <span class="fl">0.3846</span>,</span>
+<span id="cb9-10"><a href="#cb9-10"></a>               <span class="fl">0.706</span> , <span class="fl">0.7572</span>, <span class="fl">0.2421</span>, <span class="fl">0.232</span> , <span class="fl">0.9855</span>, <span class="fl">1.162</span> , <span class="fl">0.4653</span>, <span class="fl">0.6791</span>,</span>
+<span id="cb9-11"><a href="#cb9-11"></a>               <span class="fl">0.6905</span>, <span class="fl">0.6865</span>, <span class="fl">0.9757</span>, <span class="fl">0.7665</span>, <span class="fl">0.9522</span>, <span class="fl">0.4641</span>, <span class="fl">0.5498</span>, <span class="fl">1.1509</span>,</span>
+<span id="cb9-12"><a href="#cb9-12"></a>               <span class="fl">0.5288</span>, <span class="fl">1.1195</span>, <span class="fl">1.1659</span>, <span class="fl">1.4341</span>, <span class="fl">1.2779</span>, <span class="fl">1.1648</span>, <span class="fl">1.4002</span>, <span class="fl">0.7472</span>,</span>
+<span id="cb9-13"><a href="#cb9-13"></a>               <span class="fl">0.9142</span>, <span class="fl">0.9658</span>, <span class="fl">1.0707</span>, <span class="fl">1.4501</span>, <span class="fl">1.6758</span>, <span class="fl">0.8778</span>, <span class="fl">1.3384</span>, <span class="fl">0.7476</span>,</span>
+<span id="cb9-14"><a href="#cb9-14"></a>               <span class="fl">1.3086</span>, <span class="fl">1.7537</span>, <span class="fl">1.5559</span>, <span class="fl">1.2928</span>, <span class="fl">1.3832</span>, <span class="fl">1.3115</span>, <span class="fl">1.3382</span>, <span class="fl">1.536</span> ,           </span>
+<span id="cb9-15"><a href="#cb9-15"></a>               <span class="fl">1.9177</span>, <span class="fl">1.2069</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>6</code>. 아래의 수식을 이용하여 적절한 추세선 <span class="math inline">\(\hat{y}_i= \hat{\beta}_0 +\hat{\beta}_1 x_i\)</span>를 구하고 시각화하라.</p>
+<p><span class="math display">\[\begin{bmatrix} \hat{\beta}_0 \\ \hat{\beta}_1 \end{bmatrix} = ({\bf X}^T {\bf X})^{-1}{\bf X}^T {\boldsymbol y}, \quad {\bf X}=\begin{bmatrix} 1 &amp; x_1 \\ 1 &amp; x_2 \\ \dots \\ 1 &amp; x_n \end{bmatrix}\]</span></p>
+<p><code>7</code>. <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2\)</span>을 계산하라.</p>
+</section>
+</section>
+<section id="fashion-mnist-data-60점" class="level1">
+<h1>2. fashion MNIST data (60점)</h1>
+<p>아래는 9가지의 의류이미지가 저장된 이미지데이터를 불러오는 코드이다.</p>
+<div class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df_train<span class="op">=</span>pd.read_csv(<span class="st">'https://github.com/guebin/PP2023/blob/main/posts/02_PY4DS/fashion-mnist_train.csv'</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a>df_test<span class="op">=</span>pd.read_csv(<span class="st">'https://github.com/guebin/PP2023/blob/main/posts/02_PY4DS/fashion-mnist_test.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">def</span> rshp(row):</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="cf">return</span> row.reshape(<span class="dv">28</span>,<span class="dv">28</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>xtrain <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_train.iloc[:,<span class="dv">1</span>:]))</span>
+<span id="cb13-2"><a href="#cb13-2"></a>xtest <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_test.iloc[:,<span class="dv">1</span>:]))</span>
+<span id="cb13-3"><a href="#cb13-3"></a>ytrain<span class="op">=</span>np.array(df_train.label)</span>
+<span id="cb13-4"><a href="#cb13-4"></a>ytest<span class="op">=</span>np.array(df_test.label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>아래는 데이터에 대한 설명이다.</p>
+<ul>
+<li>전체의 이미지의 수는 70000개이며, 60000개의 이미지 <span class="math inline">\({\tt xtrain}\)</span>에 10000개의 이미지는 <span class="math inline">\({\tt xtest}\)</span>에 저장되어 있다.</li>
+<li>이미지에 대한 라벨은 각각 <span class="math inline">\({\tt ytrain}\)</span>과 <span class="math inline">\(\tt ytest\)</span>에 저장되어 있다. 따라서 <span class="math inline">\(\tt ytrain\)</span>에는 60000개의 이미지에 해당하는 라벨이, <span class="math inline">\(\tt ytest\)</span>에는 10000개의 이미지에 해당하는 라벨이 기록되어 있다.</li>
+<li>보통 분석에서는 60000개의 이미지를 가지고 라벨을 맞추는 “훈련”을 하고 (<span class="math inline">\({\tt xtrain}\)</span>을 이용하여 <span class="math inline">\({\tt ytrain}\)</span>을 맞추는 방법을 학습하고), 그러한 훈련이 잘 되었는지 10000개의 이미지를 이용하여 “테스트”한다.</li>
+<li>위와 같은 의미로 <span class="math inline">\(({\tt xtrain}, {\tt ytrain})\)</span> 을 training data set, <span class="math inline">\(({\tt xtest},{\tt ytest})\)</span> 를 test data set 이라고 부른다. (ref: <a href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets">위키참고</a>)</li>
+</ul>
+<p>아래는 이미지자료와 시각화에 대한 설명이다.</p>
+<ul>
+<li>각 이미지는 (28,28) 픽셀의 흑백이미지이다. 따라서 각 이미지는 (28,28,3) 이 아니라 (28,28) 의 shape을 가진 텐서로 구성되어있다.</li>
+<li>흑백이미지를 시각화 하기 위해서는 <code>plt.imshow(img, cmap='gray')</code>를 이용한다. 여기에서 <span class="math inline">\({\tt img}\)</span>은 임의의 2차원 텐서이며 이 예제의 경우 (28,28)의 shape을 가진다.</li>
+</ul>
+<p>아래는 <span class="math inline">\({\tt xtrain}\)</span>의 두번째 이미지, 즉 <span class="math inline">\({\tt xtrain[1,:,:]}\)</span>를 확인하는 코드의 예시이다.</p>
+<div class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># plt.imshow(xtrain[1,:,:],cmap='gray')</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>plt.imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co">## 같은코드임</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="141">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f4552a11df0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>이 이미지에 대한 label은 <span class="math inline">\({\tt ytrain[1]}\)</span>의 값으로 확인가능하다.</p>
+<div class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>ytrain[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="142">
+<pre><code>9</code></pre>
+</div>
+</div>
+<p>이미지와 라벨을 한번에 표현하는 코드는 아래와 같이 작성가능하다.</p>
+<div class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>plt.imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>plt.title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(ytrain[<span class="dv">1</span>]))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>여기에서 9가 의미하는 것은 ’Ankel boot’이며, 다른 숫자가 의미하는 것은 각각 아래와 같다.</p>
+<div class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>labels<span class="op">=</span> {<span class="dv">0</span>:<span class="st">'T-shirt/top'</span>, </span>
+<span id="cb19-2"><a href="#cb19-2"></a>         <span class="dv">1</span>:<span class="st">'Trouser'</span>, </span>
+<span id="cb19-3"><a href="#cb19-3"></a>         <span class="dv">2</span>:<span class="st">'Pullover'</span>, </span>
+<span id="cb19-4"><a href="#cb19-4"></a>         <span class="dv">3</span>:<span class="st">'Dress'</span>, </span>
+<span id="cb19-5"><a href="#cb19-5"></a>         <span class="dv">4</span>:<span class="st">'Coat'</span>, </span>
+<span id="cb19-6"><a href="#cb19-6"></a>         <span class="dv">5</span>:<span class="st">'Sandal'</span>, </span>
+<span id="cb19-7"><a href="#cb19-7"></a>         <span class="dv">6</span>:<span class="st">'Shirt'</span>, </span>
+<span id="cb19-8"><a href="#cb19-8"></a>         <span class="dv">7</span>:<span class="st">'Sneaker'</span>, </span>
+<span id="cb19-9"><a href="#cb19-9"></a>         <span class="dv">8</span>:<span class="st">'Bag'</span>, </span>
+<span id="cb19-10"><a href="#cb19-10"></a>         <span class="dv">9</span>:<span class="st">'Ankel boot'</span>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>아래는 <span class="math inline">\({\tt xtrain}\)</span>의 처음 10개의 이미지를 라벨과 함께 출력하는 코드이다.</p>
+<div class="cell" data-execution_count="223">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a>ax[<span class="dv">0</span>][<span class="dv">0</span>].imshow(xtrain[<span class="dv">0</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">0</span>]]))<span class="op">;</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>ax[<span class="dv">0</span>][<span class="dv">1</span>].imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">1</span>]]))<span class="op">;</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>ax[<span class="dv">0</span>][<span class="dv">2</span>].imshow(xtrain[<span class="dv">2</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">2</span>]]))<span class="op">;</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>ax[<span class="dv">0</span>][<span class="dv">3</span>].imshow(xtrain[<span class="dv">3</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">3</span>]]))<span class="op">;</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>ax[<span class="dv">0</span>][<span class="dv">4</span>].imshow(xtrain[<span class="dv">4</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">4</span>]]))<span class="op">;</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a></span>
+<span id="cb20-9"><a href="#cb20-9"></a>ax[<span class="dv">1</span>][<span class="dv">0</span>].imshow(xtrain[<span class="dv">5</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">5</span>]]))<span class="op">;</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a>ax[<span class="dv">1</span>][<span class="dv">1</span>].imshow(xtrain[<span class="dv">6</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">6</span>]]))<span class="op">;</span></span>
+<span id="cb20-11"><a href="#cb20-11"></a>ax[<span class="dv">1</span>][<span class="dv">2</span>].imshow(xtrain[<span class="dv">7</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">7</span>]]))<span class="op">;</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a>ax[<span class="dv">1</span>][<span class="dv">3</span>].imshow(xtrain[<span class="dv">8</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">8</span>]]))<span class="op">;</span></span>
+<span id="cb20-13"><a href="#cb20-13"></a>ax[<span class="dv">1</span>][<span class="dv">4</span>].imshow(xtrain[<span class="dv">9</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">9</span>]]))<span class="op">;</span></span>
+<span id="cb20-14"><a href="#cb20-14"></a></span>
+<span id="cb20-15"><a href="#cb20-15"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<hr>
+<p><code>(1)</code> <span class="math inline">\({\tt xtrain}\)</span>에서 각 라벨에 대한 평균이미지를 계산하고 계산결과를 <span class="math inline">\({\tt imgmean}\)</span>에 길이가 10인 <code>list</code>로 저장하라. 즉 <span class="math inline">\({\tt imgmean}\)</span>은 아래와 같은 자료구조를 가지고 있어야 한다.</p>
+<ul>
+<li><span class="math inline">\({\tt imgmean}=\big[{\tt imgmean[0]},\dots, {\tt imgmean[9]}\big]\)</span></li>
+<li><span class="math inline">\({\tt imgmean[0]}, \dots, {\tt imgmean[9]}\)</span> 는 각각 (28,28)의 shape을 가진 numpy array</li>
+<li><span class="math inline">\({\tt imgmean[0]}, \dots, {\tt imgmean[9]}\)</span> 는 각각 숫자 0,1, …, 9의 평균이미지를 의미</li>
+</ul>
+<p><span class="math inline">\({\tt imgmean[0]},\dots, {\tt imgmean[9]}\)</span>를 시각화 하라.</p>
+<p><strong>hint</strong>: 시각화예시, 라벨은 시각화하지 않아도 감점없음!</p>
+<div class="cell" data-execution_count="237">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-03-9wk-2-mid_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>(2)</code> 아래와 같은 numpy array 를 생성하라.</p>
+<p><span class="math display">\[{\tt loss}=
+\begin{bmatrix}
+{\tt loss[0,0]} &amp; \dots &amp; {\tt loss[0,9]} \\
+{\tt loss[1,0]} &amp; \dots &amp; {\tt loss[1,9]} \\
+\dots &amp; \dots &amp;  \dots \\
+{\tt loss[59999,0]}&amp; \dots &amp;{\tt loss[59999,9]} \\
+\end{bmatrix}\]</span></p>
+<p>여기에서, <span class="math inline">\({\tt loss[i,j]} = \frac{1}{28\times 28} \sum_{p=0}^{27}\sum_{q=0}^{27}\big({\tt xtrain[i,p,q]}-{\tt imgmean[j][p,q]}\big)^2\)</span> 이다. 이제 <span class="math inline">\({\tt loss}\)</span>에서 “최소값을 가지는 원소의 인덱스를 출력”하는 함수를 행별로 적용해 이미지를 분류하라. 예를들어 모든 <span class="math inline">\(j=0,1,\dots,9\)</span> 에 대하여 아래를 계산한 결과</p>
+<p><span class="math display">\[\frac{1}{28\times 28} \sum_{p=0}^{27}\sum_{q=0}^{27}\big({\tt xtrain[1,p,q]}-{\tt imgmean[j][p,q]}\big)^2\]</span></p>
+<p><span class="math inline">\(j=9\)</span>일 경우 그 값이 가장 작다면 <span class="math inline">\({\tt xtrain[1]}\)</span> 이미지는 9번으로 분류한다. 분류한 결과와 실제 라벨 <span class="math inline">\({\tt ytrain}\)</span>을 비교하라. 얼마나 많은 결과가 일치하는지 비율을 계산하라.</p>
+<p><code>(3)</code> <span class="math inline">\({\tt xtrain}\)</span>에서 학습한 평균이미지 <span class="math inline">\({\tt imgmean}\)</span>를 바탕으로 <span class="math inline">\({\tt xtest}\)</span>의 1번라벨에 해당하는 이미지만을 분류하라. 아래의 물음에 답하라.</p>
+<ul>
+<li>1번라벨에 해당하는 이미지를 0번라벨로 분류한 경우는 모두 몇건인가? (잘못된 분류)</li>
+<li>1번라벨에 해당하는 이미지를 1번라벨로 분류한 경우는 모두 몇건인가? (올바른 분류)</li>
+<li><span class="math inline">\(\dots\)</span></li>
+<li>1번라벨에 해당하는 이미지를 9번라벨로 분류한 경우는 모두 몇건인가? (잘못된 분류)</li>
+</ul>
+<p><strong>hint</strong>: 아래와 같은 결과를 주는 dictionary를 만들면 된다.</p>
+<pre><code>{0: 28, 1: 895, 2: 11, 3: 36, 4: 8, 5: 12, 6: 10, 7: 0, 8: 0, 9: 0}</code></pre>
+<ul>
+<li>1번라벨에 해당하는 이미지를 0번라벨로 분류한 경우는 모두 28건</li>
+<li>1번라벨에 해당하는 이미지를 1번라벨로 분류한 경우는 모두 895건</li>
+<li><span class="math inline">\(\dots\)</span></li>
+<li>1번라벨에 해당하는 이미지를 9번라벨로 분류한 경우는 모두 0건</li>
+</ul>
+<p><code>(4)</code> <span class="math inline">\({\tt xtest}\)</span>의 이미지를 올바르게 분류한 비율을 카테고리별로 정리하라.</p>
+<pre><code>### 출력예시
+
+{'T-shirt/top': 0.7,
+ 'Trouser': 0.895,
+ 'Pullover': 0.496,
+ 'Dress': 0.802,
+ 'Coat': 0.599,
+ 'Sandal': 0.757,
+ 'Shirt': 0.202,
+ 'Sneaker': 0.794,
+ 'Bag': 0.761,
+ 'Ankel boot': 0.851}</code></pre>
+</section>
+<section id="파이썬의-설치-5점" class="level1">
+<h1>3. 파이썬의 설치 (5점)</h1>
+<p>다음을 읽고 파이썬과 가상환경에 대하여 올바른 진술을 한 사람을 모두 골라라. (모두 맞출 경우만 정답으로 인정함)</p>
+<p><strong>민정</strong>: 구글코랩은 사용자의 컴퓨터에 설치된 아나콘다를 기반으로 동작하며, 실제적으로는 사용자의 ipython과 크롬과의 통신만을 담당한다. 따라서 구글코랩은 반드시 파이썬만 연결하여 사용가능하지 않으며 실제로 구글코랩에 R을 연결하여 사용하기도 한다.</p>
+<p><strong>구환</strong>: 아래와 같이 스크립트로 구성되 <code>mysum.py</code>와 같은 파이썬파일을 실행하기 위해서는 반드시 ipython 이나 주피터랩이 설치된 상태이어야 한다.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co">## mysum.py</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>total <span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>): </span>
+<span id="cb24-4"><a href="#cb24-4"></a>    total <span class="op">=</span> total <span class="op">+</span> i</span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="bu">print</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>슬기</strong>: 아나콘다를 이용하여 가상환경을 만들 경우 두 가지버전 이상의 python을 동시에 관리할 수 있다.</p>
+<p><strong>승민</strong>: 아래와 같이 <code>myfuns.py</code> 파일을 구성하였다고 하자.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># myfuns.py</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="kw">def</span> vec2_add(a,b): </span>
+<span id="cb25-3"><a href="#cb25-3"></a>    <span class="cf">return</span> [a[<span class="dv">0</span>]<span class="op">+</span>b[<span class="dv">0</span>], a[<span class="dv">1</span>]<span class="op">+</span>b[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>이 경우 아래와 같이 임의의 주피터 노트북에서 <code>myfuns</code>를 임포트하면 <code>vec2_add</code> 함수를 사용할 수 있다.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="im">import</span> myfuns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>단, 여기에서 <code>myfuns.py</code>는 현재 실행중인 노트북과 같은 폴더에 있다고 가정한다.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
