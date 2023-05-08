@@ -965,7 +965,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="삼성전자의-주가-추가문제-30점" class="level1">
 <h1>4. 삼성전자의 주가 추가문제 (30점)</h1>
 <p>다음은 삼성전자의 주가를 크롤링하는 코드이다.</p>
-<div class="cell" data-execution_count="48">
+<div class="cell" data-execution_count="231">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>start_date <span class="op">=</span> <span class="st">"2023-01-01"</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>end_date <span class="op">=</span> <span class="st">"2023-05-02"</span></span>
 <span id="cb49-3"><a href="#cb49-3"></a>y <span class="op">=</span> yf.download(<span class="st">"005930.KS"</span>, start<span class="op">=</span>start_date, end<span class="op">=</span>end_date)[<span class="st">'Adj Close'</span>].to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -974,7 +974,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>삼성전자의 주가 <span class="math inline">\({\boldsymbol y}\)</span>를 시각화하면 아래와 같다.</p>
-<div class="cell" data-execution_count="49">
+<div class="cell" data-execution_count="232">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>plt.plot(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
@@ -984,7 +984,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[{\bf x}=(x_1,x_2,\dots,x_n)=\big(\frac{1}{n},\frac{2}{n},\dots,1\big)\]</span></p>
 <p><span class="math inline">\({\bf x}=(x_1,\dots,x_n)\)</span>을 바탕으로 아래와 같은 매트릭스 <span class="math inline">\({\bf X}\)</span>를 생성하라. 단, <span class="math inline">\(n={\tt len}({\boldsymbol y})\)</span>.</p>
 <p><span class="math display">\[{\bf X}=\begin{bmatrix} 1 &amp; x_1 \\ 1 &amp; x_2\\ \dots &amp; \dots \\ 1 &amp; x_n \end{bmatrix}\]</span></p>
-<div class="cell" data-execution_count="50">
+<div class="cell" data-execution_count="233">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>x <span class="op">=</span> np.arange(<span class="dv">1</span>,<span class="dv">83</span>)<span class="op">/</span><span class="dv">82</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>X <span class="op">=</span> np.stack([x<span class="op">**</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>)],axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -995,13 +995,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>hint</strong>: <span class="math inline">\({\bf X}\)</span>를 아래와 같이 해석해도 무방하다.</p>
 <p><span class="math display">\[{\bf X}=\begin{bmatrix} x_1^0 &amp; x_1^1 \\ x_2^0 &amp; x_2^1\\ \dots &amp; \dots \\ x_n^0 &amp; x_n^1 \end{bmatrix}\]</span></p>
 <p><code>(풀이)</code></p>
-<div class="cell" data-execution_count="51">
+<div class="cell" data-execution_count="235">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>yhat<span class="op">=</span> X<span class="op">@</span>np.linalg.inv(X.T<span class="op">@</span> X)<span class="op">@</span> X.T <span class="op">@</span> y</span>
 <span id="cb53-2"><a href="#cb53-2"></a>plt.plot(x,y, label<span class="op">=</span><span class="vs">r'$(x_i,y_i)$'</span>)</span>
-<span id="cb53-3"><a href="#cb53-3"></a>plt.plot(x,yhat,label<span class="op">=</span><span class="vs">r'$(x_i,\hat</span><span class="sc">{y}</span><span class="vs">_i)$'</span>)</span>
+<span id="cb53-3"><a href="#cb53-3"></a>plt.plot(x,yhat,<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$(x_i,\hat</span><span class="sc">{y}</span><span class="vs">_i)$'</span>)</span>
 <span id="cb53-4"><a href="#cb53-4"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="51">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7f6efb097ac0&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="235">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f6ebb83c700&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
@@ -1013,14 +1013,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[\hat{\bf y}= {\bf X}({\bf X}^T {\bf X})^{-1}{\bf X}^T {\bf y}\]</span></p>
 <p><span class="math inline">\((x_i,y_i)\)</span>와 <span class="math inline">\((x_i,\hat{y}_i)\)</span>을 겹쳐서 시각화하라. 단, <span class="math inline">\(\hat{\bf y}=(\hat{y}_1,\dots,\hat{y}_n)\)</span>.</p>
 <p><code>(풀이)</code></p>
-<div class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>x <span class="op">=</span> np.arange(<span class="dv">1</span>,<span class="dv">83</span>)<span class="op">/</span><span class="dv">82</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a>X <span class="op">=</span> np.stack([x<span class="op">**</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>)],axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb55-3"><a href="#cb55-3"></a>plt.plot(x,y, label<span class="op">=</span><span class="vs">r'$(x_i,y_i)$'</span>)</span>
-<span id="cb55-4"><a href="#cb55-4"></a>plt.plot(x, X<span class="op">@</span>np.linalg.inv(X.T<span class="op">@</span> X)<span class="op">@</span> X.T <span class="op">@</span> y,label<span class="op">=</span><span class="vs">r'$(x_i,\hat</span><span class="sc">{y}</span><span class="vs">_i)$'</span>)</span>
-<span id="cb55-5"><a href="#cb55-5"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="52">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7f6efb1e00d0&gt;</code></pre>
+<div class="cell" data-execution_count="244">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>X <span class="op">=</span> np.stack([x<span class="op">**</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>)],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb55-2"><a href="#cb55-2"></a>plt.plot(x,y, label<span class="op">=</span><span class="vs">r'$(x_i,y_i)$'</span>)</span>
+<span id="cb55-3"><a href="#cb55-3"></a>plt.plot(x, X<span class="op">@</span>np.linalg.inv(X.T<span class="op">@</span> X)<span class="op">@</span> X.T <span class="op">@</span> y,<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$(x_i,\hat</span><span class="sc">{y}</span><span class="vs">_i)$'</span>)</span>
+<span id="cb55-4"><a href="#cb55-4"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="244">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f6ebb7cd370&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-35-output-2.png" class="img-fluid"></p>
@@ -1157,24 +1156,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p><code>(3)</code> 수정된 라벨에 대하여 xtrain의 이미지를 분류하고 분류결과를 카테고리별로 제시하라.</p>
-<p><strong>hint:</strong> 결과는 아래와 같다.</p>
-<div class="cell" data-execution_count="334">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>{<span class="dv">0</span>: <span class="fl">0.7493333333333333</span>,</span>
-<span id="cb67-2"><a href="#cb67-2"></a> <span class="dv">1</span>: <span class="fl">0.9443333333333334</span>,</span>
-<span id="cb67-3"><a href="#cb67-3"></a> <span class="dv">2</span>: <span class="fl">0.9379444444444445</span>,</span>
-<span id="cb67-4"><a href="#cb67-4"></a> <span class="dv">3</span>: <span class="fl">0.7983333333333333</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="334">
-<pre><code>{0: 0.7493333333333333,
- 1: 0.9443333333333334,
- 2: 0.9379444444444445,
- 3: 0.7983333333333333}</code></pre>
-</div>
-</div>
 <p><code>(풀이)</code></p>
 <div class="cell" data-tags="[]" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>training_loss2 <span class="op">=</span> np.array([[np.mean((xtrain[j,:,:]<span class="op">-</span> imgmean2[i])<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">60000</span>)])</span>
-<span id="cb69-2"><a href="#cb69-2"></a>ytrain2_hat <span class="op">=</span> training_loss2.argmin(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb69-3"><a href="#cb69-3"></a>{i:ytrain2_hat[ytrain2<span class="op">==</span>i].tolist().count(i)<span class="op">/</span><span class="bu">sum</span>(ytrain2<span class="op">==</span>i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>training_loss2 <span class="op">=</span> np.array([[np.mean((xtrain[j,:,:]<span class="op">-</span> imgmean2[i])<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">60000</span>)])</span>
+<span id="cb67-2"><a href="#cb67-2"></a>ytrain2_hat <span class="op">=</span> training_loss2.argmin(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb67-3"><a href="#cb67-3"></a>{i:ytrain2_hat[ytrain2<span class="op">==</span>i].tolist().count(i)<span class="op">/</span><span class="bu">sum</span>(ytrain2<span class="op">==</span>i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="61">
 <pre><code>{0: 0.7493333333333333,
  1: 0.9443333333333334,
@@ -1187,32 +1173,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>6. 동물명: 최하니 (20점)</h1>
 <p>아래는 동물명 “최하니”의 이미지이다.</p>
 <div class="cell" data-execution_count="63">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/guebin/SC2022/main/hani.jpeg'</span></span>
-<span id="cb71-2"><a href="#cb71-2"></a>hani <span class="op">=</span> np.einsum(<span class="st">'ijk-&gt;jik'</span>,np.array(PIL.Image.<span class="bu">open</span>(io.BytesIO(requests.get(url).content))),dtype<span class="op">=</span>np.int64)<span class="op">/</span><span class="dv">255</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/guebin/SC2022/main/hani.jpeg'</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>hani <span class="op">=</span> np.einsum(<span class="st">'ijk-&gt;jik'</span>,np.array(PIL.Image.<span class="bu">open</span>(io.BytesIO(requests.get(url).content))),dtype<span class="op">=</span>np.int64)<span class="op">/</span><span class="dv">255</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="64">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>plt.imshow(hani)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>plt.imshow(hani)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="64">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7f6efc778130&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-46-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-45-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>아래는 하니를 적당히 분리하여 아래와 같이 <code>hani_left</code>와 <code>hini_right</code>를 만들고 시각화한 것이다.</p>
 <div class="cell" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>hani_left <span class="op">=</span> hani[:,:<span class="dv">1512</span>,:].copy()</span>
-<span id="cb74-2"><a href="#cb74-2"></a>hani_right <span class="op">=</span> hani[:,<span class="dv">1512</span>:,:].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>hani_left <span class="op">=</span> hani[:,:<span class="dv">1512</span>,:].copy()</span>
+<span id="cb72-2"><a href="#cb72-2"></a>hani_right <span class="op">=</span> hani[:,<span class="dv">1512</span>:,:].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb75-2"><a href="#cb75-2"></a>ax[<span class="dv">0</span>].imshow(hani_left)</span>
-<span id="cb75-3"><a href="#cb75-3"></a>ax[<span class="dv">1</span>].imshow(hani_right)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb73-2"><a href="#cb73-2"></a>ax[<span class="dv">0</span>].imshow(hani_left)</span>
+<span id="cb73-3"><a href="#cb73-3"></a>ax[<span class="dv">1</span>].imshow(hani_right)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="66">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7f6ef8144b50&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-48-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-47-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>(1)</code> <code>hani_right[:,:,2]</code>의 모든 원소에 아래와 같은 변환을 수행하라.</p>
@@ -1221,19 +1207,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><code>(풀이)</code></p>
 <div class="cell" data-execution_count="67">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>_a <span class="op">=</span> hani_right[:,:,<span class="dv">2</span>] <span class="op">*</span> (hani_right[:,:,<span class="dv">2</span>]<span class="op">*</span><span class="fl">1.15</span> <span class="op">&gt;</span> <span class="fl">1.0</span>)</span>
-<span id="cb77-2"><a href="#cb77-2"></a>_b <span class="op">=</span> hani_right[:,:,<span class="dv">2</span>]<span class="op">*</span><span class="fl">1.15</span> <span class="op">*</span> (hani_right[:,:,<span class="dv">2</span>]<span class="op">*</span><span class="fl">1.15</span> <span class="op">&lt;</span> <span class="fl">1.0</span>)</span>
-<span id="cb77-3"><a href="#cb77-3"></a>hani_right[:,:,<span class="dv">2</span>] <span class="op">=</span> _a <span class="op">+</span> _b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>_a <span class="op">=</span> hani_right[:,:,<span class="dv">2</span>] <span class="op">*</span> (hani_right[:,:,<span class="dv">2</span>]<span class="op">*</span><span class="fl">1.15</span> <span class="op">&gt;</span> <span class="fl">1.0</span>)</span>
+<span id="cb75-2"><a href="#cb75-2"></a>_b <span class="op">=</span> hani_right[:,:,<span class="dv">2</span>]<span class="op">*</span><span class="fl">1.15</span> <span class="op">*</span> (hani_right[:,:,<span class="dv">2</span>]<span class="op">*</span><span class="fl">1.15</span> <span class="op">&lt;</span> <span class="fl">1.0</span>)</span>
+<span id="cb75-3"><a href="#cb75-3"></a>hani_right[:,:,<span class="dv">2</span>] <span class="op">=</span> _a <span class="op">+</span> _b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>(2)</code> <code>hani_left</code>와 <code>(1)</code>에서 변환된 <code>hani_right</code>를 <code>np.concatenate</code>을 이용하여 합치고 결과를 시각화하라.</p>
 <p><code>(풀이)</code></p>
 <div class="cell" data-execution_count="68">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>plt.imshow(np.concatenate([hani_left,hani_right],axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>plt.imshow(np.concatenate([hani_left,hani_right],axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="68">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7f6ef835bbb0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-50-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-49-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -1251,16 +1237,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>아래의 데이터프레임은 날씨, 도로 상태, 교통 상황, 엔진 문제 및 사고 여부와 같은 여러 가지 변수를 포함하는 10개의 행과 5개의 열로 구성되어있다.</p>
 <div class="cell" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb80-2"><a href="#cb80-2"></a>    <span class="st">'WeatherCondition'</span>: [<span class="st">'rain'</span>, <span class="st">'snow'</span>, <span class="st">'clear'</span>, <span class="st">'clear'</span>, <span class="st">'snow'</span>, <span class="st">'rain'</span>, <span class="st">'rain'</span>, <span class="st">'snow'</span>, <span class="st">'clear'</span>, <span class="st">'clear'</span>],</span>
-<span id="cb80-3"><a href="#cb80-3"></a>    <span class="st">'RoadCondition'</span>: [<span class="st">'bad'</span>,<span class="st">'average'</span>,<span class="st">'bad'</span>,<span class="st">'good'</span>,<span class="st">'good'</span>,<span class="st">'average'</span>,<span class="st">'good'</span>,<span class="st">'bad'</span>,<span class="st">'good'</span>,<span class="st">'bad'</span>],</span>
-<span id="cb80-4"><a href="#cb80-4"></a>    <span class="st">'TrafficCondition'</span>: [<span class="st">'high'</span>,<span class="st">'normal'</span>,<span class="st">'light'</span>,<span class="st">'light'</span>,<span class="st">'normal'</span>,<span class="st">'light'</span>,<span class="st">'normal'</span>,<span class="st">'high'</span>,<span class="st">'high'</span>,<span class="st">'high'</span>],</span>
-<span id="cb80-5"><a href="#cb80-5"></a>    <span class="st">'EngineProblem'</span>: [<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'yes'</span>],</span>
-<span id="cb80-6"><a href="#cb80-6"></a>    <span class="st">'Accident'</span>: [<span class="st">'yes'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>]</span>
-<span id="cb80-7"><a href="#cb80-7"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb78-2"><a href="#cb78-2"></a>    <span class="st">'WeatherCondition'</span>: [<span class="st">'rain'</span>, <span class="st">'snow'</span>, <span class="st">'clear'</span>, <span class="st">'clear'</span>, <span class="st">'snow'</span>, <span class="st">'rain'</span>, <span class="st">'rain'</span>, <span class="st">'snow'</span>, <span class="st">'clear'</span>, <span class="st">'clear'</span>],</span>
+<span id="cb78-3"><a href="#cb78-3"></a>    <span class="st">'RoadCondition'</span>: [<span class="st">'bad'</span>,<span class="st">'average'</span>,<span class="st">'bad'</span>,<span class="st">'good'</span>,<span class="st">'good'</span>,<span class="st">'average'</span>,<span class="st">'good'</span>,<span class="st">'bad'</span>,<span class="st">'good'</span>,<span class="st">'bad'</span>],</span>
+<span id="cb78-4"><a href="#cb78-4"></a>    <span class="st">'TrafficCondition'</span>: [<span class="st">'high'</span>,<span class="st">'normal'</span>,<span class="st">'light'</span>,<span class="st">'light'</span>,<span class="st">'normal'</span>,<span class="st">'light'</span>,<span class="st">'normal'</span>,<span class="st">'high'</span>,<span class="st">'high'</span>,<span class="st">'high'</span>],</span>
+<span id="cb78-5"><a href="#cb78-5"></a>    <span class="st">'EngineProblem'</span>: [<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'yes'</span>],</span>
+<span id="cb78-6"><a href="#cb78-6"></a>    <span class="st">'Accident'</span>: [<span class="st">'yes'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>]</span>
+<span id="cb78-7"><a href="#cb78-7"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="71">
 
 <div>
@@ -1375,7 +1361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>hint</strong>: <code>Accident=='yes'인 데이터수 / 전체데이터수</code>를 계산하면 되며 답은 0.5이다.</p>
 <p><code>(풀이)</code></p>
 <div class="cell" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="bu">len</span>(df.query(<span class="st">'Accident=="no"'</span>)) <span class="op">/</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a><span class="bu">len</span>(df.query(<span class="st">'Accident=="no"'</span>)) <span class="op">/</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="72">
 <pre><code>0.5</code></pre>
 </div>
@@ -1384,15 +1370,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[P({\tt WeatherCondition == rain} ~|~ {\tt Accident==no})\]</span></p>
 <p>아래와 같이 계산한다고 하자.</p>
 <div class="cell" data-execution_count="508">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># 방법1</span></span>
-<span id="cb84-2"><a href="#cb84-2"></a><span class="bu">len</span>(df.query(<span class="st">'WeatherCondition == "rain" and Accident == "no"'</span>))<span class="op">/</span><span class="bu">len</span>(df.query(<span class="st">'Accident=="no"'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="co"># 방법1</span></span>
+<span id="cb82-2"><a href="#cb82-2"></a><span class="bu">len</span>(df.query(<span class="st">'WeatherCondition == "rain" and Accident == "no"'</span>))<span class="op">/</span><span class="bu">len</span>(df.query(<span class="st">'Accident=="no"'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="508">
 <pre><code>0.4</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="509">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># 방법2</span></span>
-<span id="cb86-2"><a href="#cb86-2"></a>((df[<span class="st">'WeatherCondition'</span>] <span class="op">==</span> <span class="st">'rain'</span>) <span class="op">&amp;</span> (df[<span class="st">'Accident'</span>]<span class="op">==</span> <span class="st">'no'</span>)).<span class="bu">sum</span>() <span class="op">/</span> (df[<span class="st">'Accident'</span>]<span class="op">==</span> <span class="st">'no'</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># 방법2</span></span>
+<span id="cb84-2"><a href="#cb84-2"></a>((df[<span class="st">'WeatherCondition'</span>] <span class="op">==</span> <span class="st">'rain'</span>) <span class="op">&amp;</span> (df[<span class="st">'Accident'</span>]<span class="op">==</span> <span class="st">'no'</span>)).<span class="bu">sum</span>() <span class="op">/</span> (df[<span class="st">'Accident'</span>]<span class="op">==</span> <span class="st">'no'</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="509">
 <pre><code>0.4</code></pre>
 </div>
@@ -1429,10 +1415,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  'P(EngineProblem=yes|Accident=no)': 0.2,
  'P(EngineProblem=yes|Accident=yes)': 0.6}</code></pre>
 <p><code>(풀이)</code></p>
-<div class="cell" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>cond <span class="op">=</span> [<span class="st">'WeatherCondition'</span>,<span class="st">'RoadCondition'</span>,<span class="st">'TrafficCondition'</span>,<span class="st">'EngineProblem'</span>]</span>
-<span id="cb89-2"><a href="#cb89-2"></a>{<span class="st">'P(</span><span class="sc">{}</span><span class="st">=</span><span class="sc">{}</span><span class="st">|Accident=</span><span class="sc">{}</span><span class="st">)'</span>.<span class="bu">format</span>(i,j,k): ((df[i]<span class="op">==</span>j)<span class="op">&amp;</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k)).<span class="bu">sum</span>()<span class="op">/</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k).<span class="bu">sum</span>() <span class="cf">for</span> i <span class="kw">in</span> cond <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">set</span>(df[i]) <span class="cf">for</span> k <span class="kw">in</span> [<span class="st">'no'</span>,<span class="st">'yes'</span>]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="73">
+<div class="cell" data-execution_count="316">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a><span class="op">*</span>cond, _ <span class="op">=</span> df.columns</span>
+<span id="cb87-2"><a href="#cb87-2"></a>{<span class="st">'P(</span><span class="sc">{}</span><span class="st">=</span><span class="sc">{}</span><span class="st">|Accident=</span><span class="sc">{}</span><span class="st">)'</span>.<span class="bu">format</span>(i,j,k): ((df[i]<span class="op">==</span>j)<span class="op">&amp;</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k)).<span class="bu">sum</span>()<span class="op">/</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k).<span class="bu">sum</span>() <span class="cf">for</span> i <span class="kw">in</span> cond <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">set</span>(df[i]) <span class="cf">for</span> k <span class="kw">in</span> [<span class="st">'no'</span>,<span class="st">'yes'</span>]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="316">
 <pre><code>{'P(WeatherCondition=clear|Accident=no)': 0.4,
  'P(WeatherCondition=clear|Accident=yes)': 0.4,
  'P(WeatherCondition=rain|Accident=no)': 0.4,
@@ -1470,11 +1456,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>여기에서 <span class="math inline">\(\frac{A}{A+B}\)</span>와 <span class="math inline">\(\frac{B}{A+B}\)</span>를 각각 주어진 상황에 대하여 사고가 날 확률, 사고가 나지 않을 확률을 의미한다고 하자. 주어진 상황에서 사고가 날 확률은 얼마인가?</p>
 <p><strong>hint:</strong> 답은 1/25</p>
 <p><code>(풀이)</code></p>
-<div class="cell" data-execution_count="74">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>cond <span class="op">=</span> [<span class="st">'WeatherCondition'</span>,<span class="st">'RoadCondition'</span>,<span class="st">'TrafficCondition'</span>,<span class="st">'EngineProblem'</span>]</span>
-<span id="cb91-2"><a href="#cb91-2"></a>dct <span class="op">=</span> {(j,k):((df[i]<span class="op">==</span>j)<span class="op">&amp;</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k)).<span class="bu">sum</span>()<span class="op">/</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k).<span class="bu">sum</span>() <span class="cf">for</span> i <span class="kw">in</span> cond <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">set</span>(df[i]) <span class="cf">for</span> k <span class="kw">in</span> [<span class="st">'no'</span>,<span class="st">'yes'</span>]}</span>
-<span id="cb91-3"><a href="#cb91-3"></a>dct </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="74">
+<div class="cell" data-execution_count="279">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>dct <span class="op">=</span> {(j,k):((df[i]<span class="op">==</span>j)<span class="op">&amp;</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k)).<span class="bu">sum</span>()<span class="op">/</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k).<span class="bu">sum</span>() <span class="cf">for</span> i <span class="kw">in</span> cond <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">set</span>(df[i]) <span class="cf">for</span> k <span class="kw">in</span> [<span class="st">'no'</span>,<span class="st">'yes'</span>]}</span>
+<span id="cb89-2"><a href="#cb89-2"></a>dct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="279">
 <pre><code>{('clear', 'no'): 0.4,
  ('clear', 'yes'): 0.4,
  ('rain', 'no'): 0.4,
@@ -1500,31 +1485,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <ul>
-<li>dct의 키는 <code>(WeatherCondition~EngineProblem의 라벨,Accident의 라벨)</code>로 이루어짐</li>
+<li>dct의 키는 <code>(WeatherCondition~EngineProblem의 라벨, Accident의 라벨)</code>로 이루어짐</li>
 </ul>
-<div class="cell" data-execution_count="76">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>A <span class="op">=</span> dct[<span class="st">'rain'</span>,<span class="st">'yes'</span>]<span class="op">*</span>dct[<span class="st">'good'</span>,<span class="st">'yes'</span>]<span class="op">*</span>dct[<span class="st">'normal'</span>,<span class="st">'yes'</span>]<span class="op">*</span>dct[<span class="st">'no'</span>,<span class="st">'yes'</span>]</span>
-<span id="cb93-2"><a href="#cb93-2"></a>B <span class="op">=</span> dct[<span class="st">'rain'</span>,<span class="st">'no'</span>]<span class="op">*</span>dct[<span class="st">'good'</span>,<span class="st">'no'</span>]<span class="op">*</span>dct[<span class="st">'normal'</span>,<span class="st">'no'</span>]<span class="op">*</span>dct[<span class="st">'no'</span>,<span class="st">'no'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="223">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>A <span class="op">=</span> dct[<span class="st">'rain'</span>,<span class="st">'yes'</span>]<span class="op">*</span>dct[<span class="st">'good'</span>,<span class="st">'yes'</span>]<span class="op">*</span>dct[<span class="st">'normal'</span>,<span class="st">'yes'</span>]<span class="op">*</span>dct[<span class="st">'no'</span>,<span class="st">'yes'</span>]</span>
+<span id="cb91-2"><a href="#cb91-2"></a>B <span class="op">=</span> dct[<span class="st">'rain'</span>,<span class="st">'no'</span>]<span class="op">*</span>dct[<span class="st">'good'</span>,<span class="st">'no'</span>]<span class="op">*</span>dct[<span class="st">'normal'</span>,<span class="st">'no'</span>]<span class="op">*</span>dct[<span class="st">'no'</span>,<span class="st">'no'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="77">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>A<span class="op">/</span>(A<span class="op">+</span>B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="77">
+<div class="cell" data-execution_count="238">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1"></a>A<span class="op">/</span>(A<span class="op">+</span>B) <span class="co"># 실제정답은 0.04, 0.000000000000000015는 에러</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="238">
 <pre><code>0.040000000000000015</code></pre>
 </div>
 </div>
 <p><code>(4)</code> 모든 상황에 대하여 사고가 날 확률을 구하여라.</p>
-<p><code>(풀이)</code></p>
-<div class="cell" data-execution_count="80">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a>W <span class="op">=</span> <span class="bu">set</span>(df.WeatherCondition)</span>
-<span id="cb96-2"><a href="#cb96-2"></a>R <span class="op">=</span> <span class="bu">set</span>(df.RoadCondition)</span>
-<span id="cb96-3"><a href="#cb96-3"></a>T <span class="op">=</span> <span class="bu">set</span>(df.TrafficCondition)</span>
-<span id="cb96-4"><a href="#cb96-4"></a>E <span class="op">=</span> <span class="bu">set</span>(df.EngineProblem)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>(풀이1)</code></p>
+<div class="cell" data-execution_count="152">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>W <span class="op">=</span> <span class="bu">set</span>(df.WeatherCondition)</span>
+<span id="cb94-2"><a href="#cb94-2"></a>R <span class="op">=</span> <span class="bu">set</span>(df.RoadCondition)</span>
+<span id="cb94-3"><a href="#cb94-3"></a>T <span class="op">=</span> <span class="bu">set</span>(df.TrafficCondition)</span>
+<span id="cb94-4"><a href="#cb94-4"></a>E <span class="op">=</span> <span class="bu">set</span>(df.EngineProblem)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="81">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>df2 <span class="op">=</span> pd.DataFrame([[w,r,t,e,dct[w,<span class="st">'yes'</span>]<span class="op">*</span>dct[r,<span class="st">'yes'</span>]<span class="op">*</span>dct[t,<span class="st">'yes'</span>]<span class="op">*</span>dct[e,<span class="st">'yes'</span>],dct[w,<span class="st">'no'</span>]<span class="op">*</span>dct[r,<span class="st">'no'</span>]<span class="op">*</span>dct[t,<span class="st">'no'</span>]<span class="op">*</span>dct[e,<span class="st">'no'</span>]] <span class="cf">for</span> w <span class="kw">in</span> W <span class="cf">for</span> r <span class="kw">in</span> R <span class="cf">for</span> t <span class="kw">in</span> T <span class="cf">for</span> e <span class="kw">in</span> E])</span>
-<span id="cb97-2"><a href="#cb97-2"></a>df2.columns <span class="op">=</span> pd.Index([<span class="st">'WeatherCondition'</span>,<span class="st">'RoadCondition'</span>,<span class="st">'TrafficCondition'</span>,<span class="st">'EngineProblem'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>])</span>
-<span id="cb97-3"><a href="#cb97-3"></a>df2.<span class="bu">eval</span>(<span class="st">'Prob = A/(A+B)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="81">
+<div class="cell" data-execution_count="237">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>df2 <span class="op">=</span> pd.DataFrame([[w,r,t,e,dct[w,<span class="st">'yes'</span>]<span class="op">*</span>dct[r,<span class="st">'yes'</span>]<span class="op">*</span>dct[t,<span class="st">'yes'</span>]<span class="op">*</span>dct[e,<span class="st">'yes'</span>],dct[w,<span class="st">'no'</span>]<span class="op">*</span>dct[r,<span class="st">'no'</span>]<span class="op">*</span>dct[t,<span class="st">'no'</span>]<span class="op">*</span>dct[e,<span class="st">'no'</span>]] <span class="cf">for</span> w <span class="kw">in</span> W <span class="cf">for</span> r <span class="kw">in</span> R <span class="cf">for</span> t <span class="kw">in</span> T <span class="cf">for</span> e <span class="kw">in</span> E])</span>
+<span id="cb95-2"><a href="#cb95-2"></a>df2.columns <span class="op">=</span> pd.Index([<span class="st">'WeatherCondition'</span>,<span class="st">'RoadCondition'</span>,<span class="st">'TrafficCondition'</span>,<span class="st">'EngineProblem'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>])</span>
+<span id="cb95-3"><a href="#cb95-3"></a>df2.<span class="bu">eval</span>(<span class="st">'Prob = A/(A+B)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="237">
 
 <div>
 
@@ -2068,6 +2053,585 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>good</td>
       <td>high</td>
       <td>yes</td>
+      <td>0.0288</td>
+      <td>0.0048</td>
+      <td>0.857143</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0192</td>
+      <td>0.500000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>(풀이2)</code> – 좀 더 일반적인 풀이</p>
+<div class="cell" data-execution_count="306">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a><span class="im">import</span> itertools</span>
+<span id="cb96-2"><a href="#cb96-2"></a>lst <span class="op">=</span> []</span>
+<span id="cb96-3"><a href="#cb96-3"></a><span class="cf">for</span> cond_details <span class="kw">in</span> itertools.product(<span class="op">*</span>[<span class="bu">set</span>(df[col_name]) <span class="cf">for</span> col_name <span class="kw">in</span> cond]):</span>
+<span id="cb96-4"><a href="#cb96-4"></a>    A<span class="op">=</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb96-5"><a href="#cb96-5"></a>    B<span class="op">=</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb96-6"><a href="#cb96-6"></a>    <span class="cf">for</span> c <span class="kw">in</span> cond_details:</span>
+<span id="cb96-7"><a href="#cb96-7"></a>        A <span class="op">=</span> A<span class="op">*</span>dct[c,<span class="st">'yes'</span>]</span>
+<span id="cb96-8"><a href="#cb96-8"></a>        B <span class="op">=</span> B<span class="op">*</span>dct[c,<span class="st">'no'</span>]</span>
+<span id="cb96-9"><a href="#cb96-9"></a>    lst.append([<span class="op">*</span>combination,A,B,A<span class="op">/</span>(A<span class="op">+</span>B)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="307">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>df2 <span class="op">=</span> pd.DataFrame(lst)</span>
+<span id="cb97-2"><a href="#cb97-2"></a>df2.columns <span class="op">=</span> pd.Index([<span class="st">'WeatherCondition'</span>,<span class="st">'RoadCondition'</span>,<span class="st">'TrafficCondition'</span>,<span class="st">'EngineProblem'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'Prob'</span>])</span>
+<span id="cb97-3"><a href="#cb97-3"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="307">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>WeatherCondition</th>
+      <th>RoadCondition</th>
+      <th>TrafficCondition</th>
+      <th>EngineProblem</th>
+      <th>A</th>
+      <th>B</th>
+      <th>Prob</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0064</td>
+      <td>0.600000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0064</td>
+      <td>0.0256</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0064</td>
+      <td>0.600000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0064</td>
+      <td>0.0256</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0288</td>
+      <td>0.0032</td>
+      <td>0.900000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0128</td>
+      <td>0.600000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0288</td>
+      <td>0.0064</td>
+      <td>0.818182</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0256</td>
+      <td>0.428571</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0288</td>
+      <td>0.0064</td>
+      <td>0.818182</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0256</td>
+      <td>0.428571</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0864</td>
+      <td>0.0032</td>
+      <td>0.964286</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0576</td>
+      <td>0.0128</td>
+      <td>0.818182</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0192</td>
+      <td>0.333333</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0064</td>
+      <td>0.0768</td>
+      <td>0.076923</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0192</td>
+      <td>0.333333</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0064</td>
+      <td>0.0768</td>
+      <td>0.076923</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0288</td>
+      <td>0.0096</td>
+      <td>0.750000</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0384</td>
+      <td>0.333333</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0048</td>
+      <td>0.0064</td>
+      <td>0.428571</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0032</td>
+      <td>0.0256</td>
+      <td>0.111111</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0048</td>
+      <td>0.0064</td>
+      <td>0.428571</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0032</td>
+      <td>0.0256</td>
+      <td>0.111111</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0144</td>
+      <td>0.0032</td>
+      <td>0.818182</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0128</td>
+      <td>0.428571</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0144</td>
+      <td>0.0064</td>
+      <td>0.692308</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0256</td>
+      <td>0.272727</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0144</td>
+      <td>0.0064</td>
+      <td>0.692308</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0256</td>
+      <td>0.272727</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0432</td>
+      <td>0.0032</td>
+      <td>0.931034</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0288</td>
+      <td>0.0128</td>
+      <td>0.692308</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0048</td>
+      <td>0.0192</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0032</td>
+      <td>0.0768</td>
+      <td>0.040000</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0048</td>
+      <td>0.0192</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0032</td>
+      <td>0.0768</td>
+      <td>0.040000</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0144</td>
+      <td>0.0096</td>
+      <td>0.600000</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0384</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0032</td>
+      <td>0.750000</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0064</td>
+      <td>0.0128</td>
+      <td>0.333333</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0032</td>
+      <td>0.750000</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0064</td>
+      <td>0.0128</td>
+      <td>0.333333</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0288</td>
+      <td>0.0016</td>
+      <td>0.947368</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0064</td>
+      <td>0.750000</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0288</td>
+      <td>0.0032</td>
+      <td>0.900000</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0128</td>
+      <td>0.600000</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0288</td>
+      <td>0.0032</td>
+      <td>0.900000</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0128</td>
+      <td>0.600000</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0864</td>
+      <td>0.0016</td>
+      <td>0.981818</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0576</td>
+      <td>0.0064</td>
+      <td>0.900000</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0096</td>
+      <td>0.500000</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0064</td>
+      <td>0.0384</td>
+      <td>0.142857</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0096</td>
+      <td>0.500000</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0064</td>
+      <td>0.0384</td>
+      <td>0.142857</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
       <td>0.0288</td>
       <td>0.0048</td>
       <td>0.857143</td>
