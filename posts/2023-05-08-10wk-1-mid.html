@@ -234,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <section id="imports" class="level1">
 <h1>Imports</h1>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -249,10 +249,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="fifa23" class="level2">
 <h2 class="anchored" data-anchor-id="fifa23">FIFA23</h2>
 <p><code>(1)--(3)</code> 아래는 FIFA23 자료를 불러오는 코드이다.</p>
-<div class="cell" data-execution_count="46">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/FIFA23_official_data.csv'</span>).drop(columns<span class="op">=</span>[<span class="st">'Loaned From'</span>, <span class="st">'Best Overall Rating'</span>]).dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="46">
+<div class="cell-output cell-output-display" data-execution_count="8">
 
 <div>
 
@@ -412,10 +412,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>(1)</code> 공백이 포함된 column이름이 총 몇개인지 count하는 코드를 작성하라.</p>
 <p><strong>hint</strong> 모두 11개의 column name에 공백이 포함되어있음</p>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">sum</span>([<span class="st">' '</span> <span class="kw">in</span> name <span class="cf">for</span> name <span class="kw">in</span> df.columns])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>11</code></pre>
+</div>
+</div>
 <p><code>(2)</code> column name에 공백이 포함된 열을 출력하라.</p>
-<div class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># 출력예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.loc[:,[<span class="st">' '</span> <span class="kw">in</span> name <span class="cf">for</span> name <span class="kw">in</span> df.columns]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
 
 <div>
 
@@ -604,23 +612,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>민정: 총 159개의 나라선수들이 포함되어 있다.</li>
 <li>슬기: 선수들의 연령이 25세이상(&gt;=)인 선수들은 그렇지 않은 선수들보다 평균적으로 키(<code>Height</code>)가크다.</li>
 </ul>
+<p><code>(풀이)</code></p>
+<p><strong>세민</strong>: 데이터프레임에는 모두 27개의 열이 있다 -&gt; True</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="bu">len</span>(df.columns) <span class="op">==</span> <span class="dv">27</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p><strong>성재</strong>: 한국선수(Nationality==Korea Republic)와 일본선수(Nationality==Japan)의 Overall의 평균값은 일본이 더 높다. -&gt; True</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.query(<span class="st">'Nationality == "Korea Republic"'</span>).Overall.mean() <span class="op">&lt;</span> df.query(<span class="st">'Nationality == "Japan"'</span>).Overall.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p><strong>민정</strong>: 총 159개의 나라선수들이 포함되어 있다. -&gt; True</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">len</span>(<span class="bu">set</span>(df.Nationality))<span class="op">==</span><span class="dv">159</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p><strong>슬기</strong>: 선수들의 연령이 25세이상(&gt;=)인 선수들은 그렇지 않은 선수들보다 평균적으로 키(<code>Height</code>)가크다. -&gt; True</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>_old <span class="op">=</span> np.mean([<span class="bu">int</span>(height[:<span class="dv">3</span>]) <span class="cf">for</span> height <span class="kw">in</span> df.query(<span class="st">'Age&gt;=25'</span>).Height.tolist()]) </span>
+<span id="cb12-2"><a href="#cb12-2"></a>_young <span class="op">=</span>  np.mean([<span class="bu">int</span>(height[:<span class="dv">3</span>]) <span class="cf">for</span> height <span class="kw">in</span> df.query(<span class="st">'Age&lt;25'</span>).Height.tolist()]) </span>
+<span id="cb12-3"><a href="#cb12-3"></a>_old <span class="op">&gt;</span> _young</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>True</code></pre>
+</div>
+</div>
 </section>
 <section id="삼성전자의-주가" class="level2">
 <h2 class="anchored" data-anchor-id="삼성전자의-주가">삼성전자의 주가</h2>
 <p><code>(4)--(5)</code> 다음은 삼성전자의 주가를 크롤링하는 코드이다.</p>
-<div class="cell" data-execution_count="415">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>start_date <span class="op">=</span> <span class="st">"2023-01-01"</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>end_date <span class="op">=</span> <span class="st">"2023-05-02"</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>y <span class="op">=</span> yf.download(<span class="st">"005930.KS"</span>, start<span class="op">=</span>start_date, end<span class="op">=</span>end_date)[<span class="st">'Adj Close'</span>].to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>start_date <span class="op">=</span> <span class="st">"2023-01-01"</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>end_date <span class="op">=</span> <span class="st">"2023-05-02"</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>y <span class="op">=</span> yf.download(<span class="st">"005930.KS"</span>, start<span class="op">=</span>start_date, end<span class="op">=</span>end_date)[<span class="st">'Adj Close'</span>].to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
 </div>
 </div>
 <p>삼성전자의 주가 <span class="math inline">\({\boldsymbol y}\)</span>를 시각화하면 아래와 같다.</p>
-<div class="cell" data-execution_count="416">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.plot(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>plt.plot(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>(4)</code> 아래와 같은 변환을 이용하여 <span class="math inline">\({\boldsymbol y}\)</span>를 <span class="math inline">\(\tilde {\boldsymbol y}\)</span>로 변환하고 결과를 시각화하라.</p>
@@ -630,82 +669,109 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(\tilde{y}_n= \frac{1}{4}(y_{n-1}+3y_{n})\)</span></li>
 </ul>
 <p><strong>hint</strong>: 아래의 코드를 관찰</p>
-<div class="cell" data-execution_count="417">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>np.eye(<span class="dv">4</span>) <span class="op">+</span> np.array([<span class="bu">abs</span>(i<span class="op">-</span>j)<span class="op">&lt;</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)]).reshape(<span class="dv">4</span>,<span class="dv">4</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="417">
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>np.eye(<span class="dv">4</span>) <span class="op">+</span> np.array([<span class="bu">abs</span>(i<span class="op">-</span>j)<span class="op">&lt;</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)]).reshape(<span class="dv">4</span>,<span class="dv">4</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>array([[2., 1., 0., 0.],
        [1., 2., 1., 0.],
        [0., 1., 2., 1.],
        [0., 0., 1., 2.]])</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># 시각화예시: 라벨은 시각화하지 않아도 무방 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="418">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7f60b8aecf40&gt;</code></pre>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>T <span class="op">=</span> <span class="bu">len</span>(y)</span>
+<span id="cb19-2"><a href="#cb19-2"></a>M <span class="op">=</span> (np.eye(T) <span class="op">+</span> np.array([<span class="bu">abs</span>(i<span class="op">-</span>j)<span class="op">&lt;</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(T) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(T)]).reshape(T,T))<span class="op">/</span><span class="dv">4</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>M[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">3</span><span class="op">/</span><span class="dv">4</span><span class="op">;</span> M[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>]<span class="op">=</span> <span class="dv">3</span><span class="op">/</span><span class="dv">4</span> </span>
+<span id="cb19-4"><a href="#cb19-4"></a>plt.plot(y,label<span class="op">=</span><span class="vs">r'$y$'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5"></a>plt.plot(M<span class="op">@</span>y,<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$M@y$'</span>)</span>
+<span id="cb19-6"><a href="#cb19-6"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f6efc12bb80&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>(5)</code> <code>(4)</code>의 변환을 50회 반복적용하고 결과를 시각화하라.</p>
-<div class="cell" data-execution_count="419">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># 시각화예시: 라벨은 시각화하지 않아도 무방 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="419">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7f60b89baf70&gt;</code></pre>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>plt.plot(y,label<span class="op">=</span><span class="vs">r'$y$'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>plt.plot(np.linalg.matrix_power(M,<span class="dv">50</span>)<span class="op">@</span>y,<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$M^</span><span class="sc">{50}</span><span class="vs">@y$'</span>)</span>
+<span id="cb21-3"><a href="#cb21-3"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f6efc6694f0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="회귀모형" class="level2">
 <h2 class="anchored" data-anchor-id="회귀모형">회귀모형</h2>
 <p><code>(6)--(7)</code> <span class="math inline">\((x_i,y_i)\)</span>가 아래와 같이 주어졌다고 가정하자.</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>x <span class="op">=</span>  np.array([<span class="fl">0.00983</span>, <span class="fl">0.01098</span>, <span class="fl">0.02951</span>, <span class="fl">0.0384</span> , <span class="fl">0.03973</span>, <span class="fl">0.04178</span>, <span class="fl">0.0533</span> ,</span>
-<span id="cb13-2"><a href="#cb13-2"></a>               <span class="fl">0.058</span>  , <span class="fl">0.09454</span>, <span class="fl">0.1103</span> , <span class="fl">0.1328</span> , <span class="fl">0.1412</span> , <span class="fl">0.1497</span> , <span class="fl">0.1664</span> ,</span>
-<span id="cb13-3"><a href="#cb13-3"></a>               <span class="fl">0.1906</span> , <span class="fl">0.1923</span> , <span class="fl">0.198</span>  , <span class="fl">0.2141</span> , <span class="fl">0.2393</span> , <span class="fl">0.2433</span> , <span class="fl">0.3157</span> ,</span>
-<span id="cb13-4"><a href="#cb13-4"></a>               <span class="fl">0.3228</span> , <span class="fl">0.3418</span> , <span class="fl">0.3552</span> , <span class="fl">0.3918</span> , <span class="fl">0.3962</span> , <span class="fl">0.4</span>    , <span class="fl">0.4482</span> ,</span>
-<span id="cb13-5"><a href="#cb13-5"></a>               <span class="fl">0.496</span>  , <span class="fl">0.507</span>  , <span class="fl">0.53</span>   , <span class="fl">0.5654</span> , <span class="fl">0.582</span>  , <span class="fl">0.5854</span> , <span class="fl">0.5854</span> ,</span>
-<span id="cb13-6"><a href="#cb13-6"></a>               <span class="fl">0.6606</span> , <span class="fl">0.7007</span> , <span class="fl">0.723</span>  , <span class="fl">0.7305</span> , <span class="fl">0.7383</span> , <span class="fl">0.7656</span> , <span class="fl">0.7725</span> ,</span>
-<span id="cb13-7"><a href="#cb13-7"></a>               <span class="fl">0.831</span>  , <span class="fl">0.8896</span> , <span class="fl">0.9053</span> , <span class="fl">0.914</span>  , <span class="fl">0.949</span>  , <span class="fl">0.952</span>  , <span class="fl">0.9727</span> ,</span>
-<span id="cb13-8"><a href="#cb13-8"></a>               <span class="fl">0.982</span>  ])</span>
-<span id="cb13-9"><a href="#cb13-9"></a>y <span class="op">=</span>  np.array([<span class="fl">0.7381</span>, <span class="fl">0.7043</span>, <span class="fl">0.3937</span>, <span class="fl">0.1365</span>, <span class="fl">0.3784</span>, <span class="fl">0.3028</span>, <span class="fl">0.1037</span>, <span class="fl">0.3846</span>,</span>
-<span id="cb13-10"><a href="#cb13-10"></a>               <span class="fl">0.706</span> , <span class="fl">0.7572</span>, <span class="fl">0.2421</span>, <span class="fl">0.232</span> , <span class="fl">0.9855</span>, <span class="fl">1.162</span> , <span class="fl">0.4653</span>, <span class="fl">0.6791</span>,</span>
-<span id="cb13-11"><a href="#cb13-11"></a>               <span class="fl">0.6905</span>, <span class="fl">0.6865</span>, <span class="fl">0.9757</span>, <span class="fl">0.7665</span>, <span class="fl">0.9522</span>, <span class="fl">0.4641</span>, <span class="fl">0.5498</span>, <span class="fl">1.1509</span>,</span>
-<span id="cb13-12"><a href="#cb13-12"></a>               <span class="fl">0.5288</span>, <span class="fl">1.1195</span>, <span class="fl">1.1659</span>, <span class="fl">1.4341</span>, <span class="fl">1.2779</span>, <span class="fl">1.1648</span>, <span class="fl">1.4002</span>, <span class="fl">0.7472</span>,</span>
-<span id="cb13-13"><a href="#cb13-13"></a>               <span class="fl">0.9142</span>, <span class="fl">0.9658</span>, <span class="fl">1.0707</span>, <span class="fl">1.4501</span>, <span class="fl">1.6758</span>, <span class="fl">0.8778</span>, <span class="fl">1.3384</span>, <span class="fl">0.7476</span>,</span>
-<span id="cb13-14"><a href="#cb13-14"></a>               <span class="fl">1.3086</span>, <span class="fl">1.7537</span>, <span class="fl">1.5559</span>, <span class="fl">1.2928</span>, <span class="fl">1.3832</span>, <span class="fl">1.3115</span>, <span class="fl">1.3382</span>, <span class="fl">1.536</span> ,           </span>
-<span id="cb13-15"><a href="#cb13-15"></a>               <span class="fl">1.9177</span>, <span class="fl">1.2069</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>x <span class="op">=</span>  np.array([<span class="fl">0.00983</span>, <span class="fl">0.01098</span>, <span class="fl">0.02951</span>, <span class="fl">0.0384</span> , <span class="fl">0.03973</span>, <span class="fl">0.04178</span>, <span class="fl">0.0533</span> ,</span>
+<span id="cb23-2"><a href="#cb23-2"></a>               <span class="fl">0.058</span>  , <span class="fl">0.09454</span>, <span class="fl">0.1103</span> , <span class="fl">0.1328</span> , <span class="fl">0.1412</span> , <span class="fl">0.1497</span> , <span class="fl">0.1664</span> ,</span>
+<span id="cb23-3"><a href="#cb23-3"></a>               <span class="fl">0.1906</span> , <span class="fl">0.1923</span> , <span class="fl">0.198</span>  , <span class="fl">0.2141</span> , <span class="fl">0.2393</span> , <span class="fl">0.2433</span> , <span class="fl">0.3157</span> ,</span>
+<span id="cb23-4"><a href="#cb23-4"></a>               <span class="fl">0.3228</span> , <span class="fl">0.3418</span> , <span class="fl">0.3552</span> , <span class="fl">0.3918</span> , <span class="fl">0.3962</span> , <span class="fl">0.4</span>    , <span class="fl">0.4482</span> ,</span>
+<span id="cb23-5"><a href="#cb23-5"></a>               <span class="fl">0.496</span>  , <span class="fl">0.507</span>  , <span class="fl">0.53</span>   , <span class="fl">0.5654</span> , <span class="fl">0.582</span>  , <span class="fl">0.5854</span> , <span class="fl">0.5854</span> ,</span>
+<span id="cb23-6"><a href="#cb23-6"></a>               <span class="fl">0.6606</span> , <span class="fl">0.7007</span> , <span class="fl">0.723</span>  , <span class="fl">0.7305</span> , <span class="fl">0.7383</span> , <span class="fl">0.7656</span> , <span class="fl">0.7725</span> ,</span>
+<span id="cb23-7"><a href="#cb23-7"></a>               <span class="fl">0.831</span>  , <span class="fl">0.8896</span> , <span class="fl">0.9053</span> , <span class="fl">0.914</span>  , <span class="fl">0.949</span>  , <span class="fl">0.952</span>  , <span class="fl">0.9727</span> ,</span>
+<span id="cb23-8"><a href="#cb23-8"></a>               <span class="fl">0.982</span>  ])</span>
+<span id="cb23-9"><a href="#cb23-9"></a>y <span class="op">=</span>  np.array([<span class="fl">0.7381</span>, <span class="fl">0.7043</span>, <span class="fl">0.3937</span>, <span class="fl">0.1365</span>, <span class="fl">0.3784</span>, <span class="fl">0.3028</span>, <span class="fl">0.1037</span>, <span class="fl">0.3846</span>,</span>
+<span id="cb23-10"><a href="#cb23-10"></a>               <span class="fl">0.706</span> , <span class="fl">0.7572</span>, <span class="fl">0.2421</span>, <span class="fl">0.232</span> , <span class="fl">0.9855</span>, <span class="fl">1.162</span> , <span class="fl">0.4653</span>, <span class="fl">0.6791</span>,</span>
+<span id="cb23-11"><a href="#cb23-11"></a>               <span class="fl">0.6905</span>, <span class="fl">0.6865</span>, <span class="fl">0.9757</span>, <span class="fl">0.7665</span>, <span class="fl">0.9522</span>, <span class="fl">0.4641</span>, <span class="fl">0.5498</span>, <span class="fl">1.1509</span>,</span>
+<span id="cb23-12"><a href="#cb23-12"></a>               <span class="fl">0.5288</span>, <span class="fl">1.1195</span>, <span class="fl">1.1659</span>, <span class="fl">1.4341</span>, <span class="fl">1.2779</span>, <span class="fl">1.1648</span>, <span class="fl">1.4002</span>, <span class="fl">0.7472</span>,</span>
+<span id="cb23-13"><a href="#cb23-13"></a>               <span class="fl">0.9142</span>, <span class="fl">0.9658</span>, <span class="fl">1.0707</span>, <span class="fl">1.4501</span>, <span class="fl">1.6758</span>, <span class="fl">0.8778</span>, <span class="fl">1.3384</span>, <span class="fl">0.7476</span>,</span>
+<span id="cb23-14"><a href="#cb23-14"></a>               <span class="fl">1.3086</span>, <span class="fl">1.7537</span>, <span class="fl">1.5559</span>, <span class="fl">1.2928</span>, <span class="fl">1.3832</span>, <span class="fl">1.3115</span>, <span class="fl">1.3382</span>, <span class="fl">1.536</span> ,           </span>
+<span id="cb23-15"><a href="#cb23-15"></a>               <span class="fl">1.9177</span>, <span class="fl">1.2069</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>6</code>. 아래의 수식을 이용하여 적절한 추세선 <span class="math inline">\(\hat{y}_i= \hat{\beta}_0 +\hat{\beta}_1 x_i\)</span>를 구하고 시각화하라.</p>
 <p><span class="math display">\[\begin{bmatrix} \hat{\beta}_0 \\ \hat{\beta}_1 \end{bmatrix} = ({\bf X}^T {\bf X})^{-1}{\bf X}^T {\boldsymbol y}, \quad {\bf X}=\begin{bmatrix} 1 &amp; x_1 \\ 1 &amp; x_2 \\ \dots \\ 1 &amp; x_n \end{bmatrix}\]</span></p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>n <span class="op">=</span> <span class="bu">len</span>(x)</span>
+<span id="cb25-2"><a href="#cb25-2"></a>X <span class="op">=</span> np.stack([np.ones(n),x],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb25-3"><a href="#cb25-3"></a>b,a <span class="op">=</span> np.linalg.inv(X.T<span class="op">@</span>X)<span class="op">@</span>X.T<span class="op">@</span>y </span>
+<span id="cb25-4"><a href="#cb25-4"></a>yhat <span class="op">=</span> b<span class="op">+</span>a<span class="op">*</span>x </span>
+<span id="cb25-5"><a href="#cb25-5"></a>plt.plot(x,y,<span class="st">'o'</span>)</span>
+<span id="cb25-6"><a href="#cb25-6"></a>plt.plot(x,yhat,<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>7</code>. <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2\)</span>을 계산하라.</p>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>np.mean((y<span class="op">-</span>yhat)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>0.07602899763337416</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="fashion-mnist-data-60점" class="level1">
 <h1>2. fashion MNIST data (60점)</h1>
 <p>아래는 9가지의 의류이미지가 저장된 이미지데이터를 불러오는 코드이다.</p>
-<div class="cell" data-execution_count="279">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>df_train<span class="op">=</span>pd.read_csv(<span class="st">'https://media.githubusercontent.com/media/guebin/PP2023/main/posts/fashion-mnist_train.csv'</span>)</span>
-<span id="cb15-2"><a href="#cb15-2"></a>df_test<span class="op">=</span>pd.read_csv(<span class="st">'https://media.githubusercontent.com/media/guebin/PP2023/main/posts/fashion-mnist_test.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>df_train<span class="op">=</span>pd.read_csv(<span class="st">'https://media.githubusercontent.com/media/guebin/PP2023/main/posts/fashion-mnist_train.csv'</span>)</span>
+<span id="cb28-2"><a href="#cb28-2"></a>df_test<span class="op">=</span>pd.read_csv(<span class="st">'https://media.githubusercontent.com/media/guebin/PP2023/main/posts/fashion-mnist_test.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="280">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">def</span> rshp(row):</span>
-<span id="cb16-2"><a href="#cb16-2"></a>    <span class="cf">return</span> row.reshape(<span class="dv">28</span>,<span class="dv">28</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">def</span> rshp(row):</span>
+<span id="cb29-2"><a href="#cb29-2"></a>    <span class="cf">return</span> row.reshape(<span class="dv">28</span>,<span class="dv">28</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="281">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>xtrain <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_train.iloc[:,<span class="dv">1</span>:]))</span>
-<span id="cb17-2"><a href="#cb17-2"></a>xtest  <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_test.iloc[:,<span class="dv">1</span>:]))</span>
-<span id="cb17-3"><a href="#cb17-3"></a>ytrain <span class="op">=</span> np.array(df_train.label)</span>
-<span id="cb17-4"><a href="#cb17-4"></a>ytest  <span class="op">=</span> np.array(df_test.label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>xtrain <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_train.iloc[:,<span class="dv">1</span>:]))</span>
+<span id="cb30-2"><a href="#cb30-2"></a>xtest  <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_test.iloc[:,<span class="dv">1</span>:]))</span>
+<span id="cb30-3"><a href="#cb30-3"></a>ytrain <span class="op">=</span> np.array(df_train.label)</span>
+<span id="cb30-4"><a href="#cb30-4"></a>ytest  <span class="op">=</span> np.array(df_test.label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>아래는 데이터에 대한 설명이다.</p>
 <ul>
@@ -720,63 +786,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>흑백이미지를 시각화 하기 위해서는 <code>plt.imshow(img, cmap='gray')</code>를 이용한다. 여기에서 <span class="math inline">\({\tt img}\)</span>은 임의의 2차원 텐서이며 이 예제의 경우 (28,28)의 shape을 가진다.</li>
 </ul>
 <p>아래는 <span class="math inline">\({\tt xtrain}\)</span>의 두번째 이미지, 즉 <span class="math inline">\({\tt xtrain[1,:,:]}\)</span>를 확인하는 코드의 예시이다.</p>
-<div class="cell" data-execution_count="282">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># plt.imshow(xtrain[1,:,:],cmap='gray')</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>plt.imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co">## 같은코드임</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="282">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f61891341f0&gt;</code></pre>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># plt.imshow(xtrain[1,:,:],cmap='gray')</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>plt.imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co">## 같은코드임</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6efb174730&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-15-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-22-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>이 이미지에 대한 label은 <span class="math inline">\({\tt ytrain[1]}\)</span>의 값으로 확인가능하다.</p>
-<div class="cell" data-execution_count="283">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>ytrain[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="283">
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>ytrain[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>9</code></pre>
 </div>
 </div>
 <p>이미지와 라벨을 한번에 표현하는 코드는 아래와 같이 작성가능하다.</p>
-<div class="cell" data-execution_count="284">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>plt.imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb22-2"><a href="#cb22-2"></a>plt.title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(ytrain[<span class="dv">1</span>]))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>plt.imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb35-2"><a href="#cb35-2"></a>plt.title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(ytrain[<span class="dv">1</span>]))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>여기에서 9가 의미하는 것은 ’Ankel boot’이며, 다른 숫자가 의미하는 것은 각각 아래와 같다.</p>
-<div class="cell" data-execution_count="285">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>labels<span class="op">=</span> {<span class="dv">0</span>:<span class="st">'T-shirt/top'</span>, </span>
-<span id="cb23-2"><a href="#cb23-2"></a>         <span class="dv">1</span>:<span class="st">'Trouser'</span>, </span>
-<span id="cb23-3"><a href="#cb23-3"></a>         <span class="dv">2</span>:<span class="st">'Pullover'</span>, </span>
-<span id="cb23-4"><a href="#cb23-4"></a>         <span class="dv">3</span>:<span class="st">'Dress'</span>, </span>
-<span id="cb23-5"><a href="#cb23-5"></a>         <span class="dv">4</span>:<span class="st">'Coat'</span>, </span>
-<span id="cb23-6"><a href="#cb23-6"></a>         <span class="dv">5</span>:<span class="st">'Sandal'</span>, </span>
-<span id="cb23-7"><a href="#cb23-7"></a>         <span class="dv">6</span>:<span class="st">'Shirt'</span>, </span>
-<span id="cb23-8"><a href="#cb23-8"></a>         <span class="dv">7</span>:<span class="st">'Sneaker'</span>, </span>
-<span id="cb23-9"><a href="#cb23-9"></a>         <span class="dv">8</span>:<span class="st">'Bag'</span>, </span>
-<span id="cb23-10"><a href="#cb23-10"></a>         <span class="dv">9</span>:<span class="st">'Ankel boot'</span>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>labels<span class="op">=</span> {<span class="dv">0</span>:<span class="st">'T-shirt/top'</span>, </span>
+<span id="cb36-2"><a href="#cb36-2"></a>         <span class="dv">1</span>:<span class="st">'Trouser'</span>, </span>
+<span id="cb36-3"><a href="#cb36-3"></a>         <span class="dv">2</span>:<span class="st">'Pullover'</span>, </span>
+<span id="cb36-4"><a href="#cb36-4"></a>         <span class="dv">3</span>:<span class="st">'Dress'</span>, </span>
+<span id="cb36-5"><a href="#cb36-5"></a>         <span class="dv">4</span>:<span class="st">'Coat'</span>, </span>
+<span id="cb36-6"><a href="#cb36-6"></a>         <span class="dv">5</span>:<span class="st">'Sandal'</span>, </span>
+<span id="cb36-7"><a href="#cb36-7"></a>         <span class="dv">6</span>:<span class="st">'Shirt'</span>, </span>
+<span id="cb36-8"><a href="#cb36-8"></a>         <span class="dv">7</span>:<span class="st">'Sneaker'</span>, </span>
+<span id="cb36-9"><a href="#cb36-9"></a>         <span class="dv">8</span>:<span class="st">'Bag'</span>, </span>
+<span id="cb36-10"><a href="#cb36-10"></a>         <span class="dv">9</span>:<span class="st">'Ankel boot'</span>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>아래는 <span class="math inline">\({\tt xtrain}\)</span>의 처음 10개의 이미지를 라벨과 함께 출력하는 코드이다.</p>
-<div class="cell" data-execution_count="286">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
-<span id="cb24-2"><a href="#cb24-2"></a></span>
-<span id="cb24-3"><a href="#cb24-3"></a>ax[<span class="dv">0</span>][<span class="dv">0</span>].imshow(xtrain[<span class="dv">0</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">0</span>]]))<span class="op">;</span></span>
-<span id="cb24-4"><a href="#cb24-4"></a>ax[<span class="dv">0</span>][<span class="dv">1</span>].imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">1</span>]]))<span class="op">;</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>ax[<span class="dv">0</span>][<span class="dv">2</span>].imshow(xtrain[<span class="dv">2</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">2</span>]]))<span class="op">;</span></span>
-<span id="cb24-6"><a href="#cb24-6"></a>ax[<span class="dv">0</span>][<span class="dv">3</span>].imshow(xtrain[<span class="dv">3</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">3</span>]]))<span class="op">;</span></span>
-<span id="cb24-7"><a href="#cb24-7"></a>ax[<span class="dv">0</span>][<span class="dv">4</span>].imshow(xtrain[<span class="dv">4</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">4</span>]]))<span class="op">;</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a></span>
-<span id="cb24-9"><a href="#cb24-9"></a>ax[<span class="dv">1</span>][<span class="dv">0</span>].imshow(xtrain[<span class="dv">5</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">5</span>]]))<span class="op">;</span></span>
-<span id="cb24-10"><a href="#cb24-10"></a>ax[<span class="dv">1</span>][<span class="dv">1</span>].imshow(xtrain[<span class="dv">6</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">6</span>]]))<span class="op">;</span></span>
-<span id="cb24-11"><a href="#cb24-11"></a>ax[<span class="dv">1</span>][<span class="dv">2</span>].imshow(xtrain[<span class="dv">7</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">7</span>]]))<span class="op">;</span></span>
-<span id="cb24-12"><a href="#cb24-12"></a>ax[<span class="dv">1</span>][<span class="dv">3</span>].imshow(xtrain[<span class="dv">8</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">8</span>]]))<span class="op">;</span></span>
-<span id="cb24-13"><a href="#cb24-13"></a>ax[<span class="dv">1</span>][<span class="dv">4</span>].imshow(xtrain[<span class="dv">9</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">9</span>]]))<span class="op">;</span></span>
-<span id="cb24-14"><a href="#cb24-14"></a></span>
-<span id="cb24-15"><a href="#cb24-15"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb37-2"><a href="#cb37-2"></a></span>
+<span id="cb37-3"><a href="#cb37-3"></a>ax[<span class="dv">0</span>][<span class="dv">0</span>].imshow(xtrain[<span class="dv">0</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">0</span>]]))<span class="op">;</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a>ax[<span class="dv">0</span>][<span class="dv">1</span>].imshow(xtrain[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">1</span>]]))<span class="op">;</span></span>
+<span id="cb37-5"><a href="#cb37-5"></a>ax[<span class="dv">0</span>][<span class="dv">2</span>].imshow(xtrain[<span class="dv">2</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">2</span>]]))<span class="op">;</span></span>
+<span id="cb37-6"><a href="#cb37-6"></a>ax[<span class="dv">0</span>][<span class="dv">3</span>].imshow(xtrain[<span class="dv">3</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">3</span>]]))<span class="op">;</span></span>
+<span id="cb37-7"><a href="#cb37-7"></a>ax[<span class="dv">0</span>][<span class="dv">4</span>].imshow(xtrain[<span class="dv">4</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">4</span>]]))<span class="op">;</span></span>
+<span id="cb37-8"><a href="#cb37-8"></a></span>
+<span id="cb37-9"><a href="#cb37-9"></a>ax[<span class="dv">1</span>][<span class="dv">0</span>].imshow(xtrain[<span class="dv">5</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">5</span>]]))<span class="op">;</span></span>
+<span id="cb37-10"><a href="#cb37-10"></a>ax[<span class="dv">1</span>][<span class="dv">1</span>].imshow(xtrain[<span class="dv">6</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">6</span>]]))<span class="op">;</span></span>
+<span id="cb37-11"><a href="#cb37-11"></a>ax[<span class="dv">1</span>][<span class="dv">2</span>].imshow(xtrain[<span class="dv">7</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">7</span>]]))<span class="op">;</span></span>
+<span id="cb37-12"><a href="#cb37-12"></a>ax[<span class="dv">1</span>][<span class="dv">3</span>].imshow(xtrain[<span class="dv">8</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">8</span>]]))<span class="op">;</span></span>
+<span id="cb37-13"><a href="#cb37-13"></a>ax[<span class="dv">1</span>][<span class="dv">4</span>].imshow(xtrain[<span class="dv">9</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[ytest[<span class="dv">9</span>]]))<span class="op">;</span></span>
+<span id="cb37-14"><a href="#cb37-14"></a></span>
+<span id="cb37-15"><a href="#cb37-15"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <hr>
@@ -786,14 +852,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\({\tt imgmean[0]}, \dots, {\tt imgmean[9]}\)</span> 는 각각 (28,28)의 shape을 가진 numpy array</li>
 <li><span class="math inline">\({\tt imgmean[0]}, \dots, {\tt imgmean[9]}\)</span> 는 각각 숫자 0,1, …, 9의 평균이미지를 의미</li>
 </ul>
-<p><span class="math inline">\({\tt imgmean[0]},\dots, {\tt imgmean[9]}\)</span>를 시각화 하라. 시각화예시는 아래와 같다.</p>
-<div class="cell" data-execution_count="237">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="math inline">\({\tt imgmean[0]},\dots, {\tt imgmean[9]}\)</span>를 시각화 하라.</p>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>imgmean <span class="op">=</span> [xtrain[ytrain<span class="op">==</span>i].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)] </span>
+<span id="cb38-2"><a href="#cb38-2"></a></span>
+<span id="cb38-3"><a href="#cb38-3"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb38-4"><a href="#cb38-4"></a>ax[<span class="dv">0</span>][<span class="dv">0</span>].imshow(imgmean[<span class="dv">0</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[<span class="dv">0</span>]))<span class="op">;</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>ax[<span class="dv">0</span>][<span class="dv">1</span>].imshow(imgmean[<span class="dv">1</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[<span class="dv">1</span>]))<span class="op">;</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a>ax[<span class="dv">0</span>][<span class="dv">2</span>].imshow(imgmean[<span class="dv">2</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[<span class="dv">2</span>]))<span class="op">;</span></span>
+<span id="cb38-7"><a href="#cb38-7"></a>ax[<span class="dv">0</span>][<span class="dv">3</span>].imshow(imgmean[<span class="dv">3</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[<span class="dv">3</span>]))<span class="op">;</span></span>
+<span id="cb38-8"><a href="#cb38-8"></a>ax[<span class="dv">0</span>][<span class="dv">4</span>].imshow(imgmean[<span class="dv">4</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[<span class="dv">4</span>]))<span class="op">;</span></span>
+<span id="cb38-9"><a href="#cb38-9"></a>ax[<span class="dv">1</span>][<span class="dv">0</span>].imshow(imgmean[<span class="dv">5</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">0</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[<span class="dv">5</span>]))<span class="op">;</span></span>
+<span id="cb38-10"><a href="#cb38-10"></a>ax[<span class="dv">1</span>][<span class="dv">1</span>].imshow(imgmean[<span class="dv">6</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">1</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[<span class="dv">6</span>]))<span class="op">;</span></span>
+<span id="cb38-11"><a href="#cb38-11"></a>ax[<span class="dv">1</span>][<span class="dv">2</span>].imshow(imgmean[<span class="dv">7</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">2</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[<span class="dv">7</span>]))<span class="op">;</span></span>
+<span id="cb38-12"><a href="#cb38-12"></a>ax[<span class="dv">1</span>][<span class="dv">3</span>].imshow(imgmean[<span class="dv">8</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">3</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[<span class="dv">8</span>]))<span class="op">;</span></span>
+<span id="cb38-13"><a href="#cb38-13"></a>ax[<span class="dv">1</span>][<span class="dv">4</span>].imshow(imgmean[<span class="dv">9</span>],cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">4</span>].set_title(<span class="st">'label=</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(labels[<span class="dv">9</span>]))<span class="op">;</span></span>
+<span id="cb38-14"><a href="#cb38-14"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><strong>note</strong>: 그림에 대한 라벨은 시각화 하지 않아도 무방하다. (감점없음)</p>
 <p><code>(2)</code> 아래와 같은 numpy array 를 생성하라.</p>
 <p><span class="math display">\[{\tt loss}=
 \begin{bmatrix}
@@ -807,6 +886,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>이다. 이제 <span class="math inline">\({\tt loss}\)</span>에서 “최소값을 가지는 원소의 인덱스를 출력”하는 함수를 행별로 적용해 이미지를 분류하라. 예를들어 모든 <span class="math inline">\(j=0,1,\dots,9\)</span> 에 대하여 아래를 계산한 결과</p>
 <p><span class="math display">\[\frac{1}{28\times 28} \sum_{p=0}^{27}\sum_{q=0}^{27}\big({\tt xtrain[1,p,q]}-{\tt imgmean[j][p,q]}\big)^2\]</span></p>
 <p><span class="math inline">\(j=9\)</span>일 경우 그 값이 가장 작다면 <span class="math inline">\({\tt xtrain[1]}\)</span> 이미지는 9번으로 분류한다. 분류한 결과와 실제 라벨 <span class="math inline">\({\tt ytrain}\)</span>을 비교하라. 얼마나 많은 결과가 일치하는지 비율을 계산하라.</p>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>training_loss <span class="op">=</span> np.array([[np.mean((xtrain[j,:,:]<span class="op">-</span> imgmean[i])<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">60000</span>)])</span>
+<span id="cb39-2"><a href="#cb39-2"></a>ytrain_hat <span class="op">=</span> training_loss.argmin(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb39-3"><a href="#cb39-3"></a>np.mean(ytrain_hat <span class="op">==</span> ytrain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>0.6850666666666667</code></pre>
+</div>
+</div>
 <p><code>(3)</code> <span class="math inline">\({\tt xtrain}\)</span>에서 학습한 평균이미지 <span class="math inline">\({\tt imgmean}\)</span>를 바탕으로 <span class="math inline">\({\tt xtest}\)</span>의 1번라벨에 해당하는 이미지만을 분류하라. 아래의 물음에 답하라.</p>
 <ul>
 <li>1번라벨에 해당하는 이미지를 0번라벨로 분류한 경우는 모두 몇건인가? (잘못된 분류)</li>
@@ -822,10 +910,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(\dots\)</span></li>
 <li>1번라벨에 해당하는 이미지를 9번라벨로 분류한 경우는 모두 0건</li>
 </ul>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>test_loss <span class="op">=</span> np.array([[np.mean((xtest[j,:,:]<span class="op">-</span> imgmean[i])<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>)])</span>
+<span id="cb42-2"><a href="#cb42-2"></a>ytest_hat <span class="op">=</span> test_loss.argmin(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb42-3"><a href="#cb42-3"></a>{j: ytest_hat[ytest<span class="op">==</span><span class="dv">1</span>].tolist().count(j) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<pre><code>{0: 28, 1: 895, 2: 11, 3: 36, 4: 8, 5: 12, 6: 10, 7: 0, 8: 0, 9: 0}</code></pre>
+</div>
+</div>
 <p><code>(4)</code> <span class="math inline">\({\tt xtest}\)</span>의 이미지를 올바르게 분류한 비율을 카테고리별로 정리하라.</p>
-<pre><code>### 출력예시
-
-{'T-shirt/top': 0.7,
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>{labels[j]:ytest_hat[ytest<span class="op">==</span>j].tolist().count(j)<span class="op">/</span><span class="bu">sum</span>(ytest<span class="op">==</span>j) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<pre><code>{'T-shirt/top': 0.7,
  'Trouser': 0.895,
  'Pullover': 0.496,
  'Dress': 0.802,
@@ -835,96 +934,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  'Sneaker': 0.794,
  'Bag': 0.761,
  'Ankel boot': 0.851}</code></pre>
+</div>
+</div>
 </section>
 <section id="파이썬의-설치-5점" class="level1">
 <h1>3. 파이썬의 설치 (5점)</h1>
 <p>다음을 읽고 파이썬과 가상환경에 대하여 올바른 진술을 한 사람을 모두 골라라. (모두 맞출 경우만 정답으로 인정함)</p>
 <p><strong>민정</strong>: 구글코랩은 사용자의 컴퓨터에 설치된 아나콘다를 기반으로 동작하며, 실제적으로는 사용자의 ipython과 크롬과의 통신만을 담당한다. 따라서 구글코랩은 반드시 파이썬만 연결하여 사용가능하지 않으며 실제로 구글코랩에 R을 연결하여 사용하기도 한다.</p>
 <p><strong>구환</strong>: 아래와 같이 스크립트로 구성된 <code>mysum.py</code>와 같은 파이썬파일을 실행하기 위해서는 반드시 ipython 이나 주피터랩이 설치된 상태이어야 한다.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="co">## mysum.py</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>total <span class="op">=</span> <span class="dv">0</span> </span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>): </span>
-<span id="cb28-4"><a href="#cb28-4"></a>    total <span class="op">=</span> total <span class="op">+</span> i</span>
-<span id="cb28-5"><a href="#cb28-5"></a><span class="bu">print</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co">## mysum.py</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>total <span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>): </span>
+<span id="cb46-4"><a href="#cb46-4"></a>    total <span class="op">=</span> total <span class="op">+</span> i</span>
+<span id="cb46-5"><a href="#cb46-5"></a><span class="bu">print</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>슬기</strong>: 아나콘다를 이용하여 가상환경을 만들 경우 두 가지버전 이상의 python을 동시에 관리할 수 있다.</p>
 <p><strong>승민</strong>: 아래와 같이 <code>myfuns.py</code> 파일을 구성하였다고 하자.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># myfuns.py</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="kw">def</span> vec2_add(a,b): </span>
-<span id="cb29-3"><a href="#cb29-3"></a>    <span class="cf">return</span> [a[<span class="dv">0</span>]<span class="op">+</span>b[<span class="dv">0</span>], a[<span class="dv">1</span>]<span class="op">+</span>b[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># myfuns.py</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="kw">def</span> vec2_add(a,b): </span>
+<span id="cb47-3"><a href="#cb47-3"></a>    <span class="cf">return</span> [a[<span class="dv">0</span>]<span class="op">+</span>b[<span class="dv">0</span>], a[<span class="dv">1</span>]<span class="op">+</span>b[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>이 경우 아래와 같이 임의의 주피터 노트북에서 <code>myfuns</code>를 임포트하면 <code>vec2_add</code> 함수를 사용할 수 있다.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="im">import</span> myfuns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="im">import</span> myfuns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>단, 여기에서 <code>myfuns.py</code>는 현재 실행중인 노트북과 같은 폴더에 있다고 가정한다.</p>
+<p><code>(풀이)</code> 슬기, 승민</p>
+<ul>
+<li>민정: 코랩은 사용자의 컴퓨터에 설치된 아나콘다를 기반으로 동작하며 (X)</li>
+<li>구환: 반드시 ipython 이나 주피터랩이 설치된 상태이어야 한다. (X)</li>
+</ul>
 <hr>
 </section>
 <section id="삼성전자의-주가-추가문제-30점" class="level1">
 <h1>4. 삼성전자의 주가 추가문제 (30점)</h1>
 <p>다음은 삼성전자의 주가를 크롤링하는 코드이다.</p>
-<div class="cell" data-execution_count="475">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>start_date <span class="op">=</span> <span class="st">"2023-01-01"</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>end_date <span class="op">=</span> <span class="st">"2023-05-02"</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a>y <span class="op">=</span> yf.download(<span class="st">"005930.KS"</span>, start<span class="op">=</span>start_date, end<span class="op">=</span>end_date)[<span class="st">'Adj Close'</span>].to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>start_date <span class="op">=</span> <span class="st">"2023-01-01"</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>end_date <span class="op">=</span> <span class="st">"2023-05-02"</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>y <span class="op">=</span> yf.download(<span class="st">"005930.KS"</span>, start<span class="op">=</span>start_date, end<span class="op">=</span>end_date)[<span class="st">'Adj Close'</span>].to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
 </div>
 </div>
 <p>삼성전자의 주가 <span class="math inline">\({\boldsymbol y}\)</span>를 시각화하면 아래와 같다.</p>
-<div class="cell" data-execution_count="474">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>plt.plot(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>plt.plot(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>(1)</code> 아래와 같은 <span class="math inline">\({\bf x}\)</span>를 설정하라.</p>
 <p><span class="math display">\[{\bf x}=(x_1,x_2,\dots,x_n)=\big(\frac{1}{n},\frac{2}{n},\dots,1\big)\]</span></p>
 <p><span class="math inline">\({\bf x}=(x_1,\dots,x_n)\)</span>을 바탕으로 아래와 같은 매트릭스 <span class="math inline">\({\bf X}\)</span>를 생성하라. 단, <span class="math inline">\(n={\tt len}({\boldsymbol y})\)</span>.</p>
 <p><span class="math display">\[{\bf X}=\begin{bmatrix} 1 &amp; x_1 \\ 1 &amp; x_2\\ \dots &amp; \dots \\ 1 &amp; x_n \end{bmatrix}\]</span></p>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>x <span class="op">=</span> np.arange(<span class="dv">1</span>,<span class="dv">83</span>)<span class="op">/</span><span class="dv">82</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>X <span class="op">=</span> np.stack([x<span class="op">**</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>)],axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><code>(2)</code> <code>(1)</code>에서 계산된 <span class="math inline">\({\bf X}\)</span>에 대하여 아래를 계산하라.</p>
 <p><span class="math display">\[\hat{\bf y}= {\bf X}({\bf X}^T {\bf X})^{-1}{\bf X}^T {\bf y}\]</span></p>
 <p><span class="math inline">\((x_i,y_i)\)</span>와 <span class="math inline">\((x_i,\hat{y}_i)\)</span>을 겹쳐서 시각화하라. 단, <span class="math inline">\(\hat{\bf y}=(\hat{y}_1,\dots,\hat{y}_n)\)</span>.</p>
-<div class="cell" data-execution_count="489">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># 시각화예시 -- 레전드는 시각화하지 않아도 무방함!! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="489">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7f60cbb68eb0&gt;</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
-</div>
-</div>
 <p><strong>hint:</strong> 계산의 편의를 위하여 <span class="math inline">\({\bf y}\)</span>와 <span class="math inline">\(\hat{\bf y}\)</span>은 모두 <span class="math inline">\(n\times 1\)</span> col-vector가 아닌 길이가 <span class="math inline">\(n\)</span>인 벡터로 해석해도 무방하다.</p>
 <p><strong>hint</strong>: <span class="math inline">\({\bf X}\)</span>를 아래와 같이 해석해도 무방하다.</p>
 <p><span class="math display">\[{\bf X}=\begin{bmatrix} x_1^0 &amp; x_1^1 \\ x_2^0 &amp; x_2^1\\ \dots &amp; \dots \\ x_n^0 &amp; x_n^1 \end{bmatrix}\]</span></p>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>yhat<span class="op">=</span> X<span class="op">@</span>np.linalg.inv(X.T<span class="op">@</span> X)<span class="op">@</span> X.T <span class="op">@</span> y</span>
+<span id="cb53-2"><a href="#cb53-2"></a>plt.plot(x,y, label<span class="op">=</span><span class="vs">r'$(x_i,y_i)$'</span>)</span>
+<span id="cb53-3"><a href="#cb53-3"></a>plt.plot(x,yhat,label<span class="op">=</span><span class="vs">r'$(x_i,\hat</span><span class="sc">{y}</span><span class="vs">_i)$'</span>)</span>
+<span id="cb53-4"><a href="#cb53-4"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f6efb097ac0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>3</code>. 아래와 같이 <span class="math inline">\({\bf X}\)</span>를 수정하라.</p>
 <p><span class="math display">\[{\bf X}=\begin{bmatrix} 1 &amp; x_1 &amp; x_1^2 &amp; x_1^3 &amp; \dots &amp; x_1^{10} \\ 1 &amp; x_2 &amp; x_2^2 &amp; x_2^3 &amp; \dots &amp; x_2^{10} \\ \dots &amp; \dots &amp; \dots &amp; \dots &amp; \dots &amp; \dots \\ 1 &amp; x_n &amp; x_n^2 &amp; x_n^3 &amp; \dots &amp; x_n^{10} \end{bmatrix}\]</span></p>
 <p>수정된 <span class="math inline">\({\bf X}\)</span>에 대하여 아래의 수식으로 <span class="math inline">\(\hat{\bf y}\)</span>을 구하라.</p>
 <p><span class="math display">\[\hat{\bf y}= {\bf X}({\bf X}^T {\bf X})^{-1}{\bf X}^T {\bf y}\]</span></p>
 <p><span class="math inline">\((x_i,y_i)\)</span>와 <span class="math inline">\((x_i,\hat{y}_i)\)</span>을 겹쳐서 시각화하라. 단, <span class="math inline">\(\hat{\bf y}=(\hat{y}_1,\dots,\hat{y}_n)\)</span>.</p>
-<div class="cell" data-execution_count="502">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># 시각화예시 -- 레전드는 시각화하지 않아도 무방함!! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="502">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7f60cbeea8e0&gt;</code></pre>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>x <span class="op">=</span> np.arange(<span class="dv">1</span>,<span class="dv">83</span>)<span class="op">/</span><span class="dv">82</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a>X <span class="op">=</span> np.stack([x<span class="op">**</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>)],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb55-3"><a href="#cb55-3"></a>plt.plot(x,y, label<span class="op">=</span><span class="vs">r'$(x_i,y_i)$'</span>)</span>
+<span id="cb55-4"><a href="#cb55-4"></a>plt.plot(x, X<span class="op">@</span>np.linalg.inv(X.T<span class="op">@</span> X)<span class="op">@</span> X.T <span class="op">@</span> y,label<span class="op">=</span><span class="vs">r'$(x_i,\hat</span><span class="sc">{y}</span><span class="vs">_i)$'</span>)</span>
+<span id="cb55-5"><a href="#cb55-5"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="52">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f6efb1e00d0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-24-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-35-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="fashin-mnist-data-추가문제-30점" class="level1">
 <h1>5. fashin MNIST data 추가문제 (30점)</h1>
 <p>이 문제는 2번문항의 추가문항입니다.</p>
-<div class="cell" data-execution_count="218">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># read data </span></span>
-<span id="cb38-2"><a href="#cb38-2"></a>df_train<span class="op">=</span>pd.read_csv(<span class="st">'https://media.githubusercontent.com/media/guebin/PP2023/main/posts/fashion-mnist_train.csv'</span>)</span>
-<span id="cb38-3"><a href="#cb38-3"></a>df_test<span class="op">=</span>pd.read_csv(<span class="st">'https://media.githubusercontent.com/media/guebin/PP2023/main/posts/fashion-mnist_test.csv'</span>)</span>
-<span id="cb38-4"><a href="#cb38-4"></a></span>
-<span id="cb38-5"><a href="#cb38-5"></a><span class="co"># rshp 함수정의 </span></span>
-<span id="cb38-6"><a href="#cb38-6"></a><span class="kw">def</span> rshp(row):</span>
-<span id="cb38-7"><a href="#cb38-7"></a>    <span class="cf">return</span> row.reshape(<span class="dv">28</span>,<span class="dv">28</span>)</span>
-<span id="cb38-8"><a href="#cb38-8"></a></span>
-<span id="cb38-9"><a href="#cb38-9"></a><span class="co"># cleaning data </span></span>
-<span id="cb38-10"><a href="#cb38-10"></a>xtrain <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_train.iloc[:,<span class="dv">1</span>:]))</span>
-<span id="cb38-11"><a href="#cb38-11"></a>xtest  <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_test.iloc[:,<span class="dv">1</span>:]))</span>
-<span id="cb38-12"><a href="#cb38-12"></a>ytrain <span class="op">=</span> np.array(df_train.label)</span>
-<span id="cb38-13"><a href="#cb38-13"></a>ytest  <span class="op">=</span> np.array(df_test.label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># read data </span></span>
+<span id="cb57-2"><a href="#cb57-2"></a>df_train<span class="op">=</span>pd.read_csv(<span class="st">'https://media.githubusercontent.com/media/guebin/PP2023/main/posts/fashion-mnist_train.csv'</span>)</span>
+<span id="cb57-3"><a href="#cb57-3"></a>df_test<span class="op">=</span>pd.read_csv(<span class="st">'https://media.githubusercontent.com/media/guebin/PP2023/main/posts/fashion-mnist_test.csv'</span>)</span>
+<span id="cb57-4"><a href="#cb57-4"></a></span>
+<span id="cb57-5"><a href="#cb57-5"></a><span class="co"># rshp 함수정의 </span></span>
+<span id="cb57-6"><a href="#cb57-6"></a><span class="kw">def</span> rshp(row):</span>
+<span id="cb57-7"><a href="#cb57-7"></a>    <span class="cf">return</span> row.reshape(<span class="dv">28</span>,<span class="dv">28</span>)</span>
+<span id="cb57-8"><a href="#cb57-8"></a></span>
+<span id="cb57-9"><a href="#cb57-9"></a><span class="co"># cleaning data </span></span>
+<span id="cb57-10"><a href="#cb57-10"></a>xtrain <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_train.iloc[:,<span class="dv">1</span>:]))</span>
+<span id="cb57-11"><a href="#cb57-11"></a>xtest  <span class="op">=</span> np.apply_along_axis(rshp,axis<span class="op">=</span><span class="dv">1</span>,arr<span class="op">=</span>np.array(df_test.iloc[:,<span class="dv">1</span>:]))</span>
+<span id="cb57-12"><a href="#cb57-12"></a>ytrain <span class="op">=</span> np.array(df_train.label)</span>
+<span id="cb57-13"><a href="#cb57-13"></a>ytest  <span class="op">=</span> np.array(df_test.label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>(1)</code> <span class="math inline">\({\tt xtrain}\)</span>에서 각 라벨에 대한 평균이미지를 계산하고 계산결과를 <span class="math inline">\({\tt imgmean}\)</span>에 길이가 10인 <code>list</code>로 저장하라. 즉 <span class="math inline">\({\tt imgmean}\)</span>은 아래와 같은 자료구조를 가지고 있어야 한다.</p>
 <ul>
@@ -936,18 +1055,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[{\tt dist}[i] = \frac{1}{28\times 28} \sum_{p=0}^{27}\sum_{q=0}^{27}\big({\tt imgmean}[2][p,q]-{\tt imgmean}[i][p,q]\big)^2\]</span></p>
 <p><span class="math inline">\({\tt dist}[i]\)</span>의 값이 가장 작은 <span class="math inline">\(i\)</span>를 찾아라. 단 <span class="math inline">\({\tt dist}[i]=0\)</span> 인 경우는 제외한다. (즉 2번 라벨과 평균이미지가 가장 비슷한 카테고리를 찾아라)</p>
 <p><strong>hint:</strong> 4번라벨이 2번라벨과 가장 비슷하다.</p>
+<div class="cell" data-execution_count="247">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>imgmean <span class="op">=</span> [xtrain[ytrain<span class="op">==</span>i].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)] </span>
+<span id="cb58-2"><a href="#cb58-2"></a>[np.mean((imgmean[i] <span class="op">-</span> imgmean[<span class="dv">2</span>])<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="247">
+<pre><code>[2597.2085496295,
+ 5878.065097639916,
+ 0.0,
+ 4213.533631714888,
+ 498.11027318129953,
+ 7492.365150424071,
+ 565.4023419996103,
+ 8216.785686526042,
+ 2762.121757294324,
+ 6135.9385566330075]</code></pre>
+</div>
+</div>
 <p><code>(2)</code> <code>(1)</code>의 과정을 반복하여 아래의 평균이미지를 비슷한 카테고리로 묶는 작업을 하였다고 하자.</p>
-<div class="cell" data-execution_count="315">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># 평균이미지</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># 평균이미지</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>작업결과 아래와 같이 비슷한 카테고리를 생각하였다고 하자.</p>
-<div class="cell" data-execution_count="316">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>mapping_rule <span class="op">=</span> {<span class="dv">0</span>:[<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>], <span class="dv">1</span>:[<span class="dv">1</span>], <span class="dv">2</span>:[<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>], <span class="dv">3</span>:[<span class="dv">8</span>]}</span>
-<span id="cb40-2"><a href="#cb40-2"></a>mapping_rule</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="316">
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>mapping_rule <span class="op">=</span> {<span class="dv">0</span>:[<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>], <span class="dv">1</span>:[<span class="dv">1</span>], <span class="dv">2</span>:[<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>], <span class="dv">3</span>:[<span class="dv">8</span>]}</span>
+<span id="cb61-2"><a href="#cb61-2"></a>mapping_rule</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
 <pre><code>{0: [0, 2, 3, 4, 6], 1: [1], 2: [5, 7, 9], 3: [8]}</code></pre>
 </div>
 </div>
@@ -1003,23 +1138,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>수정된 라벨에 대하여 평균이미지를 다시 계산하여 <code>imgmean2</code>에 저장하고 아래의 코드를 이용하여 시각화하라.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">4</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb42-3"><a href="#cb42-3"></a>    ax[i].imshow(imgmean2[i],cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="336">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># 시각화결과</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">4</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb63-2"><a href="#cb63-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb63-3"><a href="#cb63-3"></a>    ax[i].imshow(imgmean2[i],cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>ytrain2 <span class="op">=</span> np.array([m <span class="cf">for</span> y <span class="kw">in</span> ytrain <span class="cf">for</span> m <span class="kw">in</span> mapping_rule <span class="cf">if</span> y <span class="kw">in</span> mapping_rule[m]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>imgmean2 <span class="op">=</span> [xtrain[ytrain2<span class="op">==</span>i].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">4</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb66-2"><a href="#cb66-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb66-3"><a href="#cb66-3"></a>    ax[i].imshow(imgmean2[i],cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-42-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>(3)</code> 수정된 라벨에 대하여 xtrain의 이미지를 분류하고 분류결과를 카테고리별로 제시하라.</p>
 <p><strong>hint:</strong> 결과는 아래와 같다.</p>
 <div class="cell" data-execution_count="334">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>{<span class="dv">0</span>: <span class="fl">0.7493333333333333</span>,</span>
-<span id="cb44-2"><a href="#cb44-2"></a> <span class="dv">1</span>: <span class="fl">0.9443333333333334</span>,</span>
-<span id="cb44-3"><a href="#cb44-3"></a> <span class="dv">2</span>: <span class="fl">0.9379444444444445</span>,</span>
-<span id="cb44-4"><a href="#cb44-4"></a> <span class="dv">3</span>: <span class="fl">0.7983333333333333</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>{<span class="dv">0</span>: <span class="fl">0.7493333333333333</span>,</span>
+<span id="cb67-2"><a href="#cb67-2"></a> <span class="dv">1</span>: <span class="fl">0.9443333333333334</span>,</span>
+<span id="cb67-3"><a href="#cb67-3"></a> <span class="dv">2</span>: <span class="fl">0.9379444444444445</span>,</span>
+<span id="cb67-4"><a href="#cb67-4"></a> <span class="dv">3</span>: <span class="fl">0.7983333333333333</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="334">
+<pre><code>{0: 0.7493333333333333,
+ 1: 0.9443333333333334,
+ 2: 0.9379444444444445,
+ 3: 0.7983333333333333}</code></pre>
+</div>
+</div>
+<p><code>(풀이)</code></p>
+<div class="cell" data-tags="[]" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>training_loss2 <span class="op">=</span> np.array([[np.mean((xtrain[j,:,:]<span class="op">-</span> imgmean2[i])<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">60000</span>)])</span>
+<span id="cb69-2"><a href="#cb69-2"></a>ytrain2_hat <span class="op">=</span> training_loss2.argmin(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb69-3"><a href="#cb69-3"></a>{i:ytrain2_hat[ytrain2<span class="op">==</span>i].tolist().count(i)<span class="op">/</span><span class="bu">sum</span>(ytrain2<span class="op">==</span>i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
 <pre><code>{0: 0.7493333333333333,
  1: 0.9443333333333334,
  2: 0.9379444444444445,
@@ -1030,47 +1186,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="동물명-최하니-20점" class="level1">
 <h1>6. 동물명: 최하니 (20점)</h1>
 <p>아래는 동물명 “최하니”의 이미지이다.</p>
-<div class="cell" data-execution_count="403">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/guebin/SC2022/main/hani.jpeg'</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a>hani <span class="op">=</span> np.einsum(<span class="st">'ijk-&gt;jik'</span>,np.array(PIL.Image.<span class="bu">open</span>(io.BytesIO(requests.get(url).content))),dtype<span class="op">=</span>np.int64)<span class="op">/</span><span class="dv">255</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/guebin/SC2022/main/hani.jpeg'</span></span>
+<span id="cb71-2"><a href="#cb71-2"></a>hani <span class="op">=</span> np.einsum(<span class="st">'ijk-&gt;jik'</span>,np.array(PIL.Image.<span class="bu">open</span>(io.BytesIO(requests.get(url).content))),dtype<span class="op">=</span>np.int64)<span class="op">/</span><span class="dv">255</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="404">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>plt.imshow(hani)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="404">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f60b986c100&gt;</code></pre>
+<div class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>plt.imshow(hani)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6efc778130&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-31-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-46-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>아래는 하니를 적당히 분리하여 아래와 같이 <code>hani_left</code>와 <code>hini_right</code>를 만들고 시각화한 것이다.</p>
-<div class="cell" data-execution_count="405">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>hani_left <span class="op">=</span> hani[:,:<span class="dv">1512</span>,:].copy()</span>
-<span id="cb49-2"><a href="#cb49-2"></a>hani_right <span class="op">=</span> hani[:,<span class="dv">1512</span>:,:].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>hani_left <span class="op">=</span> hani[:,:<span class="dv">1512</span>,:].copy()</span>
+<span id="cb74-2"><a href="#cb74-2"></a>hani_right <span class="op">=</span> hani[:,<span class="dv">1512</span>:,:].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="406">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb50-2"><a href="#cb50-2"></a>ax[<span class="dv">0</span>].imshow(hani_left)</span>
-<span id="cb50-3"><a href="#cb50-3"></a>ax[<span class="dv">1</span>].imshow(hani_right)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="406">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f60b97d6580&gt;</code></pre>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb75-2"><a href="#cb75-2"></a>ax[<span class="dv">0</span>].imshow(hani_left)</span>
+<span id="cb75-3"><a href="#cb75-3"></a>ax[<span class="dv">1</span>].imshow(hani_right)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6ef8144b50&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-33-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-48-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>(1)</code> <code>hini_right[:,:,2]</code>의 모든 원소에 아래와 같은 변환을 수행하라.</p>
+<p><code>(1)</code> <code>hani_right[:,:,2]</code>의 모든 원소에 아래와 같은 변환을 수행하라.</p>
 <ul>
 <li><span class="math inline">\(f(x)=\begin{cases} x &amp; 1.15x &gt;1.0 \\ 1.15x &amp; 1.15x \leq 1.0 \end{cases}\)</span></li>
 </ul>
-<p><code>(2)</code> <code>hini_left</code>와 <code>(1)</code>에서 변환된 <code>hani_right</code>를 <code>np.concatenate</code>을 이용하여 합치고 결과를 아래와 같이 시각화하라.</p>
-<div class="cell" data-execution_count="408">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># 시각화예시 -- (왼쪽) 그냥 최하니 // (오른쪽) 파란느낌으로 색보정된 최하니 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="408">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f60b9710a30&gt;</code></pre>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>_a <span class="op">=</span> hani_right[:,:,<span class="dv">2</span>] <span class="op">*</span> (hani_right[:,:,<span class="dv">2</span>]<span class="op">*</span><span class="fl">1.15</span> <span class="op">&gt;</span> <span class="fl">1.0</span>)</span>
+<span id="cb77-2"><a href="#cb77-2"></a>_b <span class="op">=</span> hani_right[:,:,<span class="dv">2</span>]<span class="op">*</span><span class="fl">1.15</span> <span class="op">*</span> (hani_right[:,:,<span class="dv">2</span>]<span class="op">*</span><span class="fl">1.15</span> <span class="op">&lt;</span> <span class="fl">1.0</span>)</span>
+<span id="cb77-3"><a href="#cb77-3"></a>hani_right[:,:,<span class="dv">2</span>] <span class="op">=</span> _a <span class="op">+</span> _b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>(2)</code> <code>hani_left</code>와 <code>(1)</code>에서 변환된 <code>hani_right</code>를 <code>np.concatenate</code>을 이용하여 합치고 결과를 시각화하라.</p>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>plt.imshow(np.concatenate([hani_left,hani_right],axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="68">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6ef835bbb0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
+<p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-50-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -1087,18 +1250,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>확장불가능한 코드는 부분점수 없음</li>
 </ul>
 <p>아래의 데이터프레임은 날씨, 도로 상태, 교통 상황, 엔진 문제 및 사고 여부와 같은 여러 가지 변수를 포함하는 10개의 행과 5개의 열로 구성되어있다.</p>
-<div class="cell" data-execution_count="505">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb54-2"><a href="#cb54-2"></a>    <span class="st">'WeatherCondition'</span>: [<span class="st">'rain'</span>, <span class="st">'snow'</span>, <span class="st">'clear'</span>, <span class="st">'clear'</span>, <span class="st">'snow'</span>, <span class="st">'rain'</span>, <span class="st">'rain'</span>, <span class="st">'snow'</span>, <span class="st">'clear'</span>, <span class="st">'clear'</span>],</span>
-<span id="cb54-3"><a href="#cb54-3"></a>    <span class="st">'RoadCondition'</span>: [<span class="st">'bad'</span>,<span class="st">'average'</span>,<span class="st">'bad'</span>,<span class="st">'good'</span>,<span class="st">'good'</span>,<span class="st">'average'</span>,<span class="st">'good'</span>,<span class="st">'bad'</span>,<span class="st">'good'</span>,<span class="st">'bad'</span>],</span>
-<span id="cb54-4"><a href="#cb54-4"></a>    <span class="st">'TrafficCondition'</span>: [<span class="st">'high'</span>,<span class="st">'normal'</span>,<span class="st">'light'</span>,<span class="st">'light'</span>,<span class="st">'normal'</span>,<span class="st">'light'</span>,<span class="st">'normal'</span>,<span class="st">'high'</span>,<span class="st">'high'</span>,<span class="st">'high'</span>],</span>
-<span id="cb54-5"><a href="#cb54-5"></a>    <span class="st">'EngineProblem'</span>: [<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'yes'</span>],</span>
-<span id="cb54-6"><a href="#cb54-6"></a>    <span class="st">'Accident'</span>: [<span class="st">'yes'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>]</span>
-<span id="cb54-7"><a href="#cb54-7"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb80-2"><a href="#cb80-2"></a>    <span class="st">'WeatherCondition'</span>: [<span class="st">'rain'</span>, <span class="st">'snow'</span>, <span class="st">'clear'</span>, <span class="st">'clear'</span>, <span class="st">'snow'</span>, <span class="st">'rain'</span>, <span class="st">'rain'</span>, <span class="st">'snow'</span>, <span class="st">'clear'</span>, <span class="st">'clear'</span>],</span>
+<span id="cb80-3"><a href="#cb80-3"></a>    <span class="st">'RoadCondition'</span>: [<span class="st">'bad'</span>,<span class="st">'average'</span>,<span class="st">'bad'</span>,<span class="st">'good'</span>,<span class="st">'good'</span>,<span class="st">'average'</span>,<span class="st">'good'</span>,<span class="st">'bad'</span>,<span class="st">'good'</span>,<span class="st">'bad'</span>],</span>
+<span id="cb80-4"><a href="#cb80-4"></a>    <span class="st">'TrafficCondition'</span>: [<span class="st">'high'</span>,<span class="st">'normal'</span>,<span class="st">'light'</span>,<span class="st">'light'</span>,<span class="st">'normal'</span>,<span class="st">'light'</span>,<span class="st">'normal'</span>,<span class="st">'high'</span>,<span class="st">'high'</span>,<span class="st">'high'</span>],</span>
+<span id="cb80-5"><a href="#cb80-5"></a>    <span class="st">'EngineProblem'</span>: [<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'yes'</span>],</span>
+<span id="cb80-6"><a href="#cb80-6"></a>    <span class="st">'Accident'</span>: [<span class="st">'yes'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>,<span class="st">'no'</span>,<span class="st">'yes'</span>]</span>
+<span id="cb80-7"><a href="#cb80-7"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="506">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="506">
+<div class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="71">
 
 <div>
 
@@ -1210,19 +1373,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>우리는 ‘WeatherCondition’, ‘RoadCondition’, ‘TrafficCondition’, ‘EngineProblem’ 를 이용하여 ‘Accident’ 행의 값이 yes일지 no일지를 판단하는 일에 관심이 있다고 하자. 아래의 (1)-(4) 이러한 분류를 수행하는 방법을 구체화 한 것이다. (1)-(4)의 물음에 답하라.</p>
 <p><code>(1)</code> 주어진 자료에서 <span class="math inline">\(P({\tt Accident == no})\)</span>를 계산하여라.</p>
 <p><strong>hint</strong>: <code>Accident=='yes'인 데이터수 / 전체데이터수</code>를 계산하면 되며 답은 0.5이다.</p>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="bu">len</span>(df.query(<span class="st">'Accident=="no"'</span>)) <span class="op">/</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
+<pre><code>0.5</code></pre>
+</div>
+</div>
 <p><code>(2)</code> 아래와 같은 조건부 확률은</p>
 <p><span class="math display">\[P({\tt WeatherCondition == rain} ~|~ {\tt Accident==no})\]</span></p>
 <p>아래와 같이 계산한다고 하자.</p>
 <div class="cell" data-execution_count="508">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># 방법1</span></span>
-<span id="cb56-2"><a href="#cb56-2"></a><span class="bu">len</span>(df.query(<span class="st">'WeatherCondition == "rain" and Accident == "no"'</span>))<span class="op">/</span><span class="bu">len</span>(df.query(<span class="st">'Accident=="no"'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># 방법1</span></span>
+<span id="cb84-2"><a href="#cb84-2"></a><span class="bu">len</span>(df.query(<span class="st">'WeatherCondition == "rain" and Accident == "no"'</span>))<span class="op">/</span><span class="bu">len</span>(df.query(<span class="st">'Accident=="no"'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="508">
 <pre><code>0.4</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="509">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># 방법2</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a>((df[<span class="st">'WeatherCondition'</span>] <span class="op">==</span> <span class="st">'rain'</span>) <span class="op">&amp;</span> (df[<span class="st">'Accident'</span>]<span class="op">==</span> <span class="st">'no'</span>)).<span class="bu">sum</span>() <span class="op">/</span> (df[<span class="st">'Accident'</span>]<span class="op">==</span> <span class="st">'no'</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># 방법2</span></span>
+<span id="cb86-2"><a href="#cb86-2"></a>((df[<span class="st">'WeatherCondition'</span>] <span class="op">==</span> <span class="st">'rain'</span>) <span class="op">&amp;</span> (df[<span class="st">'Accident'</span>]<span class="op">==</span> <span class="st">'no'</span>)).<span class="bu">sum</span>() <span class="op">/</span> (df[<span class="st">'Accident'</span>]<span class="op">==</span> <span class="st">'no'</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="509">
 <pre><code>0.4</code></pre>
 </div>
@@ -1258,6 +1428,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  'P(EngineProblem=no|Accident=yes)': 0.4,
  'P(EngineProblem=yes|Accident=no)': 0.2,
  'P(EngineProblem=yes|Accident=yes)': 0.6}</code></pre>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>cond <span class="op">=</span> [<span class="st">'WeatherCondition'</span>,<span class="st">'RoadCondition'</span>,<span class="st">'TrafficCondition'</span>,<span class="st">'EngineProblem'</span>]</span>
+<span id="cb89-2"><a href="#cb89-2"></a>{<span class="st">'P(</span><span class="sc">{}</span><span class="st">=</span><span class="sc">{}</span><span class="st">|Accident=</span><span class="sc">{}</span><span class="st">)'</span>.<span class="bu">format</span>(i,j,k): ((df[i]<span class="op">==</span>j)<span class="op">&amp;</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k)).<span class="bu">sum</span>()<span class="op">/</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k).<span class="bu">sum</span>() <span class="cf">for</span> i <span class="kw">in</span> cond <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">set</span>(df[i]) <span class="cf">for</span> k <span class="kw">in</span> [<span class="st">'no'</span>,<span class="st">'yes'</span>]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="73">
+<pre><code>{'P(WeatherCondition=clear|Accident=no)': 0.4,
+ 'P(WeatherCondition=clear|Accident=yes)': 0.4,
+ 'P(WeatherCondition=rain|Accident=no)': 0.4,
+ 'P(WeatherCondition=rain|Accident=yes)': 0.2,
+ 'P(WeatherCondition=snow|Accident=no)': 0.2,
+ 'P(WeatherCondition=snow|Accident=yes)': 0.4,
+ 'P(RoadCondition=average|Accident=no)': 0.2,
+ 'P(RoadCondition=average|Accident=yes)': 0.2,
+ 'P(RoadCondition=bad|Accident=no)': 0.2,
+ 'P(RoadCondition=bad|Accident=yes)': 0.6,
+ 'P(RoadCondition=good|Accident=no)': 0.6,
+ 'P(RoadCondition=good|Accident=yes)': 0.2,
+ 'P(TrafficCondition=normal|Accident=no)': 0.4,
+ 'P(TrafficCondition=normal|Accident=yes)': 0.2,
+ 'P(TrafficCondition=light|Accident=no)': 0.4,
+ 'P(TrafficCondition=light|Accident=yes)': 0.2,
+ 'P(TrafficCondition=high|Accident=no)': 0.2,
+ 'P(TrafficCondition=high|Accident=yes)': 0.6,
+ 'P(EngineProblem=yes|Accident=no)': 0.2,
+ 'P(EngineProblem=yes|Accident=yes)': 0.6,
+ 'P(EngineProblem=no|Accident=no)': 0.8,
+ 'P(EngineProblem=no|Accident=yes)': 0.4}</code></pre>
+</div>
+</div>
 <p><code>(3)</code> 아래와 같은 새로운 상황이 발생하였다고 가정하자.</p>
 <ul>
 <li><span class="math inline">\({\tt WeatherCondition==rain}\)</span></li>
@@ -1270,11 +1469,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(\begin{align} B&amp;=P({\tt Accident ==no})\\ &amp;\times P({\tt WeatherCondition==rain~ |~ Accident == no}) \\ &amp;\times P({\tt RoadCondition==good~|~ Accident == no}) \\ &amp;\times P({\tt TrafficCondition==normal~ |~ Accident == no}) \\ &amp;\times P({\tt EngineProblem=no~ |~ Accident == no}) \end{align}\)</span></p>
 <p>여기에서 <span class="math inline">\(\frac{A}{A+B}\)</span>와 <span class="math inline">\(\frac{B}{A+B}\)</span>를 각각 주어진 상황에 대하여 사고가 날 확률, 사고가 나지 않을 확률을 의미한다고 하자. 주어진 상황에서 사고가 날 확률은 얼마인가?</p>
 <p><strong>hint:</strong> 답은 1/25</p>
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>cond <span class="op">=</span> [<span class="st">'WeatherCondition'</span>,<span class="st">'RoadCondition'</span>,<span class="st">'TrafficCondition'</span>,<span class="st">'EngineProblem'</span>]</span>
+<span id="cb91-2"><a href="#cb91-2"></a>dct <span class="op">=</span> {(j,k):((df[i]<span class="op">==</span>j)<span class="op">&amp;</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k)).<span class="bu">sum</span>()<span class="op">/</span>(df[<span class="st">'Accident'</span>]<span class="op">==</span>k).<span class="bu">sum</span>() <span class="cf">for</span> i <span class="kw">in</span> cond <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">set</span>(df[i]) <span class="cf">for</span> k <span class="kw">in</span> [<span class="st">'no'</span>,<span class="st">'yes'</span>]}</span>
+<span id="cb91-3"><a href="#cb91-3"></a>dct </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="74">
+<pre><code>{('clear', 'no'): 0.4,
+ ('clear', 'yes'): 0.4,
+ ('rain', 'no'): 0.4,
+ ('rain', 'yes'): 0.2,
+ ('snow', 'no'): 0.2,
+ ('snow', 'yes'): 0.4,
+ ('average', 'no'): 0.2,
+ ('average', 'yes'): 0.2,
+ ('bad', 'no'): 0.2,
+ ('bad', 'yes'): 0.6,
+ ('good', 'no'): 0.6,
+ ('good', 'yes'): 0.2,
+ ('normal', 'no'): 0.4,
+ ('normal', 'yes'): 0.2,
+ ('light', 'no'): 0.4,
+ ('light', 'yes'): 0.2,
+ ('high', 'no'): 0.2,
+ ('high', 'yes'): 0.6,
+ ('yes', 'no'): 0.2,
+ ('yes', 'yes'): 0.6,
+ ('no', 'no'): 0.8,
+ ('no', 'yes'): 0.4}</code></pre>
+</div>
+</div>
+<ul>
+<li>dct의 키는 <code>(WeatherCondition~EngineProblem의 라벨,Accident의 라벨)</code>로 이루어짐</li>
+</ul>
+<div class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>A <span class="op">=</span> dct[<span class="st">'rain'</span>,<span class="st">'yes'</span>]<span class="op">*</span>dct[<span class="st">'good'</span>,<span class="st">'yes'</span>]<span class="op">*</span>dct[<span class="st">'normal'</span>,<span class="st">'yes'</span>]<span class="op">*</span>dct[<span class="st">'no'</span>,<span class="st">'yes'</span>]</span>
+<span id="cb93-2"><a href="#cb93-2"></a>B <span class="op">=</span> dct[<span class="st">'rain'</span>,<span class="st">'no'</span>]<span class="op">*</span>dct[<span class="st">'good'</span>,<span class="st">'no'</span>]<span class="op">*</span>dct[<span class="st">'normal'</span>,<span class="st">'no'</span>]<span class="op">*</span>dct[<span class="st">'no'</span>,<span class="st">'no'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>A<span class="op">/</span>(A<span class="op">+</span>B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+<pre><code>0.040000000000000015</code></pre>
+</div>
+</div>
 <p><code>(4)</code> 모든 상황에 대하여 사고가 날 확률을 구하여라.</p>
-<p><strong>hint:</strong> 답은 아래와 같다.</p>
-<div class="cell" data-execution_count="516">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="516">
+<p><code>(풀이)</code></p>
+<div class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a>W <span class="op">=</span> <span class="bu">set</span>(df.WeatherCondition)</span>
+<span id="cb96-2"><a href="#cb96-2"></a>R <span class="op">=</span> <span class="bu">set</span>(df.RoadCondition)</span>
+<span id="cb96-3"><a href="#cb96-3"></a>T <span class="op">=</span> <span class="bu">set</span>(df.TrafficCondition)</span>
+<span id="cb96-4"><a href="#cb96-4"></a>E <span class="op">=</span> <span class="bu">set</span>(df.EngineProblem)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>df2 <span class="op">=</span> pd.DataFrame([[w,r,t,e,dct[w,<span class="st">'yes'</span>]<span class="op">*</span>dct[r,<span class="st">'yes'</span>]<span class="op">*</span>dct[t,<span class="st">'yes'</span>]<span class="op">*</span>dct[e,<span class="st">'yes'</span>],dct[w,<span class="st">'no'</span>]<span class="op">*</span>dct[r,<span class="st">'no'</span>]<span class="op">*</span>dct[t,<span class="st">'no'</span>]<span class="op">*</span>dct[e,<span class="st">'no'</span>]] <span class="cf">for</span> w <span class="kw">in</span> W <span class="cf">for</span> r <span class="kw">in</span> R <span class="cf">for</span> t <span class="kw">in</span> T <span class="cf">for</span> e <span class="kw">in</span> E])</span>
+<span id="cb97-2"><a href="#cb97-2"></a>df2.columns <span class="op">=</span> pd.Index([<span class="st">'WeatherCondition'</span>,<span class="st">'RoadCondition'</span>,<span class="st">'TrafficCondition'</span>,<span class="st">'EngineProblem'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>])</span>
+<span id="cb97-3"><a href="#cb97-3"></a>df2.<span class="bu">eval</span>(<span class="st">'Prob = A/(A+B)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="81">
 
 <div>
 
@@ -1296,14 +1546,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th>0</th>
       <td>clear</td>
       <td>average</td>
-      <td>light</td>
+      <td>normal</td>
+      <td>yes</td>
+      <td>0.0096</td>
+      <td>0.0064</td>
+      <td>0.600000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>clear</td>
+      <td>average</td>
+      <td>normal</td>
       <td>no</td>
       <td>0.0064</td>
       <td>0.0256</td>
       <td>0.200000</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>clear</td>
       <td>average</td>
       <td>light</td>
@@ -1313,17 +1573,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.600000</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
       <td>clear</td>
       <td>average</td>
-      <td>high</td>
+      <td>light</td>
       <td>no</td>
-      <td>0.0192</td>
-      <td>0.0128</td>
-      <td>0.600000</td>
+      <td>0.0064</td>
+      <td>0.0256</td>
+      <td>0.200000</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>4</th>
       <td>clear</td>
       <td>average</td>
       <td>high</td>
@@ -1333,87 +1593,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.900000</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>clear</td>
-      <td>average</td>
-      <td>normal</td>
-      <td>no</td>
-      <td>0.0064</td>
-      <td>0.0256</td>
-      <td>0.200000</td>
-    </tr>
-    <tr>
       <th>5</th>
       <td>clear</td>
       <td>average</td>
-      <td>normal</td>
-      <td>yes</td>
-      <td>0.0096</td>
-      <td>0.0064</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0128</td>
       <td>0.600000</td>
     </tr>
     <tr>
       <th>6</th>
       <td>clear</td>
-      <td>good</td>
-      <td>light</td>
-      <td>no</td>
+      <td>bad</td>
+      <td>normal</td>
+      <td>yes</td>
+      <td>0.0288</td>
       <td>0.0064</td>
-      <td>0.0768</td>
-      <td>0.076923</td>
+      <td>0.818182</td>
     </tr>
     <tr>
       <th>7</th>
       <td>clear</td>
-      <td>good</td>
-      <td>light</td>
-      <td>yes</td>
-      <td>0.0096</td>
+      <td>bad</td>
+      <td>normal</td>
+      <td>no</td>
       <td>0.0192</td>
-      <td>0.333333</td>
+      <td>0.0256</td>
+      <td>0.428571</td>
     </tr>
     <tr>
       <th>8</th>
       <td>clear</td>
-      <td>good</td>
-      <td>high</td>
-      <td>no</td>
-      <td>0.0192</td>
-      <td>0.0384</td>
-      <td>0.333333</td>
+      <td>bad</td>
+      <td>light</td>
+      <td>yes</td>
+      <td>0.0288</td>
+      <td>0.0064</td>
+      <td>0.818182</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>clear</td>
-      <td>good</td>
-      <td>high</td>
-      <td>yes</td>
-      <td>0.0288</td>
-      <td>0.0096</td>
-      <td>0.750000</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>clear</td>
-      <td>good</td>
-      <td>normal</td>
-      <td>no</td>
-      <td>0.0064</td>
-      <td>0.0768</td>
-      <td>0.076923</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>clear</td>
-      <td>good</td>
-      <td>normal</td>
-      <td>yes</td>
-      <td>0.0096</td>
-      <td>0.0192</td>
-      <td>0.333333</td>
-    </tr>
-    <tr>
-      <th>12</th>
       <td>clear</td>
       <td>bad</td>
       <td>light</td>
@@ -1423,27 +1643,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.428571</td>
     </tr>
     <tr>
-      <th>13</th>
-      <td>clear</td>
-      <td>bad</td>
-      <td>light</td>
-      <td>yes</td>
-      <td>0.0288</td>
-      <td>0.0064</td>
-      <td>0.818182</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>clear</td>
-      <td>bad</td>
-      <td>high</td>
-      <td>no</td>
-      <td>0.0576</td>
-      <td>0.0128</td>
-      <td>0.818182</td>
-    </tr>
-    <tr>
-      <th>15</th>
+      <th>10</th>
       <td>clear</td>
       <td>bad</td>
       <td>high</td>
@@ -1453,37 +1653,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.964286</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>11</th>
       <td>clear</td>
       <td>bad</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0576</td>
+      <td>0.0128</td>
+      <td>0.818182</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>clear</td>
+      <td>good</td>
+      <td>normal</td>
+      <td>yes</td>
+      <td>0.0096</td>
+      <td>0.0192</td>
+      <td>0.333333</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>clear</td>
+      <td>good</td>
       <td>normal</td>
       <td>no</td>
+      <td>0.0064</td>
+      <td>0.0768</td>
+      <td>0.076923</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>clear</td>
+      <td>good</td>
+      <td>light</td>
+      <td>yes</td>
+      <td>0.0096</td>
       <td>0.0192</td>
-      <td>0.0256</td>
-      <td>0.428571</td>
+      <td>0.333333</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>clear</td>
+      <td>good</td>
+      <td>light</td>
+      <td>no</td>
+      <td>0.0064</td>
+      <td>0.0768</td>
+      <td>0.076923</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>clear</td>
+      <td>good</td>
+      <td>high</td>
+      <td>yes</td>
+      <td>0.0288</td>
+      <td>0.0096</td>
+      <td>0.750000</td>
     </tr>
     <tr>
       <th>17</th>
       <td>clear</td>
-      <td>bad</td>
-      <td>normal</td>
-      <td>yes</td>
-      <td>0.0288</td>
-      <td>0.0064</td>
-      <td>0.818182</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0384</td>
+      <td>0.333333</td>
     </tr>
     <tr>
       <th>18</th>
       <td>rain</td>
       <td>average</td>
-      <td>light</td>
+      <td>normal</td>
+      <td>yes</td>
+      <td>0.0048</td>
+      <td>0.0064</td>
+      <td>0.428571</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>rain</td>
+      <td>average</td>
+      <td>normal</td>
       <td>no</td>
       <td>0.0032</td>
       <td>0.0256</td>
       <td>0.111111</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>20</th>
       <td>rain</td>
       <td>average</td>
       <td>light</td>
@@ -1493,7 +1753,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.428571</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>21</th>
+      <td>rain</td>
+      <td>average</td>
+      <td>light</td>
+      <td>no</td>
+      <td>0.0032</td>
+      <td>0.0256</td>
+      <td>0.111111</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>rain</td>
+      <td>average</td>
+      <td>high</td>
+      <td>yes</td>
+      <td>0.0144</td>
+      <td>0.0032</td>
+      <td>0.818182</td>
+    </tr>
+    <tr>
+      <th>23</th>
       <td>rain</td>
       <td>average</td>
       <td>high</td>
@@ -1503,97 +1783,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.428571</td>
     </tr>
     <tr>
-      <th>21</th>
-      <td>rain</td>
-      <td>average</td>
-      <td>high</td>
-      <td>yes</td>
-      <td>0.0144</td>
-      <td>0.0032</td>
-      <td>0.818182</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>rain</td>
-      <td>average</td>
-      <td>normal</td>
-      <td>no</td>
-      <td>0.0032</td>
-      <td>0.0256</td>
-      <td>0.111111</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>rain</td>
-      <td>average</td>
-      <td>normal</td>
-      <td>yes</td>
-      <td>0.0048</td>
-      <td>0.0064</td>
-      <td>0.428571</td>
-    </tr>
-    <tr>
       <th>24</th>
       <td>rain</td>
-      <td>good</td>
-      <td>light</td>
-      <td>no</td>
-      <td>0.0032</td>
-      <td>0.0768</td>
-      <td>0.040000</td>
+      <td>bad</td>
+      <td>normal</td>
+      <td>yes</td>
+      <td>0.0144</td>
+      <td>0.0064</td>
+      <td>0.692308</td>
     </tr>
     <tr>
       <th>25</th>
       <td>rain</td>
-      <td>good</td>
-      <td>light</td>
-      <td>yes</td>
-      <td>0.0048</td>
-      <td>0.0192</td>
-      <td>0.200000</td>
+      <td>bad</td>
+      <td>normal</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0256</td>
+      <td>0.272727</td>
     </tr>
     <tr>
       <th>26</th>
       <td>rain</td>
-      <td>good</td>
-      <td>high</td>
-      <td>no</td>
-      <td>0.0096</td>
-      <td>0.0384</td>
-      <td>0.200000</td>
+      <td>bad</td>
+      <td>light</td>
+      <td>yes</td>
+      <td>0.0144</td>
+      <td>0.0064</td>
+      <td>0.692308</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>rain</td>
-      <td>good</td>
-      <td>high</td>
-      <td>yes</td>
-      <td>0.0144</td>
-      <td>0.0096</td>
-      <td>0.600000</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>rain</td>
-      <td>good</td>
-      <td>normal</td>
-      <td>no</td>
-      <td>0.0032</td>
-      <td>0.0768</td>
-      <td>0.040000</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>rain</td>
-      <td>good</td>
-      <td>normal</td>
-      <td>yes</td>
-      <td>0.0048</td>
-      <td>0.0192</td>
-      <td>0.200000</td>
-    </tr>
-    <tr>
-      <th>30</th>
       <td>rain</td>
       <td>bad</td>
       <td>light</td>
@@ -1603,27 +1823,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.272727</td>
     </tr>
     <tr>
-      <th>31</th>
-      <td>rain</td>
-      <td>bad</td>
-      <td>light</td>
-      <td>yes</td>
-      <td>0.0144</td>
-      <td>0.0064</td>
-      <td>0.692308</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>rain</td>
-      <td>bad</td>
-      <td>high</td>
-      <td>no</td>
-      <td>0.0288</td>
-      <td>0.0128</td>
-      <td>0.692308</td>
-    </tr>
-    <tr>
-      <th>33</th>
+      <th>28</th>
       <td>rain</td>
       <td>bad</td>
       <td>high</td>
@@ -1633,37 +1833,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.931034</td>
     </tr>
     <tr>
-      <th>34</th>
+      <th>29</th>
       <td>rain</td>
       <td>bad</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0288</td>
+      <td>0.0128</td>
+      <td>0.692308</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>rain</td>
+      <td>good</td>
+      <td>normal</td>
+      <td>yes</td>
+      <td>0.0048</td>
+      <td>0.0192</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>rain</td>
+      <td>good</td>
       <td>normal</td>
       <td>no</td>
+      <td>0.0032</td>
+      <td>0.0768</td>
+      <td>0.040000</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>rain</td>
+      <td>good</td>
+      <td>light</td>
+      <td>yes</td>
+      <td>0.0048</td>
+      <td>0.0192</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>rain</td>
+      <td>good</td>
+      <td>light</td>
+      <td>no</td>
+      <td>0.0032</td>
+      <td>0.0768</td>
+      <td>0.040000</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>rain</td>
+      <td>good</td>
+      <td>high</td>
+      <td>yes</td>
+      <td>0.0144</td>
       <td>0.0096</td>
-      <td>0.0256</td>
-      <td>0.272727</td>
+      <td>0.600000</td>
     </tr>
     <tr>
       <th>35</th>
       <td>rain</td>
-      <td>bad</td>
-      <td>normal</td>
-      <td>yes</td>
-      <td>0.0144</td>
-      <td>0.0064</td>
-      <td>0.692308</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0096</td>
+      <td>0.0384</td>
+      <td>0.200000</td>
     </tr>
     <tr>
       <th>36</th>
       <td>snow</td>
       <td>average</td>
-      <td>light</td>
+      <td>normal</td>
+      <td>yes</td>
+      <td>0.0096</td>
+      <td>0.0032</td>
+      <td>0.750000</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>snow</td>
+      <td>average</td>
+      <td>normal</td>
       <td>no</td>
       <td>0.0064</td>
       <td>0.0128</td>
       <td>0.333333</td>
     </tr>
     <tr>
-      <th>37</th>
+      <th>38</th>
       <td>snow</td>
       <td>average</td>
       <td>light</td>
@@ -1673,17 +1933,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.750000</td>
     </tr>
     <tr>
-      <th>38</th>
+      <th>39</th>
       <td>snow</td>
       <td>average</td>
-      <td>high</td>
+      <td>light</td>
       <td>no</td>
-      <td>0.0192</td>
       <td>0.0064</td>
-      <td>0.750000</td>
+      <td>0.0128</td>
+      <td>0.333333</td>
     </tr>
     <tr>
-      <th>39</th>
+      <th>40</th>
       <td>snow</td>
       <td>average</td>
       <td>high</td>
@@ -1693,87 +1953,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.947368</td>
     </tr>
     <tr>
-      <th>40</th>
-      <td>snow</td>
-      <td>average</td>
-      <td>normal</td>
-      <td>no</td>
-      <td>0.0064</td>
-      <td>0.0128</td>
-      <td>0.333333</td>
-    </tr>
-    <tr>
       <th>41</th>
       <td>snow</td>
       <td>average</td>
-      <td>normal</td>
-      <td>yes</td>
-      <td>0.0096</td>
-      <td>0.0032</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0064</td>
       <td>0.750000</td>
     </tr>
     <tr>
       <th>42</th>
       <td>snow</td>
-      <td>good</td>
-      <td>light</td>
-      <td>no</td>
-      <td>0.0064</td>
-      <td>0.0384</td>
-      <td>0.142857</td>
+      <td>bad</td>
+      <td>normal</td>
+      <td>yes</td>
+      <td>0.0288</td>
+      <td>0.0032</td>
+      <td>0.900000</td>
     </tr>
     <tr>
       <th>43</th>
       <td>snow</td>
-      <td>good</td>
-      <td>light</td>
-      <td>yes</td>
-      <td>0.0096</td>
-      <td>0.0096</td>
-      <td>0.500000</td>
+      <td>bad</td>
+      <td>normal</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0128</td>
+      <td>0.600000</td>
     </tr>
     <tr>
       <th>44</th>
       <td>snow</td>
-      <td>good</td>
-      <td>high</td>
-      <td>no</td>
-      <td>0.0192</td>
-      <td>0.0192</td>
-      <td>0.500000</td>
+      <td>bad</td>
+      <td>light</td>
+      <td>yes</td>
+      <td>0.0288</td>
+      <td>0.0032</td>
+      <td>0.900000</td>
     </tr>
     <tr>
       <th>45</th>
-      <td>snow</td>
-      <td>good</td>
-      <td>high</td>
-      <td>yes</td>
-      <td>0.0288</td>
-      <td>0.0048</td>
-      <td>0.857143</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>snow</td>
-      <td>good</td>
-      <td>normal</td>
-      <td>no</td>
-      <td>0.0064</td>
-      <td>0.0384</td>
-      <td>0.142857</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>snow</td>
-      <td>good</td>
-      <td>normal</td>
-      <td>yes</td>
-      <td>0.0096</td>
-      <td>0.0096</td>
-      <td>0.500000</td>
-    </tr>
-    <tr>
-      <th>48</th>
       <td>snow</td>
       <td>bad</td>
       <td>light</td>
@@ -1783,27 +2003,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.600000</td>
     </tr>
     <tr>
-      <th>49</th>
-      <td>snow</td>
-      <td>bad</td>
-      <td>light</td>
-      <td>yes</td>
-      <td>0.0288</td>
-      <td>0.0032</td>
-      <td>0.900000</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>snow</td>
-      <td>bad</td>
-      <td>high</td>
-      <td>no</td>
-      <td>0.0576</td>
-      <td>0.0064</td>
-      <td>0.900000</td>
-    </tr>
-    <tr>
-      <th>51</th>
+      <th>46</th>
       <td>snow</td>
       <td>bad</td>
       <td>high</td>
@@ -1813,24 +2013,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>0.981818</td>
     </tr>
     <tr>
-      <th>52</th>
+      <th>47</th>
       <td>snow</td>
       <td>bad</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0576</td>
+      <td>0.0064</td>
+      <td>0.900000</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>normal</td>
+      <td>yes</td>
+      <td>0.0096</td>
+      <td>0.0096</td>
+      <td>0.500000</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>snow</td>
+      <td>good</td>
       <td>normal</td>
       <td>no</td>
-      <td>0.0192</td>
-      <td>0.0128</td>
-      <td>0.600000</td>
+      <td>0.0064</td>
+      <td>0.0384</td>
+      <td>0.142857</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>light</td>
+      <td>yes</td>
+      <td>0.0096</td>
+      <td>0.0096</td>
+      <td>0.500000</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>light</td>
+      <td>no</td>
+      <td>0.0064</td>
+      <td>0.0384</td>
+      <td>0.142857</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>snow</td>
+      <td>good</td>
+      <td>high</td>
+      <td>yes</td>
+      <td>0.0288</td>
+      <td>0.0048</td>
+      <td>0.857143</td>
     </tr>
     <tr>
       <th>53</th>
       <td>snow</td>
-      <td>bad</td>
-      <td>normal</td>
-      <td>yes</td>
-      <td>0.0288</td>
-      <td>0.0032</td>
-      <td>0.900000</td>
+      <td>good</td>
+      <td>high</td>
+      <td>no</td>
+      <td>0.0192</td>
+      <td>0.0192</td>
+      <td>0.500000</td>
     </tr>
   </tbody>
 </table>
