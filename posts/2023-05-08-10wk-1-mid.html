@@ -965,7 +965,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="삼성전자의-주가-추가문제-30점" class="level1">
 <h1>4. 삼성전자의 주가 추가문제 (30점)</h1>
 <p>다음은 삼성전자의 주가를 크롤링하는 코드이다.</p>
-<div class="cell" data-execution_count="231">
+<div class="cell" data-execution_count="413">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>start_date <span class="op">=</span> <span class="st">"2023-01-01"</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>end_date <span class="op">=</span> <span class="st">"2023-05-02"</span></span>
 <span id="cb49-3"><a href="#cb49-3"></a>y <span class="op">=</span> yf.download(<span class="st">"005930.KS"</span>, start<span class="op">=</span>start_date, end<span class="op">=</span>end_date)[<span class="st">'Adj Close'</span>].to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -974,7 +974,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>삼성전자의 주가 <span class="math inline">\({\boldsymbol y}\)</span>를 시각화하면 아래와 같다.</p>
-<div class="cell" data-execution_count="232">
+<div class="cell" data-execution_count="414">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>plt.plot(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
@@ -986,7 +986,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[{\bf X}=\begin{bmatrix} 1 &amp; x_1 \\ 1 &amp; x_2\\ \dots &amp; \dots \\ 1 &amp; x_n \end{bmatrix}\]</span></p>
 <p><strong>hint</strong>: <span class="math inline">\({\bf X}\)</span>를 아래와 같이 해석해도 무방하다.</p>
 <p><span class="math display">\[{\bf X}=\begin{bmatrix} x_1^0 &amp; x_1^1 \\ x_2^0 &amp; x_2^1\\ \dots &amp; \dots \\ x_n^0 &amp; x_n^1 \end{bmatrix}\]</span></p>
-<div class="cell" data-execution_count="363">
+<div class="cell" data-execution_count="415">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>x <span class="op">=</span> np.arange(<span class="dv">1</span>,<span class="dv">83</span>)<span class="op">/</span><span class="dv">82</span> <span class="co"># x = np.arange(0,82)/82 정도의 실수는 정답으로 인정..</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>X <span class="op">=</span> np.stack([x<span class="op">**</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>)],axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -995,13 +995,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\((x_i,y_i)\)</span>와 <span class="math inline">\((x_i,\hat{y}_i)\)</span>을 겹쳐서 시각화하라. 단, <span class="math inline">\(\hat{\bf y}=(\hat{y}_1,\dots,\hat{y}_n)\)</span>.</p>
 <p><strong>hint:</strong> 계산의 편의를 위하여 <span class="math inline">\({\bf y}\)</span>와 <span class="math inline">\(\hat{\bf y}\)</span>은 모두 <span class="math inline">\(n\times 1\)</span> col-vector가 아닌 길이가 <span class="math inline">\(n\)</span>인 벡터로 해석해도 무방하다.</p>
 <p><code>(풀이)</code></p>
-<div class="cell" data-execution_count="235">
+<div class="cell" data-execution_count="416">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>yhat<span class="op">=</span> X<span class="op">@</span>np.linalg.inv(X.T<span class="op">@</span> X)<span class="op">@</span> X.T <span class="op">@</span> y</span>
 <span id="cb53-2"><a href="#cb53-2"></a>plt.plot(x,y, label<span class="op">=</span><span class="vs">r'$(x_i,y_i)$'</span>)</span>
 <span id="cb53-3"><a href="#cb53-3"></a>plt.plot(x,yhat,<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$(x_i,\hat</span><span class="sc">{y}</span><span class="vs">_i)$'</span>)</span>
 <span id="cb53-4"><a href="#cb53-4"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="235">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7f6ebb83c700&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="416">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f6eba48e9a0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
@@ -1013,13 +1013,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[\hat{\bf y}= {\bf X}({\bf X}^T {\bf X})^{-1}{\bf X}^T {\bf y}\]</span></p>
 <p><span class="math inline">\((x_i,y_i)\)</span>와 <span class="math inline">\((x_i,\hat{y}_i)\)</span>을 겹쳐서 시각화하라. 단, <span class="math inline">\(\hat{\bf y}=(\hat{y}_1,\dots,\hat{y}_n)\)</span>.</p>
 <p><code>(풀이)</code></p>
-<div class="cell" data-execution_count="244">
+<div class="cell" data-execution_count="423">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>X <span class="op">=</span> np.stack([x<span class="op">**</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>)],axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb55-2"><a href="#cb55-2"></a>plt.plot(x,y, label<span class="op">=</span><span class="vs">r'$(x_i,y_i)$'</span>)</span>
 <span id="cb55-3"><a href="#cb55-3"></a>plt.plot(x, X<span class="op">@</span>np.linalg.inv(X.T<span class="op">@</span> X)<span class="op">@</span> X.T <span class="op">@</span> y,<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$(x_i,\hat</span><span class="sc">{y}</span><span class="vs">_i)$'</span>)</span>
 <span id="cb55-4"><a href="#cb55-4"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="244">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7f6ebb7cd370&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="423">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f6eba098b20&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-05-08-10wk-1-mid_files/figure-html/cell-35-output-2.png" class="img-fluid"></p>

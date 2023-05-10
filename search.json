@@ -91,6 +91,174 @@
     "text": "이 수업을 들어야 하는 이유\n생략\n\n\n\n이 수업을 듣지 말아야 하는 이유\n1. F학점을 많이 준다.\n\n30%까지 F를 줄 수 있음.\nF학점은 태도점수+시험성적을 종합하여 부여함 (태도점수로만 부여하지 않음)\n\n2. 파이썬을 배울 수 있는 다른 대안이 많다.\n\nChatGPT\n패스트캠퍼스\n학원\n각종 캠프\n\n3. cost-effective 하지 않음\n\n열심히 공부해도 시험성적이 안 좋을 수 있음. \\(\\to\\) 학점도 안좋아짐\n왜? (1) 타전공 고수들이 많음 (2) 시험문제가 어려움 (3) 기출문제가 별 의미없음 (4) 적성에 안 맞음\n\n4. 꼭 파이썬을 배워야 할까?\n이거 꼭 들어야 졸업가능? –> 파이썬을 못하면 선택의 폭이 좁아지긴 하지만 졸업불가능한 정도는 아님\n\nhttps://stat.jbnu.ac.kr/stat/6453/subview.do\n\n파이썬 못하면 굶어죽을까? –> 몇몇 진로에서는 파이썬이 필요함. 그런데 다 그런건 아님\n통계학과 졸업생이 갈 수 있는 진로들\n\n의약계열: 전북대병원, XX병원, XX제약, 셀트리온, 삼성바이오\n\n금융계열: 전북은행, XX은행, XX증권, XX화재\n공무원,공기업: 통계청, 9급공무원, 국민연금 등\n기타 대기업: 삼성전자 (인사과)…\n국책연구기관: 에트리, 한국교통연구원 등\n금융공기업: 한국은행, 금융감독원, 한국거래소 등\n제조업: 삼성전자, 하이닉스, LG전자, 현대자동차 등 (스마트팩토리)\n통신사: SKT, KT, LGU\n컨설팅: 베가스, 삼성SDS, LG-CNS 등\n게임회사: 엔씨, 넷마블, 위메이드 등\n인공지능, 빅데이터: 네이버, 카카오, 라인, 쿠팡, 배민(?), SKT, 삼성, LG, …\n순수IT:\n\n\n\n\n수업진행\n\n다음시간부터 개인 노트북 지참\nwifi: 218-5G-1. 218-5G-2\n가급적 영상 올릴 생각… (복습용도)\n질문: 카톡, 이메일, 직접방문, 줌, 등등~"
   },
   {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "",
+    "text": "youtube: https://youtube.com/playlist?list=PLQqh36zP38-x9SwQZVCK1ru5UPVWzeXDQ"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#학점",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#학점",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "학점",
+    "text": "학점\n- Linear Input & Linear Output\n\n이상: 노력과 점수는 비례 & 점수와 학점이 비례\n현실: 노력과 점수는 비례X & 점수와 학점은??\n\n- [300, 300, 100, 90, 41, 40, 40, 30, 20] 인 학생들의 학점을 나누는 방법?"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#chatgpt",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#chatgpt",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "ChatGPT",
+    "text": "ChatGPT\n- 잘 쓰는 방법 (일반적)\n\n질문을 잘해야.. + 많이 쓰는 언어를 질문 해야.. +\n프롬프트 엔지니어: https://www.hani.co.kr/arti/economy/it/1084265.html"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#chatgpt-1",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#chatgpt-1",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "ChatGPT",
+    "text": "ChatGPT\n- 잘 쓰는 방법 (제 생각)\n\n기계가 이해할 수 있는 subgoal을 잘 만들어야 함.\n결국 “모호한 하나의 문제 \\(\\Rightarrow\\) 모호하지 않은 여러개의 문제” 로 문제를 바꾸는 능력이 필요."
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#chatgpt-2",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#chatgpt-2",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "ChatGPT",
+    "text": "ChatGPT\n\n\n\n그림1: ChatGPT의 잘못된 사용예시"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#학생들에게-하고-싶은-말-1",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#학생들에게-하고-싶은-말-1",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "학생들에게 하고 싶은 말 (1)",
+    "text": "학생들에게 하고 싶은 말 (1)\n- 성장과 분배\n- 본인의 역량을 분배하는 방식에 대해서도 생각해 보세요"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#학생들에게-하고-싶은-말-2",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#학생들에게-하고-싶은-말-2",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "학생들에게 하고 싶은 말 (2)",
+    "text": "학생들에게 하고 싶은 말 (2)\n- 중요한 것은 꺾이지 않는 마음\n- 기말 잘보면 됩니다."
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-시작",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-시작",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "중꺾마의 시작",
+    "text": "중꺾마의 시작\n\nref: 나무위키\n\n- 중꺾마? “중요한 것은 꺾이지 않는 마음”의 줄임"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-시작-1",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-시작-1",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "중꺾마의 시작",
+    "text": "중꺾마의 시작\n- 유래\n\n\n\n그림1: DEFT의 인터뷰"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-시작-2",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-시작-2",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "중꺾마의 시작",
+    "text": "중꺾마의 시작\n2022년 월드 챔피언십 그룹 스테이지 1라운드 로그전에서 패배 후, 쿠키뉴스와의 인터뷰에서 데프트는 패배에 대한 감상을 질문 받자\n“오늘 지긴 했지만… 저희끼리만 안 무너지면 충분히 이길 수 있을 것 같아요”\n라고 답변했는데, 이 인터뷰를 했던 쿠키뉴스의 문대찬 기자가 해당 인터뷰 영상의 제목을 다음과 같이 지었다.\n\nDRX 데프트 “로그전 패배 괜찮아, 중요한 건 꺾이지 않는 마음”"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-확산",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-확산",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "중꺾마의 확산",
+    "text": "중꺾마의 확산\n- 예시1: 스포츠 능력시험\n\nhttps://www.fmkorea.com/best/5223837966"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-확산-1",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-확산-1",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "중꺾마의 확산",
+    "text": "중꺾마의 확산\n- 예시2: 한국 vs 포르투갈 (카타르 월드컵)\n\n\n\n그림3: 태극기에 쓰여진 중꺽마"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-확산-2",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-확산-2",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "중꺾마의 확산",
+    "text": "중꺾마의 확산\n- 예시3: 중꺾마의 파급력 정리\n\nref: https://www.fmkorea.com/5212914486"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-변형-및-확산",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-변형-및-확산",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "중꺾마의 변형 및 확산",
+    "text": "중꺾마의 변형 및 확산\n- 예시1: 중요한 것은 꺾이지 않는 할인\n\n\n\n그림4: 중꺽마의 변형"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-변형-및-확산-1",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-변형-및-확산-1",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "중꺾마의 변형 및 확산",
+    "text": "중꺾마의 변형 및 확산\n- 예시2: 중요한건 꺾이지 않는 자기주도력\n\n\n\n그림5: 중꺽마의 변형"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-변형-및-확산-2",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-변형-및-확산-2",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "중꺾마의 변형 및 확산",
+    "text": "중꺾마의 변형 및 확산\n- 예시3: 중요한 것은 꺾이지 않는 G-KPOP (강남구청 이벤트)\n\n\n\n그림6: 중꺽마의 변형"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-변형-및-확산-3",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#중꺾마의-변형-및-확산-3",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "중꺾마의 변형 및 확산",
+    "text": "중꺾마의 변형 및 확산\n- 예시4: 기타변형\n\n중요한 것은 다 꺾어버리는 마음: 같은 DRX 소속 게이머이자 철권 E스포츠계의 레전드로 불리는 무릎은 ’중요한 것은 다 꺾어버리는 마음’이라고 변형\n중요한 건: 포르투갈전을 본 데프트 김혁규 선수 본인도 인스타그램 스토리에 이 유행어를 일부 인용했다. 전체를 말한 것은 아니고 ’중요한 건…’이라고만 적었지만 의도한 바는 누가봐도 중꺾마.\n중요한 것은 꺾였는데도 그냥 하는 마음: 박명수"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#밈과-인터넷밈",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#밈과-인터넷밈",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "밈과 인터넷밈",
+    "text": "밈과 인터넷밈\n- 밈이란? (유전자처럼) 복제가능한 something\n\n이기적 유전자에서 제시한 개념\n유전자는 (1) 복제 (2) 변형되면서 전파되는 속성이 있다는 사실을 관찰\n종교, 사상, 이념도 유전자처럼 (1) 복제 (2) 변형되면서 전파되더라..\n밈 = 유전자의 일반화된 개념 = 복제가능한 something"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#밈과-인터넷밈-1",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#밈과-인터넷밈-1",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "밈과 인터넷밈",
+    "text": "밈과 인터넷밈\n- 인터넷 밈이란?\n\n밈의 한 형태\n인터넷을 통하여 (1)복제 (2)변형되면서 전파되는 something\n\n- 중꺾마의 확산예제들을 통해 살펴본 밈의 의미\n\n딱히 정형화 하기 어렵지만 위의 예제들은 복제가 되는 어떠한 원형이 있다. 이것을 밈(=유전자)이라고 부른다!!\n많은 사람들에게 그 복제내용이 확산되어 재생산된다. 이것을 밈화라고 한다."
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#클래스란-다른교재",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#클래스란-다른교재",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "클래스란? (다른교재)",
+    "text": "클래스란? (다른교재)\n- 클래스의 정의\n\n많은 교재에서 정의를 회피한다.\n대신에 비유적으로 설명하거나 다른 대상을 가져와서 설명한다."
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#클래스란-다른교재-1",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#클래스란-다른교재-1",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "클래스란? (다른교재)",
+    "text": "클래스란? (다른교재)\n- 클래스에 대한 비유적 설명 (implicit definition)\n\n점프투파이썬: 클래스는 과자틀과 비슷하다. 클래스란 똑같은 무엇인가를 계속 만들어 낼 수도 있는 설계도면이고 객체란 클래스로 만든 피조물을 뜻한다.\n위키피디아: In object-oriented programming, a class is an extensible program-code-template for creating objects, providing initial values for state (member variables) and implementations of behavior (member functions or methods). // 객체 지향 프로그래밍에서 클래스는 상태(멤버 변수) 및 동작 구현(멤버 함수 또는 메서드)에 대한 초기 값을 제공하는 객체 생성을 위한 확장 가능한 프로그램 코드 템플릿입니다."
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#클래스란-다른교재-2",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#클래스란-다른교재-2",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "클래스란? (다른교재)",
+    "text": "클래스란? (다른교재)\n\nTCP스쿨: 클래스(class)란 객체를 정의하는 틀 또는 설계도와 같은 의미로 사용\n티스토리 블로그: 학생 클래스..?\n기타 서적들.. (진짜 무슨 한 챕터씩 설명하고 있음)"
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#클래스란-제-생각",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#클래스란-제-생각",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "클래스란? (제 생각)",
+    "text": "클래스란? (제 생각)\n- 클래스에 대한 명시적 정의 (책에 나온것 아니고 제 생각입니다!!) - 클래스는 복제, 변형, 재생산을 용이하게 하기 위해 만들어진 확장가능한 프로그램의 코드의 단위(extensible program-code-template)이다. 즉 밈이다.\n- 클래스도 결국 밈이다. 생각해보면 클래스를 만들고 사용하는 과정이 인터넷에서 밈을 만들고 노는것과 닮아 있다."
+  },
+  {
+    "objectID": "posts/03_Class/2023-05-10-10wk-2.html#클래스란-제-생각-1",
+    "href": "posts/03_Class/2023-05-10-10wk-2.html#클래스란-제-생각-1",
+    "title": "10wk-2: 클래스 (1)",
+    "section": "클래스란? (제 생각)",
+    "text": "클래스란? (제 생각)\n\n\n\n\n\n\n\n\n\n단계\n인터넷밈\n클래스\n레포트표지\n\n\n\n\n1단계: 구상\n\\(\\bullet\\) 이거 재미있다.  \\(\\bullet\\) 밈화하자.\n\\(\\bullet\\) 이 코드 반복해서 자주 쓸 것 같다.  \\(\\bullet\\) 이 코드를 쉽게 찍어내는 (복사할 수 있는) 클래스를 만들자\n\\(\\bullet\\) 레포트 표지를 자주 만들 것 같음  \\(\\bullet\\) 양식파일을 만들까?\n\n\n2단계: 틀생성\n\\(\\bullet\\) “밈틀”: 복사하고 싶은 속성을 추려 밈을 생산하기에 유리한 틀을 만듬\n\\(\\bullet\\) 클래스의 선언\n\\(\\bullet\\) REPORT_2023_최규빈.hwp 양식파일을 생성\n\n\n3단계: 틀 \\(\\to\\) 복제\n\\(\\bullet\\) 밈화: “밈틀”에서 다양한 밈을 만들고 놈\n\\(\\bullet\\) 인스턴스화: 클래스에서 인스턴스를 생산\n\\(\\bullet\\) 레포트 양식표지에서 다양한 레포트를 냄\n\n\n4단계: 틀 \\(\\to\\) 틀변경 \\(\\to\\) 복제\n\\(\\bullet\\) 생각해보니까 초기 밈틀은 시시함.  \\(\\bullet\\) 초기 밈틀을 수정해 새로운 밈틀을 만들고 더 재미있는 밈을 만들고 놈\n\\(\\bullet\\) 초기클래스와 비슷한 클래스를 선언할 일이 생김  \\(\\bullet\\) 상속,오버라이딩: 초기클래스를 상속받아 클래스를 새롭게 정의하고 인스턴스를 재 생산\n\\(\\bullet\\) 공모전에 참가하여 결과보고서를 작성할 일이 생김.  \\(\\bullet\\) REPORT_2023_최규빈.hwp 를 적당히 변형하여 수정된 틀을 만들고 결과보고서 생산."
+  },
+  {
     "objectID": "posts/2023-05-08-10wk-1-mid.html",
     "href": "posts/2023-05-08-10wk-1-mid.html",
     "title": "10wk-1: 중간고사",
@@ -977,6 +1145,6 @@
     "href": "index.html",
     "title": "파이썬 프로그래밍 (2023)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS:\n\n강의노트\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 8, 2023\n\n\n10wk-1: 중간고사\n\n\n최규빈\n\n\n\n\nMay 1, 2023\n\n\n09wk-1: Numpy와 Pandas의 활용\n\n\n최규빈\n\n\n\n\nApr 26, 2023\n\n\n08wk-2: Pandas (2)\n\n\n최규빈\n\n\n\n\nApr 24, 2023\n\n\n08wk-1: Pandas (1)\n\n\n최규빈\n\n\n\n\nApr 19, 2023\n\n\n07wk-2: Numpy 활용 (2)\n\n\n최규빈\n\n\n\n\nApr 17, 2023\n\n\n07wk-1: Numpy 활용 (1)\n\n\n최규빈\n\n\n\n\nApr 12, 2023\n\n\n06wk-2: Numpy (2)\n\n\n최규빈\n\n\n\n\nApr 10, 2023\n\n\n06wk-1: Numpy (1)\n\n\n최규빈\n\n\n\n\nApr 5, 2023\n\n\n05wk-2: 모듈, 패키지, 라이브러리\n\n\n최규빈\n\n\n\n\nApr 3, 2023\n\n\n05wk-1: 개발환경의 변화\n\n\n최규빈\n\n\n\n\nMar 29, 2023\n\n\n04wk-2: 파이썬의 자료형 (7)\n\n\n최규빈\n\n\n\n\nMar 27, 2023\n\n\n04wk-1: 파이썬의 자료형 (6)\n\n\n최규빈\n\n\n\n\nMar 22, 2023\n\n\n03wk-2: 파이썬의 자료형 (5)\n\n\n최규빈\n\n\n\n\nMar 20, 2023\n\n\n03wk-1: 파이썬의 자료형 (4)\n\n\n최규빈\n\n\n\n\nMar 15, 2023\n\n\n02wk-2: 파이썬의 자료형 (3)\n\n\n최규빈\n\n\n\n\nMar 13, 2023\n\n\n02wk-1: 파이썬의 자료형 (2)\n\n\n최규빈\n\n\n\n\nMar 7, 2023\n\n\n01wk-2: 파이썬의 자료형 (1)\n\n\n최규빈\n\n\n\n\nMar 6, 2023\n\n\n01wk-1: 강의소개\n\n\n최규빈\n\n\n\n\nJun 6, 2022\n\n\n참고자료: 2022-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2022\n\n\n참고자료: 2022-04-mid\n\n\n최규빈\n\n\n\n\nJun 6, 2021\n\n\n참고자료: 2021-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2021\n\n\n참고자료: 2021-04-mid\n\n\n최규빈\n\n\n\n\n\n\nNo matching items"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS:\n\n강의노트\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 10, 2023\n\n\n10wk-2: 클래스 (1)\n\n\n최규빈\n\n\n\n\nMay 8, 2023\n\n\n10wk-1: 중간고사\n\n\n최규빈\n\n\n\n\nMay 1, 2023\n\n\n09wk-1: Numpy와 Pandas의 활용\n\n\n최규빈\n\n\n\n\nApr 26, 2023\n\n\n08wk-2: Pandas (2)\n\n\n최규빈\n\n\n\n\nApr 24, 2023\n\n\n08wk-1: Pandas (1)\n\n\n최규빈\n\n\n\n\nApr 19, 2023\n\n\n07wk-2: Numpy 활용 (2)\n\n\n최규빈\n\n\n\n\nApr 17, 2023\n\n\n07wk-1: Numpy 활용 (1)\n\n\n최규빈\n\n\n\n\nApr 12, 2023\n\n\n06wk-2: Numpy (2)\n\n\n최규빈\n\n\n\n\nApr 10, 2023\n\n\n06wk-1: Numpy (1)\n\n\n최규빈\n\n\n\n\nApr 5, 2023\n\n\n05wk-2: 모듈, 패키지, 라이브러리\n\n\n최규빈\n\n\n\n\nApr 3, 2023\n\n\n05wk-1: 개발환경의 변화\n\n\n최규빈\n\n\n\n\nMar 29, 2023\n\n\n04wk-2: 파이썬의 자료형 (7)\n\n\n최규빈\n\n\n\n\nMar 27, 2023\n\n\n04wk-1: 파이썬의 자료형 (6)\n\n\n최규빈\n\n\n\n\nMar 22, 2023\n\n\n03wk-2: 파이썬의 자료형 (5)\n\n\n최규빈\n\n\n\n\nMar 20, 2023\n\n\n03wk-1: 파이썬의 자료형 (4)\n\n\n최규빈\n\n\n\n\nMar 15, 2023\n\n\n02wk-2: 파이썬의 자료형 (3)\n\n\n최규빈\n\n\n\n\nMar 13, 2023\n\n\n02wk-1: 파이썬의 자료형 (2)\n\n\n최규빈\n\n\n\n\nMar 7, 2023\n\n\n01wk-2: 파이썬의 자료형 (1)\n\n\n최규빈\n\n\n\n\nMar 6, 2023\n\n\n01wk-1: 강의소개\n\n\n최규빈\n\n\n\n\nJun 6, 2022\n\n\n참고자료: 2022-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2022\n\n\n참고자료: 2022-04-mid\n\n\n최규빈\n\n\n\n\nJun 6, 2021\n\n\n참고자료: 2021-06-final\n\n\n최규빈\n\n\n\n\nApr 1, 2021\n\n\n참고자료: 2021-04-mid\n\n\n최규빈\n\n\n\n\n\n\nNo matching items"
   }
 ]
