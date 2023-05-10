@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2023-04-17">
+
+<title>PP2023 - 07wk-1: Numpy 활용 (1)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PP2023</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../about.html" aria-current="page">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/PP2023"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">07wk-1: Numpy 활용 (1)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">07wk-1: Numpy 활용 (1)</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>최규빈 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 17, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">About</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Posts</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/2023-03-06-1wk-1.html" class="sidebar-item-text sidebar-link">01wk-1: 강의소개</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/2023-05-08-10wk-1-mid.html" class="sidebar-item-text sidebar-link">10wk-1: 중간고사</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">01 PythonBasic</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/01_PythonBasic/2023-03-08-1wk-2.html" class="sidebar-item-text sidebar-link">01wk-2: 파이썬의 자료형 (1)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/01_PythonBasic/2023-03-13-2wk-1.html" class="sidebar-item-text sidebar-link">02wk-1: 파이썬의 자료형 (2)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/01_PythonBasic/2023-03-15-2wk-2.html" class="sidebar-item-text sidebar-link">02wk-2: 파이썬의 자료형 (3)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/01_PythonBasic/2023-03-20-3wk-1.html" class="sidebar-item-text sidebar-link">03wk-1: 파이썬의 자료형 (4)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/01_PythonBasic/2023-03-22-3wk-2.html" class="sidebar-item-text sidebar-link">03wk-2: 파이썬의 자료형 (5)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/01_PythonBasic/2023-03-27-4wk-1.html" class="sidebar-item-text sidebar-link">04wk-1: 파이썬의 자료형 (6)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/01_PythonBasic/2023-03-29-4wk-2.html" class="sidebar-item-text sidebar-link">04wk-2: 파이썬의 자료형 (7)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/01_PythonBasic/2023-04-03-5wk-1.html" class="sidebar-item-text sidebar-link">05wk-1: 개발환경의 변화</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/01_PythonBasic/2023-04-05-5wk-2.html" class="sidebar-item-text sidebar-link">05wk-2: 모듈, 패키지, 라이브러리</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">02 DataScience</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/02_DataScience/2023-04-10-6wk-1.html" class="sidebar-item-text sidebar-link">06wk-1: Numpy (1)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/02_DataScience/2023-04-12-6wk-2.html" class="sidebar-item-text sidebar-link">06wk-2: Numpy (2)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/02_DataScience/2023-04-17-7wk-1.html" class="sidebar-item-text sidebar-link active">07wk-1: Numpy 활용 (1)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/02_DataScience/2023-04-19-7wk-2.html" class="sidebar-item-text sidebar-link">07wk-2: Numpy 활용 (2)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/02_DataScience/2023-04-24-8wk-1.html" class="sidebar-item-text sidebar-link">08wk-1: Pandas (1)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/02_DataScience/2023-04-26-8wk-2.html" class="sidebar-item-text sidebar-link">08wk-2: Pandas (2)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/02_DataScience/2023-05-01-9wk-1.html" class="sidebar-item-text sidebar-link">09wk-1: Numpy와 Pandas의 활용</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Appendix</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Appendix/2021-04-20-mid.html" class="sidebar-item-text sidebar-link">참고자료: 2021-04-mid</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Appendix/2021-06-09-final.html" class="sidebar-item-text sidebar-link">참고자료: 2021-06-final</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Appendix/2022-05-03-mid.html" class="sidebar-item-text sidebar-link">참고자료: 2022-04-mid</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Appendix/2022-06-14-final.html" class="sidebar-item-text sidebar-link">참고자료: 2022-06-final</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">강의영상</a></li>
+  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">import</a></li>
+  <li><a href="#예비학습-matplotlib" id="toc-예비학습-matplotlib" class="nav-link" data-scroll-target="#예비학습-matplotlib">예비학습: matplotlib</a>
+  <ul class="collapse">
+  <li><a href="#line-plot" id="toc-line-plot" class="nav-link" data-scroll-target="#line-plot">line plot</a>
+  <ul class="collapse">
+  <li><a href="#기본플랏" id="toc-기본플랏" class="nav-link" data-scroll-target="#기본플랏">기본플랏</a></li>
+  <li><a href="#모양변경" id="toc-모양변경" class="nav-link" data-scroll-target="#모양변경">모양변경</a></li>
+  <li><a href="#색상변경" id="toc-색상변경" class="nav-link" data-scroll-target="#색상변경">색상변경</a></li>
+  <li><a href="#모양-색상변경" id="toc-모양-색상변경" class="nav-link" data-scroll-target="#모양-색상변경">모양 + 색상변경</a></li>
+  <li><a href="#원리-star" id="toc-원리-star" class="nav-link" data-scroll-target="#원리-star">원리? (<span class="math inline">\(\star\)</span>)</a></li>
+  </ul></li>
+  <li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot">scatter plot</a>
+  <ul class="collapse">
+  <li><a href="#기본플랏-1" id="toc-기본플랏-1" class="nav-link" data-scroll-target="#기본플랏-1">기본플랏</a></li>
+  <li><a href="#색깔변경" id="toc-색깔변경" class="nav-link" data-scroll-target="#색깔변경">색깔변경</a></li>
+  </ul></li>
+  <li><a href="#dot-connected-plot" id="toc-dot-connected-plot" class="nav-link" data-scroll-target="#dot-connected-plot">dot-connected plot</a></li>
+  <li><a href="#겹쳐그리기" id="toc-겹쳐그리기" class="nav-link" data-scroll-target="#겹쳐그리기">겹쳐그리기</a></li>
+  <li><a href="#이미지자료의-이해-및-시각화" id="toc-이미지자료의-이해-및-시각화" class="nav-link" data-scroll-target="#이미지자료의-이해-및-시각화">이미지자료의 이해 및 시각화</a></li>
+  </ul></li>
+  <li><a href="#넘파이-활용-1단계" id="toc-넘파이-활용-1단계" class="nav-link" data-scroll-target="#넘파이-활용-1단계">넘파이 활용 (1단계)</a>
+  <ul class="collapse">
+  <li><a href="#그래프" id="toc-그래프" class="nav-link" data-scroll-target="#그래프">그래프</a></li>
+  <li><a href="#자료를-저장하는-행렬" id="toc-자료를-저장하는-행렬" class="nav-link" data-scroll-target="#자료를-저장하는-행렬">자료를 저장하는 행렬</a></li>
+  </ul></li>
+  <li><a href="#hw" id="toc-hw" class="nav-link" data-scroll-target="#hw">HW</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><a href="https://colab.research.google.com/github/guebin/PP2023/blob/main/posts/02_DataScience/2023-04-17-7wk-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
+<section id="강의영상" class="level1">
+<h1>강의영상</h1>
+<blockquote class="blockquote">
+<p>youtube: <a href="https://youtube.com/playlist?list=PLQqh36zP38-wp6tJXCOxllNM6aqdYEpkT" class="uri">https://youtube.com/playlist?list=PLQqh36zP38-wp6tJXCOxllNM6aqdYEpkT</a></p>
+</blockquote>
+<ul>
+<li>강의영상 재촬영하여 업로드했습니다.</li>
+</ul>
+</section>
+<section id="import" class="level1">
+<h1>import</h1>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="예비학습-matplotlib" class="level1">
+<h1>예비학습: matplotlib</h1>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="line-plot" class="level2">
+<h2 class="anchored" data-anchor-id="line-plot">line plot</h2>
+<section id="기본플랏" class="level3">
+<h3 class="anchored" data-anchor-id="기본플랏">기본플랏</h3>
+<p><code>-</code> 예시1</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>x<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb3-2"><a href="#cb3-2"></a>y<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>plt.plot(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="모양변경" class="level3">
+<h3 class="anchored" data-anchor-id="모양변경">모양변경</h3>
+<p><code>-</code> 예시1</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>plt.plot(x,y,<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시2</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.plot(x,y,<span class="st">':'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시3</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>plt.plot(x,y,<span class="st">'-.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="색상변경" class="level3">
+<h3 class="anchored" data-anchor-id="색상변경">색상변경</h3>
+<p><code>-</code> 예시1</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>plt.plot(x,y,<span class="st">'r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시2</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>plt.plot(x,y,<span class="st">'k'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="모양-색상변경" class="level3">
+<h3 class="anchored" data-anchor-id="모양-색상변경">모양 + 색상변경</h3>
+<p><code>-</code> 예시1</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>plt.plot(x,y,<span class="st">'--r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시2: 순서변경 가능</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>plt.plot(x,y,<span class="st">'r--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="원리-star" class="level3">
+<h3 class="anchored" data-anchor-id="원리-star">원리? (<span class="math inline">\(\star\)</span>)</h3>
+<p><code>-</code> <code>r--</code>등의 옵션은 Markers + Line Styles + Colors 의 조합으로 표현가능</p>
+<p>ref: <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html" class="uri">https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html</a></p>
+<ul>
+<li><code>--r</code>: 점선(dashed)스타일 + 빨간색</li>
+<li><code>r--</code>: 빨간색 + 점선(dashed)스타일</li>
+<li><code>:k</code>: 점선(dotted)스타일 + 검은색</li>
+<li><code>k:</code>: 검은색 + 점선(dotted)스타일</li>
+</ul>
+<p><code>-</code> 우선 Marker를 무시하면 Line Styles + Color로 표현가능한 조합은 <span class="math inline">\(4\times 8=32\)</span> 개</p>
+<p><strong>(Line Styles)</strong> 모두 4개</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">character</th>
+<th style="text-align: center;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">‘-’</td>
+<td style="text-align: center;">solid line style</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">‘–’</td>
+<td style="text-align: center;">dashed line style</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">‘-.’</td>
+<td style="text-align: center;">dash-dot line style</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">‘:’</td>
+<td style="text-align: center;">dotted line style</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(Color)</strong> 모두 8개</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">character</th>
+<th style="text-align: center;">color</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">‘b’</td>
+<td style="text-align: center;">blue</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">‘g’</td>
+<td style="text-align: center;">green</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">‘r’</td>
+<td style="text-align: center;">red</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">‘c’</td>
+<td style="text-align: center;">cyan</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">‘m’</td>
+<td style="text-align: center;">magenta</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">‘y’</td>
+<td style="text-align: center;">yellow</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">‘k’</td>
+<td style="text-align: center;">black</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">‘w’</td>
+<td style="text-align: center;">white</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="scatter-plot" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot">scatter plot</h2>
+<section id="기본플랏-1" class="level3">
+<h3 class="anchored" data-anchor-id="기본플랏-1">기본플랏</h3>
+<p><code>-</code> 예시1</p>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시2</p>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>plt.plot(x,y,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시3</p>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>plt.plot(x,y,<span class="st">'x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="색깔변경" class="level3">
+<h3 class="anchored" data-anchor-id="색깔변경">색깔변경</h3>
+<p><code>-</code> 예시1</p>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>plt.plot(x,y,<span class="st">'or'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시2</p>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>plt.plot(x,y,<span class="st">'db'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시3</p>
+<div class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>plt.plot(x,y,<span class="st">'bx'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="dot-connected-plot" class="level2">
+<h2 class="anchored" data-anchor-id="dot-connected-plot">dot-connected plot</h2>
+<p><code>-</code> 예시1: 마커와 라인스타일을 동시에 사용하면 dot-connected plot이 된다.</p>
+<div class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>plt.plot(x,y,<span class="st">'o-'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시2: 당연히 색도 적용가능함</p>
+<div class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>plt.plot(x,y,<span class="st">'o--r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시3: 서로 순서를 바꿔도 상관없다.</p>
+<div class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>plt.plot(x,y,<span class="st">'ro--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="겹쳐그리기" class="level2">
+<h2 class="anchored" data-anchor-id="겹쳐그리기">겹쳐그리기</h2>
+<p><code>-</code> 예시1</p>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>x <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>,<span class="fl">0.1</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>ϵ <span class="op">=</span> np.random.randn(<span class="dv">100</span>) </span>
+<span id="cb21-3"><a href="#cb21-3"></a>y <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> ϵ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>plt.plot(x,y,<span class="st">'.'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2"></a>plt.plot(x,<span class="dv">2</span><span class="op">*</span>x,<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="이미지자료의-이해-및-시각화" class="level2">
+<h2 class="anchored" data-anchor-id="이미지자료의-이해-및-시각화">이미지자료의 이해 및 시각화</h2>
+<p><code>-</code> 참고: <a href="https://ko.wikipedia.org/wiki/%EC%9B%90%EC%83%89">빛의삼원색</a></p>
+<p><code>-</code> 이미지자료의 이해: 이미지자료는 rgb값이 저장된 3개의 매트릭스를 쌓은것이라 이해가능</p>
+<ul>
+<li>이미지자료의 shape은 (가로픽셀, 세로픽셀, 3) 이다. // 5*5 이미지라면 (5,5,3)</li>
+<li>3은 RGB 빛의 밝기를 정의함.</li>
+<li>밝기는 0-255 사이의 int, 0-1 사이의 float으로 정한다.</li>
+<li>int 255 혹은 float 1 은 해당색이 매우 밝다는 것을 의미함.</li>
+<li>각 픽셀의 색깔은 RGB의 밝기 (RGB의 값) 으로 조정가능하다. (따라서 총 256<em>256</em>256 개의 색상을 표현할 수 있다.)</li>
+</ul>
+<p><code>-</code> 예시1</p>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>r <span class="op">=</span> np.array([<span class="dv">0</span>]<span class="op">*</span><span class="dv">25</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>) </span>
+<span id="cb23-2"><a href="#cb23-2"></a>g <span class="op">=</span> np.array([<span class="dv">0</span>]<span class="op">*</span><span class="dv">25</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>) </span>
+<span id="cb23-3"><a href="#cb23-3"></a>b <span class="op">=</span> np.array([<span class="dv">0</span>]<span class="op">*</span><span class="dv">25</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>r[:<span class="dv">3</span>,:<span class="dv">3</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">255</span>   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>r[:<span class="dv">3</span>,:<span class="dv">3</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">255</span>   </span>
+<span id="cb25-2"><a href="#cb25-2"></a>g[:<span class="dv">3</span>,<span class="dv">2</span>:,<span class="dv">1</span>] <span class="op">=</span> <span class="dv">255</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>b[<span class="dv">2</span>:,:,<span class="dv">2</span>] <span class="op">=</span> <span class="dv">255</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>r[:,:,<span class="dv">0</span>], r[:,:,<span class="dv">1</span>], r[:,:,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="80">
+<pre><code>(array([[255, 255, 255,   0,   0],
+        [255, 255, 255,   0,   0],
+        [255, 255, 255,   0,   0],
+        [  0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0]]),
+ array([[0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]]),
+ array([[0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>g[:,:,<span class="dv">0</span>], g[:,:,<span class="dv">1</span>], g[:,:,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="81">
+<pre><code>(array([[0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]]),
+ array([[  0,   0, 255, 255, 255],
+        [  0,   0, 255, 255, 255],
+        [  0,   0, 255, 255, 255],
+        [  0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0]]),
+ array([[0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>b[:,:,<span class="dv">0</span>], b[:,:,<span class="dv">1</span>], b[:,:,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+<pre><code>(array([[0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]]),
+ array([[0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]]),
+ array([[  0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0],
+        [255, 255, 255, 255, 255],
+        [255, 255, 255, 255, 255],
+        [255, 255, 255, 255, 255]]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>plt.imshow(r<span class="op">+</span>g<span class="op">+</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6a94cdd6a0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-30-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시2: r,g,b에 작은 숫자를 주면 점점 어두워 진다.</p>
+<div class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>r <span class="op">=</span> np.array([<span class="dv">0</span>]<span class="op">*</span><span class="dv">25</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>) </span>
+<span id="cb34-2"><a href="#cb34-2"></a>g <span class="op">=</span> np.array([<span class="dv">0</span>]<span class="op">*</span><span class="dv">25</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>) </span>
+<span id="cb34-3"><a href="#cb34-3"></a>b <span class="op">=</span> np.array([<span class="dv">0</span>]<span class="op">*</span><span class="dv">25</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>r[:<span class="dv">3</span>,:<span class="dv">3</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">80</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>g[:<span class="dv">3</span>,<span class="dv">2</span>:,<span class="dv">1</span>] <span class="op">=</span> <span class="dv">80</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>b[<span class="dv">2</span>:,:,<span class="dv">2</span>] <span class="op">=</span> <span class="dv">80</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>plt.imshow((r<span class="op">+</span>g<span class="op">+</span>b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="87">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6a94c52040&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-33-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시3: r,g,b 값이 float으로 저장되었다면 표준화가 진행된것으로 컴퓨터가 이해한다.</p>
+<div class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>r <span class="op">=</span> np.array([<span class="dv">0</span>]<span class="op">*</span><span class="dv">25</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>) </span>
+<span id="cb38-2"><a href="#cb38-2"></a>g <span class="op">=</span> np.array([<span class="dv">0</span>]<span class="op">*</span><span class="dv">25</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>) </span>
+<span id="cb38-3"><a href="#cb38-3"></a>b <span class="op">=</span> np.array([<span class="dv">0</span>]<span class="op">*</span><span class="dv">25</span><span class="op">*</span><span class="dv">3</span>).reshape(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>r[:<span class="dv">3</span>,:<span class="dv">3</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>g[:<span class="dv">3</span>,<span class="dv">2</span>:,<span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb39-3"><a href="#cb39-3"></a>b[<span class="dv">2</span>:,:,<span class="dv">2</span>] <span class="op">=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="104">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>plt.imshow(r<span class="op">+</span>g<span class="op">+</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="104">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6a94b044f0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-36-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>plt.imshow((r<span class="op">+</span>g<span class="op">+</span>b)<span class="op">*</span><span class="fl">1.0</span>) <span class="co"># array의 각 원소의 자료형이 float이면 표준화된 자료라고 이해하고 칼라스케일을 다시 맞춰줌. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6a949e03a0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-37-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>plt.imshow((r<span class="op">+</span>g<span class="op">+</span>b)<span class="op">*</span><span class="fl">2.0</span>) <span class="co"># 2.0을 곱해도 출력하긴 해줌.. (경고메시지 발생) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="109">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6a949c9790&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-38-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="넘파이-활용-1단계" class="level1">
+<h1>넘파이 활용 (1단계)</h1>
+<section id="그래프" class="level2">
+<h2 class="anchored" data-anchor-id="그래프">그래프</h2>
+<p><code>1</code>. <span class="math inline">\(y(t)=\cos(2t)\)</span>와 <span class="math inline">\(x(t)=\sin(t)\)</span>를 고려하자. <span class="math inline">\(y(t)=x(t)\)</span>는 <span class="math inline">\(-3.14\leq t \leq 3.14\)</span> 에서 몇 개의 해를 가지는가? 그래프를 통하여 확인하라.</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>t <span class="op">=</span> np.linspace(<span class="op">-</span><span class="fl">3.14</span>,<span class="fl">3.14</span>,<span class="dv">1000</span>)</span>
+<span id="cb47-2"><a href="#cb47-2"></a>y <span class="op">=</span> np.cos(<span class="dv">2</span><span class="op">*</span>t)</span>
+<span id="cb47-3"><a href="#cb47-3"></a>x <span class="op">=</span> np.sin(t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="132">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>plt.plot(t,x)</span>
+<span id="cb48-2"><a href="#cb48-2"></a>plt.plot(t,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>2-3</code>. 아래와 같은 합성함수를 생각하라.</p>
+<ul>
+<li><span class="math inline">\(l(x)=w_0+w_1x\)</span></li>
+<li><span class="math inline">\(a(x)=\frac{1}{1+e^{-x}}\)</span></li>
+</ul>
+<p><code>2</code>. <span class="math inline">\(x \in [-5,5]\)</span>의 범위에서 <span class="math inline">\(a(l(x))\)</span>의 그래프를 그려라. 단 이때 <span class="math inline">\(w_0=0, w_1=1\)</span>로 설정한다.</p>
+<p>(풀이)</p>
+<p><span class="math inline">\(y=a(l(x))= a(w_0+w_1x) = 1/(1+\exp(-w_0-w_1x))\)</span></p>
+<p>그런데, <span class="math inline">\(w_0=0\)</span> 이고 <span class="math inline">\(w_1=1\)</span> 이므로 <span class="math inline">\(y=a(l(x)) = 1/ (1+\exp(-x))\)</span> 이다.</p>
+<div class="cell" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">100</span>)</span>
+<span id="cb49-2"><a href="#cb49-2"></a>y <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>np.exp(<span class="op">-</span>x))</span>
+<span id="cb49-3"><a href="#cb49-3"></a>plt.plot(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>3</code>. 아래는 <span class="math inline">\(a(l(x))\)</span>의 성질에 대하여 토의한 내용이다. 올바르게 서술한 학생을 골라라.</p>
+<ul>
+<li>하영: <span class="math inline">\(w_0=0,w_1=1\)</span> 이면 <span class="math inline">\(a(l(x))\)</span>는 증가하는 함수이다.</li>
+<li>재인:</li>
+<li>서연:</li>
+<li>보람:</li>
+<li>지윤:</li>
+</ul>
+<p>(풀이)</p>
+<p>아래와 같은 함수를 선언한뒤에 하나씩 체크해 나가면된다.</p>
+<div class="cell" data-execution_count="144">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="kw">def</span> l(x,w0<span class="op">=</span><span class="dv">0</span>,w1<span class="op">=</span><span class="dv">1</span>): </span>
+<span id="cb50-2"><a href="#cb50-2"></a>    <span class="cf">return</span> w0<span class="op">+</span>w1<span class="op">*</span>x </span>
+<span id="cb50-3"><a href="#cb50-3"></a><span class="kw">def</span> a(x): </span>
+<span id="cb50-4"><a href="#cb50-4"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>np.exp(<span class="op">-</span>x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="자료를-저장하는-행렬" class="level2">
+<h2 class="anchored" data-anchor-id="자료를-저장하는-행렬">자료를 저장하는 행렬</h2>
+<p><code>-</code> 제 생각: 통계학과에서 매트릭스를 바라볼때 2가지중 하나로 봐야한다.</p>
+<ol type="1">
+<li>데이터를 저장하는 관점에서의 행렬: <span class="math inline">\(X_{n\times p}\)</span>인 정형자료, <span class="math inline">\(X\)</span>가 이미지자료<br>
+</li>
+<li>데이터를 변환하는 관점에서의 행렬: 선형변환 (회전변환, 평균을 구하는 행렬 등)</li>
+</ol>
+<div class="cell" data-execution_count="153">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>data<span class="op">=</span>[<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">75</span>,<span class="dv">85</span>,<span class="dv">95</span>]</span>
+<span id="cb51-2"><a href="#cb51-2"></a>trans <span class="op">=</span> [<span class="dv">1</span><span class="op">/</span><span class="dv">5</span>]<span class="op">*</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="158">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>np.array(data) <span class="op">@</span> np.array(trans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="158">
+<pre><code>81.0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="160">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="bu">sum</span>(data)<span class="op">/</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="160">
+<pre><code>81.0</code></pre>
+</div>
+</div>
+<p><code>1-2</code>. 아래와 같은 자료를 관측하였다고 하자.</p>
+<div class="cell" data-execution_count="161">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>X <span class="op">=</span> np.array([[<span class="fl">11.75</span> ,  <span class="fl">5.72</span> ],</span>
+<span id="cb56-2"><a href="#cb56-2"></a>              [<span class="fl">12.39</span> ,  <span class="fl">7.695</span>],</span>
+<span id="cb56-3"><a href="#cb56-3"></a>              [<span class="fl">11.75</span> ,  <span class="fl">6.93</span> ],</span>
+<span id="cb56-4"><a href="#cb56-4"></a>              [<span class="fl">11.625</span>,  <span class="fl">4.195</span>],</span>
+<span id="cb56-5"><a href="#cb56-5"></a>              [<span class="fl">12.6</span>  ,  <span class="fl">6.734</span>],</span>
+<span id="cb56-6"><a href="#cb56-6"></a>              [<span class="fl">11.13</span> ,  <span class="fl">6.688</span>],</span>
+<span id="cb56-7"><a href="#cb56-7"></a>              [<span class="fl">12.24</span> ,  <span class="fl">7.33</span> ],</span>
+<span id="cb56-8"><a href="#cb56-8"></a>              [<span class="fl">13.586</span>,  <span class="fl">1.072</span>],</span>
+<span id="cb56-9"><a href="#cb56-9"></a>              [<span class="fl">10.9</span>  ,  <span class="fl">4.125</span>],</span>
+<span id="cb56-10"><a href="#cb56-10"></a>              [<span class="fl">10.68</span> ,  <span class="fl">3.691</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>1</code>. X를 평균과 표준편차를 columnwise 하게 구하라. 즉 1열의 평균, 2열의 평균, 1열의 표준편차, 2열의 표준편차를 구하라.</p>
+<p><strong>note:</strong> 표준편차는 <code>ddof=1</code>과 함께 <code>np.std()</code>를 사용할 것</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="173">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="173">
+<pre><code>array([11.8651,  5.418 ])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="172">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>X.std(ddof<span class="op">=</span><span class="dv">1</span>,axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="172">
+<pre><code>array([0.87420064, 2.09762829])</code></pre>
+</div>
+</div>
+<p><code>2</code>. X를 columnwise 하게 표준화하라.</p>
+<p><strong>hint:</strong> <code>np.apply_along_axis</code>의 함수의 기능을 관찰하고 이용하라.</p>
+<p>(예시1)</p>
+<div class="cell" data-execution_count="182">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="182">
+<pre><code>array([11.8651,  5.418 ])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="183">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>X.mean(axis<span class="op">=</span><span class="dv">0</span>), np.apply_along_axis(np.mean,axis<span class="op">=</span><span class="dv">0</span>,arr<span class="op">=</span>X) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="183">
+<pre><code>(array([11.8651,  5.418 ]), array([11.8651,  5.418 ]))</code></pre>
+</div>
+</div>
+<p>(예시2)</p>
+<div class="cell" data-execution_count="189">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="kw">def</span> f(arr):</span>
+<span id="cb65-2"><a href="#cb65-2"></a>    <span class="cf">return</span> arr <span class="op">-</span> np.<span class="bu">min</span>(arr) </span>
+<span id="cb65-3"><a href="#cb65-3"></a>X, np.apply_along_axis(f,axis<span class="op">=</span><span class="dv">0</span>,arr<span class="op">=</span>X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="189">
+<pre><code>(array([[11.75 ,  5.72 ],
+        [12.39 ,  7.695],
+        [11.75 ,  6.93 ],
+        [11.625,  4.195],
+        [12.6  ,  6.734],
+        [11.13 ,  6.688],
+        [12.24 ,  7.33 ],
+        [13.586,  1.072],
+        [10.9  ,  4.125],
+        [10.68 ,  3.691]]),
+ array([[1.07 , 4.648],
+        [1.71 , 6.623],
+        [1.07 , 5.858],
+        [0.945, 3.123],
+        [1.92 , 5.662],
+        [0.45 , 5.616],
+        [1.56 , 6.258],
+        [2.906, 0.   ],
+        [0.22 , 3.053],
+        [0.   , 2.619]]))</code></pre>
+</div>
+</div>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="190">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="kw">def</span> f(arr): </span>
+<span id="cb67-2"><a href="#cb67-2"></a>    <span class="cf">return</span> (arr<span class="op">-</span>arr.mean()) <span class="op">/</span> arr.std(ddof<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="191">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>np.apply_along_axis(f,axis<span class="op">=</span><span class="dv">0</span>,arr<span class="op">=</span>X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="191">
+<pre><code>array([[-0.13166314,  0.14397212],
+       [ 0.60043424,  1.08551168],
+       [-0.13166314,  0.72081408],
+       [-0.27465091, -0.58303943],
+       [ 0.84065369,  0.62737522],
+       [-0.84088247,  0.60544569],
+       [ 0.42884892,  0.91150563],
+       [ 1.96854122, -2.07186374],
+       [-1.10397997, -0.61641045],
+       [-1.35563844, -0.82331079]])</code></pre>
+</div>
+</div>
+<p><code>3-5</code>. 아래는 이미지파일을 불러오는 코드이다.</p>
+<div class="cell" data-execution_count="194">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a><span class="im">import</span> PIL </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="198">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="op">!</span>wget https:<span class="op">//</span>raw.githubusercontent.com<span class="op">/</span>guebin<span class="op">/</span>SC2022<span class="op">/</span>main<span class="op">/</span>hani.jpeg</span>
+<span id="cb71-2"><a href="#cb71-2"></a>hani <span class="op">=</span> np.einsum(<span class="st">'ijk-&gt;jik'</span>,np.array(PIL.Image.<span class="bu">open</span>(<span class="st">'hani.jpeg'</span>),dtype<span class="op">=</span>np.int64)<span class="op">/</span><span class="dv">255</span>)</span>
+<span id="cb71-3"><a href="#cb71-3"></a><span class="op">!</span>rm hani.jpeg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>note: 위 코드는 코랩 혹은 리눅스기반 환경에서 동작가능.</p></li>
+<li><p>주피터노트북의 경우 아래의 절차를 따를 것</p>
+<ol type="1">
+<li><a href="https://raw.githubusercontent.com/guebin/SC2022/main/hani.jpeg" class="uri">https://raw.githubusercontent.com/guebin/SC2022/main/hani.jpeg</a> 에서 직접사진을 다운로드</li>
+<li>현재작업중인 주피터노트북과 같은폴더에 그림파일을 옮김</li>
+<li><code>hani = np.einsum('ijk-&gt;jik',np.array(PIL.Image.open('hani.jpeg'),dtype=np.int64)/255)</code> 실행 // 그전에 import PIL 을 해야함</li>
+<li>그림파일 삭제</li>
+</ol></li>
+</ul>
+<p>불러온 이미지는 아래와 같다.</p>
+<div class="cell" data-execution_count="202">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>hani,hani.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="202">
+<pre><code>(array([[[0.44705882, 0.48627451, 0.49411765],
+         [0.43137255, 0.46666667, 0.48627451],
+         [0.45882353, 0.50196078, 0.51764706],
+         ...,
+         [0.6627451 , 0.6627451 , 0.70196078],
+         [0.63529412, 0.62745098, 0.67058824],
+         [0.64313725, 0.63529412, 0.67843137]],
+ 
+        [[0.45882353, 0.49803922, 0.50588235],
+         [0.44313725, 0.47843137, 0.49803922],
+         [0.4627451 , 0.50588235, 0.52156863],
+         ...,
+         [0.63921569, 0.63921569, 0.67843137],
+         [0.64313725, 0.63529412, 0.67843137],
+         [0.63137255, 0.62352941, 0.66666667]],
+ 
+        [[0.45490196, 0.49411765, 0.50196078],
+         [0.4627451 , 0.49803922, 0.51764706],
+         [0.45882353, 0.50196078, 0.51764706],
+         ...,
+         [0.64313725, 0.64313725, 0.68235294],
+         [0.65490196, 0.65490196, 0.69411765],
+         [0.64705882, 0.63921569, 0.68235294]],
+ 
+        ...,
+ 
+        [[0.69411765, 0.69803922, 0.70588235],
+         [0.68627451, 0.69019608, 0.69803922],
+         [0.69411765, 0.69803922, 0.70588235],
+         ...,
+         [0.60784314, 0.6       , 0.60392157],
+         [0.6       , 0.59215686, 0.59607843],
+         [0.59607843, 0.58823529, 0.59215686]],
+ 
+        [[0.70196078, 0.70588235, 0.71372549],
+         [0.72156863, 0.7254902 , 0.73333333],
+         [0.69019608, 0.69411765, 0.70196078],
+         ...,
+         [0.61176471, 0.60392157, 0.60784314],
+         [0.60392157, 0.59607843, 0.6       ],
+         [0.61568627, 0.60784314, 0.61176471]],
+ 
+        [[0.7254902 , 0.72941176, 0.74509804],
+         [0.73333333, 0.7372549 , 0.74509804],
+         [0.70980392, 0.71372549, 0.72156863],
+         ...,
+         [0.61176471, 0.60392157, 0.60784314],
+         [0.60392157, 0.59607843, 0.6       ],
+         [0.61960784, 0.61176471, 0.61568627]]]),
+ (4032, 3024, 3))</code></pre>
+</div>
+</div>
+<ul>
+<li>이미지는 4032 <span class="math inline">\(\times\)</span> 3024 개의 격자(픽셀)로 이루어져 있음</li>
+</ul>
+<p>이미지를 보는 방법은 아래와 같다.</p>
+<div class="cell" data-execution_count="203">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>plt.imshow(hani) <span class="co"># 모든이미지, 하니매트릭스</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="203">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6a956ed9d0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-57-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="204">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>plt.imshow(hani[<span class="dv">1000</span>:<span class="dv">1500</span>, <span class="dv">1000</span>:<span class="dv">2000</span>,:]) <span class="co"># 얼굴만 확대, 하니의 서브매트릭스 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="204">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6a94572f10&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-58-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>3</code>. 하니이미지를 나타내는 어레이를 변형하여 빨간색을 의미하는 칼라만 남겨서 “빨간하니”를 만들고 이미지를 출력하라.</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="215">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>red_hani <span class="op">=</span> hani<span class="op">*</span><span class="dv">0</span> </span>
+<span id="cb78-2"><a href="#cb78-2"></a>red_hani[:,:,<span class="dv">0</span>] <span class="op">=</span> hani[:,:,<span class="dv">0</span>]</span>
+<span id="cb78-3"><a href="#cb78-3"></a>plt.imshow(red_hani)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="215">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6a91b1d5e0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-59-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>4</code>. 하니의 모든 값에 루트를 취하여 “루트하니”를 만들고 “원본하니”와 “루트하니”를 좌우로 나란히 배치하여 출력하라.</p>
+<p>(풀이)</p>
+<div class="cell" data-execution_count="224">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>root_hani <span class="op">=</span> np.sqrt(hani)</span>
+<span id="cb80-2"><a href="#cb80-2"></a>plt.imshow(np.concatenate([hani,root_hani],axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="224">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6a933b7910&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-60-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>“루트하니”의 이미지는 “원본하니”의 이미지와 비교하여 어떤가? 왜 그러한 결과가 나왔다고 생각하는가?</p>
+<p><code>5</code>. 하니의 모든값에 아래와 같은 함수를 적용하라.</p>
+<ul>
+<li><span class="math inline">\(f(x)=\begin{cases} \sqrt{x} &amp; x&gt;0.7 \\ x &amp; x \leq 0.7 \end{cases}\)</span></li>
+</ul>
+<p>함수의 결과로 얻어진 매트릭스를 “후광하니”라고 부르자. “원본하니”와 “후광하니”를 좌우로 나란히 배치하여 출력하라.</p>
+<div class="cell" data-execution_count="235">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a>shiny_hani <span class="op">=</span> np.sqrt(hani)<span class="op">*</span>(hani<span class="op">&gt;</span><span class="fl">0.7</span>)<span class="op">+</span>hani<span class="op">*</span>(hani<span class="op">&lt;=</span><span class="fl">0.7</span>)</span>
+<span id="cb82-2"><a href="#cb82-2"></a>plt.imshow(np.concatenate([hani,shiny_hani],axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="235">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6a921677c0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-04-17-7wk-1_files/figure-html/cell-61-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="hw" class="level1">
+<h1>HW</h1>
+<p>없음</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
