@@ -127,7 +127,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -205,8 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">강의영상</a></li>
-  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">import</a></li>
+  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import">import</a></li>
   <li><a href="#클래스공부-1단계-복습" id="toc-클래스공부-1단계-복습" class="nav-link" data-scroll-target="#클래스공부-1단계-복습">클래스공부 1단계: 복습</a></li>
   <li><a href="#클래스공부-2단계" id="toc-클래스공부-2단계" class="nav-link" data-scroll-target="#클래스공부-2단계">클래스공부 2단계</a>
   <ul class="collapse">
@@ -221,7 +219,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#t4-밈2변경-버거-종류-수정-할인뒤에-느낌표-2개-추가" id="toc-t4-밈2변경-버거-종류-수정-할인뒤에-느낌표-2개-추가" class="nav-link" data-scroll-target="#t4-밈2변경-버거-종류-수정-할인뒤에-느낌표-2개-추가"><strong><em>t=4 – 밈2변경: 버거 종류 수정 + 할인뒤에 느낌표 2개 추가</em></strong></a></li>
   </ul></li>
   <li><a href="#init__" id="toc-init__" class="nav-link" data-scroll-target="#init__"><code>__init__()</code></a></li>
-  <li><a href="#init__-의-이해" id="toc-init__-의-이해" class="nav-link" data-scroll-target="#init__-의-이해"><code>__init__()</code> 의 이해</a></li>
   </ul></li>
   <li><a href="#숙제" id="toc-숙제" class="nav-link" data-scroll-target="#숙제">숙제</a></li>
   </ul>
@@ -233,22 +230,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p><a href="https://colab.research.google.com/github/guebin/PP2023/blob/main/posts/03_Class/2023-05-22-12wk-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
-<section id="강의영상" class="level1">
-<h1>강의영상</h1>
-<blockquote class="blockquote">
-<p>youtube: <a href="https://youtube.com/playlist?list=PLQqh36zP38-xjTvuHW545paAzvFj85yrS" class="uri">https://youtube.com/playlist?list=PLQqh36zP38-xjTvuHW545paAzvFj85yrS</a></p>
-</blockquote>
-</section>
 <section id="import" class="level1">
 <h1>import</h1>
-<div class="cell" data-execution_count="38">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="클래스공부-1단계-복습" class="level1">
 <h1>클래스공부 1단계: 복습</h1>
-<div class="cell" data-execution_count="39">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> JungKKuckMa:</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">def</span> show(<span class="va">self</span>):</span>
 <span id="cb2-3"><a href="#cb2-3"></a>        _str <span class="op">=</span> <span class="va">self</span>.html_str.<span class="bu">format</span>(</span>
@@ -260,10 +250,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-9"><a href="#cb2-9"></a>        )</span>
 <span id="cb2-10"><a href="#cb2-10"></a>        display(HTML(_str)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="40">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>pp2023 <span class="op">=</span> JungKKuckMa()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="41">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>pp2023.title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다.'</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>pp2023.imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true?'</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>pp2023.ques <span class="op">=</span> <span class="st">"Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?"</span></span>
@@ -297,10 +287,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-31"><a href="#cb4-31"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
 <span id="cb4-32"><a href="#cb4-32"></a><span class="st">&lt;p class="text"&gt;</span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
 <span id="cb4-33"><a href="#cb4-33"></a><span class="st">&lt;p class="text"&gt;</span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺽이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb4-34"><a href="#cb4-34"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
 <span id="cb4-35"><a href="#cb4-35"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="42">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>pp2023.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
@@ -331,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </p>
 <p class="text">Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?</p>
 <p class="text">A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 내가 내 코드를 잘 구현하는 게 제일 중요한 것 같고 중간고사는 망하긴 했지만 제 스스로 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.</p>
-<p class="title">중요한 것은 꺽이지 않는 <span class="highlight">마음</span></p>
+<p class="title">중요한 것은 꺾이지 않는 <span class="highlight">마음</span></p>
 </div>
 </div>
 </section>
@@ -344,7 +334,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="트릭1" class="level2">
 <h2 class="anchored" data-anchor-id="트릭1">트릭1</h2>
 <p><code>-</code> 아래의 코드까지는 동일</p>
-<div class="cell" data-execution_count="43">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">class</span> JungKKuckMa:</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    <span class="kw">def</span> show(<span class="va">self</span>):</span>
 <span id="cb6-3"><a href="#cb6-3"></a>        _str <span class="op">=</span> <span class="va">self</span>.html_str.<span class="bu">format</span>(</span>
@@ -356,12 +346,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-9"><a href="#cb6-9"></a>        )</span>
 <span id="cb6-10"><a href="#cb6-10"></a>        display(HTML(_str)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="44">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>pp2023 <span class="op">=</span> JungKKuckMa()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>(참고) 이 시점에서 <code>pp2023.</code> + tab을 누르면 show 가 자동완성 된다.</em></p>
 <p><code>-</code> init을 선언하자.</p>
-<div class="cell" data-execution_count="45">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> init(pp2023):</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    pp2023.title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다.'</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a>    pp2023.imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true?'</span></span>
@@ -396,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-32"><a href="#cb8-32"></a><span class="st">    &lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
 <span id="cb8-33"><a href="#cb8-33"></a><span class="st">    &lt;p class="text"&gt;</span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
 <span id="cb8-34"><a href="#cb8-34"></a><span class="st">    &lt;p class="text"&gt;</span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb8-35"><a href="#cb8-35"></a><span class="st">    &lt;p class="title"&gt;중요한 것은 꺽이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb8-35"><a href="#cb8-35"></a><span class="st">    &lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
 <span id="cb8-36"><a href="#cb8-36"></a><span class="st">    '''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>현재 변수,함수,클래스의 상황은 아래와 같다. (참고로 변수,함수,클래스를 모두 뭉뚱그려서 오브젝트라고 표현할 수도 있음)</p>
@@ -405,7 +395,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     - pp2023.show
 - init </code></pre>
 <p><code>-</code> init을 실행</p>
-<div class="cell" data-execution_count="46">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>init(pp2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>*(참고) 이제 <code>pp2023.</code> + tab 을 누르게 되면 아래와 같이 보인다.</p>
@@ -421,7 +411,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     - pp2023.ques 
     - pp2023.title
 - init </code></pre>
-<div class="cell" data-execution_count="47">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>pp2023.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
@@ -452,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </p>
     <p class="text">Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?</p>
     <p class="text">A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 내가 내 코드를 잘 구현하는 게 제일 중요한 것 같고 중간고사는 망하긴 했지만 제 스스로 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.</p>
-    <p class="title">중요한 것은 꺽이지 않는 <span class="highlight">마음</span></p>
+    <p class="title">중요한 것은 꺾이지 않는 <span class="highlight">마음</span></p>
     
 </div>
 </div>
@@ -460,7 +450,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="트릭2" class="level2">
 <h2 class="anchored" data-anchor-id="트릭2">트릭2</h2>
 <p><code>-</code> 외부에 선언된 init을 클래스 내부로 넣어서 선언. (외부에 선언된 함수를 클래스 내부의 메소드로 선언)</p>
-<div class="cell" data-execution_count="48">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">class</span> JungKKuckMa:</span>
 <span id="cb13-2"><a href="#cb13-2"></a>    <span class="kw">def</span> init(<span class="va">self</span>):</span>
 <span id="cb13-3"><a href="#cb13-3"></a>        <span class="va">self</span>.title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다.'</span></span>
@@ -496,7 +486,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-33"><a href="#cb13-33"></a><span class="st">        &lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
 <span id="cb13-34"><a href="#cb13-34"></a><span class="st">        &lt;p class="text"&gt;</span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
 <span id="cb13-35"><a href="#cb13-35"></a><span class="st">        &lt;p class="text"&gt;</span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb13-36"><a href="#cb13-36"></a><span class="st">        &lt;p class="title"&gt;중요한 것은 꺽이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb13-36"><a href="#cb13-36"></a><span class="st">        &lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
 <span id="cb13-37"><a href="#cb13-37"></a><span class="st">        '''</span>    </span>
 <span id="cb13-38"><a href="#cb13-38"></a>    <span class="kw">def</span> show(<span class="va">self</span>):</span>
 <span id="cb13-39"><a href="#cb13-39"></a>        _str <span class="op">=</span> <span class="va">self</span>.html_str.<span class="bu">format</span>(</span>
@@ -509,19 +499,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-46"><a href="#cb13-46"></a>        display(HTML(_str)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 클래스로 부터 인스턴스 생성</p>
-<div class="cell" data-execution_count="49">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>pp2023 <span class="op">=</span> JungKKuckMa()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>(참고) 이 시점에서 <code>pp2023.</code> + tab 을 입력하면 아래와 같이 보인다.</em></p>
 <p><img src="2023-05-22-12wk-1_files/figure-html/57d007c3-bef1-456d-9fd8-10d0657f0a89-1-8ee17d8f-1c68-4c19-b0d2-810bf252c790.png" class="img-fluid"></p>
 <p><code>-</code> init 실행</p>
-<div class="cell" data-execution_count="50">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>pp2023.init()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>(참고) 이 시점에서 <code>pp2023.</code> + tab 을 입력하면 아래와 같이 보인다.</em></p>
 <p><img src="2023-05-22-12wk-1_files/figure-html/45ae3756-47fc-40c7-b23b-70fd6895c1f7-1-d8b791f1-474c-446e-997e-5fd34add952c.png" class="img-fluid"></p>
 <p><code>-</code> show 실행</p>
-<div class="cell" data-execution_count="51">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>pp2023.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
@@ -552,7 +542,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </p>
         <p class="text">Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?</p>
         <p class="text">A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 내가 내 코드를 잘 구현하는 게 제일 중요한 것 같고 중간고사는 망하긴 했지만 제 스스로 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.</p>
-        <p class="title">중요한 것은 꺽이지 않는 <span class="highlight">마음</span></p>
+        <p class="title">중요한 것은 꺾이지 않는 <span class="highlight">마음</span></p>
         
 </div>
 </div>
@@ -561,17 +551,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="트릭2의-사용">트릭2의 사용</h2>
 <section id="t1-밈1-파이썬-프로그래밍-중간고사" class="level3">
 <h3 class="anchored" data-anchor-id="t1-밈1-파이썬-프로그래밍-중간고사"><strong><em>t=1 – 밈1: 파이썬 프로그래밍 중간고사</em></strong></h3>
-<div class="cell" data-execution_count="53">
+<div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>pp2023 <span class="op">=</span> JungKKuckMa()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>(참고) 이 시점에서 <code>pp2023.</code> + tab 을 누르면?</em></p>
 <p><img src="2023-05-22-12wk-1_files/figure-html/dc4d77f6-beda-4c2b-8baa-42dc1cc2788c-1-bd3e7f00-a897-4d90-a40f-c0d847bd9293.png" class="img-fluid"></p>
-<div class="cell" data-execution_count="54">
+<div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>pp2023.init()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>(참고) 이 시점에서 <code>pp2023.</code> + tab을 누르면?</em></p>
 <p><img src="2023-05-22-12wk-1_files/figure-html/2e131d3f-8a02-4c2c-a40c-ff295bbedd17-1-8aaf4063-9047-48c6-bde6-9f03091b763e.png" class="img-fluid"></p>
-<div class="cell" data-execution_count="55">
+<div class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>pp2023.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
@@ -602,25 +592,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </p>
         <p class="text">Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?</p>
         <p class="text">A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 내가 내 코드를 잘 구현하는 게 제일 중요한 것 같고 중간고사는 망하긴 했지만 제 스스로 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.</p>
-        <p class="title">중요한 것은 꺽이지 않는 <span class="highlight">마음</span></p>
+        <p class="title">중요한 것은 꺾이지 않는 <span class="highlight">마음</span></p>
         
 </div>
 </div>
 </section>
 <section id="t2-밈2-버거킹" class="level3">
 <h3 class="anchored" data-anchor-id="t2-밈2-버거킹"><strong><em>t=2 – 밈2: 버거킹</em></strong></h3>
-<div class="cell" data-execution_count="57">
+<div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>burger <span class="op">=</span> JungKKuckMa() </span>
 <span id="cb20-2"><a href="#cb20-2"></a>burger.init()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="61">
+<div class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>burger.title <span class="op">=</span> <span class="st">'버거 2개를 골라도 6000원!'</span> </span>
 <span id="cb21-2"><a href="#cb21-2"></a>burger.imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/burgerking.png?raw=true'</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a>burger.ques <span class="op">=</span> <span class="st">'기간: 11월28일(월)~12.4(일)'</span></span>
 <span id="cb21-4"><a href="#cb21-4"></a>burger.ans <span class="op">=</span> <span class="st">'콰트로치즈 와퍼 주니어, 통새우 와퍼 주니어, 롱치킨 버거 최대 42% 할인!'</span></span>
 <span id="cb21-5"><a href="#cb21-5"></a>burger.highlight <span class="op">=</span> <span class="st">'할인'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="62">
+<div class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>burger.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
@@ -651,17 +641,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </p>
         <p class="text">기간: 11월28일(월)~12.4(일)</p>
         <p class="text">콰트로치즈 와퍼 주니어, 통새우 와퍼 주니어, 롱치킨 버거 최대 42% 할인!</p>
-        <p class="title">중요한 것은 꺽이지 않는 <span class="highlight">할인</span></p>
+        <p class="title">중요한 것은 꺾이지 않는 <span class="highlight">할인</span></p>
         
 </div>
 </div>
 </section>
 <section id="t3-밈1변경-중요한-것은-꺾이지-않는-집중력" class="level3">
 <h3 class="anchored" data-anchor-id="t3-밈1변경-중요한-것은-꺾이지-않는-집중력"><strong><em>t=3 – 밈1변경: 중요한 것은 꺾이지 않는 “집중력”</em></strong></h3>
-<div class="cell" data-execution_count="69">
+<div class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>pp2023.highlight <span class="op">=</span> <span class="st">'집중력'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="70">
+<div class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>pp2023.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
@@ -692,18 +682,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </p>
         <p class="text">Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?</p>
         <p class="text">A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 내가 내 코드를 잘 구현하는 게 제일 중요한 것 같고 중간고사는 망하긴 했지만 제 스스로 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.</p>
-        <p class="title">중요한 것은 꺽이지 않는 <span class="highlight">집중력</span></p>
+        <p class="title">중요한 것은 꺾이지 않는 <span class="highlight">집중력</span></p>
         
 </div>
 </div>
 </section>
 <section id="t4-밈2변경-버거-종류-수정-할인뒤에-느낌표-2개-추가" class="level3">
 <h3 class="anchored" data-anchor-id="t4-밈2변경-버거-종류-수정-할인뒤에-느낌표-2개-추가"><strong><em>t=4 – 밈2변경: 버거 종류 수정 + 할인뒤에 느낌표 2개 추가</em></strong></h3>
-<div class="cell" data-execution_count="75">
+<div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>burger.ans <span class="op">=</span> <span class="st">'기네스콰트로치즈와퍼, 기네스와퍼, 몬스터와퍼, 몬스터X 최대 ??% 할인!'</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>burger.highlight <span class="op">=</span> <span class="st">'할인!!'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="76">
+<div class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>burger.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
@@ -734,7 +724,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </p>
         <p class="text">기간: 11월28일(월)~12.4(일)</p>
         <p class="text">기네스콰트로치즈와퍼, 기네스와퍼, 몬스터와퍼, 몬스터X 최대 ??% 할인!</p>
-        <p class="title">중요한 것은 꺽이지 않는 <span class="highlight">할인!!</span></p>
+        <p class="title">중요한 것은 꺾이지 않는 <span class="highlight">할인!!</span></p>
         
 </div>
 </div>
@@ -747,7 +737,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>burger <span class="op">=</span> JungKKuckMa() </span>
 <span id="cb27-2"><a href="#cb27-2"></a>burger.init()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>-</code> 하고 싶은 것: 인스턴스를 만드는 시점에서 자동으로 <code>init()</code>이 실행되도록 하고 싶다.</p>
-<div class="cell" data-execution_count="77">
+<div class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">class</span> JungKKuckMa:</span>
 <span id="cb28-2"><a href="#cb28-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb28-3"><a href="#cb28-3"></a>        <span class="va">self</span>.title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다.'</span></span>
@@ -783,7 +773,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb28-33"><a href="#cb28-33"></a><span class="st">        &lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
 <span id="cb28-34"><a href="#cb28-34"></a><span class="st">        &lt;p class="text"&gt;</span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
 <span id="cb28-35"><a href="#cb28-35"></a><span class="st">        &lt;p class="text"&gt;</span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb28-36"><a href="#cb28-36"></a><span class="st">        &lt;p class="title"&gt;중요한 것은 꺽이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb28-36"><a href="#cb28-36"></a><span class="st">        &lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
 <span id="cb28-37"><a href="#cb28-37"></a><span class="st">        '''</span>    </span>
 <span id="cb28-38"><a href="#cb28-38"></a>    <span class="kw">def</span> show(<span class="va">self</span>):</span>
 <span id="cb28-39"><a href="#cb28-39"></a>        _str <span class="op">=</span> <span class="va">self</span>.html_str.<span class="bu">format</span>(</span>
@@ -796,7 +786,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb28-46"><a href="#cb28-46"></a>        display(HTML(_str)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 사용예시</p>
-<div class="cell" data-execution_count="78">
+<div class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>pp2023 <span class="op">=</span> JungKKuckMa()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>(참고) 이 시점에서 <code>pp2023.</code> + tab을 하면? 예상: <code>__init__</code>과 <code>show</code>가 보일것이다?</em></p>
@@ -807,7 +797,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>함수 <code>__init__</code> 은 안보임 (숨어있음)</li>
 </ul>
 <p><em>(참고) 숨은 <code>__init__</code>을 강제소환</em></p>
-<div class="cell" data-execution_count="85">
+<div class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>pp2023.<span class="fu">__init__</span>??</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="ansi-escaped-output">
@@ -848,14 +838,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="ansi-blue-fg">        &lt;p&gt; \n &lt;/p&gt;</span>
 <span class="ansi-blue-fg">        &lt;p class="text"&gt;{Q}&lt;/p&gt;</span>
 <span class="ansi-blue-fg">        &lt;p class="text"&gt;{A}&lt;/p&gt;</span>
-<span class="ansi-blue-fg">        &lt;p class="title"&gt;중요한 것은 꺽이지 않는 &lt;span class="highlight"&gt;{hl}&lt;/span&gt;&lt;/p&gt;</span>
+<span class="ansi-blue-fg">        &lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;{hl}&lt;/span&gt;&lt;/p&gt;</span>
 <span class="ansi-blue-fg">        '''</span>
-<span class="ansi-red-fg">File:</span>      ~/Dropbox/07_lectures/PP2023/posts/03_Class/&lt;ipython-input-77-28abf727527f&gt;
+<span class="ansi-red-fg">File:</span>      ~/Dropbox/07_lectures/PP2023/posts/03_Class/&lt;ipython-input-36-ca7605a04b40&gt;
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="89">
+<div class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># pp2023.init() # 아까는 이게 필요했는데 이제 필요없다.</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>pp2023.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -887,103 +877,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </p>
         <p class="text">Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?</p>
         <p class="text">A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 내가 내 코드를 잘 구현하는 게 제일 중요한 것 같고 중간고사는 망하긴 했지만 제 스스로 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.</p>
-        <p class="title">중요한 것은 꺽이지 않는 <span class="highlight">마음</span></p>
+        <p class="title">중요한 것은 꺾이지 않는 <span class="highlight">마음</span></p>
         
 </div>
 </div>
 </section>
-<section id="init__-의-이해" class="level2">
-<h2 class="anchored" data-anchor-id="init__-의-이해"><code>__init__()</code> 의 이해</h2>
-<p><code>-</code> 이 코드가 가능한 이유?</p>
-<ul>
-<li>확실한것: 클래스 안에 정의된 <code>__init__()</code>은 “클래스 <span class="math inline">\(\to\)</span> 인스턴스” 시점에 “자동적”으로 실행된다.</li>
-</ul>
-<p><strong>가설1</strong>: 클래스 안에 정의된 메소드중 <code>__함수이름__(self)</code> 와 같은 방식으로 선언된 것은 “클래스 <span class="math inline">\(\to\)</span> 인스턴스” 시점에 모두 자동적으로 실행된다.</p>
-<p><strong>가설2</strong>: 클래스 안에 정의된 메소드중 <code>__init__(self)</code> 와 같은 방식으로 정의된 메소드만 “클래스 <span class="math inline">\(\to\)</span> 인스턴스” 시점에 자동적으로 실행된다.</p>
-<blockquote class="blockquote">
-<p>가설2가 맞아요</p>
-</blockquote>
-<p><code>-</code> 예시</p>
-<div class="cell" data-execution_count="97">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">class</span> Klass:</span>
-<span id="cb32-2"><a href="#cb32-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb32-3"><a href="#cb32-3"></a>        <span class="va">self</span>.a <span class="op">=</span> <span class="dv">3</span> </span>
-<span id="cb32-4"><a href="#cb32-4"></a>    <span class="kw">def</span> show(<span class="va">self</span>): </span>
-<span id="cb32-5"><a href="#cb32-5"></a>        <span class="bu">print</span>(<span class="va">self</span>.a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="98">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>klass <span class="op">=</span> Klass() <span class="co"># 클래스 -&gt; 인스턴스 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="99">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>klass.a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="99">
-<pre><code>3</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="100">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>klass.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>3</code></pre>
-</div>
-</div>
-<p><code>-</code> 예시2</p>
-<div class="cell" data-execution_count="101">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">class</span> Klass:</span>
-<span id="cb38-2"><a href="#cb38-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,input_value):</span>
-<span id="cb38-3"><a href="#cb38-3"></a>        <span class="va">self</span>.a <span class="op">=</span> input_value</span>
-<span id="cb38-4"><a href="#cb38-4"></a>    <span class="kw">def</span> show(<span class="va">self</span>): </span>
-<span id="cb38-5"><a href="#cb38-5"></a>        <span class="bu">print</span>(<span class="va">self</span>.a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="103">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>klass <span class="op">=</span> Klass() <span class="co"># 어?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>TypeError: __init__() missing 1 required positional argument: 'input_value'</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="111">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>klass <span class="op">=</span> Klass(input_value<span class="op">=</span><span class="dv">999</span>) <span class="co"># 어?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="112">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>klass.a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="112">
-<pre><code>999</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="113">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>klass.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>999</code></pre>
-</div>
-</div>
-<p>(해설) – 에러난 상황을 풀어서 재현</p>
-<div class="cell" data-execution_count="114">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="kw">class</span> Klass:</span>
-<span id="cb46-2"><a href="#cb46-2"></a>    <span class="kw">def</span> init(<span class="va">self</span>,input_value):</span>
-<span id="cb46-3"><a href="#cb46-3"></a>        <span class="va">self</span>.a <span class="op">=</span> input_value</span>
-<span id="cb46-4"><a href="#cb46-4"></a>    <span class="kw">def</span> show(<span class="va">self</span>): </span>
-<span id="cb46-5"><a href="#cb46-5"></a>        <span class="bu">print</span>(<span class="va">self</span>.a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="122">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>klass <span class="op">=</span> Klass()</span>
-<span id="cb47-2"><a href="#cb47-2"></a>klass.init(input_value<span class="op">=</span><span class="dv">998</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="123">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>klass.a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="123">
-<pre><code>998</code></pre>
-</div>
-</div>
-<p><strong><em>정리</em></strong></p>
-<p><code>1</code>. <code>__init__</code> 메소드는 “클래스 <span class="math inline">\(\to\)</span> 인스턴스” 인 시점에 실행된다.</p>
-<p><code>2</code>. <code>__init__(self)</code> 와 같은 꼴로 선언이 되었다면 “클래스 <span class="math inline">\(\to\)</span> 인스턴스” 시점에서 아래와 같이 실행</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>인스턴스이름 <span class="op">=</span> 클래스이름() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>3</code>. <code>__init__(self,arg1,arg2,arg3)</code> 와 같은 꼴로 선언이 되었다면 “클래스 <span class="math inline">\(\to\)</span> 인스턴스” 시점에서 아래와 같이 실행</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>인스턴스이름 <span class="op">=</span> 클래스이름(arg1,arg2,arg3) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
 </section>
 <section id="숙제" class="level1">
 <h1>숙제</h1>
-<p>없습니당</p>
+<p>없음</p>
 
 
 </section>
