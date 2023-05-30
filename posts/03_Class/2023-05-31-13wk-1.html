@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-05-31">
 
-<title>PP2023 - 13wk-1: 파이썬의 비밀 1</title>
+<title>PP2023 - 13wk-1: 클래스공부 4단계 – 파이썬의 비밀 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -105,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">13wk-1: 파이썬의 비밀 1</h1>
+      <h1 class="title">13wk-1: 클래스공부 4단계 – 파이썬의 비밀 1</h1>
                       </div>
   </div>
     
@@ -143,6 +206,110 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><a href="https://colab.research.google.com/github/guebin/PP2023/blob/main/posts/03_Class/2023-05-31-13wk-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>git add .</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>git commit <span class="op">-</span>m .</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="op">!</span>git push </span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="op">!</span>quarto publish <span class="op">--</span>no<span class="op">-</span>browser <span class="op">--</span>no<span class="op">-</span>prompt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[main b96081f] .
+ 12 files changed, 100 insertions(+), 10 deletions(-)
+ create mode 100644 posts/03_Class/.ipynb_checkpoints/2023-05-31-13wk-1-checkpoint.ipynb
+ create mode 100644 posts/03_Class/2023-05-31-13wk-1.ipynb
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (11/11), 627.10 KiB | 18.44 MiB/s, done.
+Total 11 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 4 local objects.
+To https://github.com/guebin/PP2023.git
+   12f2af1..b96081f  main -&gt; main
+From https://github.com/guebin/PP2023
+ * branch            gh-pages   -&gt; FETCH_HEAD
+Rendering for publish:
+
+[ 1/30] about.qmd
+[ 2/30] posts/Appendix/2022-06-14-final.ipynb
+[ 3/30] posts/Appendix/2021-04-20-mid.ipynb
+[ 4/30] posts/Appendix/2022-05-03-mid.ipynb
+[ 5/30] posts/Appendix/2021-06-09-final.ipynb
+[ 6/30] posts/2023-03-06-1wk-1.ipynb
+[ 7/30] posts/03_Class/2023-05-31-13wk-1.ipynb
+[ 8/30] posts/03_Class/2023-05-15-11wk-1.ipynb
+[ 9/30] posts/03_Class/2023-05-10-10wk-2.ipynb
+[10/30] posts/03_Class/2023-05-24-12wk-2.ipynb
+[11/30] posts/03_Class/2023-05-17-11wk-2.ipynb
+[12/30] posts/03_Class/2023-05-22-12wk-1.ipynb
+[13/30] posts/2023-05-08-10wk-1-mid.ipynb
+[14/30] posts/02_DataScience/2023-04-10-6wk-1.ipynb
+[15/30] posts/02_DataScience/2023-04-26-8wk-2.ipynb
+[16/30] posts/02_DataScience/2023-05-01-9wk-1.ipynb
+[17/30] posts/02_DataScience/2023-04-12-6wk-2.ipynb
+[18/30] posts/02_DataScience/2023-04-17-7wk-1.ipynb
+[19/30] posts/02_DataScience/2023-04-19-7wk-2.ipynb
+[20/30] posts/02_DataScience/2023-04-24-8wk-1.ipynb
+[21/30] posts/01_PythonBasic/2023-03-22-3wk-2.ipynb
+[22/30] posts/01_PythonBasic/2023-03-08-1wk-2.ipynb
+[23/30] posts/01_PythonBasic/2023-03-20-3wk-1.ipynb
+[24/30] posts/01_PythonBasic/2023-03-15-2wk-2.ipynb
+[25/30] posts/01_PythonBasic/2023-03-13-2wk-1.ipynb
+[26/30] posts/01_PythonBasic/2023-03-27-4wk-1.ipynb
+[27/30] posts/01_PythonBasic/2023-04-05-5wk-2.ipynb
+[28/30] posts/01_PythonBasic/2023-04-03-5wk-1.ipynb
+[29/30] posts/01_PythonBasic/2023-03-29-4wk-2.ipynb
+[30/30] index.qmd
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/Appendix/2022-06-14-final.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/Appendix/2021-04-20-mid.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/Appendix/2022-05-03-mid.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/Appendix/2021-06-09-final.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/2023-03-06-1wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/03_Class/2023-05-31-13wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/03_Class/2023-05-15-11wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/03_Class/2023-05-10-10wk-2.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/03_Class/2023-05-24-12wk-2.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/03_Class/2023-05-17-11wk-2.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/03_Class/2023-05-22-12wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/2023-05-08-10wk-1-mid.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_DataScience/2023-04-10-6wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_DataScience/2023-04-26-8wk-2.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_DataScience/2023-05-01-9wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_DataScience/2023-04-12-6wk-2.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_DataScience/2023-04-17-7wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_DataScience/2023-04-19-7wk-2.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/02_DataScience/2023-04-24-8wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-22-3wk-2.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-08-1wk-2.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-20-3wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-15-2wk-2.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-13-2wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-27-4wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-04-05-5wk-2.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-04-03-5wk-1.ipynb in the listing 'listing' contains no metadata.
+WARNING: File /home/cgb2/Dropbox/07_lectures/PP2023/posts/01_PythonBasic/2023-03-29-4wk-2.ipynb in the listing 'listing' contains no metadata.
+
+Preparing worktree (resetting branch 'gh-pages'; was at 18b0f80)
+Branch 'gh-pages' set up to track remote branch 'gh-pages' from 'origin'.
+HEAD is now at 18b0f80 Built site for gh-pages
+[gh-pages 126ed0b] Built site for gh-pages
+ 11 files changed, 406 insertions(+), 103 deletions(-)
+ create mode 100644 posts/03_Class/2023-05-31-13wk-1.html
+origin  https://github.com/guebin/PP2023.git (fetch)
+origin  https://github.com/guebin/PP2023.git (push)
+remote: Resolving deltas: 100% (13/13), completed with 12 local objects.        
+To https://github.com/guebin/PP2023.git
+   18b0f80..126ed0b  HEAD -&gt; gh-pages
+
+NOTE: GitHub Pages sites use caching so you might need to click the refresh
+button within your web browser to see changes after deployment.
+
+[✓] Published to https://guebin.github.io/PP2023/
+
+NOTE: GitHub Pages deployments normally take a few minutes (your site updates
+will be visible once the deploy completes)
+</code></pre>
+</div>
+</div>
 
 
 
