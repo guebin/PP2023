@@ -1224,15 +1224,130 @@ a=0
 </section>
 <section id="숙제" class="level1">
 <h1>숙제</h1>
-<p><code>1</code>. RPS 라는 이름의 클래스를 생성하고 아래의 기능을 구현하라.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1"></a><span class="fl">1.</span> 입력으로 [<span class="st">'가위'</span>,<span class="st">'바위'</span>], [<span class="st">'가위'</span>,<span class="st">'보'</span>]와 같은 리스트를 입력으로 받고 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>1</code>. Student 클래스를 생성지침 및 사용예시를 참고하여 설계하라.</p>
+<p><strong><code>생성지침</code></strong></p>
+<p><strong>attributes</strong></p>
+<ul>
+<li><code>name</code>: 이름을 저장하는 변수</li>
+<li><code>age</code>: 나이를 저장하는 변수</li>
+<li><code>semester</code>: 학기를 저장하는 변수</li>
+</ul>
+<p><strong>methods</strong></p>
+<ul>
+<li><code>__init__</code>: name, age, semester 세 가지 매개변수를 입력받아 인스턴스의 attribute로 저장</li>
+<li><code>__str__</code>: 인스턴스의 정보(이름,나이,학기)를 문자열 형태로 반환</li>
+</ul>
+<p><strong><code>사용예시</code></strong></p>
+<div class="cell" data-execution_count="224">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1"></a><span class="co"># 사용 예시</span></span>
+<span id="cb123-2"><a href="#cb123-2"></a>boram <span class="op">=</span> Student(name<span class="op">=</span><span class="st">'김보람'</span>, age<span class="op">=</span><span class="dv">20</span>, semester<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb123-3"><a href="#cb123-3"></a><span class="bu">print</span>(boram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>이름: 김보람
+나이: 20
+학기: 1</code></pre>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1"></a>a <span class="op">=</span> Klass([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
-<span id="cb124-2"><a href="#cb124-2"></a>a.f() <span class="co"># 가위가 1/2 바위가 1/2의 확률로 출력 </span></span>
-<span id="cb124-3"><a href="#cb124-3"></a>b <span class="op">=</span> Klass([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span>
-<span id="cb124-4"><a href="#cb124-4"></a>b.f() <span class="co"># 가위, 바위, 보가 1/3의 확률로 출력</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>2</code>. RPS 클래스를 생성지침 및 사용예시를 참고하여 설계하라.</p>
+<p><strong><code>생성지침</code></strong></p>
+<p><strong>속성</strong></p>
+<ul>
+<li><code>candidate</code> (리스트): 사용 가능한 선택지인 ‘가위’, ‘바위’, ’보’로 이루어진 리스트</li>
+<li><code>actions</code> (리스트): 선택한 동작을 기록하는 리스트</li>
+</ul>
+<p><strong>메서드</strong></p>
+<ul>
+<li><code>__init__</code>: 클래스의 생성자로, candidate 매개변수를 입력으로 받아 인스턴스의 속성으로 저장한다. 그리고 actions를 빈 리스트로 초기화한다.</li>
+<li><code>pick</code>: candidate에서 무작위로 하나의 선택지를 고르고, actions에 선택한 동작을 기록한다.</li>
+<li><code>_repr_html_(self)</code>: 클래스의 정보를 HTML 형식의 문자열로 반환한다. 반환된 문자열에는 candidate와 actions의 내용이 포함되어야 한다.</li>
+</ul>
+<p><strong>클래스 설명</strong>: RPS 클래스는 가위, 바위, 보 중 하나를 선택하고, 선택한 동작을 기록하는 클래스이다. 사용 가능한 선택지는 candidate 속성에 저장되고, 선택한 동작은 actions에 기록된다. 클래스의 정보는 HTML 형식의 문자열로 표현되며, 낼 수 있는 패(candidate)와 기록된 동작(actions)이 포함된다.</p>
+<p><strong><code>사용예시</code></strong></p>
+<p><strong>예시1: 인스턴스의 생성</strong></p>
+<div class="cell" data-execution_count="237">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1"></a>a <span class="op">=</span> RPS([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>예시2: 인스턴스의 속성확인</strong></p>
+<div class="cell" data-execution_count="238">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1"></a>a.candidate, a.actions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="238">
+<pre><code>(['가위', '바위', '보'], [])</code></pre>
+</div>
+</div>
+<p><strong>예시3: <code>_repr_html_</code>의 사용예시</strong></p>
+<div class="cell" data-execution_count="239">
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="239">
+
+        낼 수 있는 패: ['가위', '바위', '보'] <br> 
+        기록: []
+        
+</div>
+</div>
+<p><strong>예시4: <code>pick</code> method의 사용예시</strong></p>
+<div class="cell" data-execution_count="240">
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb129-2"><a href="#cb129-2"></a>    a.pick()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="241">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1"></a>a.candidate, a.actions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="241">
+<pre><code>(['가위', '바위', '보'], ['바위', '가위', '보', '바위', '바위'])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="242">
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="242">
+
+        낼 수 있는 패: ['가위', '바위', '보'] <br> 
+        기록: ['바위', '가위', '보', '바위', '바위']
+        
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>힌트</strong>: [‘가위’,‘바위’,‘보’]에서 하나의 원소를 임의로 뽑는 코드의 구현을 위해 아래를 참고하라. ChatGPT를 활용하여 np.random.choice 함수의 사용방법을 익혀라.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1"></a>np.random.choice([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p><code>3</code>. RPS클래스에서 player a와 player b를 만들어라. Player a는 [‘가위’,‘보’] 중에 하나를 낼 수 있다. 그리고 Player b는 [‘가위’] 만 낼 수 있다. 누가 더 유리한가? 10회 가상대결을 해보고 누가 더 유리하게 나왔는지 판단하라.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>힌트</strong>: 당연히 b가 유리하겠죠? 저는 시뮬레이션 결과가 아래와 같이 나왔습니다.</p>
+<pre><code>{'a승리': 0, 'b승리': 5, '무승부': 5}</code></pre>
+</div>
+</div>
+<p><code>4</code>. RPS클래스에서 player a와 player b를 만들어라. Player a는 [‘가위’,‘보’] 중에 하나를 낼 수 있다. 그리고 Player b는 [‘가위’,‘바위’] 중 하나를 낼 수 있다. 누가 더 유리한가? 100회 가상대결을 해보고 누가 더 유리하게 나왔는지 판단하라.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>힌트</strong>: 시뮬레이션 결과 저는 답이 이렇게 나왔습니다.</p>
+<pre><code>{'a승리': 24, 'b승리': 55, '무승부': 21}</code></pre>
+<p>즉 정답은 “b가 더 유리하다.” 왜 b가 유리한지 스스로 생각해보시기 바랍니다.</p>
+</div>
 </div>
 
 
