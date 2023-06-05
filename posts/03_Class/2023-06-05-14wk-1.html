@@ -2464,20 +2464,23 @@ enumerate is useful for obtaining an indexed list:
 찌가 나와서 for문을 멈춥니다</code></pre>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>파이썬의 비밀12: iterator나 iterable object만 for문과 함께 사용할 수 있다.</p>
+</blockquote>
 </section>
 </section>
 <section id="비밀을-알아서-좋은점" class="level2">
 <h2 class="anchored" data-anchor-id="비밀을-알아서-좋은점">비밀을 알아서 좋은점</h2>
 <section id="파이썬의-에러메시지-이해" class="level3">
 <h3 class="anchored" data-anchor-id="파이썬의-에러메시지-이해"><strong><em>파이썬의 에러메시지 이해</em></strong></h3>
-<p>TypeError: 타입이 맞지 않는 연산을 수행하려고 할 때 발생합니다. 예를 들어, 숫자와 문자열을 더하려고 할 때 발생합니다.</p>
+<p><code>TypeError</code>: 타입이 맞지 않는 연산을 수행하려고 할 때 발생. 예를 들어, 숫자와 문자열을 더하려고 할 때 발생.</p>
 <div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb398"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb398-1"><a href="#cb398-1"></a>result <span class="op">=</span> <span class="dv">10</span> <span class="op">+</span> <span class="st">"20"</span>  <span class="co"># TypeError: unsupported operand type(s) for +: 'int' and 'str'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>TypeError: unsupported operand type(s) for +: 'int' and 'str'</code></pre>
 </div>
 </div>
-<p>SyntaxError: 코드의 구문이 잘못되었을 때 발생합니다. 주로 오타, 괄호 불일치, 콜론(:) 빠뜨림 등의 문제로 인해 발생합니다.</p>
+<p><code>SyntaxError</code>: 코드의 구문이 잘못되었을 때 발생. 주로 오타, 괄호 불일치, 콜론(:) 빠뜨림 등의 문제로 인해 발생.</p>
 <div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb400"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb400-1"><a href="#cb400-1"></a><span class="cf">if</span> x <span class="op">==</span> <span class="dv">5</span></span>
 <span id="cb400-2"><a href="#cb400-2"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 5"</span>)  <span class="co"># SyntaxError: invalid syntax</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2485,21 +2488,21 @@ enumerate is useful for obtaining an indexed list:
 <pre><code>SyntaxError: invalid syntax (&lt;ipython-input-23-5259b3c47c58&gt;, line 1)</code></pre>
 </div>
 </div>
-<p>NameError: 정의되지 않은 변수나 함수를 사용하려고 할 때 발생합니다. 변수나 함수를 정의한 후에 사용해야 합니다.</p>
+<p><code>NameError</code>: 정의되지 않은 변수나 함수를 사용하려고 할 때 발생.</p>
 <div class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb402"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb402-1"><a href="#cb402-1"></a><span class="bu">print</span>(unknown_variable)  <span class="co"># NameError: name 'unknown_variable' is not defined</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>NameError: name 'unknown_variable' is not defined</code></pre>
 </div>
 </div>
-<p>ValueError: 함수나 메서드에 전달되는 인자의 값이 올바르지 않을 때 발생합니다. 타입은 올바르지만 범위나 조건에 맞지 않는 값이 전달된 경우에 해당합니다.</p>
+<p><code>ValueError</code>: 함수나 메서드에 전달되는 인자의 값이 올바르지 않을 때 발생.</p>
 <div class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb404"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb404-1"><a href="#cb404-1"></a>int_value <span class="op">=</span> <span class="bu">int</span>(<span class="st">"abc"</span>)  <span class="co"># ValueError: invalid literal for int() with base 10: 'abc'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>ValueError: invalid literal for int() with base 10: 'abc'</code></pre>
 </div>
 </div>
-<p>AttributeError: 객체가 속성(attribute)이나 메서드(method)를 가지고 있지 않을 때 발생합니다.</p>
+<p><code>AttributeError</code>: 객체가 속성(attribute)이나 메서드(method)를 가지고 있지 않을 때 발생</p>
 <div class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb406"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb406-1"><a href="#cb406-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
 <span id="cb406-2"><a href="#cb406-2"></a>my_list.append(<span class="dv">4</span>)</span>
@@ -2508,21 +2511,21 @@ enumerate is useful for obtaining an indexed list:
 <pre><code>AttributeError: 'list' object has no attribute 'upper'</code></pre>
 </div>
 </div>
-<p>ImportError: 모듈을 임포트하는 과정에서 문제가 발생할 때 발생합니다. 임포트하려는 모듈이 존재하지 않거나, 임포트 경로 설정이 잘못된 경우에 해당합니다.</p>
+<p><code>ImportError</code>: 모듈을 임포트하는 과정에서 문제가 발생할 때 발생. 임포트하려는 모듈이 존재하지 않거나, 임포트 경로 설정이 잘못된 경우에 해당.</p>
 <div class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb408"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb408-1"><a href="#cb408-1"></a><span class="im">import</span> non_existent_module  <span class="co"># ImportError: No module named 'non_existent_module'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>ModuleNotFoundError: No module named 'non_existent_module'</code></pre>
 </div>
 </div>
-<p>IOError: 파일 입출력 작업 중에 발생하는 에러입니다. 파일이 존재하지 않거나, 파일에 쓰기 권한이 없는 경우 등에 해당합니다.</p>
+<p><code>IOError</code>: 파일 입출력 작업 중에 발생하는 에러. 파일이 존재하지 않거나, 파일에 쓰기 권한이 없는 경우 등에 해당.</p>
 <div class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb410"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb410-1"><a href="#cb410-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'file.txt'</span>, <span class="st">'r'</span>)  <span class="co"># IOError: [Errno 2] No such file or directory: 'file.txt'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>FileNotFoundError: [Errno 2] No such file or directory: 'file.txt'</code></pre>
 </div>
 </div>
-<p>KeyboardInterrupt: 사용자가 Ctrl+C를 눌러 프로그램의 실행을 중단할 때 발생합니다.</p>
+<p><code>KeyboardInterrupt</code>: 사용자가 프로그램의 실행을 중단할 때 발생.</p>
 <div class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb412"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb412-1"><a href="#cb412-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
 <span id="cb412-2"><a href="#cb412-2"></a>    <span class="cf">pass</span>  <span class="co"># 무한 루프</span></span>
@@ -2531,39 +2534,32 @@ enumerate is useful for obtaining an indexed list:
 <pre><code>KeyboardInterrupt: </code></pre>
 </div>
 </div>
-<p>MemoryError: 메모리 부족으로 인해 객체를 생성하거나 작업을 수행할 수 없을 때 발생합니다.</p>
-<div class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb414"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb414-1"><a href="#cb414-1"></a>big_list <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> (<span class="dv">10</span> <span class="op">**</span> <span class="dv">100</span>)  <span class="co"># MemoryError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>OverflowError: cannot fit 'int' into an index-sized integer</code></pre>
-</div>
-</div>
-<p>IndexError: 유효하지 않은 인덱스를 사용하여 시퀀스(리스트, 튜플, 문자열 등)의 요소에 접근하려고 할 때 발생합니다.</p>
+<p><code>IndexError</code>: 유효하지 않은 인덱스를 사용하여 시퀀스(리스트, 튜플, 문자열 등)의 요소에 접근하려고 할 때 발생.</p>
 <div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb416"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb416-1"><a href="#cb416-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb416-2"><a href="#cb416-2"></a><span class="bu">print</span>(my_list[<span class="dv">5</span>])  <span class="co"># IndexError: list index out of range</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb414"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb414-1"><a href="#cb414-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb414-2"><a href="#cb414-2"></a><span class="bu">print</span>(my_list[<span class="dv">5</span>])  <span class="co"># IndexError: list index out of range</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>IndexError: list index out of range</code></pre>
 </div>
 </div>
-<p>KeyError: 딕셔너리에서 존재하지 않는 키를 사용하여 요소에 접근하려고 할 때 발생합니다.</p>
+<p><code>KeyError</code>: 딕셔너리에서 존재하지 않는 키를 사용하여 요소에 접근하려고 할 때 발생.</p>
 <div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb418"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb418-1"><a href="#cb418-1"></a>my_dict <span class="op">=</span> {<span class="st">'name'</span>: <span class="st">'John'</span>, <span class="st">'age'</span>: <span class="dv">25</span>}</span>
-<span id="cb418-2"><a href="#cb418-2"></a><span class="bu">print</span>(my_dict[<span class="st">'address'</span>])  <span class="co"># KeyError: 'address'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb416"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb416-1"><a href="#cb416-1"></a>my_dict <span class="op">=</span> {<span class="st">'name'</span>: <span class="st">'John'</span>, <span class="st">'age'</span>: <span class="dv">25</span>}</span>
+<span id="cb416-2"><a href="#cb416-2"></a><span class="bu">print</span>(my_dict[<span class="st">'address'</span>])  <span class="co"># KeyError: 'address'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>KeyError: 'address'</code></pre>
 </div>
 </div>
-<p>FileNotFoundError: 존재하지 않는 파일을 열려고 할 때 발생합니다.</p>
+<p><code>FileNotFoundError</code>: 존재하지 않는 파일을 열려고 할 때 발생.</p>
 <div class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb420"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb420-1"><a href="#cb420-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'nonexistent_file.txt'</span>)  <span class="co"># FileNotFoundError: [Errno 2] No such file or directory: 'nonexistent_file.txt'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb418"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb418-1"><a href="#cb418-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'nonexistent_file.txt'</span>)  <span class="co"># FileNotFoundError: [Errno 2] No such file or directory: 'nonexistent_file.txt'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>FileNotFoundError: [Errno 2] No such file or directory: 'nonexistent_file.txt'</code></pre>
 </div>
 </div>
-<p>ZeroDivisionError: 0으로 나누기 연산을 수행하려고 할 때 발생합니다.</p>
+<p><code>ZeroDivisionError</code>: 0으로 나누기 연산을 수행하려고 할 때 발생.</p>
 <div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb422"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb422-1"><a href="#cb422-1"></a>result <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">0</span>  <span class="co"># ZeroDivisionError: division by zero</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb420"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb420-1"><a href="#cb420-1"></a>result <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">0</span>  <span class="co"># ZeroDivisionError: division by zero</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>ZeroDivisionError: division by zero</code></pre>
 </div>
@@ -2607,7 +2603,7 @@ Cell In[402], line 1
 ----&gt; 1 a()
 
 TypeError: 'Klass' object is not callable</code></pre>
-<p><code>-</code> <code>.__iter__</code>가 정의되지 않은 오브젝트에 반복문을 적용하려 하면 생기는 오류</p>
+<p><code>-</code> <code>.__iter__</code>가 정의되지 않은 오브젝트를 iterable 오브젝트처럼 사용하려 할때 생기는 오류</p>
 <pre><code>---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
 Cell In[422], line 2
