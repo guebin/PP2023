@@ -461,6 +461,11 @@ y</code></pre>
 <p><code>-</code> for문의 동작원리</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="cf">for</span> i <span class="kw">in</span> iterable:</span>
 <span id="cb43-2"><a href="#cb43-2"></a>    ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li><p>이터레이터생성: <code>.__iter__()</code> 혹은 <code>iter()</code>을 이용하여 iterable을 iterator로 만든다.</p></li>
+<li><p><span class="math inline">\(i\)</span>생성 및 반복: 1에서 만들어진 iterator에서 <code>.__next__()</code>함수를 호출하고 결과를 <span class="math inline">\(i\)</span>에 저장한뒤 for문 블락안의 내용 (들여쓰기 된 내용) 을 실행한다. <span class="math inline">\(\to\)</span> 반복한다.</p></li>
+<li><p>정지: <code>.__next__()</code>함수를 호출할때 StopIteration Error가 나오면 for문을 멈춘다.</p></li>
+</ol>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -481,6 +486,9 @@ y</code></pre>
 <p><code>-</code> 아래의 구조도 잘 돌아갈까?</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="cf">for</span> i <span class="kw">in</span> iterator:</span>
 <span id="cb44-2"><a href="#cb44-2"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>iterator의 iter가 자기자신을 리턴하도록 하는 트릭을 쓰면 “1.이터레이터생성 2.<span class="math inline">\(i\)</span>생성 및 반복 3.정지”의 동작원리를 수정하지 않고 for문을 안전하게 돌릴 수 있다.</p>
+</blockquote>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -498,9 +506,6 @@ y</code></pre>
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
-<p>iterator의 iter가 자기자신을 리턴하도록 하는 트릭을 쓰면 for문을 안전하게 돌릴 수 있다.</p>
-</blockquote>
 <p><code>-</code> 요약</p>
 <ul>
 <li>iterable object는 숨겨진 기능으로 <code>__iter__</code>를 가진다.</li>
