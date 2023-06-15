@@ -227,6 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#typeerror에-대한-심층분석" id="toc-typeerror에-대한-심층분석" class="nav-link" data-scroll-target="#typeerror에-대한-심층분석"><strong><em><code>TypeError</code>에 대한 심층분석</em></strong></a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#숙제" id="toc-숙제" class="nav-link" data-scroll-target="#숙제">숙제</a></li>
   </ul>
 </nav>
     </div>
@@ -997,10 +998,59 @@ Cell In[422], line 2
       3     print(i) 
 
 TypeError: 'int' object is not iterable</code></pre>
-
-
 </section>
 </section>
+</section>
+<section id="숙제" class="level1">
+<h1>숙제</h1>
+<p>아래의 클래스를 고려하자.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1"></a><span class="kw">class</span> RPS_BASE:</span>
+<span id="cb149-2"><a href="#cb149-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate):</span>
+<span id="cb149-3"><a href="#cb149-3"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
+<span id="cb149-4"><a href="#cb149-4"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
+<span id="cb149-5"><a href="#cb149-5"></a>        <span class="va">self</span>.prob <span class="op">=</span> [] </span>
+<span id="cb149-6"><a href="#cb149-6"></a>    <span class="kw">def</span> <span class="fu">__setitem__</span>(<span class="va">self</span>,index,val):</span>
+<span id="cb149-7"><a href="#cb149-7"></a>        <span class="va">self</span>.actions[index] <span class="op">=</span> val</span>
+<span id="cb149-8"><a href="#cb149-8"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>,item):</span>
+<span id="cb149-9"><a href="#cb149-9"></a>        <span class="cf">return</span> <span class="va">self</span>.actions[item]        </span>
+<span id="cb149-10"><a href="#cb149-10"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
+<span id="cb149-11"><a href="#cb149-11"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.actions)</span>
+<span id="cb149-12"><a href="#cb149-12"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other):</span>
+<span id="cb149-13"><a href="#cb149-13"></a>        <span class="cf">return</span> <span class="va">self</span>[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> other[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb149-14"><a href="#cb149-14"></a>    <span class="kw">def</span> <span class="fu">__gt__</span>(<span class="va">self</span>,other):</span>
+<span id="cb149-15"><a href="#cb149-15"></a>        <span class="cf">return</span> [<span class="va">self</span>[<span class="op">-</span><span class="dv">1</span>],other[<span class="op">-</span><span class="dv">1</span>]] <span class="kw">in</span> [[<span class="st">'가위'</span>,<span class="st">'보'</span>],[<span class="st">'바위'</span>,<span class="st">'가위'</span>],[<span class="st">'보'</span>,<span class="st">'바위'</span>]]</span>
+<span id="cb149-16"><a href="#cb149-16"></a>    <span class="kw">def</span> <span class="fu">__ge__</span>(<span class="va">self</span>,other):</span>
+<span id="cb149-17"><a href="#cb149-17"></a>        <span class="cf">return</span> (<span class="va">self</span> <span class="op">==</span> other) <span class="kw">or</span> (<span class="va">self</span> <span class="op">&gt;</span> other)</span>
+<span id="cb149-18"><a href="#cb149-18"></a>    <span class="kw">def</span> <span class="fu">__lt__</span>(<span class="va">self</span>,other):</span>
+<span id="cb149-19"><a href="#cb149-19"></a>        <span class="cf">return</span> <span class="kw">not</span> (<span class="va">self</span> <span class="op">&gt;=</span> other)</span>
+<span id="cb149-20"><a href="#cb149-20"></a>    <span class="kw">def</span> <span class="fu">__le__</span>(<span class="va">self</span>,other):</span>
+<span id="cb149-21"><a href="#cb149-21"></a>        <span class="cf">return</span> (<span class="va">self</span> <span class="op">==</span> other) <span class="kw">or</span> (<span class="va">self</span> <span class="op">&lt;</span> other)    </span>
+<span id="cb149-22"><a href="#cb149-22"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
+<span id="cb149-23"><a href="#cb149-23"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb149-24"><a href="#cb149-24"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt;</span></span>
+<span id="cb149-25"><a href="#cb149-25"></a><span class="st">        기록: </span><span class="sc">{}</span></span>
+<span id="cb149-26"><a href="#cb149-26"></a><span class="st">        """</span>        </span>
+<span id="cb149-27"><a href="#cb149-27"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate,<span class="va">self</span>.actions)</span>
+<span id="cb149-28"><a href="#cb149-28"></a>    </span>
+<span id="cb149-29"><a href="#cb149-29"></a>    <span class="kw">def</span> pick(<span class="va">self</span>):</span>
+<span id="cb149-30"><a href="#cb149-30"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate))        </span>
+<span id="cb149-31"><a href="#cb149-31"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb150-1"><a href="#cb150-1"></a>a <span class="op">=</span> RPS_BASE([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1"></a>a.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+        낼 수 있는 패: ['가위', '바위', '보'] <br>
+        기록: []
+        
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -1731,7 +1731,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>hint1</strong>: 50% 확률로 b가 승리하고 50% 확률로 비긴다.</p>
+<p><strong>hint</strong>: 50% 확률로 b가 승리하고 50% 확률로 비긴다.</p>
 </div>
 </div>
 <p><code>(2)</code> 문제 (1)과 같이 아래의 상황을 가정하자.</p>
@@ -1756,7 +1756,12 @@ Note
 </tr>
 </tbody>
 </table>
-<p>각 플레이어는 아래와 같은 규칙으로 가위바위보 결과에 따른 보상점수를 적립한다고 하자. - 승리: 보상점수 2점 적립 - 무승부: 보상점수 1점 적립 - 패배: 보상점수 0점 적립</p>
+<p>각 플레이어는 아래와 같은 규칙으로 가위바위보 결과에 따른 보상점수를 적립한다고 하자.</p>
+<ul>
+<li>승리: 보상점수 2점 적립</li>
+<li>무승부: 보상점수 1점 적립</li>
+<li>패배: 보상점수 0점 적립</li>
+</ul>
 <p>100번째 대결까지 시뮬레이션을 시행하고 플레이어B가 가위를 낼 경우 얻은 보상점수의 총합과 바위를 낼 경우 얻은 보상점수의 총합을 각각 구하라. 플레이어B는 가위를 내는것이 유리한가? 바위를 내는것이 유리한가?</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -1769,7 +1774,12 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>hint1</strong>: 플레이어B는 바위를 내는 것이 유리하다.</p>
-<p><strong>hint2</strong>: 플레이어B가 100번중에 49번 가위를 내고 51번 바위를 낸다면 플레이어B가 적립할 보상점수는 각각 아래와 같다. - 가위를 내었을 경우: 49 * 1 = 49점 - 바위를 내었을 경우: 51 * 2 = 102점 - 총 보상점수 = 49점 + 102점 = 151점</p>
+<p><strong>hint2</strong>: 플레이어B가 100번중에 49번 가위를 내고 51번 바위를 낸다면 플레이어B가 적립할 보상점수는 각각 아래와 같다.</p>
+<ul>
+<li>가위를 내었을 경우: 49 * 1 = 49점</li>
+<li>바위를 내었을 경우: 51 * 2 = 102점</li>
+<li>총 보상점수 = 49점 + 102점 = 151점</li>
+</ul>
 </div>
 </div>
 <p><code>(3)</code> (2)에서 얻은 데이터를 <strong>학습</strong>하여 플레이어B가 “가위” 혹은 “바위” 를 선택할 확률을 매시점 조금씩 조정한다고 가정하자. 구체적으로는 현재시점까지 얻은 보상점수의 비율로 확률을 결정한다. 예를들어 플레이어B가 100회의 대결동안 누적한 보상점수의 총합이 아래와 같다고 하자.</p>
@@ -1829,21 +1839,18 @@ Note
 </div>
 </div>
 <hr>
-<div class="callout-important callout callout-style-default callout-captioned">
+<p>앞으로 아래와 같은 용어를 사용한다.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Important
+정의: 학습모드상태
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>앞으로 아래와 같은 용어를 사용한다.</p>
-<ul>
-<li><p><strong><em>(정의) 어떠한 플레이어가 양손 중 하나를 선택하는 확률을 데이터를 바탕으로 매 순간 업데이트 한다면 그 플레이어는 “학습모드 상태이다”고 표현한다.</em></strong></p></li>
-<li><p><strong><em>(정의) 반대로 어떠한 플레이어가 양손 중 하나를 항상 동일한 확률로 낸다면 그 플레이어는 “학습모드 상태가 아니다”라고 표현한다.</em></strong></p></li>
-</ul>
+<p>어떠한 플레이어가 양손 중 하나를 선택하는 확률을 데이터를 바탕으로 매 순간 업데이트 한다면 그 플레이어는 <strong><em>“학습모드 상태이다”</em></strong>라고 표현한다. 반대로 어떠한 플레이어가 양손 중 하나를 항상 동일한 확률로 낸다면 그 플레이어는 <strong><em>“학습모드 상태가 아니다”</em></strong> 라고 표현한다.</p>
 </div>
 </div>
 <hr>
