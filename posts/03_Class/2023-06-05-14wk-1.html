@@ -253,6 +253,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#callable-object" id="toc-callable-object" class="nav-link" data-scroll-target="#callable-object"><strong><em>callable object</em></strong></a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#숙제---2022년-파이썬-입문-기말고사-참고" id="toc-숙제---2022년-파이썬-입문-기말고사-참고" class="nav-link" data-scroll-target="#숙제---2022년-파이썬-입문-기말고사-참고">숙제 - 2022년 파이썬 입문 기말고사 참고</a></li>
   </ul>
 </nav>
     </div>
@@ -1709,10 +1710,420 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>파이썬의 비밀11: <code>f()</code>와 같이 쓸 수 있는 오브젝트는 단지 <code>__call__</code> 이 정의되어있는 오브젝트일 뿐이다.</p>
 </blockquote>
-
-
 </section>
 </section>
+</section>
+<section id="숙제---2022년-파이썬-입문-기말고사-참고" class="level1">
+<h1>숙제 - 2022년 파이썬 입문 기말고사 참고</h1>
+<p><code>(1)</code> 플레이어A는 (가위,가위) 중 하나를 선택할 수 있고 플레이어B는 (가위,바위) 중 하나를 선택할 수 있다. 각 플레이어는 각 패 중 하나를 랜덤으로 선택하는 액션을 한다고 가정하자. 아래에 해당하는 확률을 시뮬레이션을 이용하여 추정하라.</p>
+<ul>
+<li>플레이어A가 승리할 확률:</li>
+<li>플레이어B가 승리할 확률:</li>
+<li>플레이어A와 플레이어B가 비길 확률:</li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint1</strong>: 50% 확률로 b가 승리하고 50% 확률로 비긴다.</p>
+</div>
+</div>
+<p><code>(2)</code> 문제 (1)과 같이 아래의 상황을 가정하자.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">플레이어A</th>
+<th style="text-align: center;">플레이어B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">각 플레이어가 낼 수 있는 패 (candidate)</td>
+<td style="text-align: center;">(가위,가위)</td>
+<td style="text-align: center;">(가위,바위)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">각 패를 선택할 확률 (prob)</td>
+<td style="text-align: center;">(0.5,0.5)</td>
+<td style="text-align: center;">(0.5,0.5)</td>
+</tr>
+</tbody>
+</table>
+<p>각 플레이어는 아래와 같은 규칙으로 가위바위보 결과에 따른 보상점수를 적립한다고 하자. - 승리: 보상점수 2점 적립 - 무승부: 보상점수 1점 적립 - 패배: 보상점수 0점 적립</p>
+<p>100번째 대결까지 시뮬레이션을 시행하고 플레이어B가 가위를 낼 경우 얻은 보상점수의 총합과 바위를 낼 경우 얻은 보상점수의 총합을 각각 구하라. 플레이어B는 가위를 내는것이 유리한가? 바위를 내는것이 유리한가?</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint1</strong>: 플레이어B는 바위를 내는 것이 유리하다.</p>
+<p><strong>hint2</strong>: 플레이어B가 100번중에 49번 가위를 내고 51번 바위를 낸다면 플레이어B가 적립할 보상점수는 각각 아래와 같다. - 가위를 내었을 경우: 49 * 1 = 49점 - 바위를 내었을 경우: 51 * 2 = 102점 - 총 보상점수 = 49점 + 102점 = 151점</p>
+</div>
+</div>
+<p><code>(3)</code> (2)에서 얻은 데이터를 <strong>학습</strong>하여 플레이어B가 “가위” 혹은 “바위” 를 선택할 확률을 매시점 조금씩 조정한다고 가정하자. 구체적으로는 현재시점까지 얻은 보상점수의 비율로 확률을 결정한다. 예를들어 플레이어B가 100회의 대결동안 누적한 보상점수의 총합이 아래와 같다고 하자.</p>
+<ul>
+<li>가위를 내었을 경우 보상점수 총합 = 50점</li>
+<li>바위를 내었을 경우 보상점수 총합 = 100점</li>
+</ul>
+<p>그렇다면 플레이어B는 각각 (50/150,100/150) 의 확률로 (가위,바위) 중 하나를 선택한다. 101번째 대결에 플레이어B가 가위를 내서 비겼다면 이후에는 (51/151,100/151) 의 확률로 (가위,바위) 중 하나를 선택한다. 102번째 대결에 플레이어B가 바위를 내서 이겼다면 이후에는 각각 (51/153,102/153) 의 확률로 (가위,바위) 중 하나를 선택한다. 이러한 상황을 요약하여 표로 정리하면 아래와 같다.</p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">시점</th>
+<th style="text-align: center;">플레이어B가 가위를 냈을 경우 얻은 점수 총합</th>
+<th style="text-align: center;">플레이어B가 바위를 냈을 경우 얻은 점수 총합</th>
+<th style="text-align: center;">t+1시점에서 플레이어B가 (가위,바위)를 낼 확률</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">t=100</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">(50/150, 100/150)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">t=101</td>
+<td style="text-align: center;">51</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">(51/151, 100/151)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">t=102</td>
+<td style="text-align: center;">51</td>
+<td style="text-align: center;">102</td>
+<td style="text-align: center;">(51/153, 102/153)</td>
+</tr>
+</tbody>
+</table>
+<p>이러한 방식으로 500회까지 게임을 진행하며 확률을 수정하였을 경우 501번째 대결에서 플레이어B가 (가위,바위)를 낼 확률은 각각 얼마인가?</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint: 시간이 지날수록 플레이어B는 (가위,바위)중 바위를 내는 쪽이 유리하다는 것을 알게 될 것이다.</strong></p>
+</div>
+</div>
+<hr>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>앞으로 아래와 같은 용어를 사용한다.</p>
+<ul>
+<li><p><strong><em>(정의) 어떠한 플레이어가 양손 중 하나를 선택하는 확률을 데이터를 바탕으로 매 순간 업데이트 한다면 그 플레이어는 “학습모드 상태이다”고 표현한다.</em></strong></p></li>
+<li><p><strong><em>(정의) 반대로 어떠한 플레이어가 양손 중 하나를 항상 동일한 확률로 낸다면 그 플레이어는 “학습모드 상태가 아니다”라고 표현한다.</em></strong></p></li>
+</ul>
+</div>
+</div>
+<hr>
+<p><code>(4)</code> 새로운 두명의 플레이어C와 플레이어D를 만들어라. 두 플레이어는 모두 동일하게 (가위,바위) 중 하나를 선택할 수 있다. 두 명의 플레이어는 100번째 대결까지는 두 가지 패중 하나를 랜덤하게 선택하고 101번째 대결부터 500번째 대결까지는 문제(3)의 플레이어B와 같은 방식으로 확률을 업데이트 하여 두 가지 패를 서로 다른 확률로 낸다고 하자. 즉 100번째 대결까지는 두 플레이어가 모두 학습모드 상태가 아니고 101번째부터 500번째 대결까지는 두 플레이어가 모두 학습모드 상태이다. 500번째 대결까지의 학습이 끝났을 경우 플레이어 C와 플레이어D가 각 패를 낼 확률은 각각 얼마인가?</p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">시점</th>
+<th style="text-align: center;">플레이어C가 (가위,바위)를 낼 확률</th>
+<th style="text-align: center;">플레이어D가 (가위,바위)를 낼 확률</th>
+<th style="text-align: center;">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">t &lt;= 100</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">양쪽 플레이어 모두 학습모드가 아님</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">t &lt;= 500</td>
+<td style="text-align: center;">대결 데이터를 학습하여 수정한 확률</td>
+<td style="text-align: center;">대결 데이터를 학습하여 수정한 확률</td>
+<td style="text-align: center;">양쪽 플레이어 모두 학습모드임</td>
+</tr>
+</tbody>
+</table>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint: 시간이 지날수록 두 플레이어 모두 바위를 내는 쪽이 유리하다는 것을 알게 될 것이다.</strong></p>
+</div>
+</div>
+<p><code>(5)</code> 새로운 플레이어 E와 F를 생각하자. 플레이어E와 플레이어F는 각각 (가위,바위) 그리고 (가위,보) 중 하나를 선택할 수 있다고 가정하자. 시뮬레이션 대결결과를 이용하여 아래의 확률을 근사적으로 추정하라.</p>
+<ul>
+<li>플레이어E가 승리할 확률:</li>
+<li>플레이어F가 승리할 확률:</li>
+<li>플레이어E와 플레이어F가 비길 확률:</li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint: 플레이어E가 가위를 낸다면 최소한 지지는 않기 때문에 플레이어E가 좀 더 유리한 패를 가지고 있다. 따라서 플레이어E의 결과가 더 좋을 것이다.</strong></p>
+</div>
+</div>
+<p><code>(6)</code> (5)와 동일한 두 명의 플레이어E, F를 생각하자. 두 플레이어는 100회까지는 랜덤으로 자신의 패를 선택한다. 그리고 101회부터 500회까지는 플레이어F만 데이터로 부터 학습을 하여 수정된 확률을 사용한다. 500번의 대결이 끝나고 플레이어F가 (가위,보)를 선택하는 확률이 어떻게 업데이트 되어있는가?</p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">시점</th>
+<th style="text-align: center;">플레이어E가 (가위,바위)를 낼 확률</th>
+<th style="text-align: center;">플레이어F가 (가위,보)를 낼 확률</th>
+<th style="text-align: center;">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">t &lt;= 100</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">양쪽 플레이어 모두 학습모드가 아님</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">t &lt;= 500</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">데이터를 학습하여 수정한 확률</td>
+<td style="text-align: center;">플레이어E는 학습모드아님 / 플레이어F는 학습모드</td>
+</tr>
+</tbody>
+</table>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint: 플레이어F는 보를 내는 것이 낫다고 생각할 것이다. (가위를 내면 지거나 비기지만 보를 내면 지거나 이긴다.)</strong></p>
+</div>
+</div>
+<p><code>(7)</code> (6)번의 플레이어E와 플레이어F가 500회~1000회까지 추가로 게임을 한다. 이번에는 플레이어E만 데이터로부터 학습한다. 1000회까지 대결을 끝낸 이후 플레이어E가 (가위,바위)를 내는 확률은 어떻게 업데이트 되었는가?</p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">시점</th>
+<th style="text-align: center;">플레이어E가 (가위,바위)를 낼 확률</th>
+<th style="text-align: center;">플레이어F가 (가위,보)를 낼 확률</th>
+<th style="text-align: center;">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">t &lt;= 100</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">양쪽 플레이어 모두 학습모드가 아님</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">t &lt;= 500</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">데이터를 학습하여 수정한 확률</td>
+<td style="text-align: center;">플레이어E는 학습모드아님 / 플레이어F는 학습모드</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">t &lt;= 1000</td>
+<td style="text-align: center;">데이터를 학습하여 수정한 확률</td>
+<td style="text-align: center;">t=500시점에 업데이트된 확률</td>
+<td style="text-align: center;">플레이어E는 학습모드 / 플레이어F는 학습모드아님</td>
+</tr>
+</tbody>
+</table>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint: 플레이어F는 보를 내도록 학습되어 있다. 따라서 플레이어E가 바위를 내면 지고 가위를 내면 이길것이다. 따라서 플레이어E는 가위가 유리하다고 생각할 것이다.</strong></p>
+</div>
+</div>
+<p><code>(8)</code> (7)번의 플레이어E와 플레이어F가 1000회~30000회까지 추가로 게임을 한다. 이번에는 플레이어F만 데이터로부터 학습한다. 30000회까지 대결을 끝낸 이후 플레이어F가 (가위,보)를 내는 확률은 어떻게 업데이트 되었는가?</p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">시점</th>
+<th style="text-align: center;">플레이어E가 (가위,바위)를 낼 확률</th>
+<th style="text-align: center;">플레이어F가 (가위,보)를 낼 확률</th>
+<th style="text-align: center;">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">t &lt;= 100</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">양쪽 플레이어 모두 학습모드가 아님</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">t &lt;= 500</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">데이터를 학습하여 수정한 확률</td>
+<td style="text-align: center;">플레이어E는 학습모드아님 / 플레이어F는 학습모드</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">t &lt;= 1000</td>
+<td style="text-align: center;">데이터를 학습하여 수정한 확률</td>
+<td style="text-align: center;">t=500시점에 업데이트된 확률</td>
+<td style="text-align: center;">플레이어E는 학습모드 / 플레이어F는 학습모드아님</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">t &lt;= 30000</td>
+<td style="text-align: center;">t=1000시점에 업데이트된 확률</td>
+<td style="text-align: center;">데이터를 학습하여 수정한 확률</td>
+<td style="text-align: center;">플레이어E는 학습모드아님 / 플레이어F는 학습모드</td>
+</tr>
+</tbody>
+</table>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint: 플레이어F는 원래 보가 유리하다고 생각하여 보를 자주 내도록 학습되었다. 하지만 플레이어E가 그러한 플레이어F의 성향을 파악하고 가위를 주로 내도록 학습하였다. 플레이어F는 그러한 플레이어E의 성향을 다시 파악하여 이번에는 가위을 자주 내는 것이 유리하다고 생각할 것이다.</strong></p>
+</div>
+</div>
+<p><code>(9)</code> 플레이어E와 플레이어F의 대결기록을 초기화 한다. 이번에는 플레이어F가 항상 (3/4)의 확률로 가위를 (1/4)의 확률로 보를 낸다고 가정한다. 플레이어E는 100번의 대결까지는 랜덤으로 (가위,바위)중 하나를 내고 101번째 대결부터 1000번째 대결까지는 대결 데이터를 학습하여 수정한 확률을 사용한다고 하자. 1000번째 대결이후에 플레이어E가 (가위,바위)를 내는 확률이 어떻게 업데이트 되어있는가?</p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">시점</th>
+<th style="text-align: center;">플레이어E가 (가위,바위)를 낼 확률</th>
+<th style="text-align: center;">플레이어F가 (가위,보)를 낼 확률</th>
+<th style="text-align: center;">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">t &lt;= 100</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">(3/4, 1/4)</td>
+<td style="text-align: center;">양쪽 플레이어 모두 학습모드가 아님</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">t &lt;= 1000</td>
+<td style="text-align: center;">데이터를 학습하여 수정한 확률</td>
+<td style="text-align: center;">(3/4, 1/4)</td>
+<td style="text-align: center;">플레이어E는 학습모드 / 플레이어F는 학습모드 아님</td>
+</tr>
+</tbody>
+</table>
+<p><code>(10)</code> 플레이어E와 플레이어F의 대결기록을 초기화 한다. 이번에는 플레이어F가 항상 (2/3)의 확률로 가위를 (1/3)의 확률로 보를 낸다고 가정한다. 플레이어E는 100번의 대결까지는 랜덤으로 (가위,바위)중 하나를 내고 101번째 대결부터 1000번째 대결까지는 대결 데이터를 학습하여 수정한 확률을 사용한다고 하자. 1000번째 대결이후에 플레이어E가 (가위,바위)를 내는 확률이 어떻게 업데이트 되어있는가?</p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">시점</th>
+<th style="text-align: center;">플레이어E가 (가위,바위)를 낼 확률</th>
+<th style="text-align: center;">플레이어F가 (가위,보)를 낼 확률</th>
+<th style="text-align: center;">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">t &lt;= 100</td>
+<td style="text-align: center;">(1/2, 1/2)</td>
+<td style="text-align: center;">(2/3, 1/3)</td>
+<td style="text-align: center;">양쪽 플레이어 모두 학습모드가 아님</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">t &lt;= 1000</td>
+<td style="text-align: center;">데이터를 학습하여 수정한 확률</td>
+<td style="text-align: center;">(2/3, 1/3)</td>
+<td style="text-align: center;">플레이어E는 학습모드 / 플레이어F는 학습모드 아님</td>
+</tr>
+</tbody>
+</table>
+
+
 </section>
 
 </main> <!-- /main -->
