@@ -1003,50 +1003,121 @@ TypeError: 'int' object is not iterable</code></pre>
 </section>
 <section id="숙제" class="level1">
 <h1>숙제</h1>
-<p>아래의 클래스를 고려하자.</p>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1"></a><span class="kw">class</span> RPS_BASE:</span>
-<span id="cb149-2"><a href="#cb149-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate):</span>
-<span id="cb149-3"><a href="#cb149-3"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
-<span id="cb149-4"><a href="#cb149-4"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
-<span id="cb149-5"><a href="#cb149-5"></a>        <span class="va">self</span>.prob <span class="op">=</span> [] </span>
-<span id="cb149-6"><a href="#cb149-6"></a>    <span class="kw">def</span> <span class="fu">__setitem__</span>(<span class="va">self</span>,index,val):</span>
-<span id="cb149-7"><a href="#cb149-7"></a>        <span class="va">self</span>.actions[index] <span class="op">=</span> val</span>
-<span id="cb149-8"><a href="#cb149-8"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>,item):</span>
-<span id="cb149-9"><a href="#cb149-9"></a>        <span class="cf">return</span> <span class="va">self</span>.actions[item]        </span>
-<span id="cb149-10"><a href="#cb149-10"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
-<span id="cb149-11"><a href="#cb149-11"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.actions)</span>
-<span id="cb149-12"><a href="#cb149-12"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other):</span>
-<span id="cb149-13"><a href="#cb149-13"></a>        <span class="cf">return</span> <span class="va">self</span>[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> other[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb149-14"><a href="#cb149-14"></a>    <span class="kw">def</span> <span class="fu">__gt__</span>(<span class="va">self</span>,other):</span>
-<span id="cb149-15"><a href="#cb149-15"></a>        <span class="cf">return</span> [<span class="va">self</span>[<span class="op">-</span><span class="dv">1</span>],other[<span class="op">-</span><span class="dv">1</span>]] <span class="kw">in</span> [[<span class="st">'가위'</span>,<span class="st">'보'</span>],[<span class="st">'바위'</span>,<span class="st">'가위'</span>],[<span class="st">'보'</span>,<span class="st">'바위'</span>]]</span>
-<span id="cb149-16"><a href="#cb149-16"></a>    <span class="kw">def</span> <span class="fu">__ge__</span>(<span class="va">self</span>,other):</span>
-<span id="cb149-17"><a href="#cb149-17"></a>        <span class="cf">return</span> (<span class="va">self</span> <span class="op">==</span> other) <span class="kw">or</span> (<span class="va">self</span> <span class="op">&gt;</span> other)</span>
-<span id="cb149-18"><a href="#cb149-18"></a>    <span class="kw">def</span> <span class="fu">__lt__</span>(<span class="va">self</span>,other):</span>
-<span id="cb149-19"><a href="#cb149-19"></a>        <span class="cf">return</span> <span class="kw">not</span> (<span class="va">self</span> <span class="op">&gt;=</span> other)</span>
-<span id="cb149-20"><a href="#cb149-20"></a>    <span class="kw">def</span> <span class="fu">__le__</span>(<span class="va">self</span>,other):</span>
-<span id="cb149-21"><a href="#cb149-21"></a>        <span class="cf">return</span> (<span class="va">self</span> <span class="op">==</span> other) <span class="kw">or</span> (<span class="va">self</span> <span class="op">&lt;</span> other)    </span>
-<span id="cb149-22"><a href="#cb149-22"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
-<span id="cb149-23"><a href="#cb149-23"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb149-24"><a href="#cb149-24"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt;</span></span>
-<span id="cb149-25"><a href="#cb149-25"></a><span class="st">        기록: </span><span class="sc">{}</span></span>
-<span id="cb149-26"><a href="#cb149-26"></a><span class="st">        """</span>        </span>
-<span id="cb149-27"><a href="#cb149-27"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate,<span class="va">self</span>.actions)</span>
-<span id="cb149-28"><a href="#cb149-28"></a>    </span>
-<span id="cb149-29"><a href="#cb149-29"></a>    <span class="kw">def</span> pick(<span class="va">self</span>):</span>
-<span id="cb149-30"><a href="#cb149-30"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate))        </span>
-<span id="cb149-31"><a href="#cb149-31"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>(1)</code> 아래의 코드를 관찰하라.</p>
+<div class="cell" data-execution_count="459">
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1"></a>iterator <span class="op">=</span> <span class="bu">enumerate</span>(<span class="st">'abcf'</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb150-1"><a href="#cb150-1"></a>a <span class="op">=</span> RPS_BASE([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="460">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb150-1"><a href="#cb150-1"></a><span class="bu">next</span>(iterator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="460">
+<pre><code>(1, 'a')</code></pre>
 </div>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1"></a>a.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
-
-        낼 수 있는 패: ['가위', '바위', '보'] <br>
-        기록: []
-        
+</div>
+<div class="cell" data-execution_count="461">
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb152-1"><a href="#cb152-1"></a><span class="bu">next</span>(iterator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="461">
+<pre><code>(2, 'b')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="462">
+<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1"></a><span class="bu">next</span>(iterator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="462">
+<pre><code>(3, 'c')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="463">
+<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb156-1"><a href="#cb156-1"></a><span class="bu">next</span>(iterator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="463">
+<pre><code>(4, 'f')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="464">
+<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb158-1"><a href="#cb158-1"></a><span class="bu">next</span>(iterator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>StopIteration: </code></pre>
+</div>
+</div>
+<p>이를 바탕으로 <code>enumerate('abcf',1)</code>의 기능을 유추해볼 것.</p>
+<p><code>(2)</code> enumrate를 이용하여 아래의 코드를 개선하여라.</p>
+<div class="cell" data-execution_count="465">
+<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb160-1"><a href="#cb160-1"></a>lst <span class="op">=</span> [<span class="st">'아이언맨'</span>,<span class="st">'토르'</span>,<span class="st">'헐크'</span>,<span class="st">'블랙위도우'</span>,<span class="st">'로키'</span>]</span>
+<span id="cb160-2"><a href="#cb160-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(lst)):</span>
+<span id="cb160-3"><a href="#cb160-3"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="sc">{}</span><span class="st">: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(i<span class="op">+</span><span class="dv">1</span>,lst[i]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1: 아이언맨
+2: 토르
+3: 헐크
+4: 블랙위도우
+5: 로키</code></pre>
+</div>
+</div>
+<p><code>(3)</code> 앞면과 뒷면이 나올 확률이 각각 1/2인 동전을 생각하자. 하니와 규빈은 이 동전을 연속으로 던져서 아래와 같은 룰을 정하여 내기를 하였다.</p>
+<ul>
+<li>동전을 연속으로 반복하여 던진다. 최근 2회의 결과가 (앞면,앞면) 이 나오면 하니의 승리</li>
+<li>동전을 연속으로 반복하여 던진다. 최근 2회의 결과가 (뒷면,뒷면) 이 나오면 규빈의 승리</li>
+</ul>
+<p>예를들어 동전을 반복하여 던져 아래와 같이 나온다면 하니의 승리이다.</p>
+<ul>
+<li>(앞면, 뒷면, 앞면, 뒷면, 앞면, 앞면)</li>
+<li>(앞면, 뒷면, 앞면, 앞면)</li>
+</ul>
+<p>동전을 반복하여 던져 아래와 같이 나온다면 규빈의 승리이다.</p>
+<ul>
+<li>(앞면, 뒷면, 앞면, 뒷면, 뒷면)</li>
+<li>(뒷면, 앞면, 뒷면, 뒷면)</li>
+</ul>
+<p>이 내기는 하니가 유리한가? 규빈이 유리한가? 시뮬레이션을 통해 검증하라.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint</strong>: 당연히 5:5겠죠?</p>
+</div>
+</div>
+<p><code>(4)</code> 앞면과 뒷면이 나올 확률이 각각 1/2인 동전을 생각하자. 하니와 규빈은 이 동전을 연속으로 던져서 아래와 같은 룰을 정하여 내기를 하였다.</p>
+<ul>
+<li>동전을 연속으로 반복하여 던진다. 최근 2회의 결과가 (뒷면,앞면) 이 나오면 하니의 승리</li>
+<li>동전을 연속으로 반복하여 던진다. 최근 2회의 결과가 (뒷면,뒷면) 이 나오면 규빈의 승리</li>
+</ul>
+<p>이 내기는 하니가 유리한가? 규빈이 유리한가? 시뮬레이션을 통해 검증하라.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint</strong>: 이 경우도 당연히 똑같이 유리합니다.</p>
+</div>
+</div>
+<p><code>(5)</code> 앞면과 뒷면이 나올 확률이 각각 1/2인 동전을 생각하자. 하니와 규빈은 이 동전을 연속으로 던져서 아래와 같은 룰을 정하여 내기를 하였다.</p>
+<ul>
+<li>동전을 연속으로 반복하여 던진다. 최근 2회의 결과가 (앞면,뒷면) 이 나오면 하니의 승리</li>
+<li>동전을 연속으로 반복하여 던진다. 최근 2회의 결과가 (뒷면,뒷면) 이 나오면 규빈의 승리</li>
+</ul>
+<p>이 내기는 하니가 유리한가? 규빈이 유리한가? 시뮬레이션을 통해 검증하라.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>hint</strong>: 하니가 유리합니다. 저는 1000회 시뮬레이션 결과</p>
+<p>{‘하니’: 761, ‘규빈’: 239}</p>
+<p>와 같이 결과가 나왔습니다. 왜 하니가 유리한지 스스로 고민해보시기 바랍니다. (질문해도 되고요)</p>
 </div>
 </div>
 
