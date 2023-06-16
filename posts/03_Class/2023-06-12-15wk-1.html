@@ -997,7 +997,143 @@ Init클래스에서 정의된 __init__메소드를 실행합니다</code></pre>
 </section>
 <section id="숙제" class="level1">
 <h1>숙제</h1>
-<p><code>(1)</code></p>
+<div class="cell" data-execution_count="678">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1"></a><span class="im">import</span> datetime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>(1)</code> 아래의 코드를 관찰하고 datetime의 동작을 유추하라.</p>
+<div class="cell" data-execution_count="598">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1"></a>current_time <span class="op">=</span> datetime.datetime.now().strftime(<span class="st">'%y-%m-</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%X</span><span class="st">'</span>)</span>
+<span id="cb115-2"><a href="#cb115-2"></a>current_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="598">
+<pre><code>'23-06-16 09:35:44'</code></pre>
+</div>
+</div>
+<p><code>(2)</code> 아래의 코드를 관찰하고 Time 클래스의 기능을 추정하라.</p>
+<div class="cell" data-execution_count="599">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a><span class="kw">class</span> Time:</span>
+<span id="cb117-2"><a href="#cb117-2"></a>    <span class="kw">def</span> time(<span class="va">self</span>):</span>
+<span id="cb117-3"><a href="#cb117-3"></a>        <span class="cf">return</span> datetime.datetime.now().strftime(<span class="st">'%y-%m-</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%X</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="600">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1"></a>time_ins <span class="op">=</span> Time()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="601">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1"></a>time_ins.time()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="601">
+<pre><code>'23-06-16 09:35:45'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="602">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1"></a>time_ins.time()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="602">
+<pre><code>'23-06-16 09:35:45'</code></pre>
+</div>
+</div>
+<p><code>(3)</code> Time을 상속받아 Init 클래스를 만들고 <code>__repr__</code>을 조작하여 아래와 같이 인스턴스 생성시점을 출력하는 기능을 구현하라.</p>
+<div class="cell" data-execution_count="641">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1"></a>a <span class="op">=</span> Init()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="642">
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="642">
+<pre><code>인스턴스생성시점: 23-06-16 10:27:19</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="643">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1"></a>b <span class="op">=</span> Init()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="644">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1"></a>a,b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="644">
+<pre><code>(인스턴스생성시점: 23-06-16 10:27:19, 인스턴스생성시점: 23-06-16 10:27:28)</code></pre>
+</div>
+</div>
+<p><code>(4)</code> 아래는 Dummy 클래스이다.</p>
+<div class="cell" data-execution_count="612">
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1"></a><span class="kw">class</span> Dummy:</span>
+<span id="cb129-2"><a href="#cb129-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb129-3"><a href="#cb129-3"></a>        <span class="va">self</span>.a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb129-4"><a href="#cb129-4"></a>        <span class="va">self</span>.b <span class="op">=</span> <span class="dv">2</span> </span>
+<span id="cb129-5"><a href="#cb129-5"></a>    <span class="kw">def</span> dummy(<span class="va">self</span>):</span>
+<span id="cb129-6"><a href="#cb129-6"></a>        <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="613">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1"></a>dummy <span class="op">=</span> Dummy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="614">
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb131-1"><a href="#cb131-1"></a><span class="bu">dir</span>(dummy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="614">
+<pre><code>['__class__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ 'a',
+ 'b',
+ 'dummy']</code></pre>
+</div>
+</div>
+<p>dummy 클래스에서 숨겨지지 않은 attribute는 ‘a’, ‘b’, ‘dummy’ 이다. 이를 출력하는 코드를 작성하라.</p>
+<p><strong>hint:</strong> 숨겨지지 않은 attribute는 <code>_</code>로 시작하지 않는다.</p>
+<div class="cell" data-execution_count="615">
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1"></a>[l <span class="cf">for</span> l <span class="kw">in</span> <span class="bu">dir</span>(dummy) <span class="cf">if</span> l[<span class="dv">0</span>]<span class="op">!=</span><span class="st">'_'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="615">
+<pre><code>['a', 'b', 'dummy']</code></pre>
+</div>
+</div>
+<p><strong>hint2</strong> (5)번의 코드를 잘 관찰하세요..</p>
+<p><code>(5)</code> 아래클래스를 관찰하고 check()의 기능을 유추하라.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1"></a><span class="kw">class</span> Check:</span>
+<span id="cb135-2"><a href="#cb135-2"></a>    <span class="kw">def</span> ckeck(<span class="va">self</span>):</span>
+<span id="cb135-3"><a href="#cb135-3"></a>        <span class="cf">return</span> [l <span class="cf">for</span> l <span class="kw">in</span> <span class="bu">dir</span>(<span class="va">self</span>) <span class="cf">if</span> l[<span class="dv">0</span>]<span class="op">!=</span><span class="st">'_'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="610">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1"></a>ck <span class="op">=</span> Check()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="611">
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb137-1"><a href="#cb137-1"></a>ck.ckeck()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="611">
+<pre><code>['ckeck']</code></pre>
+</div>
+</div>
+<p><code>(6)</code> tuple 클래스와 Check를 상속받아 아래와 같은 역할을 하는 새로운 Tuple 클래스를 만들라.</p>
+<div class="cell" data-execution_count="677">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb139-1"><a href="#cb139-1"></a>tpl <span class="op">=</span> Tuple(<span class="st">'asdfassdfsasdf'</span>)</span>
+<span id="cb139-2"><a href="#cb139-2"></a>tpl <span class="co"># 값과 함께 사용가능한 메소드가 함께 출력 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="677">
+<pre><code>('a', 's', 'd', 'f', 'a', 's', 's', 'd', 'f', 's', 'a', 's', 'd', 'f')
+
+methods=['ckeck', 'count', 'freq', 'index']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="676">
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb141-1"><a href="#cb141-1"></a>tpl.freq()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="676">
+<pre><code>{'d': 3, 'a': 3, 's': 5, 'f': 3}</code></pre>
+</div>
+</div>
 
 
 </section>
