@@ -243,6 +243,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../posts/2023-06-19-15wk-2-fin.html" class="sidebar-item-text sidebar-link active">15wk-2: 기말고사</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../posts/2023-06-19-15wk-2-finsol.html" class="sidebar-item-text sidebar-link">15wk-2: 기말고사</a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">01 PythonBasic</a>
@@ -460,14 +465,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>제출은 <code>*.ipynb</code>, <code>*.html</code>, <code>*.pdf</code> 파일로 제출할 것</strong></p>
 <ul>
 <li><code>ipynb</code> 파일형태제출을 권장함.</li>
-</ul>
-<p><strong>배점</strong></p>
-<p><code>1번</code>: 10,20,20,20,80 -&gt; 150점</p>
-<p><code>2번</code>: 각 5점씩 -&gt; 50점</p>
-<p><strong>1-(3), 1-(5)에 대한 혜택</strong></p>
-<ul>
-<li>1-(3)을 맞출경우 1-(2)를 풀지 않아도 정답으로 인정함.</li>
-<li>1-(5)를 마줄경우 1-(4)를 풀지 않아도 정답으로 인정함.</li>
 </ul>
 <section id="imports" class="level1">
 <h1>imports</h1>
@@ -1212,52 +1209,47 @@ methods=['ckeck', 'count', 'freq', 'index']</code></pre>
 <span id="cb88-13"><a href="#cb88-13"></a>        <span class="va">self</span>.value <span class="op">=</span> <span class="va">self</span>.value <span class="op">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>Plus5</code>와 <code>Times2</code>를 상속하여 적당한 클래스 <code>Times2Plus5</code>를 정의하고 생성과 동시에 <span class="math inline">\(x \to (x\times 2)+5\)</span> 를 수행도록 하라.</p>
-<div class="cell" data-execution_count="1104">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a><span class="kw">class</span> Times2Plus5(Plus5,Times2):</span>
-<span id="cb89-2"><a href="#cb89-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,value):</span>
-<span id="cb89-3"><a href="#cb89-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p><strong>사용예시</strong></p>
 <div class="cell" data-execution_count="1105">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a>a<span class="op">=</span>Times2Plus5(<span class="dv">0</span>)</span>
-<span id="cb90-2"><a href="#cb90-2"></a>a.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>a<span class="op">=</span>Times2Plus5(<span class="dv">0</span>)</span>
+<span id="cb89-2"><a href="#cb89-2"></a>a.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1105">
 <pre><code>5</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="1106">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1"></a>a<span class="op">=</span>Times2Plus5(<span class="dv">1</span>)</span>
-<span id="cb92-2"><a href="#cb92-2"></a>a.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>a<span class="op">=</span>Times2Plus5(<span class="dv">1</span>)</span>
+<span id="cb91-2"><a href="#cb91-2"></a>a.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1106">
 <pre><code>7</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="1107">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>a<span class="op">=</span>Times2Plus5(<span class="dv">5</span>)</span>
-<span id="cb94-2"><a href="#cb94-2"></a>a.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>a<span class="op">=</span>Times2Plus5(<span class="dv">5</span>)</span>
+<span id="cb93-2"><a href="#cb93-2"></a>a.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1107">
 <pre><code>15</code></pre>
 </div>
 </div>
 <p><code>(7)</code> 아래의 함수가 있다고 하자.</p>
 <div class="cell" data-execution_count="1108">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a><span class="kw">def</span> f(x): </span>
-<span id="cb96-2"><a href="#cb96-2"></a>    <span class="cf">return</span> np.sin(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a><span class="kw">def</span> f(x): </span>
+<span id="cb95-2"><a href="#cb95-2"></a>    <span class="cf">return</span> np.sin(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>적당한 함수 <code>derivate</code>를 정의하여 함수를 입력으로 받으면 그 도함수를 출력으로 리턴하도록 하라. 아래의 코드를 이용하여 검증하라.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">100</span>)</span>
-<span id="cb97-2"><a href="#cb97-2"></a>plt.plot(x,f(x),label<span class="op">=</span><span class="vs">r'$f(x)=\sin(x)$'</span>)</span>
-<span id="cb97-3"><a href="#cb97-3"></a>plt.plot(x,(derivate(f))(x),label<span class="op">=</span><span class="vs">r'$f\'(x)=\cos(x)$'</span>)</span>
-<span id="cb97-4"><a href="#cb97-4"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">100</span>)</span>
+<span id="cb96-2"><a href="#cb96-2"></a>plt.plot(x,f(x),label<span class="op">=</span><span class="vs">r'$f(x)=\sin(x)$'</span>)</span>
+<span id="cb96-3"><a href="#cb96-3"></a>plt.plot(x,(derivate(f))(x),label<span class="op">=</span><span class="vs">r'$f\'(x)=\cos(x)$'</span>)</span>
+<span id="cb96-4"><a href="#cb96-4"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1112">
 <pre><code>&lt;matplotlib.legend.Legend at 0x7f236da92ee0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-19-15wk-2-fin_files/figure-html/cell-77-output-2.png" class="img-fluid"></p>
+<p><img src="2023-06-19-15wk-2-fin_files/figure-html/cell-76-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>(8)</code>. Student 클래스를 생성지침 및 사용예시를 참고하여 설계하라.</p>
+<p><code>(8)</code> Student 클래스를 생성지침 및 사용예시를 참고하여 설계하라.</p>
 <p><strong><code>생성지침</code></strong></p>
 <p><strong>attributes</strong></p>
 <ul>
@@ -1272,9 +1264,9 @@ methods=['ckeck', 'count', 'freq', 'index']</code></pre>
 </ul>
 <p><strong><code>사용예시</code></strong></p>
 <div class="cell" data-execution_count="224">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># 사용 예시</span></span>
-<span id="cb99-2"><a href="#cb99-2"></a>boram <span class="op">=</span> Student(name<span class="op">=</span><span class="st">'김보람'</span>, age<span class="op">=</span><span class="dv">20</span>, semester<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb99-3"><a href="#cb99-3"></a><span class="bu">print</span>(boram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># 사용 예시</span></span>
+<span id="cb98-2"><a href="#cb98-2"></a>boram <span class="op">=</span> Student(name<span class="op">=</span><span class="st">'김보람'</span>, age<span class="op">=</span><span class="dv">20</span>, semester<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb98-3"><a href="#cb98-3"></a><span class="bu">print</span>(boram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>이름: 김보람
 나이: 20
@@ -1283,14 +1275,14 @@ methods=['ckeck', 'count', 'freq', 'index']</code></pre>
 </div>
 <p><code>(9)</code> 8의 클래스를 상속받아 Student2 만들라. <code>__add__</code> 재정의하여 Student2의 인스턴스가 아래와 같이 동작하도록 하라.</p>
 <div class="cell" data-execution_count="1122">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a>boram <span class="op">=</span> Student2()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1"></a>boram <span class="op">=</span> Student2()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>입학을 축하합니다. 당신의 나이는 20.0이고 현재 학기는 0학기 입니다.</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="1123">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a>boram <span class="op">+</span> <span class="st">'등록'</span><span class="op">+</span> <span class="st">'휴학'</span> <span class="op">+</span> <span class="st">'등록'</span> <span class="op">+</span> <span class="st">'휴학'</span></span>
-<span id="cb103-2"><a href="#cb103-2"></a>boram</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1"></a>boram <span class="op">+</span> <span class="st">'등록'</span><span class="op">+</span> <span class="st">'휴학'</span> <span class="op">+</span> <span class="st">'등록'</span> <span class="op">+</span> <span class="st">'휴학'</span></span>
+<span id="cb102-2"><a href="#cb102-2"></a>boram</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1123">
 
         나이: 22.0 <br>
@@ -1304,20 +1296,20 @@ methods=['ckeck', 'count', 'freq', 'index']</code></pre>
 <p><code>(10)</code> 적당한 클래스를 선언하여 <span class="math inline">\(f(x)=x+{\tt const}\)</span>를 수행하는 함수를 생성하도록 하라.</p>
 <p><strong>사용예시1</strong></p>
 <div class="cell" data-execution_count="1125">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1"></a>f <span class="op">=</span> AddConstant(<span class="dv">5</span>) <span class="co"># f(x) = x+5 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a>f <span class="op">=</span> AddConstant(<span class="dv">5</span>) <span class="co"># f(x) = x+5 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="1126">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>f(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1"></a>f(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1126">
 <pre><code>15</code></pre>
 </div>
 </div>
 <p><strong>사용예시2</strong></p>
 <div class="cell" data-execution_count="1127">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1"></a>f <span class="op">=</span> AddConstant(<span class="op">-</span><span class="dv">3</span>) <span class="co"># f(x) = x-3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1"></a>f <span class="op">=</span> AddConstant(<span class="op">-</span><span class="dv">3</span>) <span class="co"># f(x) = x-3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="1128">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1"></a>f(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1"></a>f(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1128">
 <pre><code>7</code></pre>
 </div>
