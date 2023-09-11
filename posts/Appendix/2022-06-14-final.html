@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.322">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -111,6 +82,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -120,13 +96,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
@@ -138,302 +116,317 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">PP2023</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="../../about.html" aria-current="page">
- <span class="menu-text">About</span></a>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/PP2023"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/guebin/PP2023"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"><i class="bi bi-youtube" role="img">
-</i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">참고자료: 2022-06-final</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/2023-03-06-1wk-1.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/Appendix/2021-04-20-mid.html">Appendix</a></li><li class="breadcrumb-item"><a href="../../posts/Appendix/2022-06-14-final.html">참고자료: 2022-06-final</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">참고자료: 2022-06-final</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>최규빈 </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">June 6, 2022</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../about.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Posts</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Posts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-03-06-1wk-1.html" class="sidebar-item-text sidebar-link">01wk-1: 강의소개</a>
+  <a href="../../posts/2023-03-06-1wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01wk-1: 강의소개</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-05-08-10wk-1-mid.html" class="sidebar-item-text sidebar-link">10wk-1: 중간고사</a>
+  <a href="../../posts/2023-05-08-10wk-1-mid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10wk-1: 중간고사</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-06-21-13wk-1.html" class="sidebar-item-text sidebar-link">13wk-1: 깊은복사와 얕은복사</a>
+  <a href="../../posts/2023-06-19-15wk-2-fin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15wk-2: 기말고사</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-06-19-15wk-2-fin.html" class="sidebar-item-text sidebar-link">15wk-2: 기말고사</a>
+  <a href="../../posts/2023-06-20-15wk-2-finsol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15wk-2: 기말고사 풀이</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-06-20-15wk-2-finsol.html" class="sidebar-item-text sidebar-link">15wk-2: 기말고사 풀이</a>
+  <a href="../../posts/2023-06-21-13wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13wk-1: 깊은복사와 얕은복사</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">01 PythonBasic</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">01 PythonBasic</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-08-1wk-2.html" class="sidebar-item-text sidebar-link">01wk-2: 파이썬의 자료형 (1)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-08-1wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01wk-2: 파이썬의 자료형 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-13-2wk-1.html" class="sidebar-item-text sidebar-link">02wk-1: 파이썬의 자료형 (2)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-13-2wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02wk-1: 파이썬의 자료형 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-15-2wk-2.html" class="sidebar-item-text sidebar-link">02wk-2: 파이썬의 자료형 (3)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-15-2wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02wk-2: 파이썬의 자료형 (3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-20-3wk-1.html" class="sidebar-item-text sidebar-link">03wk-1: 파이썬의 자료형 (4)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-20-3wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03wk-1: 파이썬의 자료형 (4)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-22-3wk-2.html" class="sidebar-item-text sidebar-link">03wk-2: 파이썬의 자료형 (5)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-22-3wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03wk-2: 파이썬의 자료형 (5)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-27-4wk-1.html" class="sidebar-item-text sidebar-link">04wk-1: 파이썬의 자료형 (6)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-27-4wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04wk-1: 파이썬의 자료형 (6)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-29-4wk-2.html" class="sidebar-item-text sidebar-link">04wk-2: 파이썬의 자료형 (7)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-29-4wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04wk-2: 파이썬의 자료형 (7)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-04-03-5wk-1.html" class="sidebar-item-text sidebar-link">05wk-1: 개발환경의 변화</a>
+  <a href="../../posts/01_PythonBasic/2023-04-03-5wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05wk-1: 개발환경의 변화</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-04-05-5wk-2.html" class="sidebar-item-text sidebar-link">05wk-2: 모듈, 패키지, 라이브러리</a>
+  <a href="../../posts/01_PythonBasic/2023-04-05-5wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05wk-2: 모듈, 패키지, 라이브러리</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">02 DataScience</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">02 DataScience</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-10-6wk-1.html" class="sidebar-item-text sidebar-link">06wk-1: Numpy (1)</a>
+  <a href="../../posts/02_DataScience/2023-04-10-6wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06wk-1: Numpy (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-12-6wk-2.html" class="sidebar-item-text sidebar-link">06wk-2: Numpy (2)</a>
+  <a href="../../posts/02_DataScience/2023-04-12-6wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06wk-2: Numpy (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-17-7wk-1.html" class="sidebar-item-text sidebar-link">07wk-1: Numpy 활용 (1)</a>
+  <a href="../../posts/02_DataScience/2023-04-17-7wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07wk-1: Numpy 활용 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-19-7wk-2.html" class="sidebar-item-text sidebar-link">07wk-2: Numpy 활용 (2)</a>
+  <a href="../../posts/02_DataScience/2023-04-19-7wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07wk-2: Numpy 활용 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-24-8wk-1.html" class="sidebar-item-text sidebar-link">08wk-1: Pandas (1)</a>
+  <a href="../../posts/02_DataScience/2023-04-24-8wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08wk-1: Pandas (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-26-8wk-2.html" class="sidebar-item-text sidebar-link">08wk-2: Pandas (2)</a>
+  <a href="../../posts/02_DataScience/2023-04-26-8wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08wk-2: Pandas (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-05-01-9wk-1.html" class="sidebar-item-text sidebar-link">09wk-1: Numpy와 Pandas의 활용</a>
+  <a href="../../posts/02_DataScience/2023-05-01-9wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09wk-1: Numpy와 Pandas의 활용</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">03 Class</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">03 Class</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-10-10wk-2.html" class="sidebar-item-text sidebar-link">10wk-2: 밈과 클래스 (1)</a>
+  <a href="../../posts/03_Class/2023-05-10-10wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10wk-2: 밈과 클래스 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-15-11wk-1.html" class="sidebar-item-text sidebar-link">11wk-1: 밈과 클래스 (2)</a>
+  <a href="../../posts/03_Class/2023-05-15-11wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11wk-1: 밈과 클래스 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-17-11wk-2.html" class="sidebar-item-text sidebar-link">11wk-2: 클래스공부 1단계 – 메소드</a>
+  <a href="../../posts/03_Class/2023-05-17-11wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11wk-2: 클래스공부 1단계 – 메소드</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-22-12wk-1.html" class="sidebar-item-text sidebar-link">12wk-1: 클래스공부 2단계 – <code>__init__</code></a>
+  <a href="../../posts/03_Class/2023-05-22-12wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12wk-1: 클래스공부 2단계 – <code>__init__</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-24-12wk-2.html" class="sidebar-item-text sidebar-link">12wk-2: 클래스공부 3단계 – 문제연습</a>
+  <a href="../../posts/03_Class/2023-05-24-12wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12wk-2: 클래스공부 3단계 – 문제연습</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-31-13wk-2.html" class="sidebar-item-text sidebar-link">13wk-2: 클래스공부 4단계 – 파이썬의 비밀 (1)</a>
+  <a href="../../posts/03_Class/2023-05-31-13wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13wk-2: 클래스공부 4단계 – 파이썬의 비밀 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-06-05-14wk-1.html" class="sidebar-item-text sidebar-link">14wk-1: 클래스공부 4단계 – 파이썬의 비밀 (2)</a>
+  <a href="../../posts/03_Class/2023-06-05-14wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14wk-1: 클래스공부 4단계 – 파이썬의 비밀 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-06-07-14wk-2.html" class="sidebar-item-text sidebar-link">14wk-2: 클래스공부 4단계 – 파이썬의 비밀 (3)</a>
+  <a href="../../posts/03_Class/2023-06-07-14wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14wk-2: 클래스공부 4단계 – 파이썬의 비밀 (3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-06-12-15wk-1.html" class="sidebar-item-text sidebar-link">15wk-1: 클래스공부 5단계 – 상속</a>
+  <a href="../../posts/03_Class/2023-06-12-15wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15wk-1: 클래스공부 5단계 – 상속</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Appendix</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2021-04-20-mid.html" class="sidebar-item-text sidebar-link">참고자료: 2021-04-mid</a>
+  <a href="../../posts/Appendix/2021-04-20-mid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고자료: 2021-04-mid</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2021-06-09-final.html" class="sidebar-item-text sidebar-link">참고자료: 2021-06-final</a>
+  <a href="../../posts/Appendix/2021-06-09-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고자료: 2021-06-final</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2022-05-03-mid.html" class="sidebar-item-text sidebar-link">참고자료: 2022-04-mid</a>
+  <a href="../../posts/Appendix/2022-05-03-mid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고자료: 2022-04-mid</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2022-06-14-final.html" class="sidebar-item-text sidebar-link active">참고자료: 2022-06-final</a>
+  <a href="../../posts/Appendix/2022-06-14-final.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">참고자료: 2022-06-final</span></a>
   </div>
 </li>
       </ul>
@@ -443,6 +436,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -459,13 +453,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2022-06-14-final.out.ipynb" download="2022-06-14-final.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/2023-03-06-1wk-1.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/Appendix/2021-04-20-mid.html">Appendix</a></li><li class="breadcrumb-item"><a href="../../posts/Appendix/2022-06-14-final.html">참고자료: 2022-06-final</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">참고자료: 2022-06-final</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 6, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 <blockquote class="blockquote">
 <p>오픈 북, 2시간, 문제미리공개</p>
@@ -475,72 +496,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="imports" class="level2">
 <h2 class="anchored" data-anchor-id="imports"><code>0</code>. imports</h2>
 <p>아래코드를 이용하여 numpy, matplotlib, pandas를 import하라.</p>
-<div class="cell" data-execution_count="511">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e4797193-b171-4255-8e55-9b4cf3d3a361" class="cell" data-execution_count="511">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="기본문제-50점" class="level2">
 <h2 class="anchored" data-anchor-id="기본문제-50점"><code>1</code>. 기본문제 (50점)</h2>
 <p><code>(1)</code> 도함수를 구하는 함수 <code>derivate</code>를 선언하라. 이 함수를 이용하여 <span class="math inline">\(f(x)=x^2\)</span>의 그래프와 <span class="math inline">\(f'(x)=2x\)</span>의 그래프를 <span class="math inline">\(x \in (-1,1)\)</span>의 범위에서 그려라.</p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="512">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> f(x): </span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="896521d3-c1ce-4b94-9e25-2a6b046e3984" class="cell" data-execution_count="512">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x): </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="513">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> derivate(f): </span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">def</span> df(x): </span>
-<span id="cb3-3"><a href="#cb3-3"></a>        h<span class="op">=</span><span class="fl">0.000000000001</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>        <span class="cf">return</span> (f(x<span class="op">+</span>h)<span class="op">-</span>f(x))<span class="op">/</span>h </span>
-<span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3102de88-918e-4919-810e-4a4265863033" class="cell" data-execution_count="513">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> derivate(f): </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> df(x): </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        h<span class="op">=</span><span class="fl">0.000000000001</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (f(x<span class="op">+</span>h)<span class="op">-</span>f(x))<span class="op">/</span>h </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="516">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
-<span id="cb4-2"><a href="#cb4-2"></a>plt.plot(x,f(x))</span>
-<span id="cb4-3"><a href="#cb4-3"></a>plt.plot(x,derivate(f)(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3401a86e-673c-43bd-8e72-54047cc47562" class="cell" data-execution_count="516">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x,f(x))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x,derivate(f)(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-06-14-final_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>(2)</code> 적당한 클래스 정의하여 인스턴스 a를 만들고 print(a)의 출력결과가 본인의 학번이 나오도록 하라.</p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="517">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> Klass:</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
-<span id="cb5-3"><a href="#cb5-3"></a>        <span class="cf">return</span>(<span class="st">'2022-43052'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="08e44740-2c11-43af-87d2-755c7e5dc15b" class="cell" data-execution_count="517">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Klass:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(<span class="st">'2022-43052'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="519">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>a<span class="op">=</span>Klass()</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="98ce0636-29c5-4665-b171-f6bcf8217f60" class="cell" data-execution_count="519">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>Klass()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2022-43052</code></pre>
 </div>
 </div>
 <p><code>(3)</code> for문이 실행될때마다 [묵,찌,빠] 중에 하나를 내며 빠를 누적 3회 낼경우 for문이 멈추는 이터레이터를 생성하라.</p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="522">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">class</span> Klass: <span class="co"># 찌를 내는순간 for문이 멈추도록 하는 이터레이터를 만들자</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>): </span>
-<span id="cb8-3"><a href="#cb8-3"></a>        <span class="va">self</span>.candidate <span class="op">=</span> [<span class="st">"묵"</span>,<span class="st">"찌"</span>,<span class="st">"빠"</span>] </span>
-<span id="cb8-4"><a href="#cb8-4"></a>        <span class="va">self</span>.dic <span class="op">=</span> {<span class="st">'묵'</span>:<span class="dv">0</span>,<span class="st">'찌'</span>:<span class="dv">0</span>,<span class="st">'빠'</span>:<span class="dv">0</span>}</span>
-<span id="cb8-5"><a href="#cb8-5"></a>    <span class="kw">def</span> <span class="fu">__iter__</span>(<span class="va">self</span>):</span>
-<span id="cb8-6"><a href="#cb8-6"></a>        <span class="cf">return</span> <span class="va">self</span> </span>
-<span id="cb8-7"><a href="#cb8-7"></a>    <span class="kw">def</span> <span class="fu">__next__</span>(<span class="va">self</span>):</span>
-<span id="cb8-8"><a href="#cb8-8"></a>        action <span class="op">=</span> np.random.choice(<span class="va">self</span>.candidate)</span>
-<span id="cb8-9"><a href="#cb8-9"></a>        <span class="va">self</span>.dic[action] <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a>        <span class="cf">if</span> <span class="va">self</span>.dic[<span class="st">'빠'</span>]<span class="op">==</span><span class="dv">3</span>:</span>
-<span id="cb8-11"><a href="#cb8-11"></a>            <span class="bu">print</span>(<span class="st">"빠가 3번 누적되어 for문을 멈춥니다"</span>)</span>
-<span id="cb8-12"><a href="#cb8-12"></a>            <span class="cf">raise</span> <span class="pp">StopIteration</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a>        <span class="cf">else</span>:</span>
-<span id="cb8-14"><a href="#cb8-14"></a>            <span class="cf">return</span> action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e4227cbf-c39f-4113-9dce-ee358a8ca086" class="cell" data-execution_count="522">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Klass: <span class="co"># 찌를 내는순간 for문이 멈추도록 하는 이터레이터를 만들자</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>): </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.candidate <span class="op">=</span> [<span class="st">"묵"</span>,<span class="st">"찌"</span>,<span class="st">"빠"</span>] </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dic <span class="op">=</span> {<span class="st">'묵'</span>:<span class="dv">0</span>,<span class="st">'찌'</span>:<span class="dv">0</span>,<span class="st">'빠'</span>:<span class="dv">0</span>}</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__iter__</span>(<span class="va">self</span>):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__next__</span>(<span class="va">self</span>):</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        action <span class="op">=</span> np.random.choice(<span class="va">self</span>.candidate)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dic[action] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.dic[<span class="st">'빠'</span>]<span class="op">==</span><span class="dv">3</span>:</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"빠가 3번 누적되어 for문을 멈춥니다"</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">StopIteration</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="523">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>a<span class="op">=</span>Klass()</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="cf">for</span> i <span class="kw">in</span> a:</span>
-<span id="cb9-3"><a href="#cb9-3"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d864876f-75b2-4c74-baa9-de1c2da06f69" class="cell" data-execution_count="523">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>Klass()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> a:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>빠
 묵
@@ -549,12 +570,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p><strong><em>(4)-(6)</em></strong></p>
-<div class="cell" data-execution_count="548">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">class</span> GS25: </span>
-<span id="cb11-2"><a href="#cb11-2"></a>    n<span class="op">=</span><span class="dv">0</span> </span>
-<span id="cb11-3"><a href="#cb11-3"></a>    total_number_of_guests <span class="op">=</span> <span class="dv">0</span> </span>
-<span id="cb11-4"><a href="#cb11-4"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb11-5"><a href="#cb11-5"></a>        <span class="va">self</span>.number_of_guests <span class="op">=</span> <span class="dv">0</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9b9f8a56-9146-46a6-81bf-62aae65f3c2a" class="cell" data-execution_count="548">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> GS25: </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    n<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    total_number_of_guests <span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.number_of_guests <span class="op">=</span> <span class="dv">0</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>(4)</code> 위의 클래스를 수정하여 아래와 같이 GS25에서 새로운 인스턴스가 생성될때마다</p>
 <pre><code>GS25의 점포수가 ?개로 늘었습니다.</code></pre>
@@ -567,278 +588,279 @@ GS25를 방문한 총 손님수는 n명입니다.
 <pre><code>GS25의 점포수: ??
 GS25를 방문한 총 손님수: ??</code></pre>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="549">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">class</span> GS25: </span>
-<span id="cb15-2"><a href="#cb15-2"></a>    n<span class="op">=</span><span class="dv">0</span> </span>
-<span id="cb15-3"><a href="#cb15-3"></a>    total_number_of_guests <span class="op">=</span> <span class="dv">0</span> </span>
-<span id="cb15-4"><a href="#cb15-4"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb15-5"><a href="#cb15-5"></a>        <span class="va">self</span>.number_of_guests <span class="op">=</span> <span class="dv">0</span> </span>
-<span id="cb15-6"><a href="#cb15-6"></a>        GS25.n <span class="op">+=</span> <span class="dv">1</span> </span>
-<span id="cb15-7"><a href="#cb15-7"></a>        <span class="bu">print</span>(<span class="st">"GS25의 점포수가 </span><span class="sc">{}</span><span class="st">개로 늘었습니다."</span>.<span class="bu">format</span>(GS25.n))</span>
-<span id="cb15-8"><a href="#cb15-8"></a>    <span class="kw">def</span> come(<span class="va">self</span>):</span>
-<span id="cb15-9"><a href="#cb15-9"></a>        GS25.total_number_of_guests <span class="op">+=</span> <span class="dv">1</span> </span>
-<span id="cb15-10"><a href="#cb15-10"></a>        <span class="va">self</span>.number_of_guests <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb15-11"><a href="#cb15-11"></a>        <span class="bu">print</span>(<span class="st">"새로운 손님이 오셨습니다!"</span>)</span>
-<span id="cb15-12"><a href="#cb15-12"></a>        <span class="bu">print</span>(<span class="st">"GS25를 방문한 총 손님수는 </span><span class="sc">{}</span><span class="st">명입니다."</span>.<span class="bu">format</span>(GS25.total_number_of_guests))</span>
-<span id="cb15-13"><a href="#cb15-13"></a>        <span class="bu">print</span>(<span class="st">"현재 GS25 점포를 방문한 손님수는 </span><span class="sc">{}</span><span class="st">명입니다."</span>.<span class="bu">format</span>(<span class="va">self</span>.number_of_guests))</span>
-<span id="cb15-14"><a href="#cb15-14"></a>    <span class="at">@classmethod</span></span>
-<span id="cb15-15"><a href="#cb15-15"></a>    <span class="kw">def</span> show(cls):</span>
-<span id="cb15-16"><a href="#cb15-16"></a>        <span class="bu">print</span>(<span class="st">"GS25의 점포수: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(cls.n))</span>
-<span id="cb15-17"><a href="#cb15-17"></a>        <span class="bu">print</span>(<span class="st">"GS25를 방문한 총 손님수: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(cls.total_number_of_guests))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6fdce4bb-1d5f-4305-a2f7-5aeaacd57449" class="cell" data-execution_count="549">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> GS25: </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    n<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    total_number_of_guests <span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.number_of_guests <span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        GS25.n <span class="op">+=</span> <span class="dv">1</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"GS25의 점포수가 </span><span class="sc">{}</span><span class="st">개로 늘었습니다."</span>.<span class="bu">format</span>(GS25.n))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> come(<span class="va">self</span>):</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        GS25.total_number_of_guests <span class="op">+=</span> <span class="dv">1</span> </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.number_of_guests <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"새로운 손님이 오셨습니다!"</span>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"GS25를 방문한 총 손님수는 </span><span class="sc">{}</span><span class="st">명입니다."</span>.<span class="bu">format</span>(GS25.total_number_of_guests))</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"현재 GS25 점포를 방문한 손님수는 </span><span class="sc">{}</span><span class="st">명입니다."</span>.<span class="bu">format</span>(<span class="va">self</span>.number_of_guests))</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">@classmethod</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> show(cls):</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"GS25의 점포수: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(cls.n))</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"GS25를 방문한 총 손님수: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(cls.total_number_of_guests))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="550">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>a<span class="op">=</span>GS25() <span class="co">## (4)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="23ae8ff6-c101-4ec3-af82-7ede3cd2061c" class="cell" data-execution_count="550">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>GS25() <span class="co">## (4)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GS25의 점포수가 1개로 늘었습니다.</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="551">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>b<span class="op">=</span>GS25() <span class="co">## (4)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c5186a43-6833-4615-a277-46d3797c5b7d" class="cell" data-execution_count="551">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>GS25() <span class="co">## (4)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GS25의 점포수가 2개로 늘었습니다.</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="552">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>a.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c8648f2f-1d7d-42b8-bd75-c6913d9e4662" class="cell" data-execution_count="552">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>a.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>새로운 손님이 오셨습니다!
 GS25를 방문한 총 손님수는 1명입니다.
 현재 GS25 점포를 방문한 손님수는 1명입니다.</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="553">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>a.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e2c7da1d-eea1-4273-8f3b-c4323beed2a4" class="cell" data-execution_count="553">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>a.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>새로운 손님이 오셨습니다!
 GS25를 방문한 총 손님수는 2명입니다.
 현재 GS25 점포를 방문한 손님수는 2명입니다.</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="554">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>b.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="07369ad1-7295-42a8-8c0c-5bc2691eac5b" class="cell" data-execution_count="554">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>b.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>새로운 손님이 오셨습니다!
 GS25를 방문한 총 손님수는 3명입니다.
 현재 GS25 점포를 방문한 손님수는 1명입니다.</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="555">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>GS25.show() <span class="co">## (6)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3a461957-1be3-48b5-b8c3-838a4ef98b6f" class="cell" data-execution_count="555">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>GS25.show() <span class="co">## (6)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GS25의 점포수: 2
 GS25를 방문한 총 손님수: 3</code></pre>
 </div>
 </div>
 <p><code>(7)</code> <code>__eq__</code>는 연산 <code>==</code> 를 재정의하는 메소드이다. 클래스 <code>RPS_BASE</code>를 상속하여 새로운 클래스 RPS5를 만들라. 연산 <code>==</code>를 재정의하여 RPS7의 두 인스턴스의 action이 같은 경우 true를 리턴하는 기능을 구현하라.</p>
-<div class="cell" data-execution_count="564">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">class</span> RPS_BASE:</span>
-<span id="cb28-2"><a href="#cb28-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb28-3"><a href="#cb28-3"></a>        <span class="va">self</span>.action <span class="op">=</span> np.random.choice([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a2191cda-e5d8-4df3-97d0-0cd1ac79da00" class="cell" data-execution_count="564">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RPS_BASE:</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.action <span class="op">=</span> np.random.choice([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="565">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">class</span> RPS7(RPS_BASE):</span>
-<span id="cb29-2"><a href="#cb29-2"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other):</span>
-<span id="cb29-3"><a href="#cb29-3"></a>        <span class="cf">return</span> <span class="va">self</span>.action <span class="op">==</span> other.action </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6ff90d57-75a8-4a70-a959-42feaeaf5783" class="cell" data-execution_count="565">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RPS7(RPS_BASE):</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other):</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.action <span class="op">==</span> other.action </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="566">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>a<span class="op">=</span>RPS7()</span>
-<span id="cb30-2"><a href="#cb30-2"></a>a.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="48584644-b245-4bee-b9d0-3113cd4affde" class="cell" data-execution_count="566">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>RPS7()</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>a.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="566">
 <pre><code>'바위'</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="567">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>b<span class="op">=</span>RPS7()</span>
-<span id="cb32-2"><a href="#cb32-2"></a>b.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="39321e1c-e27d-48bd-a437-d360c48044a3" class="cell" data-execution_count="567">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>RPS7()</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>b.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="567">
 <pre><code>'가위'</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="568">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>a<span class="op">==</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e865c70c-6c73-4a77-ae26-3141c8118493" class="cell" data-execution_count="568">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">==</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="568">
 <pre><code>False</code></pre>
 </div>
 </div>
 <p><code>(8)</code> <code>__gt__</code>는 연산 <code>&gt;</code> 를 재정의하는 메소드이다. 클래스 <code>RPS_BASE</code>를 상속하여 새로운 클래스 RPS6를 만들라. 연산 <code>&gt;</code>를 재정의하여 RPS6의 두 인스턴스 a,b의 action이 각각 (‘가위’,‘보’), (‘바위’,‘가위’), (‘보’,‘바위’) 인 경우 true를 리턴하는 기능을 구현하라.</p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="569">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">class</span> RPS8(RPS_BASE):</span>
-<span id="cb36-2"><a href="#cb36-2"></a>    <span class="kw">def</span> <span class="fu">__gt__</span>(<span class="va">self</span>,other): <span class="co"># 연산 &gt; 를 재정의 </span></span>
-<span id="cb36-3"><a href="#cb36-3"></a>        pair <span class="op">=</span> <span class="va">self</span>.action, other.action</span>
-<span id="cb36-4"><a href="#cb36-4"></a>        <span class="cf">return</span> pair <span class="op">==</span> (<span class="st">'가위'</span>,<span class="st">'보'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'바위'</span>,<span class="st">'가위'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'보'</span>,<span class="st">'바위'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2d564aab-9a17-497d-9aca-81d111a8253d" class="cell" data-execution_count="569">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RPS8(RPS_BASE):</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__gt__</span>(<span class="va">self</span>,other): <span class="co"># 연산 &gt; 를 재정의 </span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>        pair <span class="op">=</span> <span class="va">self</span>.action, other.action</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pair <span class="op">==</span> (<span class="st">'가위'</span>,<span class="st">'보'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'바위'</span>,<span class="st">'가위'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'보'</span>,<span class="st">'바위'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="570">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>a<span class="op">=</span>RPS8()</span>
-<span id="cb37-2"><a href="#cb37-2"></a>a.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="dd0a9872-2b5e-4547-91e1-bb42de1dcfdd" class="cell" data-execution_count="570">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>RPS8()</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>a.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="570">
 <pre><code>'보'</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="571">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>b<span class="op">=</span>RPS8()</span>
-<span id="cb39-2"><a href="#cb39-2"></a>b.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1ec4af26-a7f1-4f4b-8bc5-3b72cb8d6940" class="cell" data-execution_count="571">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>RPS8()</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>b.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="571">
 <pre><code>'가위'</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="572">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>a<span class="op">&gt;</span>b, a<span class="op">&lt;</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4fb63031-7052-4e8b-ab28-ff94e1299bb1" class="cell" data-execution_count="572">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">&gt;</span>b, a<span class="op">&lt;</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="572">
 <pre><code>(False, True)</code></pre>
 </div>
 </div>
 <p><strong><em>(9)-(10)</em></strong></p>
 <p>아래와 같은 데이터프레임을 선언하고 물음에 답하라.</p>
-<div class="cell" data-execution_count="573">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb43-2"><a href="#cb43-2"></a>df<span class="op">=</span>pd.DataFrame({<span class="st">'type'</span>:np.random.choice([<span class="st">'A'</span>,<span class="st">'B'</span>],<span class="dv">100</span>), <span class="st">'score'</span>:np.random.randint(<span class="dv">40</span>,<span class="dv">95</span>,<span class="dv">100</span>)})</span>
-<span id="cb43-3"><a href="#cb43-3"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d6ff7b13-47b3-4cd4-b9dc-91421865eca7" class="cell" data-execution_count="573">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.DataFrame({<span class="st">'type'</span>:np.random.choice([<span class="st">'A'</span>,<span class="st">'B'</span>],<span class="dv">100</span>), <span class="st">'score'</span>:np.random.randint(<span class="dv">40</span>,<span class="dv">95</span>,<span class="dv">100</span>)})</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="573">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>type</th>
-      <th>score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>B</td>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>A</td>
-      <td>40</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>B</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>B</td>
-      <td>46</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>B</td>
-      <td>57</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>B</td>
-      <td>69</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>A</td>
-      <td>71</td>
-    </tr>
-    <tr>
-      <th>97</th>
-      <td>A</td>
-      <td>93</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>A</td>
-      <td>63</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>A</td>
-      <td>82</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>B</td>
+<td>45</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>A</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>B</td>
+<td>79</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>B</td>
+<td>46</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>B</td>
+<td>57</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">95</td>
+<td>B</td>
+<td>69</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">96</td>
+<td>A</td>
+<td>71</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">97</td>
+<td>A</td>
+<td>93</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">98</td>
+<td>A</td>
+<td>63</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">99</td>
+<td>A</td>
+<td>82</td>
+</tr>
+</tbody>
 </table>
+
 <p>100 rows × 2 columns</p>
 </div>
 </div>
 </div>
 <p><code>(9)</code> type==’A’의 평균score를 구하는 코드를 작성하라.</p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="580">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>m <span class="op">=</span> df.query(<span class="st">"type=='A'"</span>).score.mean()</span>
-<span id="cb44-2"><a href="#cb44-2"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e7a9c978-9625-4d73-a339-f9161ff039c9" class="cell" data-execution_count="580">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> df.query(<span class="st">"type=='A'"</span>).score.mean()</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="580">
 <pre><code>68.4</code></pre>
 </div>
 </div>
 <p><code>(10)</code> type==’A’의 평균score보다 같거나 큰 값을 가지는 행을 출력하라.</p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="665">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># </span></span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="co"># 아래모두 정답으로 인정 (문제설명이 불충분) </span></span>
-<span id="cb46-3"><a href="#cb46-3"></a><span class="co"># df.query("type=='A' and score &gt;= @m") </span></span>
-<span id="cb46-4"><a href="#cb46-4"></a><span class="co"># df.query("score &gt;= @m") </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2d789be1-72ec-48e3-976a-5fd2025b06a8" class="cell" data-execution_count="665">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 아래모두 정답으로 인정 (문제설명이 불충분) </span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df.query("type=='A' and score &gt;= @m") </span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df.query("score &gt;= @m") </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="가위-바위-보-하나빼기-150점" class="level2">
 <h2 class="anchored" data-anchor-id="가위-바위-보-하나빼기-150점"><code>2</code>. 가위, 바위, 보 하나빼기 (150점)</h2>
-<div class="cell" data-execution_count="588">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">class</span> RPS:</span>
-<span id="cb47-2"><a href="#cb47-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate):</span>
-<span id="cb47-3"><a href="#cb47-3"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
-<span id="cb47-4"><a href="#cb47-4"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
-<span id="cb47-5"><a href="#cb47-5"></a>        <span class="va">self</span>.rewards <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb47-6"><a href="#cb47-6"></a>        <span class="va">self</span>.prob <span class="op">=</span> [<span class="fl">0.5</span>,<span class="fl">0.5</span>]</span>
-<span id="cb47-7"><a href="#cb47-7"></a></span>
-<span id="cb47-8"><a href="#cb47-8"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other): <span class="co"># 연산 == 를 재정의 </span></span>
-<span id="cb47-9"><a href="#cb47-9"></a>        <span class="cf">return</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> other.actions[<span class="op">-</span><span class="dv">1</span>] </span>
-<span id="cb47-10"><a href="#cb47-10"></a>        <span class="co">#note: 둘의 액션이 같으면 무승부 </span></span>
-<span id="cb47-11"><a href="#cb47-11"></a>    </span>
-<span id="cb47-12"><a href="#cb47-12"></a>    <span class="kw">def</span> <span class="fu">__gt__</span>(<span class="va">self</span>,other): <span class="co"># 연산 &gt; 를 재정의 </span></span>
-<span id="cb47-13"><a href="#cb47-13"></a>        pair <span class="op">=</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>], other.actions[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb47-14"><a href="#cb47-14"></a>        <span class="cf">return</span> pair <span class="op">==</span> (<span class="st">'가위'</span>,<span class="st">'보'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'바위'</span>,<span class="st">'가위'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'보'</span>,<span class="st">'바위'</span>) </span>
-<span id="cb47-15"><a href="#cb47-15"></a>        <span class="co">#note: 가위&gt;보, 바위&gt;가위, 보&gt;가위 </span></span>
-<span id="cb47-16"><a href="#cb47-16"></a>    </span>
-<span id="cb47-17"><a href="#cb47-17"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>,other):</span>
-<span id="cb47-18"><a href="#cb47-18"></a>        <span class="co"># step1: 각자의 패를 선택 </span></span>
-<span id="cb47-19"><a href="#cb47-19"></a>        <span class="va">self</span>.choose()</span>
-<span id="cb47-20"><a href="#cb47-20"></a>        other.choose()</span>
-<span id="cb47-21"><a href="#cb47-21"></a>        </span>
-<span id="cb47-22"><a href="#cb47-22"></a>        <span class="co"># step2: 승패 판단 + upate reward</span></span>
-<span id="cb47-23"><a href="#cb47-23"></a>        <span class="cf">if</span> <span class="va">self</span> <span class="op">==</span> other: <span class="co"># 무승부일경우 </span></span>
-<span id="cb47-24"><a href="#cb47-24"></a>            <span class="va">self</span>.rewards.append(<span class="dv">1</span>)</span>
-<span id="cb47-25"><a href="#cb47-25"></a>            other.rewards.append(<span class="dv">1</span>)</span>
-<span id="cb47-26"><a href="#cb47-26"></a>        <span class="cf">elif</span> <span class="va">self</span> <span class="op">&gt;</span> other: <span class="co"># self의 승리 </span></span>
-<span id="cb47-27"><a href="#cb47-27"></a>            <span class="va">self</span>.rewards.append(<span class="dv">2</span>)</span>
-<span id="cb47-28"><a href="#cb47-28"></a>            other.rewards.append(<span class="dv">0</span>)</span>
-<span id="cb47-29"><a href="#cb47-29"></a>        <span class="cf">else</span>: <span class="co"># other의 승리 </span></span>
-<span id="cb47-30"><a href="#cb47-30"></a>            <span class="va">self</span>.rewards.append(<span class="dv">0</span>)</span>
-<span id="cb47-31"><a href="#cb47-31"></a>            other.rewards.append(<span class="dv">2</span>)</span>
-<span id="cb47-32"><a href="#cb47-32"></a>        </span>
-<span id="cb47-33"><a href="#cb47-33"></a>        <span class="co"># step3: update data</span></span>
-<span id="cb47-34"><a href="#cb47-34"></a>        <span class="va">self</span>.update_data()</span>
-<span id="cb47-35"><a href="#cb47-35"></a>        other.update_data()</span>
-<span id="cb47-36"><a href="#cb47-36"></a>    </span>
-<span id="cb47-37"><a href="#cb47-37"></a>    <span class="kw">def</span> update_data(<span class="va">self</span>):</span>
-<span id="cb47-38"><a href="#cb47-38"></a>        <span class="va">self</span>.data <span class="op">=</span> pd.DataFrame({<span class="st">'actions'</span>:<span class="va">self</span>.actions, <span class="st">'rewards'</span>:<span class="va">self</span>.rewards})</span>
-<span id="cb47-39"><a href="#cb47-39"></a>    </span>
-<span id="cb47-40"><a href="#cb47-40"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
-<span id="cb47-41"><a href="#cb47-41"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb47-42"><a href="#cb47-42"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt; </span></span>
-<span id="cb47-43"><a href="#cb47-43"></a><span class="st">        데이터: &lt;br/&gt;</span></span>
-<span id="cb47-44"><a href="#cb47-44"></a><span class="st">        </span><span class="sc">{}</span></span>
-<span id="cb47-45"><a href="#cb47-45"></a><span class="st">        """</span>        </span>
-<span id="cb47-46"><a href="#cb47-46"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate,<span class="va">self</span>.data._repr_html_())</span>
-<span id="cb47-47"><a href="#cb47-47"></a>    </span>
-<span id="cb47-48"><a href="#cb47-48"></a>    <span class="kw">def</span> choose(<span class="va">self</span>):</span>
-<span id="cb47-49"><a href="#cb47-49"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate,p<span class="op">=</span><span class="va">self</span>.prob))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5805041f-feb2-42b5-ac7f-169d3189c256" class="cell" data-execution_count="588">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RPS:</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate):</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.rewards <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prob <span class="op">=</span> [<span class="fl">0.5</span>,<span class="fl">0.5</span>]</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other): <span class="co"># 연산 == 를 재정의 </span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> other.actions[<span class="op">-</span><span class="dv">1</span>] </span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">#note: 둘의 액션이 같으면 무승부 </span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__gt__</span>(<span class="va">self</span>,other): <span class="co"># 연산 &gt; 를 재정의 </span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>        pair <span class="op">=</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>], other.actions[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pair <span class="op">==</span> (<span class="st">'가위'</span>,<span class="st">'보'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'바위'</span>,<span class="st">'가위'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'보'</span>,<span class="st">'바위'</span>) </span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">#note: 가위&gt;보, 바위&gt;가위, 보&gt;가위 </span></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>,other):</span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># step1: 각자의 패를 선택 </span></span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.choose()</span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a>        other.choose()</span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># step2: 승패 판단 + upate reward</span></span>
+<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span> <span class="op">==</span> other: <span class="co"># 무승부일경우 </span></span>
+<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.rewards.append(<span class="dv">1</span>)</span>
+<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a>            other.rewards.append(<span class="dv">1</span>)</span>
+<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="va">self</span> <span class="op">&gt;</span> other: <span class="co"># self의 승리 </span></span>
+<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.rewards.append(<span class="dv">2</span>)</span>
+<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a>            other.rewards.append(<span class="dv">0</span>)</span>
+<span id="cb47-29"><a href="#cb47-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: <span class="co"># other의 승리 </span></span>
+<span id="cb47-30"><a href="#cb47-30" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.rewards.append(<span class="dv">0</span>)</span>
+<span id="cb47-31"><a href="#cb47-31" aria-hidden="true" tabindex="-1"></a>            other.rewards.append(<span class="dv">2</span>)</span>
+<span id="cb47-32"><a href="#cb47-32" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb47-33"><a href="#cb47-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># step3: update data</span></span>
+<span id="cb47-34"><a href="#cb47-34" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.update_data()</span>
+<span id="cb47-35"><a href="#cb47-35" aria-hidden="true" tabindex="-1"></a>        other.update_data()</span>
+<span id="cb47-36"><a href="#cb47-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb47-37"><a href="#cb47-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> update_data(<span class="va">self</span>):</span>
+<span id="cb47-38"><a href="#cb47-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data <span class="op">=</span> pd.DataFrame({<span class="st">'actions'</span>:<span class="va">self</span>.actions, <span class="st">'rewards'</span>:<span class="va">self</span>.rewards})</span>
+<span id="cb47-39"><a href="#cb47-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb47-40"><a href="#cb47-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
+<span id="cb47-41"><a href="#cb47-41" aria-hidden="true" tabindex="-1"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb47-42"><a href="#cb47-42" aria-hidden="true" tabindex="-1"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt; </span></span>
+<span id="cb47-43"><a href="#cb47-43" aria-hidden="true" tabindex="-1"></a><span class="st">        데이터: &lt;br/&gt;</span></span>
+<span id="cb47-44"><a href="#cb47-44" aria-hidden="true" tabindex="-1"></a><span class="st">        </span><span class="sc">{}</span></span>
+<span id="cb47-45"><a href="#cb47-45" aria-hidden="true" tabindex="-1"></a><span class="st">        """</span>        </span>
+<span id="cb47-46"><a href="#cb47-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate,<span class="va">self</span>.data._repr_html_())</span>
+<span id="cb47-47"><a href="#cb47-47" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb47-48"><a href="#cb47-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> choose(<span class="va">self</span>):</span>
+<span id="cb47-49"><a href="#cb47-49" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate,p<span class="op">=</span><span class="va">self</span>.prob))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>(1)</code> 플레이어A는 (가위,가위) 중 하나를 선택할 수 있고 플레이어B는 (가위,바위) 중 하나를 선택할 수 있다. 각 플레이어는 각 패 중 하나를 랜덤으로 선택하는 액션을 한다고 가정하자. 아래에 해당하는 확률을 시뮬레이션을 이용하여 추정하라.</p>
 <ul>
@@ -848,17 +870,17 @@ GS25를 방문한 총 손님수: 3</code></pre>
 </ul>
 <p><strong>hint</strong>: 50% 확률로 b가 승리하고 50% 확률로 비긴다.</p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="589">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>PlayerA <span class="op">=</span> RPS([<span class="st">'가위'</span>,<span class="st">'가위'</span>]) </span>
-<span id="cb48-2"><a href="#cb48-2"></a>PlayerB <span class="op">=</span> RPS([<span class="st">'가위'</span>,<span class="st">'바위'</span>]) </span>
-<span id="cb48-3"><a href="#cb48-3"></a></span>
-<span id="cb48-4"><a href="#cb48-4"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb48-5"><a href="#cb48-5"></a>    PlayerA <span class="op">*</span> PlayerB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="76ffe85f-ea97-4d2f-8766-6501980a6866" class="cell" data-execution_count="589">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>PlayerA <span class="op">=</span> RPS([<span class="st">'가위'</span>,<span class="st">'가위'</span>]) </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>PlayerB <span class="op">=</span> RPS([<span class="st">'가위'</span>,<span class="st">'바위'</span>]) </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>    PlayerA <span class="op">*</span> PlayerB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="590">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="bu">print</span>(<span class="st">'플레이어A가 승리할 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerA.data.rewards<span class="op">==</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">100</span>))</span>
-<span id="cb49-2"><a href="#cb49-2"></a><span class="bu">print</span>(<span class="st">'플레이어B가 승리할 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerA.data.rewards<span class="op">==</span><span class="dv">0</span>)<span class="op">/</span><span class="dv">100</span>))</span>
-<span id="cb49-3"><a href="#cb49-3"></a><span class="bu">print</span>(<span class="st">'플레이어A와 플레이어B가 비길 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerA.data.rewards<span class="op">==</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5d3d573c-ea19-4ddc-9a00-963968e4a67e" class="cell" data-execution_count="590">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'플레이어A가 승리할 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerA.data.rewards<span class="op">==</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">100</span>))</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'플레이어B가 승리할 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerA.data.rewards<span class="op">==</span><span class="dv">0</span>)<span class="op">/</span><span class="dv">100</span>))</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'플레이어A와 플레이어B가 비길 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerA.data.rewards<span class="op">==</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>플레이어A가 승리할 확률: 0.0
 플레이어B가 승리할 확률: 0.57
@@ -892,9 +914,9 @@ GS25를 방문한 총 손님수: 3</code></pre>
 <p><strong>hint</strong>: 플레이어B는 바위를 내는 것이 유리하다.</p>
 <p><strong>hint</strong>: 플레이어B가 100번중에 49번 가위를 내고 51번 바위를 낸다면 플레이어B가 적립할 보상점수는 각각 아래와 같다. - 가위를 내었을 경우: 49 * 1 = 49점 - 바위를 내었을 경우: 51 * 2 = 102점 - 총 보상점수 = 49점 + 102점 = 151점</p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="591">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="bu">print</span>(<span class="st">'플레이어B가 가위를 낼 경우 얻은 보상점수의 총합: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(PlayerB.data.query(<span class="st">" actions=='가위'"</span>).rewards.<span class="bu">sum</span>()))</span>
-<span id="cb51-2"><a href="#cb51-2"></a><span class="bu">print</span>(<span class="st">'플레이어B가 바위를 낼 경우 얻은 보상점수의 총합: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(PlayerB.data.query(<span class="st">" actions=='바위'"</span>).rewards.<span class="bu">sum</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="97f2c70b-9ae0-4418-bbfa-a592c6a77dfa" class="cell" data-execution_count="591">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'플레이어B가 가위를 낼 경우 얻은 보상점수의 총합: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(PlayerB.data.query(<span class="st">" actions=='가위'"</span>).rewards.<span class="bu">sum</span>()))</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'플레이어B가 바위를 낼 경우 얻은 보상점수의 총합: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(PlayerB.data.query(<span class="st">" actions=='바위'"</span>).rewards.<span class="bu">sum</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>플레이어B가 가위를 낼 경우 얻은 보상점수의 총합: 43
 플레이어B가 바위를 낼 경우 얻은 보상점수의 총합: 114</code></pre>
@@ -945,59 +967,59 @@ GS25를 방문한 총 손님수: 3</code></pre>
 <p>이러한 방식으로 500회까지 게임을 진행하며 확률을 수정하였을 경우 501번째 대결에서 플레이어B가 (가위,바위)를 낼 확률은 각각 얼마인가?</p>
 <p><strong>hint: 시간이 지날수록 플레이어B는 (가위,바위)중 바위를 내는 쪽이 유리하다는 것을 알게 될 것이다.</strong></p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="592">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="kw">class</span> RPS2(RPS):</span>
-<span id="cb53-2"><a href="#cb53-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate):</span>
-<span id="cb53-3"><a href="#cb53-3"></a>        <span class="co"># 기존내용</span></span>
-<span id="cb53-4"><a href="#cb53-4"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
-<span id="cb53-5"><a href="#cb53-5"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
-<span id="cb53-6"><a href="#cb53-6"></a>        <span class="va">self</span>.rewards <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb53-7"><a href="#cb53-7"></a>        <span class="va">self</span>.prob <span class="op">=</span> [<span class="fl">0.5</span>,<span class="fl">0.5</span>]</span>
-<span id="cb53-8"><a href="#cb53-8"></a>        <span class="co"># 새롭게 정의하는 내용 </span></span>
-<span id="cb53-9"><a href="#cb53-9"></a>        <span class="va">self</span>.data <span class="op">=</span> <span class="bu">dict</span>()</span>
-<span id="cb53-10"><a href="#cb53-10"></a>        <span class="va">self</span>.trainable<span class="op">=</span><span class="va">False</span> <span class="co"># 학습모드 설정 </span></span>
-<span id="cb53-11"><a href="#cb53-11"></a>        </span>
-<span id="cb53-12"><a href="#cb53-12"></a>    <span class="kw">def</span> update_data(<span class="va">self</span>):</span>
-<span id="cb53-13"><a href="#cb53-13"></a>        a <span class="op">=</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb53-14"><a href="#cb53-14"></a>        r <span class="op">=</span> <span class="va">self</span>.rewards[<span class="op">-</span><span class="dv">1</span>] </span>
-<span id="cb53-15"><a href="#cb53-15"></a>        <span class="va">self</span>.data[a] <span class="op">=</span> <span class="va">self</span>.data.get(a,<span class="dv">0</span>)<span class="op">+</span>r </span>
-<span id="cb53-16"><a href="#cb53-16"></a>        </span>
-<span id="cb53-17"><a href="#cb53-17"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
-<span id="cb53-18"><a href="#cb53-18"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb53-19"><a href="#cb53-19"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt; </span></span>
-<span id="cb53-20"><a href="#cb53-20"></a><span class="st">        확률: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt;</span></span>
-<span id="cb53-21"><a href="#cb53-21"></a><span class="st">        데이터: </span><span class="sc">{}</span><span class="st"> </span></span>
-<span id="cb53-22"><a href="#cb53-22"></a><span class="st">        """</span>        </span>
-<span id="cb53-23"><a href="#cb53-23"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate,<span class="va">self</span>.prob,<span class="va">self</span>.data)</span>
-<span id="cb53-24"><a href="#cb53-24"></a>    </span>
-<span id="cb53-25"><a href="#cb53-25"></a>    <span class="kw">def</span> choose(<span class="va">self</span>):</span>
-<span id="cb53-26"><a href="#cb53-26"></a>        <span class="cf">if</span> <span class="va">self</span>.trainable:  <span class="co"># if self.trainalbe==True: </span></span>
-<span id="cb53-27"><a href="#cb53-27"></a>            a1 <span class="op">=</span> <span class="va">self</span>.candidate[<span class="dv">0</span>] <span class="co"># action1 </span></span>
-<span id="cb53-28"><a href="#cb53-28"></a>            a2 <span class="op">=</span> <span class="va">self</span>.candidate[<span class="dv">1</span>] <span class="co"># action2 </span></span>
-<span id="cb53-29"><a href="#cb53-29"></a>            r1 <span class="op">=</span> <span class="va">self</span>.data[a1] <span class="co"># reward from action1 </span></span>
-<span id="cb53-30"><a href="#cb53-30"></a>            r2 <span class="op">=</span> <span class="va">self</span>.data[a2] <span class="co"># reward from action2 </span></span>
-<span id="cb53-31"><a href="#cb53-31"></a>            <span class="va">self</span>.prob <span class="op">=</span> [r1<span class="op">/</span>(r1<span class="op">+</span>r2), r2<span class="op">/</span>(r1<span class="op">+</span>r2)] </span>
-<span id="cb53-32"><a href="#cb53-32"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate,p<span class="op">=</span><span class="va">self</span>.prob))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="31d302ce-bb8d-4ef6-91db-d770636d7f0f" class="cell" data-execution_count="592">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RPS2(RPS):</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate):</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 기존내용</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.rewards <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prob <span class="op">=</span> [<span class="fl">0.5</span>,<span class="fl">0.5</span>]</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 새롭게 정의하는 내용 </span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.trainable<span class="op">=</span><span class="va">False</span> <span class="co"># 학습모드 설정 </span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> update_data(<span class="va">self</span>):</span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> <span class="va">self</span>.rewards[<span class="op">-</span><span class="dv">1</span>] </span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data[a] <span class="op">=</span> <span class="va">self</span>.data.get(a,<span class="dv">0</span>)<span class="op">+</span>r </span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt; </span></span>
+<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a><span class="st">        확률: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt;</span></span>
+<span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a><span class="st">        데이터: </span><span class="sc">{}</span><span class="st"> </span></span>
+<span id="cb53-22"><a href="#cb53-22" aria-hidden="true" tabindex="-1"></a><span class="st">        """</span>        </span>
+<span id="cb53-23"><a href="#cb53-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate,<span class="va">self</span>.prob,<span class="va">self</span>.data)</span>
+<span id="cb53-24"><a href="#cb53-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb53-25"><a href="#cb53-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> choose(<span class="va">self</span>):</span>
+<span id="cb53-26"><a href="#cb53-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.trainable:  <span class="co"># if self.trainalbe==True: </span></span>
+<span id="cb53-27"><a href="#cb53-27" aria-hidden="true" tabindex="-1"></a>            a1 <span class="op">=</span> <span class="va">self</span>.candidate[<span class="dv">0</span>] <span class="co"># action1 </span></span>
+<span id="cb53-28"><a href="#cb53-28" aria-hidden="true" tabindex="-1"></a>            a2 <span class="op">=</span> <span class="va">self</span>.candidate[<span class="dv">1</span>] <span class="co"># action2 </span></span>
+<span id="cb53-29"><a href="#cb53-29" aria-hidden="true" tabindex="-1"></a>            r1 <span class="op">=</span> <span class="va">self</span>.data[a1] <span class="co"># reward from action1 </span></span>
+<span id="cb53-30"><a href="#cb53-30" aria-hidden="true" tabindex="-1"></a>            r2 <span class="op">=</span> <span class="va">self</span>.data[a2] <span class="co"># reward from action2 </span></span>
+<span id="cb53-31"><a href="#cb53-31" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.prob <span class="op">=</span> [r1<span class="op">/</span>(r1<span class="op">+</span>r2), r2<span class="op">/</span>(r1<span class="op">+</span>r2)] </span>
+<span id="cb53-32"><a href="#cb53-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate,p<span class="op">=</span><span class="va">self</span>.prob))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="593">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>PlayerA<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'가위'</span>])</span>
-<span id="cb54-2"><a href="#cb54-2"></a>PlayerB<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0cba2088-ae31-43a7-bc31-260b4c00cd84" class="cell" data-execution_count="593">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>PlayerA<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'가위'</span>])</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>PlayerB<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="594">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="co">#</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a><span class="co"># 1~100 </span></span>
-<span id="cb55-3"><a href="#cb55-3"></a>PlayerA.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb55-4"><a href="#cb55-4"></a>PlayerB.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb55-5"><a href="#cb55-5"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb55-6"><a href="#cb55-6"></a>    PlayerA <span class="op">*</span> PlayerB </span>
-<span id="cb55-7"><a href="#cb55-7"></a><span class="co"># 100~500     </span></span>
-<span id="cb55-8"><a href="#cb55-8"></a>PlayerA.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb55-9"><a href="#cb55-9"></a>PlayerB.trainable<span class="op">=</span><span class="va">True</span></span>
-<span id="cb55-10"><a href="#cb55-10"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">400</span>):</span>
-<span id="cb55-11"><a href="#cb55-11"></a>    PlayerA <span class="op">*</span> PlayerB </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b70ac896-057f-4e3b-8176-3e653bb2bf97" class="cell" data-execution_count="594">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1~100 </span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>PlayerA.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>PlayerB.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>    PlayerA <span class="op">*</span> PlayerB </span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 100~500     </span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>PlayerA.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>PlayerB.trainable<span class="op">=</span><span class="va">True</span></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">400</span>):</span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>    PlayerA <span class="op">*</span> PlayerB </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="595">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>PlayerB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="39f4edf3-83f9-4326-8ec7-3eb519b32998" class="cell" data-execution_count="595">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>PlayerB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="595">
 
         낼 수 있는 패: ['가위', '바위'] <br> 
@@ -1046,25 +1068,25 @@ GS25를 방문한 총 손님수: 3</code></pre>
 </table>
 <p><strong>hint: 시간이 지날수록 두 플레이어 모두 바위를 내는 쪽이 유리하다는 것을 알게 될 것이다.</strong></p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="596">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>PlayerC<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
-<span id="cb57-2"><a href="#cb57-2"></a>PlayerD<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="227edfc4-2e89-4e08-a031-588c5d39c77d" class="cell" data-execution_count="596">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>PlayerC<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>PlayerD<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="597">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co">#</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a><span class="co"># 1~100 </span></span>
-<span id="cb58-3"><a href="#cb58-3"></a>PlayerC.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb58-4"><a href="#cb58-4"></a>PlayerD.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb58-5"><a href="#cb58-5"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb58-6"><a href="#cb58-6"></a>    PlayerC <span class="op">*</span> PlayerD</span>
-<span id="cb58-7"><a href="#cb58-7"></a><span class="co"># 100~500     </span></span>
-<span id="cb58-8"><a href="#cb58-8"></a>PlayerC.trainable<span class="op">=</span><span class="va">True</span></span>
-<span id="cb58-9"><a href="#cb58-9"></a>PlayerD.trainable<span class="op">=</span><span class="va">True</span></span>
-<span id="cb58-10"><a href="#cb58-10"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">400</span>):</span>
-<span id="cb58-11"><a href="#cb58-11"></a>    PlayerC <span class="op">*</span> PlayerD </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8021a647-c309-497a-adbe-2d63bb75b3f4" class="cell" data-execution_count="597">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1~100 </span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>PlayerC.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>PlayerD.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    PlayerC <span class="op">*</span> PlayerD</span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 100~500     </span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>PlayerC.trainable<span class="op">=</span><span class="va">True</span></span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>PlayerD.trainable<span class="op">=</span><span class="va">True</span></span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">400</span>):</span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>    PlayerC <span class="op">*</span> PlayerD </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="598">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>PlayerC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b6e1a124-511e-49f7-b304-b2703d20a1a2" class="cell" data-execution_count="598">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>PlayerC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="598">
 
         낼 수 있는 패: ['가위', '바위'] <br> 
@@ -1073,8 +1095,8 @@ GS25를 방문한 총 손님수: 3</code></pre>
         
 </div>
 </div>
-<div class="cell" data-execution_count="599">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>PlayerD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2ae5b1cb-81e0-4be9-962e-22057c710a60" class="cell" data-execution_count="599">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>PlayerD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="599">
 
         낼 수 있는 패: ['가위', '바위'] <br> 
@@ -1094,16 +1116,16 @@ GS25를 방문한 총 손님수: 3</code></pre>
 </ul>
 <p><strong>hint: 플레이어E가 가위를 낸다면 최소한 지지는 않기 때문에 플레이어E가 좀 더 유리한 패를 가지고 있다. 따라서 플레이어E의 결과가 더 좋을 것이다.</strong></p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="600">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>PlayerE<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
-<span id="cb61-2"><a href="#cb61-2"></a>PlayerF<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'보'</span>]) </span>
-<span id="cb61-3"><a href="#cb61-3"></a></span>
-<span id="cb61-4"><a href="#cb61-4"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb61-5"><a href="#cb61-5"></a>    PlayerE <span class="op">*</span> PlayerF</span>
-<span id="cb61-6"><a href="#cb61-6"></a></span>
-<span id="cb61-7"><a href="#cb61-7"></a><span class="bu">print</span>(<span class="st">'플레이어E가 승리할 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerE.data.rewards<span class="op">==</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">100</span>))</span>
-<span id="cb61-8"><a href="#cb61-8"></a><span class="bu">print</span>(<span class="st">'플레이어F가 승리할 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerE.data.rewards<span class="op">==</span><span class="dv">0</span>)<span class="op">/</span><span class="dv">100</span>))</span>
-<span id="cb61-9"><a href="#cb61-9"></a><span class="bu">print</span>(<span class="st">'플레이어E와 플레이어F가 비길 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerE.data.rewards<span class="op">==</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e6f2a2a1-ecb5-4de2-bc63-6817bf165b92" class="cell" data-execution_count="600">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>PlayerE<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>PlayerF<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'보'</span>]) </span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>    PlayerE <span class="op">*</span> PlayerF</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'플레이어E가 승리할 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerE.data.rewards<span class="op">==</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">100</span>))</span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'플레이어F가 승리할 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerE.data.rewards<span class="op">==</span><span class="dv">0</span>)<span class="op">/</span><span class="dv">100</span>))</span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'플레이어E와 플레이어F가 비길 확률: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">sum</span>(PlayerE.data.rewards<span class="op">==</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>플레이어E가 승리할 확률: 0.47
 플레이어F가 승리할 확률: 0.36
@@ -1146,25 +1168,25 @@ GS25를 방문한 총 손님수: 3</code></pre>
 </table>
 <p><strong>hint: 플레이어F는 보를 내는 것이 낫다고 생각할 것이다. (가위를 내면 지거나 비기지만 보를 내면 지거나 이긴다.)</strong></p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="601">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>PlayerE<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
-<span id="cb63-2"><a href="#cb63-2"></a>PlayerF<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a004094c-3a0c-4824-85e2-ca3fcc86e7bb" class="cell" data-execution_count="601">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>PlayerE<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>PlayerF<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="602">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a><span class="co">#</span></span>
-<span id="cb64-2"><a href="#cb64-2"></a><span class="co"># 1~100 </span></span>
-<span id="cb64-3"><a href="#cb64-3"></a>PlayerE.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb64-4"><a href="#cb64-4"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb64-5"><a href="#cb64-5"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb64-6"><a href="#cb64-6"></a>    PlayerE <span class="op">*</span> PlayerF</span>
-<span id="cb64-7"><a href="#cb64-7"></a><span class="co"># 100~500     </span></span>
-<span id="cb64-8"><a href="#cb64-8"></a>PlayerE.trainable<span class="op">=</span><span class="va">False</span></span>
-<span id="cb64-9"><a href="#cb64-9"></a>PlayerF.trainable<span class="op">=</span><span class="va">True</span></span>
-<span id="cb64-10"><a href="#cb64-10"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">400</span>):</span>
-<span id="cb64-11"><a href="#cb64-11"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="abaa4a0d-00be-4d83-b24e-724bbe7c84af" class="cell" data-execution_count="602">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1~100 </span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>PlayerE.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>    PlayerE <span class="op">*</span> PlayerF</span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 100~500     </span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>PlayerE.trainable<span class="op">=</span><span class="va">False</span></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>PlayerF.trainable<span class="op">=</span><span class="va">True</span></span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">400</span>):</span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="603">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="585ac0d1-2d59-4259-833f-ac9d345dafae" class="cell" data-execution_count="603">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="603">
 
         낼 수 있는 패: ['가위', '바위'] <br> 
@@ -1173,8 +1195,8 @@ GS25를 방문한 총 손님수: 3</code></pre>
         
 </div>
 </div>
-<div class="cell" data-execution_count="604">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="df3153ed-b3fc-45d9-bb73-0dff9db8988a" class="cell" data-execution_count="604">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="604">
 
         낼 수 있는 패: ['가위', '보'] <br> 
@@ -1225,16 +1247,16 @@ GS25를 방문한 총 손님수: 3</code></pre>
 </table>
 <p><strong>hint: 플레이어F는 보를 내도록 학습되어 있다. 따라서 플레이어E가 바위를 내면 지고 가위를 내면 이길것이다. 따라서 플레이어E는 가위가 유리하다고 생각할 것이다.</strong></p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="605">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># </span></span>
-<span id="cb67-2"><a href="#cb67-2"></a><span class="co"># 500~1000     </span></span>
-<span id="cb67-3"><a href="#cb67-3"></a>PlayerE.trainable<span class="op">=</span><span class="va">True</span></span>
-<span id="cb67-4"><a href="#cb67-4"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span></span>
-<span id="cb67-5"><a href="#cb67-5"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">500</span>):</span>
-<span id="cb67-6"><a href="#cb67-6"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="513acd5a-57ec-4ed9-8ad6-83205f344ed4" class="cell" data-execution_count="605">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 500~1000     </span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>PlayerE.trainable<span class="op">=</span><span class="va">True</span></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">500</span>):</span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="606">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1914cf28-3040-4663-ae89-c58db79f9ab4" class="cell" data-execution_count="606">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="606">
 
         낼 수 있는 패: ['가위', '바위'] <br> 
@@ -1243,8 +1265,8 @@ GS25를 방문한 총 손님수: 3</code></pre>
         
 </div>
 </div>
-<div class="cell" data-execution_count="607">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="68dd5c89-381f-4dc5-961a-3ccc923b0332" class="cell" data-execution_count="607">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="607">
 
         낼 수 있는 패: ['가위', '보'] <br> 
@@ -1301,16 +1323,16 @@ GS25를 방문한 총 손님수: 3</code></pre>
 </table>
 <p><strong>hint: 플레이어F는 원래 보가 유리하다고 생각하여 보를 자주 내도록 학습되었다. 하지만 플레이어E가 그러한 플레이어F의 성향을 파악하고 가위를 주로 내도록 학습하였다. 플레이어F는 그러한 플레이어E의 성향을 다시 파악하여 이번에는 가위을 자주 내는 것이 유리하다고 생각할 것이다.</strong></p>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="608">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># </span></span>
-<span id="cb70-2"><a href="#cb70-2"></a><span class="co"># 1000~30000 </span></span>
-<span id="cb70-3"><a href="#cb70-3"></a>PlayerE.trainable<span class="op">=</span><span class="va">False</span></span>
-<span id="cb70-4"><a href="#cb70-4"></a>PlayerF.trainable<span class="op">=</span><span class="va">True</span></span>
-<span id="cb70-5"><a href="#cb70-5"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">29000</span>):</span>
-<span id="cb70-6"><a href="#cb70-6"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ec02ab61-f342-41cf-a59b-7450904c3f8b" class="cell" data-execution_count="608">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1000~30000 </span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>PlayerE.trainable<span class="op">=</span><span class="va">False</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>PlayerF.trainable<span class="op">=</span><span class="va">True</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">29000</span>):</span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="609">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3ed0e215-9f01-46a5-8144-79037e173614" class="cell" data-execution_count="609">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="609">
 
         낼 수 있는 패: ['가위', '바위'] <br> 
@@ -1319,8 +1341,8 @@ GS25를 방문한 총 손님수: 3</code></pre>
         
 </div>
 </div>
-<div class="cell" data-execution_count="610">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="75a7988b-aee2-47f5-b310-3b5bc2b18fea" class="cell" data-execution_count="610">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="610">
 
         낼 수 있는 패: ['가위', '보'] <br> 
@@ -1364,26 +1386,26 @@ GS25를 방문한 총 손님수: 3</code></pre>
 </tbody>
 </table>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="651">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>PlayerE<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
-<span id="cb73-2"><a href="#cb73-2"></a>PlayerF<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="19157c10-114d-4a04-ae07-84b17f55c32f" class="cell" data-execution_count="651">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>PlayerE<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>PlayerF<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="652">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a><span class="co">#</span></span>
-<span id="cb74-2"><a href="#cb74-2"></a><span class="co"># 1~100 </span></span>
-<span id="cb74-3"><a href="#cb74-3"></a>PlayerE.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb74-4"><a href="#cb74-4"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb74-5"><a href="#cb74-5"></a>PlayerF.prob<span class="op">=</span>[<span class="dv">3</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
-<span id="cb74-6"><a href="#cb74-6"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb74-7"><a href="#cb74-7"></a>    PlayerE <span class="op">*</span> PlayerF</span>
-<span id="cb74-8"><a href="#cb74-8"></a><span class="co"># 100~1000     </span></span>
-<span id="cb74-9"><a href="#cb74-9"></a>PlayerE.trainable<span class="op">=</span><span class="va">True</span></span>
-<span id="cb74-10"><a href="#cb74-10"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span></span>
-<span id="cb74-11"><a href="#cb74-11"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">900</span>):</span>
-<span id="cb74-12"><a href="#cb74-12"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="caa81267-40a4-4513-a451-8ea3c9f9274c" class="cell" data-execution_count="652">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1~100 </span></span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>PlayerE.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>PlayerF.prob<span class="op">=</span>[<span class="dv">3</span><span class="op">/</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>    PlayerE <span class="op">*</span> PlayerF</span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 100~1000     </span></span>
+<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a>PlayerE.trainable<span class="op">=</span><span class="va">True</span></span>
+<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span></span>
+<span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">900</span>):</span>
+<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="653">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="84d8ecb5-ca2d-41c1-8497-191615ab7828" class="cell" data-execution_count="653">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="653">
 
         낼 수 있는 패: ['가위', '바위'] <br> 
@@ -1396,15 +1418,15 @@ GS25를 방문한 총 손님수: 3</code></pre>
 <p>플레이어 E는 바위를 내는것이 좀 더 유리하다고 생각한다.</p>
 </blockquote>
 <p>(추가풀이)</p>
-<div class="cell" data-execution_count="654">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a><span class="co"># 계속시행한다면?</span></span>
-<span id="cb76-2"><a href="#cb76-2"></a>PlayerE.trainable<span class="op">=</span><span class="va">True</span></span>
-<span id="cb76-3"><a href="#cb76-3"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span></span>
-<span id="cb76-4"><a href="#cb76-4"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span><span class="op">*</span><span class="dv">100</span>):</span>
-<span id="cb76-5"><a href="#cb76-5"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bf0586c2-ed4f-466c-acc0-bc3c790bd349" class="cell" data-execution_count="654">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 계속시행한다면?</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>PlayerE.trainable<span class="op">=</span><span class="va">True</span></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span><span class="op">*</span><span class="dv">100</span>):</span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="655">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b14ea7ef-418b-4898-8076-981aca8d187e" class="cell" data-execution_count="655">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="655">
 
         낼 수 있는 패: ['가위', '바위'] <br> 
@@ -1448,26 +1470,26 @@ GS25를 방문한 총 손님수: 3</code></pre>
 </tbody>
 </table>
 <p>(풀이)</p>
-<div class="cell" data-execution_count="657">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>PlayerE<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
-<span id="cb78-2"><a href="#cb78-2"></a>PlayerF<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="75808f95-c2f0-48e2-a770-54d8f7f2ca92" class="cell" data-execution_count="657">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>PlayerE<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'바위'</span>])</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>PlayerF<span class="op">=</span>RPS2([<span class="st">'가위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="658">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a><span class="co">#</span></span>
-<span id="cb79-2"><a href="#cb79-2"></a><span class="co"># 1~100 </span></span>
-<span id="cb79-3"><a href="#cb79-3"></a>PlayerE.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb79-4"><a href="#cb79-4"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span> </span>
-<span id="cb79-5"><a href="#cb79-5"></a>PlayerF.prob<span class="op">=</span>[<span class="dv">2</span><span class="op">/</span><span class="dv">3</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>]</span>
-<span id="cb79-6"><a href="#cb79-6"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb79-7"><a href="#cb79-7"></a>    PlayerE <span class="op">*</span> PlayerF</span>
-<span id="cb79-8"><a href="#cb79-8"></a><span class="co"># 100~1000     </span></span>
-<span id="cb79-9"><a href="#cb79-9"></a>PlayerE.trainable<span class="op">=</span><span class="va">True</span></span>
-<span id="cb79-10"><a href="#cb79-10"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span></span>
-<span id="cb79-11"><a href="#cb79-11"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">900</span>):</span>
-<span id="cb79-12"><a href="#cb79-12"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8d47e8a3-5635-4895-b760-3dd42407f29a" class="cell" data-execution_count="658">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1~100 </span></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>PlayerE.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span> </span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>PlayerF.prob<span class="op">=</span>[<span class="dv">2</span><span class="op">/</span><span class="dv">3</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>]</span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>    PlayerE <span class="op">*</span> PlayerF</span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 100~1000     </span></span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>PlayerE.trainable<span class="op">=</span><span class="va">True</span></span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>PlayerF.trainable<span class="op">=</span><span class="va">False</span></span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">900</span>):</span>
+<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>    PlayerE <span class="op">*</span> PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="659">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4cb7cc37-b2e7-4cd2-9c3c-fd092c61e711" class="cell" data-execution_count="659">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>PlayerE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="659">
 
         낼 수 있는 패: ['가위', '바위'] <br> 
@@ -1476,8 +1498,8 @@ GS25를 방문한 총 손님수: 3</code></pre>
         
 </div>
 </div>
-<div class="cell" data-execution_count="660">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4b8a6813-86bf-4b6f-8c45-82213d6c865d" class="cell" data-execution_count="660">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>PlayerF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="660">
 
         낼 수 있는 패: ['가위', '보'] <br> 
@@ -1509,160 +1531,162 @@ GS25를 방문한 총 손님수: 3</code></pre>
 <ul>
 <li>참고하지 않아도 감점은 없음</li>
 </ul>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="kw">class</span> RPS:</span>
-<span id="cb82-2"><a href="#cb82-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate):</span>
-<span id="cb82-3"><a href="#cb82-3"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
-<span id="cb82-4"><a href="#cb82-4"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
-<span id="cb82-5"><a href="#cb82-5"></a>        <span class="va">self</span>.rewards <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb82-6"><a href="#cb82-6"></a>        <span class="va">self</span>.prob <span class="op">=</span> [<span class="fl">0.5</span>,<span class="fl">0.5</span>]</span>
-<span id="cb82-7"><a href="#cb82-7"></a></span>
-<span id="cb82-8"><a href="#cb82-8"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other): <span class="co"># 연산 == 를 재정의 </span></span>
-<span id="cb82-9"><a href="#cb82-9"></a>        <span class="cf">return</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> other.actions[<span class="op">-</span><span class="dv">1</span>] </span>
-<span id="cb82-10"><a href="#cb82-10"></a>        <span class="co">#note: 둘의 액션이 같으면 무승부 </span></span>
-<span id="cb82-11"><a href="#cb82-11"></a>    </span>
-<span id="cb82-12"><a href="#cb82-12"></a>    <span class="kw">def</span> <span class="fu">__gt__</span>(<span class="va">self</span>,other): <span class="co"># 연산 &gt; 를 재정의 </span></span>
-<span id="cb82-13"><a href="#cb82-13"></a>        pair <span class="op">=</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>], other.actions[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb82-14"><a href="#cb82-14"></a>        <span class="cf">return</span> pair <span class="op">==</span> (<span class="st">'가위'</span>,<span class="st">'보'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'바위'</span>,<span class="st">'가위'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'보'</span>,<span class="st">'바위'</span>) </span>
-<span id="cb82-15"><a href="#cb82-15"></a>        <span class="co">#note: 가위&gt;보, 바위&gt;가위, 보&gt;가위 </span></span>
-<span id="cb82-16"><a href="#cb82-16"></a>    </span>
-<span id="cb82-17"><a href="#cb82-17"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>,other):</span>
-<span id="cb82-18"><a href="#cb82-18"></a>        <span class="co"># step1: 각자의 패를 선택 </span></span>
-<span id="cb82-19"><a href="#cb82-19"></a>        <span class="va">self</span>.choose()</span>
-<span id="cb82-20"><a href="#cb82-20"></a>        other.choose()</span>
-<span id="cb82-21"><a href="#cb82-21"></a>        </span>
-<span id="cb82-22"><a href="#cb82-22"></a>        <span class="co"># step2: 승패 판단 + upate reward</span></span>
-<span id="cb82-23"><a href="#cb82-23"></a>        <span class="cf">if</span> <span class="va">self</span> <span class="op">==</span> other: <span class="co"># 무승부일경우 </span></span>
-<span id="cb82-24"><a href="#cb82-24"></a>            <span class="va">self</span>.rewards.append(<span class="dv">1</span>)</span>
-<span id="cb82-25"><a href="#cb82-25"></a>            other.rewards.append(<span class="dv">1</span>)</span>
-<span id="cb82-26"><a href="#cb82-26"></a>        <span class="cf">elif</span> <span class="va">self</span> <span class="op">&gt;</span> other: <span class="co"># self의 승리 </span></span>
-<span id="cb82-27"><a href="#cb82-27"></a>            <span class="va">self</span>.rewards.append(<span class="dv">2</span>)</span>
-<span id="cb82-28"><a href="#cb82-28"></a>            other.rewards.append(<span class="dv">0</span>)</span>
-<span id="cb82-29"><a href="#cb82-29"></a>        <span class="cf">else</span>: <span class="co"># other의 승리 </span></span>
-<span id="cb82-30"><a href="#cb82-30"></a>            <span class="va">self</span>.rewards.append(<span class="dv">0</span>)</span>
-<span id="cb82-31"><a href="#cb82-31"></a>            other.rewards.append(<span class="dv">2</span>)</span>
-<span id="cb82-32"><a href="#cb82-32"></a>        </span>
-<span id="cb82-33"><a href="#cb82-33"></a>        <span class="co"># step3: update data</span></span>
-<span id="cb82-34"><a href="#cb82-34"></a>        <span class="va">self</span>.update_data()</span>
-<span id="cb82-35"><a href="#cb82-35"></a>        other.update_data()</span>
-<span id="cb82-36"><a href="#cb82-36"></a>    </span>
-<span id="cb82-37"><a href="#cb82-37"></a>    <span class="kw">def</span> update_data(<span class="va">self</span>):</span>
-<span id="cb82-38"><a href="#cb82-38"></a>        <span class="va">self</span>.data <span class="op">=</span> pd.DataFrame({<span class="st">'actions'</span>:<span class="va">self</span>.actions, <span class="st">'rewards'</span>:<span class="va">self</span>.rewards})</span>
-<span id="cb82-39"><a href="#cb82-39"></a>    </span>
-<span id="cb82-40"><a href="#cb82-40"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
-<span id="cb82-41"><a href="#cb82-41"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb82-42"><a href="#cb82-42"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt; </span></span>
-<span id="cb82-43"><a href="#cb82-43"></a><span class="st">        데이터: &lt;br/&gt;</span></span>
-<span id="cb82-44"><a href="#cb82-44"></a><span class="st">        </span><span class="sc">{}</span></span>
-<span id="cb82-45"><a href="#cb82-45"></a><span class="st">        """</span>        </span>
-<span id="cb82-46"><a href="#cb82-46"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate,<span class="va">self</span>.data._repr_html_())</span>
-<span id="cb82-47"><a href="#cb82-47"></a>    </span>
-<span id="cb82-48"><a href="#cb82-48"></a>    <span class="kw">def</span> choose(<span class="va">self</span>):</span>
-<span id="cb82-49"><a href="#cb82-49"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate,p<span class="op">=</span><span class="va">self</span>.prob))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9ab98c74-1e81-4110-8234-5d5c873098d8" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RPS:</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate):</span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.rewards <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prob <span class="op">=</span> [<span class="fl">0.5</span>,<span class="fl">0.5</span>]</span>
+<span id="cb82-7"><a href="#cb82-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-8"><a href="#cb82-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other): <span class="co"># 연산 == 를 재정의 </span></span>
+<span id="cb82-9"><a href="#cb82-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> other.actions[<span class="op">-</span><span class="dv">1</span>] </span>
+<span id="cb82-10"><a href="#cb82-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">#note: 둘의 액션이 같으면 무승부 </span></span>
+<span id="cb82-11"><a href="#cb82-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb82-12"><a href="#cb82-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__gt__</span>(<span class="va">self</span>,other): <span class="co"># 연산 &gt; 를 재정의 </span></span>
+<span id="cb82-13"><a href="#cb82-13" aria-hidden="true" tabindex="-1"></a>        pair <span class="op">=</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>], other.actions[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb82-14"><a href="#cb82-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pair <span class="op">==</span> (<span class="st">'가위'</span>,<span class="st">'보'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'바위'</span>,<span class="st">'가위'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'보'</span>,<span class="st">'바위'</span>) </span>
+<span id="cb82-15"><a href="#cb82-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">#note: 가위&gt;보, 바위&gt;가위, 보&gt;가위 </span></span>
+<span id="cb82-16"><a href="#cb82-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb82-17"><a href="#cb82-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>,other):</span>
+<span id="cb82-18"><a href="#cb82-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># step1: 각자의 패를 선택 </span></span>
+<span id="cb82-19"><a href="#cb82-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.choose()</span>
+<span id="cb82-20"><a href="#cb82-20" aria-hidden="true" tabindex="-1"></a>        other.choose()</span>
+<span id="cb82-21"><a href="#cb82-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb82-22"><a href="#cb82-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># step2: 승패 판단 + upate reward</span></span>
+<span id="cb82-23"><a href="#cb82-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span> <span class="op">==</span> other: <span class="co"># 무승부일경우 </span></span>
+<span id="cb82-24"><a href="#cb82-24" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.rewards.append(<span class="dv">1</span>)</span>
+<span id="cb82-25"><a href="#cb82-25" aria-hidden="true" tabindex="-1"></a>            other.rewards.append(<span class="dv">1</span>)</span>
+<span id="cb82-26"><a href="#cb82-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="va">self</span> <span class="op">&gt;</span> other: <span class="co"># self의 승리 </span></span>
+<span id="cb82-27"><a href="#cb82-27" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.rewards.append(<span class="dv">2</span>)</span>
+<span id="cb82-28"><a href="#cb82-28" aria-hidden="true" tabindex="-1"></a>            other.rewards.append(<span class="dv">0</span>)</span>
+<span id="cb82-29"><a href="#cb82-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: <span class="co"># other의 승리 </span></span>
+<span id="cb82-30"><a href="#cb82-30" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.rewards.append(<span class="dv">0</span>)</span>
+<span id="cb82-31"><a href="#cb82-31" aria-hidden="true" tabindex="-1"></a>            other.rewards.append(<span class="dv">2</span>)</span>
+<span id="cb82-32"><a href="#cb82-32" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb82-33"><a href="#cb82-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># step3: update data</span></span>
+<span id="cb82-34"><a href="#cb82-34" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.update_data()</span>
+<span id="cb82-35"><a href="#cb82-35" aria-hidden="true" tabindex="-1"></a>        other.update_data()</span>
+<span id="cb82-36"><a href="#cb82-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb82-37"><a href="#cb82-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> update_data(<span class="va">self</span>):</span>
+<span id="cb82-38"><a href="#cb82-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data <span class="op">=</span> pd.DataFrame({<span class="st">'actions'</span>:<span class="va">self</span>.actions, <span class="st">'rewards'</span>:<span class="va">self</span>.rewards})</span>
+<span id="cb82-39"><a href="#cb82-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb82-40"><a href="#cb82-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
+<span id="cb82-41"><a href="#cb82-41" aria-hidden="true" tabindex="-1"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb82-42"><a href="#cb82-42" aria-hidden="true" tabindex="-1"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt; </span></span>
+<span id="cb82-43"><a href="#cb82-43" aria-hidden="true" tabindex="-1"></a><span class="st">        데이터: &lt;br/&gt;</span></span>
+<span id="cb82-44"><a href="#cb82-44" aria-hidden="true" tabindex="-1"></a><span class="st">        </span><span class="sc">{}</span></span>
+<span id="cb82-45"><a href="#cb82-45" aria-hidden="true" tabindex="-1"></a><span class="st">        """</span>        </span>
+<span id="cb82-46"><a href="#cb82-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate,<span class="va">self</span>.data._repr_html_())</span>
+<span id="cb82-47"><a href="#cb82-47" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb82-48"><a href="#cb82-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> choose(<span class="va">self</span>):</span>
+<span id="cb82-49"><a href="#cb82-49" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate,p<span class="op">=</span><span class="va">self</span>.prob))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 사용예시</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>a<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'가위'</span>])</span>
-<span id="cb83-2"><a href="#cb83-2"></a>b<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c9e0a8cd-3a76-46f2-9b07-85365382ca81" class="cell">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'가위'</span>])</span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
-<span id="cb84-2"><a href="#cb84-2"></a>    a<span class="op">*</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="46d2d7d5-eaff-4e12-aef0-c32701f63f6a" class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>    a<span class="op">*</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="55dfcfd8-3224-4acc-9452-36233fce1f3b" class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-
 
         낼 수 있는 패: ['가위', '가위'] <br> 
         데이터: <br>
         <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>actions</th>
-      <th>rewards</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>가위</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>가위</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>가위</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>가위</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>가위</td>
-      <td>2</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">actions</th>
+<th data-quarto-table-cell-role="th">rewards</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>가위</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>가위</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>가위</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>가위</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>가위</td>
+<td>2</td>
+</tr>
+</tbody>
 </table>
+
 </div>
         
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="39c67f96-772f-44e6-ab0b-9ed410a09bce" class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-
 
         낼 수 있는 패: ['가위', '보'] <br> 
         데이터: <br>
         <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>actions</th>
-      <th>rewards</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>보</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>보</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>가위</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>보</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>보</td>
-      <td>0</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">actions</th>
+<th data-quarto-table-cell-role="th">rewards</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>보</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>보</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>가위</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>보</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>보</td>
+<td>0</td>
+</tr>
+</tbody>
 </table>
+
 </div>
         
 </div>
@@ -1701,9 +1725,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1739,10 +1777,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1752,8 +1789,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1768,6 +1814,195 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1807,7 +2042,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="guebin/PP2023" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 </div> <!-- /content -->
+
 
 
 

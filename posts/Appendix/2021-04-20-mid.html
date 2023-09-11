@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.322">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -111,6 +82,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -120,13 +96,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
@@ -138,302 +116,317 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">PP2023</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="../../about.html" aria-current="page">
- <span class="menu-text">About</span></a>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/PP2023"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/guebin/PP2023"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"><i class="bi bi-youtube" role="img">
-</i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">참고자료: 2021-04-mid</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/2023-03-06-1wk-1.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/Appendix/2021-04-20-mid.html">Appendix</a></li><li class="breadcrumb-item"><a href="../../posts/Appendix/2021-04-20-mid.html">참고자료: 2021-04-mid</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">참고자료: 2021-04-mid</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>최규빈 </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">April 1, 2021</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../about.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Posts</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Posts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-03-06-1wk-1.html" class="sidebar-item-text sidebar-link">01wk-1: 강의소개</a>
+  <a href="../../posts/2023-03-06-1wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01wk-1: 강의소개</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-05-08-10wk-1-mid.html" class="sidebar-item-text sidebar-link">10wk-1: 중간고사</a>
+  <a href="../../posts/2023-05-08-10wk-1-mid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10wk-1: 중간고사</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-06-21-13wk-1.html" class="sidebar-item-text sidebar-link">13wk-1: 깊은복사와 얕은복사</a>
+  <a href="../../posts/2023-06-19-15wk-2-fin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15wk-2: 기말고사</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-06-19-15wk-2-fin.html" class="sidebar-item-text sidebar-link">15wk-2: 기말고사</a>
+  <a href="../../posts/2023-06-20-15wk-2-finsol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15wk-2: 기말고사 풀이</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-06-20-15wk-2-finsol.html" class="sidebar-item-text sidebar-link">15wk-2: 기말고사 풀이</a>
+  <a href="../../posts/2023-06-21-13wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13wk-1: 깊은복사와 얕은복사</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">01 PythonBasic</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">01 PythonBasic</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-08-1wk-2.html" class="sidebar-item-text sidebar-link">01wk-2: 파이썬의 자료형 (1)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-08-1wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01wk-2: 파이썬의 자료형 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-13-2wk-1.html" class="sidebar-item-text sidebar-link">02wk-1: 파이썬의 자료형 (2)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-13-2wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02wk-1: 파이썬의 자료형 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-15-2wk-2.html" class="sidebar-item-text sidebar-link">02wk-2: 파이썬의 자료형 (3)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-15-2wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02wk-2: 파이썬의 자료형 (3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-20-3wk-1.html" class="sidebar-item-text sidebar-link">03wk-1: 파이썬의 자료형 (4)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-20-3wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03wk-1: 파이썬의 자료형 (4)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-22-3wk-2.html" class="sidebar-item-text sidebar-link">03wk-2: 파이썬의 자료형 (5)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-22-3wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03wk-2: 파이썬의 자료형 (5)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-27-4wk-1.html" class="sidebar-item-text sidebar-link">04wk-1: 파이썬의 자료형 (6)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-27-4wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04wk-1: 파이썬의 자료형 (6)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-29-4wk-2.html" class="sidebar-item-text sidebar-link">04wk-2: 파이썬의 자료형 (7)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-29-4wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04wk-2: 파이썬의 자료형 (7)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-04-03-5wk-1.html" class="sidebar-item-text sidebar-link">05wk-1: 개발환경의 변화</a>
+  <a href="../../posts/01_PythonBasic/2023-04-03-5wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05wk-1: 개발환경의 변화</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-04-05-5wk-2.html" class="sidebar-item-text sidebar-link">05wk-2: 모듈, 패키지, 라이브러리</a>
+  <a href="../../posts/01_PythonBasic/2023-04-05-5wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05wk-2: 모듈, 패키지, 라이브러리</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">02 DataScience</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">02 DataScience</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-10-6wk-1.html" class="sidebar-item-text sidebar-link">06wk-1: Numpy (1)</a>
+  <a href="../../posts/02_DataScience/2023-04-10-6wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06wk-1: Numpy (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-12-6wk-2.html" class="sidebar-item-text sidebar-link">06wk-2: Numpy (2)</a>
+  <a href="../../posts/02_DataScience/2023-04-12-6wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06wk-2: Numpy (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-17-7wk-1.html" class="sidebar-item-text sidebar-link">07wk-1: Numpy 활용 (1)</a>
+  <a href="../../posts/02_DataScience/2023-04-17-7wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07wk-1: Numpy 활용 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-19-7wk-2.html" class="sidebar-item-text sidebar-link">07wk-2: Numpy 활용 (2)</a>
+  <a href="../../posts/02_DataScience/2023-04-19-7wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07wk-2: Numpy 활용 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-24-8wk-1.html" class="sidebar-item-text sidebar-link">08wk-1: Pandas (1)</a>
+  <a href="../../posts/02_DataScience/2023-04-24-8wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08wk-1: Pandas (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-26-8wk-2.html" class="sidebar-item-text sidebar-link">08wk-2: Pandas (2)</a>
+  <a href="../../posts/02_DataScience/2023-04-26-8wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08wk-2: Pandas (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-05-01-9wk-1.html" class="sidebar-item-text sidebar-link">09wk-1: Numpy와 Pandas의 활용</a>
+  <a href="../../posts/02_DataScience/2023-05-01-9wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09wk-1: Numpy와 Pandas의 활용</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">03 Class</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">03 Class</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-10-10wk-2.html" class="sidebar-item-text sidebar-link">10wk-2: 밈과 클래스 (1)</a>
+  <a href="../../posts/03_Class/2023-05-10-10wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10wk-2: 밈과 클래스 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-15-11wk-1.html" class="sidebar-item-text sidebar-link">11wk-1: 밈과 클래스 (2)</a>
+  <a href="../../posts/03_Class/2023-05-15-11wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11wk-1: 밈과 클래스 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-17-11wk-2.html" class="sidebar-item-text sidebar-link">11wk-2: 클래스공부 1단계 – 메소드</a>
+  <a href="../../posts/03_Class/2023-05-17-11wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11wk-2: 클래스공부 1단계 – 메소드</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-22-12wk-1.html" class="sidebar-item-text sidebar-link">12wk-1: 클래스공부 2단계 – <code>__init__</code></a>
+  <a href="../../posts/03_Class/2023-05-22-12wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12wk-1: 클래스공부 2단계 – <code>__init__</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-24-12wk-2.html" class="sidebar-item-text sidebar-link">12wk-2: 클래스공부 3단계 – 문제연습</a>
+  <a href="../../posts/03_Class/2023-05-24-12wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12wk-2: 클래스공부 3단계 – 문제연습</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-31-13wk-2.html" class="sidebar-item-text sidebar-link">13wk-2: 클래스공부 4단계 – 파이썬의 비밀 (1)</a>
+  <a href="../../posts/03_Class/2023-05-31-13wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13wk-2: 클래스공부 4단계 – 파이썬의 비밀 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-06-05-14wk-1.html" class="sidebar-item-text sidebar-link">14wk-1: 클래스공부 4단계 – 파이썬의 비밀 (2)</a>
+  <a href="../../posts/03_Class/2023-06-05-14wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14wk-1: 클래스공부 4단계 – 파이썬의 비밀 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-06-07-14wk-2.html" class="sidebar-item-text sidebar-link">14wk-2: 클래스공부 4단계 – 파이썬의 비밀 (3)</a>
+  <a href="../../posts/03_Class/2023-06-07-14wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14wk-2: 클래스공부 4단계 – 파이썬의 비밀 (3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-06-12-15wk-1.html" class="sidebar-item-text sidebar-link">15wk-1: 클래스공부 5단계 – 상속</a>
+  <a href="../../posts/03_Class/2023-06-12-15wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15wk-1: 클래스공부 5단계 – 상속</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Appendix</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2021-04-20-mid.html" class="sidebar-item-text sidebar-link active">참고자료: 2021-04-mid</a>
+  <a href="../../posts/Appendix/2021-04-20-mid.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">참고자료: 2021-04-mid</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2021-06-09-final.html" class="sidebar-item-text sidebar-link">참고자료: 2021-06-final</a>
+  <a href="../../posts/Appendix/2021-06-09-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고자료: 2021-06-final</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2022-05-03-mid.html" class="sidebar-item-text sidebar-link">참고자료: 2022-04-mid</a>
+  <a href="../../posts/Appendix/2022-05-03-mid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고자료: 2022-04-mid</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2022-06-14-final.html" class="sidebar-item-text sidebar-link">참고자료: 2022-06-final</a>
+  <a href="../../posts/Appendix/2022-06-14-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고자료: 2022-06-final</span></a>
   </div>
 </li>
       </ul>
@@ -443,6 +436,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -468,13 +462,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#아래를-보고-적절한-설명을-한-사람을-모두-고르라.-10점" id="toc-아래를-보고-적절한-설명을-한-사람을-모두-고르라.-10점" class="nav-link" data-scroll-target="#아래를-보고-적절한-설명을-한-사람을-모두-고르라.-10점"><code>15</code> 아래를 보고 적절한 설명을 한 사람을 모두 고르라. (10점)</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2021-04-20-mid.out.ipynb" download="2021-04-20-mid.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/2023-03-06-1wk-1.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/Appendix/2021-04-20-mid.html">Appendix</a></li><li class="breadcrumb-item"><a href="../../posts/Appendix/2021-04-20-mid.html">참고자료: 2021-04-mid</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">참고자료: 2021-04-mid</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 1, 2021</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 <blockquote class="blockquote">
 <p>클로즈 북, 40분, 문제미리공개X</p>
@@ -493,118 +514,118 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="아래의-실행결과-중-올바른-것은-35점"><code>2</code> 아래의 실행결과 중 올바른 것은? (35점)</h3>
 <section id="a" class="level4">
 <h4 class="anchored" data-anchor-id="a"><code>(a)</code></h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>a<span class="op">=</span><span class="fl">1.0</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>b<span class="op">=</span><span class="dv">2</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="bu">type</span>(a<span class="op">+</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="fl">1.0</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a<span class="op">+</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) int (ㄴ) float (ㄷ) bool  (ㄹ) complex 
 (ㅁ) str (ㅂ) list  (ㅅ) tuple (ㅇ) dict </code></pre>
 </section>
 <section id="b" class="level4">
 <h4 class="anchored" data-anchor-id="b"><code>(b)</code></h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>b<span class="op">=</span><span class="dv">2</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="bu">type</span>(a<span class="op">==</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a<span class="op">==</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) int (ㄴ) float (ㄷ) bool  (ㄹ) complex 
 (ㅁ) str (ㅂ) list  (ㅅ) tuple (ㅇ) dict </code></pre>
 </section>
 <section id="c" class="level4">
 <h4 class="anchored" data-anchor-id="c"><code>(c)</code></h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>b<span class="op">=</span><span class="dv">2</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="bu">type</span>(<span class="bu">int</span>(a<span class="op">==</span>b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="bu">int</span>(a<span class="op">==</span>b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) int (ㄴ) float (ㄷ) bool  (ㄹ) complex 
 (ㅁ) str (ㅂ) list  (ㅅ) tuple (ㅇ) dict </code></pre>
 </section>
 <section id="d" class="level4">
 <h4 class="anchored" data-anchor-id="d"><code>(d)</code></h4>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">type</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) int (ㄴ) float (ㄷ) bool  (ㄹ) complex 
 (ㅁ) str (ㅂ) list  (ㅅ) tuple (ㅇ) dict </code></pre>
 </section>
 <section id="e" class="level4">
 <h4 class="anchored" data-anchor-id="e"><code>(e)</code></h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">type</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) int (ㄴ) float (ㄷ) bool  (ㄹ) complex 
 (ㅁ) str (ㅂ) list  (ㅅ) tuple (ㅇ) dict </code></pre>
 </section>
 <section id="f" class="level4">
 <h4 class="anchored" data-anchor-id="f"><code>(f)</code></h4>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>a<span class="op">=</span>(<span class="dv">1</span>)</span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="bu">type</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>(<span class="dv">1</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) int (ㄴ) float (ㄷ) bool  (ㄹ) complex 
 (ㅁ) str (ㅂ) list  (ㅅ) tuple (ㅇ) dict </code></pre>
 </section>
 <section id="g" class="level4">
 <h4 class="anchored" data-anchor-id="g"><code>(g)</code></h4>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>a<span class="op">=</span>(<span class="dv">1</span>,)</span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="bu">type</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>(<span class="dv">1</span>,)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) int (ㄴ) float (ㄷ) bool  (ㄹ) complex 
 (ㅁ) str (ㅂ) list  (ㅅ) tuple (ㅇ) dict </code></pre>
 </section>
 </section>
 <section id="아래의-코드를-잘-읽고-물음에-답하라.-25점" class="level3">
 <h3 class="anchored" data-anchor-id="아래의-코드를-잘-읽고-물음에-답하라.-25점"><code>3</code> 아래의 코드를 잘 읽고 물음에 답하라. (25점)</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>a<span class="op">=</span>[<span class="dv">1</span>,[<span class="dv">2</span>],<span class="dv">2</span>,[<span class="dv">1</span>]]</span>
-<span id="cb16-2"><a href="#cb16-2"></a></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="kw">def</span> a_add(a,i,j): </span>
-<span id="cb16-4"><a href="#cb16-4"></a>    <span class="cf">if</span> <span class="bu">type</span>(a[i])<span class="op">==</span><span class="bu">type</span>(a[j]): </span>
-<span id="cb16-5"><a href="#cb16-5"></a>        rtn<span class="op">=</span>a[i]<span class="op">+</span>a[j]</span>
-<span id="cb16-6"><a href="#cb16-6"></a>    <span class="cf">else</span>:</span>
-<span id="cb16-7"><a href="#cb16-7"></a>        rtn<span class="op">=</span>a[i],a[j]</span>
-<span id="cb16-8"><a href="#cb16-8"></a>    <span class="cf">return</span> rtn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>[<span class="dv">1</span>,[<span class="dv">2</span>],<span class="dv">2</span>,[<span class="dv">1</span>]]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> a_add(a,i,j): </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">type</span>(a[i])<span class="op">==</span><span class="bu">type</span>(a[j]): </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        rtn<span class="op">=</span>a[i]<span class="op">+</span>a[j]</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        rtn<span class="op">=</span>a[i],a[j]</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rtn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="a-아래의-출력결과-중-바른-것은" class="level4">
 <h4 class="anchored" data-anchor-id="a-아래의-출력결과-중-바른-것은"><code>(a)</code> 아래의 출력결과 중 바른 것은?</h4>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>a[<span class="dv">0</span>]<span class="op">==</span>a[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>a[<span class="dv">0</span>]<span class="op">==</span>a[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) True (ㄴ) False</code></pre>
 </section>
 <section id="b-아래의-출력결과-중-바른-것은" class="level4">
 <h4 class="anchored" data-anchor-id="b-아래의-출력결과-중-바른-것은"><code>(b)</code> 아래의 출력결과 중 바른 것은?</h4>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="bu">type</span>(a[<span class="dv">0</span>])<span class="op">==</span><span class="bu">type</span>(a[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a[<span class="dv">0</span>])<span class="op">==</span><span class="bu">type</span>(a[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) True (ㄴ) False</code></pre>
 </section>
 <section id="c-아래의-출력결과를-쓰라." class="level4">
 <h4 class="anchored" data-anchor-id="c-아래의-출력결과를-쓰라."><code>(c)</code> 아래의 출력결과를 쓰라.</h4>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>a_add(a,<span class="dv">0</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>a_add(a,<span class="dv">0</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="d-아래의-출력결과를-쓰라." class="level4">
 <h4 class="anchored" data-anchor-id="d-아래의-출력결과를-쓰라."><code>(d)</code> 아래의 출력결과를 쓰라.</h4>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>a_add(a,<span class="dv">1</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>a_add(a,<span class="dv">1</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="e-아래의-출력결과중-적절한-것은" class="level4">
 <h4 class="anchored" data-anchor-id="e-아래의-출력결과중-적절한-것은"><code>(e)</code> 아래의 출력결과중 적절한 것은?</h4>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="bu">type</span>(a_add(a,<span class="dv">0</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a_add(a,<span class="dv">0</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) int (ㄴ) float (ㄷ) bool  (ㄹ) complex 
 (ㅁ) str (ㅂ) list  (ㅅ) tuple (ㅇ) dict </code></pre>
 </section>
 </section>
 <section id="원주율을-출력하는-방법-중-올바른-것을-모두-고르시오-10점" class="level3">
 <h3 class="anchored" data-anchor-id="원주율을-출력하는-방법-중-올바른-것을-모두-고르시오-10점"><code>4</code> 원주율을 출력하는 방법 중 올바른 것을 모두 고르시오 (10점)</h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>(ㄱ) </span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="im">import</span> math</span>
-<span id="cb25-3"><a href="#cb25-3"></a>math.pi</span>
-<span id="cb25-4"><a href="#cb25-4"></a></span>
-<span id="cb25-5"><a href="#cb25-5"></a>(ㄴ) </span>
-<span id="cb25-6"><a href="#cb25-6"></a><span class="im">import</span> math</span>
-<span id="cb25-7"><a href="#cb25-7"></a>pi </span>
-<span id="cb25-8"><a href="#cb25-8"></a></span>
-<span id="cb25-9"><a href="#cb25-9"></a>(ㄷ)</span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="im">from</span> math <span class="im">import</span> pi</span>
-<span id="cb25-11"><a href="#cb25-11"></a>pi</span>
-<span id="cb25-12"><a href="#cb25-12"></a></span>
-<span id="cb25-13"><a href="#cb25-13"></a>(ㄹ)</span>
-<span id="cb25-14"><a href="#cb25-14"></a><span class="im">from</span> math <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb25-15"><a href="#cb25-15"></a>pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>(ㄱ) </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>math.pi</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>(ㄴ) </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>pi </span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>(ㄷ)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>pi</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>(ㄹ)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="아래의-에러메시지가-나오는-잘못된-코드는-10점" class="level3">
 <h3 class="anchored" data-anchor-id="아래의-에러메시지가-나오는-잘못된-코드는-10점"><code>5</code> 아래의 에러메시지가 나오는 (잘못된) 코드는? (10점)</h3>
 <section id="a-1" class="level4">
 <h4 class="anchored" data-anchor-id="a-1"><code>(a)</code></h4>
 <pre><code>TypeError: object of type 'float' has no len()</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>(ㄱ) <span class="bu">len</span>(<span class="fl">3.14</span>) </span>
-<span id="cb27-2"><a href="#cb27-2"></a>(ㄴ) <span class="bu">len</span>([<span class="fl">3.14</span>]) </span>
-<span id="cb27-3"><a href="#cb27-3"></a>(ㄷ) <span class="bu">len</span>((<span class="fl">3.14</span>,)) </span>
-<span id="cb27-4"><a href="#cb27-4"></a>(ㄹ) <span class="bu">len</span>(<span class="st">'3.14'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>(ㄱ) <span class="bu">len</span>(<span class="fl">3.14</span>) </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>(ㄴ) <span class="bu">len</span>([<span class="fl">3.14</span>]) </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>(ㄷ) <span class="bu">len</span>((<span class="fl">3.14</span>,)) </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>(ㄹ) <span class="bu">len</span>(<span class="st">'3.14'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="b-a의-에러가-나오는-이유에-대하여-설명하라." class="level4">
 <h4 class="anchored" data-anchor-id="b-a의-에러가-나오는-이유에-대하여-설명하라."><code>(b)</code> (a)의 에러가 나오는 이유에 대하여 설명하라.</h4>
@@ -612,7 +633,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="아래와-같이-a를-선언하였다고-하자.-ㄱ-ㄹ-중-옳은-설명을-모두-골라라.-10점" class="level3">
 <h3 class="anchored" data-anchor-id="아래와-같이-a를-선언하였다고-하자.-ㄱ-ㄹ-중-옳은-설명을-모두-골라라.-10점"><code>6</code> 아래와 같이 a를 선언하였다고 하자. (ㄱ)-(ㄹ) 중 옳은 설명을 <strong>모두</strong> 골라라. (10점)</h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>a<span class="op">=</span><span class="st">'guebin'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="st">'guebin'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) a의 자료형은 str이다. 즉 type(a)의 출력결과는 str이다. 
 (ㄴ) len(a)의 실행결과는 1이다. 
 (ㄷ) a[0]='G'와 같은 방법으로 첫글자를 대문자로 바꿀 수 있다. 
@@ -620,23 +641,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="예제코드의-결과를-관찰하고-물음에-답하라.-10점" class="level3">
 <h3 class="anchored" data-anchor-id="예제코드의-결과를-관찰하고-물음에-답하라.-10점"><code>7</code> [예제코드]의 결과를 관찰하고 물음에 답하라. (10점)</h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="co">## 예제코드 ## </span></span>
-<span id="cb30-2"><a href="#cb30-2"></a>a<span class="op">=</span>[<span class="st">'G'</span>,<span class="st">'u'</span>,<span class="st">'e'</span>,<span class="st">'b'</span>,<span class="st">'i'</span>,<span class="st">'n'</span>]</span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="kw">del</span> a[<span class="dv">0</span>]</span>
-<span id="cb30-4"><a href="#cb30-4"></a>a</span>
-<span id="cb30-5"><a href="#cb30-5"></a><span class="co">## 실행결과 </span></span>
-<span id="cb30-6"><a href="#cb30-6"></a>[<span class="st">'u'</span>, <span class="st">'e'</span>, <span class="st">'b'</span>, <span class="st">'i'</span>, <span class="st">'n'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 예제코드 ## </span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>[<span class="st">'G'</span>,<span class="st">'u'</span>,<span class="st">'e'</span>,<span class="st">'b'</span>,<span class="st">'i'</span>,<span class="st">'n'</span>]</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> a[<span class="dv">0</span>]</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">## 실행결과 </span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>[<span class="st">'u'</span>, <span class="st">'e'</span>, <span class="st">'b'</span>, <span class="st">'i'</span>, <span class="st">'n'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="a-아래코드의-출력결과를-쓰라." class="level4">
 <h4 class="anchored" data-anchor-id="a-아래코드의-출력결과를-쓰라."><code>(a)</code> 아래코드의 출력결과를 쓰라.</h4>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>a<span class="op">=</span>[<span class="st">'G'</span>,<span class="st">'u'</span>,<span class="st">'e'</span>,<span class="st">'b'</span>,<span class="st">'i'</span>,<span class="st">'n'</span>]</span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="kw">del</span> a[<span class="dv">0</span>]</span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="kw">del</span> a[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>[<span class="st">'G'</span>,<span class="st">'u'</span>,<span class="st">'e'</span>,<span class="st">'b'</span>,<span class="st">'i'</span>,<span class="st">'n'</span>]</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> a[<span class="dv">0</span>]</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> a[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="b-아래코드의-출력결과-중-올바른-것은" class="level4">
 <h4 class="anchored" data-anchor-id="b-아래코드의-출력결과-중-올바른-것은"><code>(b)</code> 아래코드의 출력결과 중 올바른 것은?</h4>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>b<span class="op">=</span>[<span class="st">'1'</span>,<span class="st">'2'</span>,<span class="st">'3'</span>]</span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="kw">del</span> b[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb32-3"><a href="#cb32-3"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>[<span class="st">'1'</span>,<span class="st">'2'</span>,<span class="st">'3'</span>]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> b[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) ['1', '2']
 (ㄴ) ['2', '3']
 (ㄷ) ['1', '3']
@@ -647,63 +668,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="다음을-읽고-물음에-답하라.-15점"><code>8</code> 다음을 읽고 물음에 답하라. (15점)</h3>
 <section id="a-아래는-.append에-대한-사용예시이다." class="level4">
 <h4 class="anchored" data-anchor-id="a-아래는-.append에-대한-사용예시이다."><code>(a)</code> 아래는 <code>.append</code>에 대한 사용예시이다.</h4>
-<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="co">### .append 예시 </span></span>
-<span id="cb34-2"><a href="#cb34-2"></a>a<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>]</span>
-<span id="cb34-3"><a href="#cb34-3"></a>a.append(<span class="dv">3</span>)</span>
-<span id="cb34-4"><a href="#cb34-4"></a><span class="bu">print</span>(a)</span>
-<span id="cb34-5"><a href="#cb34-5"></a><span class="co">### 실행결과 </span></span>
-<span id="cb34-6"><a href="#cb34-6"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">### .append 예시 </span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>a.append(<span class="dv">3</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co">### 실행결과 </span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="위의-코드를-참고하여-아래의-실행결과를-쓰라." class="level4">
 <h4 class="anchored" data-anchor-id="위의-코드를-참고하여-아래의-실행결과를-쓰라.">위의 코드를 참고하여 아래의 실행결과를 쓰라.</h4>
-<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>x<span class="op">=</span>[]</span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="cf">for</span> i <span class="kw">in</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]:</span>
-<span id="cb35-3"><a href="#cb35-3"></a>    x.append(<span class="dv">2</span><span class="op">**</span>i)</span>
-<span id="cb35-4"><a href="#cb35-4"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>[]</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]:</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    x.append(<span class="dv">2</span><span class="op">**</span>i)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="b-리스트-컴프리헨션을-사용하여-a와-동일한-출력결과를-얻는-코드를-작성하라." class="level4">
 <h4 class="anchored" data-anchor-id="b-리스트-컴프리헨션을-사용하여-a와-동일한-출력결과를-얻는-코드를-작성하라."><code>(b)</code> 리스트 컴프리헨션을 사용하여 (a)와 동일한 출력결과를 얻는 코드를 작성하라.</h4>
 </section>
 <section id="c-리스트-컴프리헨션을-사용하여-아래의-출력결과를-얻는-코드를-작성하라." class="level4">
 <h4 class="anchored" data-anchor-id="c-리스트-컴프리헨션을-사용하여-아래의-출력결과를-얻는-코드를-작성하라."><code>(c)</code> 리스트 컴프리헨션을 사용하여 아래의 출력결과를 얻는 코드를 작성하라.</h4>
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>[<span class="st">'X1'</span>,<span class="st">'X2'</span>,<span class="st">'X3'</span>,<span class="st">'Y1'</span>,<span class="st">'Y2'</span>,<span class="st">'Y3'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>[<span class="st">'X1'</span>,<span class="st">'X2'</span>,<span class="st">'X3'</span>,<span class="st">'Y1'</span>,<span class="st">'Y2'</span>,<span class="st">'Y3'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="ab에-저장된-두-값을-교환하고-싶다고-하자.-아래의-에-알맞은-내용을-적으시오.-10점" class="level3">
 <h3 class="anchored" data-anchor-id="ab에-저장된-두-값을-교환하고-싶다고-하자.-아래의-에-알맞은-내용을-적으시오.-10점"><code>9</code> a,b에 저장된 두 값을 교환하고 싶다고 하자. 아래의 ???에 알맞은 내용을 적으시오. (10점)</h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>a<span class="op">=</span><span class="dv">10</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>b<span class="op">=</span><span class="dv">20</span></span>
-<span id="cb37-3"><a href="#cb37-3"></a>???</span>
-<span id="cb37-4"><a href="#cb37-4"></a>a,b</span>
-<span id="cb37-5"><a href="#cb37-5"></a><span class="co">## 실행결과</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a>(<span class="dv">20</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span><span class="dv">20</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>???</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>a,b</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co">## 실행결과</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">20</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="아래의-코드에-대한-출력결과를-쓰라.-10점" class="level3">
 <h3 class="anchored" data-anchor-id="아래의-코드에-대한-출력결과를-쓰라.-10점"><code>10</code> 아래의 코드에 대한 출력결과를 쓰라. (10점)</h3>
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>idlist<span class="op">=</span>[(<span class="st">'guebin'</span>, <span class="st">'202112345'</span>,<span class="st">'M'</span>,<span class="st">'Korea'</span>), </span>
-<span id="cb38-2"><a href="#cb38-2"></a>        (<span class="st">'iu'</span>, <span class="st">'202154321'</span>,<span class="st">'F'</span>,<span class="st">'Korea'</span>), </span>
-<span id="cb38-3"><a href="#cb38-3"></a>        (<span class="st">'hodong'</span>, <span class="st">'201812321'</span>,<span class="st">'M'</span>,<span class="st">'Korea'</span>)]</span>
-<span id="cb38-4"><a href="#cb38-4"></a><span class="cf">for</span> name, _, _, _ <span class="kw">in</span> idlist: </span>
-<span id="cb38-5"><a href="#cb38-5"></a>    <span class="bu">print</span>(name)        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>idlist<span class="op">=</span>[(<span class="st">'guebin'</span>, <span class="st">'202112345'</span>,<span class="st">'M'</span>,<span class="st">'Korea'</span>), </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'iu'</span>, <span class="st">'202154321'</span>,<span class="st">'F'</span>,<span class="st">'Korea'</span>), </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'hodong'</span>, <span class="st">'201812321'</span>,<span class="st">'M'</span>,<span class="st">'Korea'</span>)]</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, _, _, _ <span class="kw">in</span> idlist: </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(name)        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="리스트를-활용하여-아래와-같은-배열을-만들었다고-하자.-15점" class="level3">
 <h3 class="anchored" data-anchor-id="리스트를-활용하여-아래와-같은-배열을-만들었다고-하자.-15점"><code>11</code> 리스트를 활용하여 아래와 같은 배열을 만들었다고 하자. (15점)</h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>a<span class="op">=</span>[[<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>], </span>
-<span id="cb39-2"><a href="#cb39-2"></a>   [<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>], </span>
-<span id="cb39-3"><a href="#cb39-3"></a>   [<span class="dv">31</span>,<span class="dv">32</span>,<span class="dv">33</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>[[<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>], </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>   [<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>], </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>   [<span class="dv">31</span>,<span class="dv">32</span>,<span class="dv">33</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="a-아래코드의-시행결과를-쓰라." class="level4">
 <h4 class="anchored" data-anchor-id="a-아래코드의-시행결과를-쓰라."><code>(a)</code> 아래코드의 시행결과를 쓰라.</h4>
-<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>a[<span class="dv">0</span>][<span class="dv">1</span>]<span class="op">+</span>a[<span class="dv">1</span>][<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>a[<span class="dv">0</span>][<span class="dv">1</span>]<span class="op">+</span>a[<span class="dv">1</span>][<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="b-아래코드의-시행결과를-쓰라." class="level4">
 <h4 class="anchored" data-anchor-id="b-아래코드의-시행결과를-쓰라."><code>(b)</code> 아래코드의 시행결과를 쓰라.</h4>
-<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>a[<span class="dv">0</span>]<span class="op">+</span>a[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>a[<span class="dv">0</span>]<span class="op">+</span>a[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="c-아래코드의-시행결과를-쓰라." class="level4">
 <h4 class="anchored" data-anchor-id="c-아래코드의-시행결과를-쓰라."><code>(c)</code> 아래코드의 시행결과를 쓰라.</h4>
-<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb42-2"><a href="#cb42-2"></a>a<span class="op">=</span>np.array(a)</span>
-<span id="cb42-3"><a href="#cb42-3"></a>a[<span class="dv">0</span>]<span class="op">+</span>a[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>np.array(a)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>a[<span class="dv">0</span>]<span class="op">+</span>a[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="아래와-같은-연립방정식을-만족하는-해-wxyz를-푸는-코드를-작성하라.-20점" class="level3">
@@ -712,13 +733,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="아래와-같은-행렬을-numpy를-이용하여-선언했다고-하자.-15점" class="level3">
 <h3 class="anchored" data-anchor-id="아래와-같은-행렬을-numpy를-이용하여-선언했다고-하자.-15점"><code>13</code> 아래와 같은 행렬을 <code>numpy</code>를 이용하여 선언했다고 하자. (15점)</h3>
-<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb43-2"><a href="#cb43-2"></a>A<span class="op">=</span>np.array([[<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>],</span>
-<span id="cb43-3"><a href="#cb43-3"></a>            [<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>],</span>
-<span id="cb43-4"><a href="#cb43-4"></a>            [<span class="dv">31</span>,<span class="dv">32</span>,<span class="dv">33</span>,<span class="dv">34</span>,<span class="dv">35</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span>np.array([[<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>],</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>],</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">31</span>,<span class="dv">32</span>,<span class="dv">33</span>,<span class="dv">34</span>,<span class="dv">35</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="a-다음-코드의-실행결과로-적절한-것은" class="level4">
 <h4 class="anchored" data-anchor-id="a-다음-코드의-실행결과로-적절한-것은"><code>(a)</code> 다음 코드의 실행결과로 적절한 것은?</h4>
-<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>A[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) array([11, 12, 13, 14, 15])
 (ㄴ) array([21, 22, 23, 24, 25])
 (ㄷ) array([11, 21, 31])
@@ -726,7 +747,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="b-다음-코드의-실행결과로-적절한-것은" class="level4">
 <h4 class="anchored" data-anchor-id="b-다음-코드의-실행결과로-적절한-것은"><code>(b)</code> 다음 코드의 실행결과로 적절한 것은?</h4>
-<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>A[<span class="dv">1</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ) array([11, 12, 13, 14, 15])
 (ㄴ) array([21, 22, 23, 24, 25])
 (ㄷ) array([11, 21, 31])
@@ -734,7 +755,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="c-다음-코드의-실행결과로-적절한-것은" class="level4">
 <h4 class="anchored" data-anchor-id="c-다음-코드의-실행결과로-적절한-것은"><code>(c)</code> 다음 코드의 실행결과로 적절한 것은?</h4>
-<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>A[np.ix_([<span class="dv">0</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">1</span>])]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>A[np.ix_([<span class="dv">0</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">1</span>])]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>(ㄱ)
 array([[11, 12],
        [21, 22]]) 
@@ -750,50 +771,49 @@ array([12, 22, 11, 12])</code></pre>
 </section>
 <section id="적당한-과정을-통하여-아래와-같은-데이터를-얻었다고-가정하자.-20점" class="level3">
 <h3 class="anchored" data-anchor-id="적당한-과정을-통하여-아래와-같은-데이터를-얻었다고-가정하자.-20점"><code>14</code> 적당한 과정을 통하여 아래와 같은 데이터를 얻었다고 가정하자. (20점)</h3>
-<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb50-2"><a href="#cb50-2"></a><span class="co">#...적당한과정...</span></span>
-<span id="cb50-3"><a href="#cb50-3"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co">#hide_input</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
-<span id="cb51-3"><a href="#cb51-3"></a>HTML(<span class="st">'&lt;table border="1" class="dataframe"&gt;</span><span class="ch">\n</span><span class="st">  &lt;thead&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr style="text-align: right;"&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;age&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;toeic&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;gpa&lt;/th&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/thead&gt;</span><span class="ch">\n</span><span class="st">  &lt;tbody&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;새로이&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;30.0&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;600&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;4.0&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;이서&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;20.0&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;950&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;4.2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;일권&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;28.0&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;450&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;2.3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;현이&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;28.0&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;650&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;3.8&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co">#...적당한과정...</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bf215c1e-a59e-411a-afbd-1873eb5db1bb" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#hide_input</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>HTML(<span class="st">'&lt;table border="1" class="dataframe"&gt;</span><span class="ch">\n</span><span class="st">  &lt;thead&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr style="text-align: right;"&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;age&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;toeic&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;gpa&lt;/th&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/thead&gt;</span><span class="ch">\n</span><span class="st">  &lt;tbody&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;새로이&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;30.0&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;600&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;4.0&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;이서&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;20.0&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;950&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;4.2&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;일권&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;28.0&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;450&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;2.3&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">    &lt;tr&gt;</span><span class="ch">\n</span><span class="st">      &lt;th&gt;현이&lt;/th&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;28.0&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;650&lt;/td&gt;</span><span class="ch">\n</span><span class="st">      &lt;td&gt;3.8&lt;/td&gt;</span><span class="ch">\n</span><span class="st">    &lt;/tr&gt;</span><span class="ch">\n</span><span class="st">  &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>age</th>
-      <th>toeic</th>
-      <th>gpa</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>새로이</th>
-      <td>30.0</td>
-      <td>600</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>이서</th>
-      <td>20.0</td>
-      <td>950</td>
-      <td>4.2</td>
-    </tr>
-    <tr>
-      <th>일권</th>
-      <td>28.0</td>
-      <td>450</td>
-      <td>2.3</td>
-    </tr>
-    <tr>
-      <th>현이</th>
-      <td>28.0</td>
-      <td>650</td>
-      <td>3.8</td>
-    </tr>
-  </tbody>
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">toeic</th>
+<th data-quarto-table-cell-role="th">gpa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">새로이</td>
+<td>30.0</td>
+<td>600</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">이서</td>
+<td>20.0</td>
+<td>950</td>
+<td>4.2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">일권</td>
+<td>28.0</td>
+<td>450</td>
+<td>2.3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">현이</td>
+<td>28.0</td>
+<td>650</td>
+<td>3.8</td>
+</tr>
+</tbody>
 </table>
 </div>
 </div>
@@ -805,14 +825,14 @@ array([12, 22, 11, 12])</code></pre>
 </section>
 <section id="c-세번째-열gpa에-접근하는-코드-중-적절한-것을-모두-골라라." class="level4">
 <h4 class="anchored" data-anchor-id="c-세번째-열gpa에-접근하는-코드-중-적절한-것을-모두-골라라."><code>(c)</code> 세번째 열(gpa)에 접근하는 코드 중 적절한 것을 모두 골라라.</h4>
-<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>(ㄱ) </span>
-<span id="cb52-2"><a href="#cb52-2"></a>df.loc[<span class="st">'gpa'</span>]</span>
-<span id="cb52-3"><a href="#cb52-3"></a>(ㄴ) </span>
-<span id="cb52-4"><a href="#cb52-4"></a>df.iloc[:,<span class="dv">2</span>]</span>
-<span id="cb52-5"><a href="#cb52-5"></a>(ㄷ) </span>
-<span id="cb52-6"><a href="#cb52-6"></a>df.iloc[:,<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb52-7"><a href="#cb52-7"></a>(ㄹ) </span>
-<span id="cb52-8"><a href="#cb52-8"></a>df.iloc[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>(ㄱ) </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="st">'gpa'</span>]</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>(ㄴ) </span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>df.iloc[:,<span class="dv">2</span>]</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>(ㄷ) </span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>df.iloc[:,<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>(ㄹ) </span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="d-나이가-23보다-많고-토익점수가-635이하-학점이-3.0-이상인-사람을-불러오는-코드를-작성하라." class="level4">
 <h4 class="anchored" data-anchor-id="d-나이가-23보다-많고-토익점수가-635이하-학점이-3.0-이상인-사람을-불러오는-코드를-작성하라."><code>(d)</code> 나이가 23보다 많고 토익점수가 635이하 학점이 3.0 이상인 사람을 불러오는 코드를 작성하라.</h4>
@@ -820,8 +840,8 @@ array([12, 22, 11, 12])</code></pre>
 </section>
 <section id="아래를-보고-적절한-설명을-한-사람을-모두-고르라.-10점" class="level3">
 <h3 class="anchored" data-anchor-id="아래를-보고-적절한-설명을-한-사람을-모두-고르라.-10점"><code>15</code> 아래를 보고 적절한 설명을 한 사람을 모두 고르라. (10점)</h3>
-<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="im">import</span> vec</span>
-<span id="cb53-2"><a href="#cb53-2"></a>vec?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> vec</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>vec?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>Type:        module
 String form: &lt;module 'vec' from '/home/cgb2/vec/__init__.py'&gt;
 File:        ~/vec/__init__.py
@@ -831,9 +851,9 @@ Docstring:   이 패키지는 현재 길이가 2,3인 벡터의 연산만 지원
 <p><strong>(일권)</strong> 이서가 말한대로 <code>File:</code>을 확인해보니 사용자가 <code>vec</code>폴더에 <code>__init__.py</code>도 만들어 놓았음을 알수 있군. <code>__init__.py</code>는 <code>import vec</code>을 수행하면 암시적으로 실행된다고 했었지?</p>
 <p><strong>(현이)</strong> 그렇지, 그런데 사실 파일 이름이 꼭 <code>__init__.py</code>이어야 하는것은 아니야.</p>
 <p><strong>(수아)</strong> <code>vec?</code>의 실행결과 <code>Docstring:</code>이 있는것으로 보아 <code>__init__.py</code>상단에 아래와 같은 내용이 있음을 유추할 수 있어.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="co">'''</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a><span class="co">이 패키지는 현재 길이가 2,3인 벡터의 연산만 지원하지만 추후 업데이트하여 더욱 발전할 예정</span></span>
-<span id="cb55-3"><a href="#cb55-3"></a><span class="co">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">'''</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co">이 패키지는 현재 길이가 2,3인 벡터의 연산만 지원하지만 추후 업데이트하여 더욱 발전할 예정</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -867,9 +887,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -905,10 +939,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -918,8 +951,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -934,6 +976,195 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -973,7 +1204,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="guebin/PP2023" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 </div> <!-- /content -->
+
 
 
 

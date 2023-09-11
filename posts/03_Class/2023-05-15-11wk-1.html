@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.322">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -111,6 +82,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -120,320 +96,337 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">PP2023</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="../../about.html" aria-current="page">
- <span class="menu-text">About</span></a>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/PP2023"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/guebin/PP2023"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"> <i class="bi bi-youtube" role="img">
 </i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"><i class="bi bi-youtube" role="img">
-</i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">11wk-1: 밈과 클래스 (2)</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/2023-03-06-1wk-1.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/03_Class/2023-05-10-10wk-2.html">03 Class</a></li><li class="breadcrumb-item"><a href="../../posts/03_Class/2023-05-15-11wk-1.html">11wk-1: 밈과 클래스 (2)</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">11wk-1: 밈과 클래스 (2)</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>최규빈 </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">May 15, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../about.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Posts</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Posts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-03-06-1wk-1.html" class="sidebar-item-text sidebar-link">01wk-1: 강의소개</a>
+  <a href="../../posts/2023-03-06-1wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01wk-1: 강의소개</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-05-08-10wk-1-mid.html" class="sidebar-item-text sidebar-link">10wk-1: 중간고사</a>
+  <a href="../../posts/2023-05-08-10wk-1-mid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10wk-1: 중간고사</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-06-21-13wk-1.html" class="sidebar-item-text sidebar-link">13wk-1: 깊은복사와 얕은복사</a>
+  <a href="../../posts/2023-06-19-15wk-2-fin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15wk-2: 기말고사</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-06-19-15wk-2-fin.html" class="sidebar-item-text sidebar-link">15wk-2: 기말고사</a>
+  <a href="../../posts/2023-06-20-15wk-2-finsol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15wk-2: 기말고사 풀이</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2023-06-20-15wk-2-finsol.html" class="sidebar-item-text sidebar-link">15wk-2: 기말고사 풀이</a>
+  <a href="../../posts/2023-06-21-13wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13wk-1: 깊은복사와 얕은복사</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">01 PythonBasic</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">01 PythonBasic</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-08-1wk-2.html" class="sidebar-item-text sidebar-link">01wk-2: 파이썬의 자료형 (1)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-08-1wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01wk-2: 파이썬의 자료형 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-13-2wk-1.html" class="sidebar-item-text sidebar-link">02wk-1: 파이썬의 자료형 (2)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-13-2wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02wk-1: 파이썬의 자료형 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-15-2wk-2.html" class="sidebar-item-text sidebar-link">02wk-2: 파이썬의 자료형 (3)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-15-2wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02wk-2: 파이썬의 자료형 (3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-20-3wk-1.html" class="sidebar-item-text sidebar-link">03wk-1: 파이썬의 자료형 (4)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-20-3wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03wk-1: 파이썬의 자료형 (4)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-22-3wk-2.html" class="sidebar-item-text sidebar-link">03wk-2: 파이썬의 자료형 (5)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-22-3wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03wk-2: 파이썬의 자료형 (5)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-27-4wk-1.html" class="sidebar-item-text sidebar-link">04wk-1: 파이썬의 자료형 (6)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-27-4wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04wk-1: 파이썬의 자료형 (6)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-03-29-4wk-2.html" class="sidebar-item-text sidebar-link">04wk-2: 파이썬의 자료형 (7)</a>
+  <a href="../../posts/01_PythonBasic/2023-03-29-4wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04wk-2: 파이썬의 자료형 (7)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-04-03-5wk-1.html" class="sidebar-item-text sidebar-link">05wk-1: 개발환경의 변화</a>
+  <a href="../../posts/01_PythonBasic/2023-04-03-5wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05wk-1: 개발환경의 변화</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/01_PythonBasic/2023-04-05-5wk-2.html" class="sidebar-item-text sidebar-link">05wk-2: 모듈, 패키지, 라이브러리</a>
+  <a href="../../posts/01_PythonBasic/2023-04-05-5wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05wk-2: 모듈, 패키지, 라이브러리</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">02 DataScience</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">02 DataScience</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-10-6wk-1.html" class="sidebar-item-text sidebar-link">06wk-1: Numpy (1)</a>
+  <a href="../../posts/02_DataScience/2023-04-10-6wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06wk-1: Numpy (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-12-6wk-2.html" class="sidebar-item-text sidebar-link">06wk-2: Numpy (2)</a>
+  <a href="../../posts/02_DataScience/2023-04-12-6wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06wk-2: Numpy (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-17-7wk-1.html" class="sidebar-item-text sidebar-link">07wk-1: Numpy 활용 (1)</a>
+  <a href="../../posts/02_DataScience/2023-04-17-7wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07wk-1: Numpy 활용 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-19-7wk-2.html" class="sidebar-item-text sidebar-link">07wk-2: Numpy 활용 (2)</a>
+  <a href="../../posts/02_DataScience/2023-04-19-7wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07wk-2: Numpy 활용 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-24-8wk-1.html" class="sidebar-item-text sidebar-link">08wk-1: Pandas (1)</a>
+  <a href="../../posts/02_DataScience/2023-04-24-8wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08wk-1: Pandas (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-04-26-8wk-2.html" class="sidebar-item-text sidebar-link">08wk-2: Pandas (2)</a>
+  <a href="../../posts/02_DataScience/2023-04-26-8wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08wk-2: Pandas (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/02_DataScience/2023-05-01-9wk-1.html" class="sidebar-item-text sidebar-link">09wk-1: Numpy와 Pandas의 활용</a>
+  <a href="../../posts/02_DataScience/2023-05-01-9wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09wk-1: Numpy와 Pandas의 활용</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">03 Class</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">03 Class</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-10-10wk-2.html" class="sidebar-item-text sidebar-link">10wk-2: 밈과 클래스 (1)</a>
+  <a href="../../posts/03_Class/2023-05-10-10wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10wk-2: 밈과 클래스 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-15-11wk-1.html" class="sidebar-item-text sidebar-link active">11wk-1: 밈과 클래스 (2)</a>
+  <a href="../../posts/03_Class/2023-05-15-11wk-1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">11wk-1: 밈과 클래스 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-17-11wk-2.html" class="sidebar-item-text sidebar-link">11wk-2: 클래스공부 1단계 – 메소드</a>
+  <a href="../../posts/03_Class/2023-05-17-11wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11wk-2: 클래스공부 1단계 – 메소드</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-22-12wk-1.html" class="sidebar-item-text sidebar-link">12wk-1: 클래스공부 2단계 – <code>__init__</code></a>
+  <a href="../../posts/03_Class/2023-05-22-12wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12wk-1: 클래스공부 2단계 – <code>__init__</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-24-12wk-2.html" class="sidebar-item-text sidebar-link">12wk-2: 클래스공부 3단계 – 문제연습</a>
+  <a href="../../posts/03_Class/2023-05-24-12wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12wk-2: 클래스공부 3단계 – 문제연습</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-05-31-13wk-2.html" class="sidebar-item-text sidebar-link">13wk-2: 클래스공부 4단계 – 파이썬의 비밀 (1)</a>
+  <a href="../../posts/03_Class/2023-05-31-13wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13wk-2: 클래스공부 4단계 – 파이썬의 비밀 (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-06-05-14wk-1.html" class="sidebar-item-text sidebar-link">14wk-1: 클래스공부 4단계 – 파이썬의 비밀 (2)</a>
+  <a href="../../posts/03_Class/2023-06-05-14wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14wk-1: 클래스공부 4단계 – 파이썬의 비밀 (2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-06-07-14wk-2.html" class="sidebar-item-text sidebar-link">14wk-2: 클래스공부 4단계 – 파이썬의 비밀 (3)</a>
+  <a href="../../posts/03_Class/2023-06-07-14wk-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14wk-2: 클래스공부 4단계 – 파이썬의 비밀 (3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/03_Class/2023-06-12-15wk-1.html" class="sidebar-item-text sidebar-link">15wk-1: 클래스공부 5단계 – 상속</a>
+  <a href="../../posts/03_Class/2023-06-12-15wk-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15wk-1: 클래스공부 5단계 – 상속</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">Appendix</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2021-04-20-mid.html" class="sidebar-item-text sidebar-link">참고자료: 2021-04-mid</a>
+  <a href="../../posts/Appendix/2021-04-20-mid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고자료: 2021-04-mid</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2021-06-09-final.html" class="sidebar-item-text sidebar-link">참고자료: 2021-06-final</a>
+  <a href="../../posts/Appendix/2021-06-09-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고자료: 2021-06-final</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2022-05-03-mid.html" class="sidebar-item-text sidebar-link">참고자료: 2022-04-mid</a>
+  <a href="../../posts/Appendix/2022-05-03-mid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고자료: 2022-04-mid</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Appendix/2022-06-14-final.html" class="sidebar-item-text sidebar-link">참고자료: 2022-06-final</a>
+  <a href="../../posts/Appendix/2022-06-14-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고자료: 2022-06-final</span></a>
   </div>
 </li>
       </ul>
@@ -443,6 +436,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -483,13 +477,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#숙제" id="toc-숙제" class="nav-link" data-scroll-target="#숙제">숙제</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2023-05-15-11wk-1.out.ipynb" download="2023-05-15-11wk-1.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/2023-03-06-1wk-1.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/03_Class/2023-05-10-10wk-2.html">03 Class</a></li><li class="breadcrumb-item"><a href="../../posts/03_Class/2023-05-15-11wk-1.html">11wk-1: 밈과 클래스 (2)</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">11wk-1: 밈과 클래스 (2)</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 15, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 <p><a href="https://colab.research.google.com/github/guebin/PP2023/blob/main/posts/03_Class/2023-05-15-11wk-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <section id="강의영상" class="level1">
@@ -500,8 +521,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="imports" class="level1">
 <h1>imports</h1>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="283d8174-52e4-45ab-bbc9-07758094caf2" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> HTML</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="예비학습" class="level1">
@@ -510,49 +531,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="코드줄바꿈">코드줄바꿈</h2>
 <p><code>\</code>: 코드가 길때 줄을 바꾸는 기능</p>
 <p><code>-</code> 예시1</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>a<span class="op">\</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="op">=</span><span class="dv">55</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8d1fff91-bb20-4a51-b456-6b515a4d714e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">=</span><span class="dv">55</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f6f27933-dbc4-4c79-ba33-07ce326205b8" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>55</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>a<span class="op">=\</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="dv">33</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="95ae691b-80ae-4a36-9ec7-79a313f4d931" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=\</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">33</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="879e3fdc-d066-4b65-950d-57f43b42e189" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>33</code></pre>
 </div>
 </div>
 <p><code>-</code> 예시2</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>a<span class="op">=</span><span class="fl">0.5</span> </span>
-<span id="cb8-2"><a href="#cb8-2"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="13053545-d328-4f42-9f36-776f6fa67de5" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="fl">0.5</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>0.5</code></pre>
 </div>
 </div>
 <p><span class="math inline">\(a+a^2+a^3+a^4+a^5\)</span> 를 계산하고 싶다면?</p>
 <p>(방법1)</p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>a <span class="op">+</span> a<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> a<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> a<span class="op">**</span><span class="dv">4</span> <span class="op">+</span> a<span class="op">**</span><span class="dv">5</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a60dd3b2-7914-4dd8-9be7-a437605e623a" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">+</span> a<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> a<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> a<span class="op">**</span><span class="dv">4</span> <span class="op">+</span> a<span class="op">**</span><span class="dv">5</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>0.96875</code></pre>
 </div>
 </div>
 <p>(방법2)</p>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>a <span class="op">+\</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>a<span class="op">**</span><span class="dv">2</span> <span class="op">+\</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>a<span class="op">**</span><span class="dv">3</span> <span class="op">+\</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>a<span class="op">**</span><span class="dv">4</span> <span class="op">+\</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>a<span class="op">**</span><span class="dv">5</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="52f7caa3-a6e7-4835-902a-e337d49f0eee" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">+\</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>a<span class="op">**</span><span class="dv">2</span> <span class="op">+\</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>a<span class="op">**</span><span class="dv">3</span> <span class="op">+\</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>a<span class="op">**</span><span class="dv">4</span> <span class="op">+\</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>a<span class="op">**</span><span class="dv">5</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>0.96875</code></pre>
 </div>
@@ -561,9 +582,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="으로-선언하는-문자열" class="level2">
 <h2 class="anchored" data-anchor-id="으로-선언하는-문자열"><code>'''</code>으로 선언하는 문자열</h2>
 <p><code>-</code> 예시1</p>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>string <span class="op">=</span> <span class="st">'</span><span class="ch">\n</span><span class="st">1. asdf</span><span class="ch">\n</span><span class="st">2. sdfa</span><span class="ch">\n</span><span class="st">3. dfas</span><span class="ch">\n</span><span class="st">4. fasd</span><span class="ch">\n</span><span class="st">'</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4b67f1bd-2a0f-4e40-a7d6-42376b0a70e0" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>string <span class="op">=</span> <span class="st">'</span><span class="ch">\n</span><span class="st">1. asdf</span><span class="ch">\n</span><span class="st">2. sdfa</span><span class="ch">\n</span><span class="st">3. dfas</span><span class="ch">\n</span><span class="st">4. fasd</span><span class="ch">\n</span><span class="st">'</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 1. asdf
@@ -573,15 +594,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>string <span class="op">=</span> <span class="op">\</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="st">'''</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="st">1. asdf</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="st">2. sdfa</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="st">3. dfas</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="st">4. fasd</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="st">'''</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a><span class="bu">print</span>(string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3d952b7f-f308-47a1-a553-73b044d2c6d3" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>string <span class="op">=</span> <span class="op">\</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="st">1. asdf</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="st">2. sdfa</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="st">3. dfas</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="st">4. fasd</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 1. asdf
@@ -592,19 +613,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p><code>-</code> 예시2</p>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>string <span class="op">=</span> <span class="op">\</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="st">'''</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="st">1. asdf</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="st">2. sdfa</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="st">3. dfas</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="st">4. fasd</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="st">5. </span><span class="sc">{}</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="st">6. </span><span class="sc">{}</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="288e1da0-64e2-4aa4-8ec5-2786f7e714a1" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>string <span class="op">=</span> <span class="op">\</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="st">1. asdf</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="st">2. sdfa</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="st">3. dfas</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="st">4. fasd</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="st">5. </span><span class="sc">{}</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="st">6. </span><span class="sc">{}</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="bu">print</span>(string.<span class="bu">format</span>(<span class="st">'aaaa'</span>,<span class="st">'bbbb'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5be2e653-cd71-457c-bf71-37946d909a90" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(string.<span class="bu">format</span>(<span class="st">'aaaa'</span>,<span class="st">'bbbb'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 1. asdf
@@ -620,15 +641,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="문자열-포맷팅" class="level2">
 <h2 class="anchored" data-anchor-id="문자열-포맷팅">문자열 포맷팅</h2>
 <p><code>-</code> 예시1</p>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>string <span class="op">=</span> <span class="op">\</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="st">'''</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="st">1. 이름: </span><span class="sc">{}</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="st">2. 소속: </span><span class="sc">{}</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5f293012-2e7a-499b-abcb-2d039a1e6fad" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>string <span class="op">=</span> <span class="op">\</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="st">1. 이름: </span><span class="sc">{}</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="st">2. 소속: </span><span class="sc">{}</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="bu">print</span>(string.<span class="bu">format</span>(<span class="st">'최규빈'</span>,<span class="st">'통계학과'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="09365fd2-8f3e-4a9d-8bba-cac9ad9ab36d" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(string.<span class="bu">format</span>(<span class="st">'최규빈'</span>,<span class="st">'통계학과'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 1. 이름: 최규빈
@@ -636,8 +657,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="bu">print</span>(string.<span class="bu">format</span>(<span class="st">'통계학과'</span>,<span class="st">'최규빈'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="96a690a4-ea27-4888-8043-7e7e2dc8bd20" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(string.<span class="bu">format</span>(<span class="st">'통계학과'</span>,<span class="st">'최규빈'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 1. 이름: 통계학과
@@ -646,15 +667,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p><code>-</code> 예시2</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>string <span class="op">=</span> <span class="op">\</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="st">'''</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="st">1. 이름: </span><span class="sc">{name}</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="st">2. 소속: </span><span class="sc">{affiliation}</span></span>
-<span id="cb26-5"><a href="#cb26-5"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1e497894-5f5a-4aa3-bdd4-e94e8be05f00" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>string <span class="op">=</span> <span class="op">\</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="st">1. 이름: </span><span class="sc">{name}</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="st">2. 소속: </span><span class="sc">{affiliation}</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="bu">print</span>(string.<span class="bu">format</span>(name<span class="op">=</span><span class="st">'최규빈'</span>, affiliation<span class="op">=</span><span class="st">'통계학과'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f06daa44-83bf-4e5c-87dc-5d6eebcfe397" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(string.<span class="bu">format</span>(name<span class="op">=</span><span class="st">'최규빈'</span>, affiliation<span class="op">=</span><span class="st">'통계학과'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 1. 이름: 최규빈
@@ -662,8 +683,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="bu">print</span>(string.<span class="bu">format</span>(affiliation<span class="op">=</span><span class="st">'통계학과'</span>,name<span class="op">=</span><span class="st">'최규빈'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6270381e-d7fb-4f2a-85a4-4ab9dbdd365b" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(string.<span class="bu">format</span>(affiliation<span class="op">=</span><span class="st">'통계학과'</span>,name<span class="op">=</span><span class="st">'최규빈'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 1. 이름: 최규빈
@@ -675,33 +696,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="html" class="level2">
 <h2 class="anchored" data-anchor-id="html">HTML</h2>
 <p><code>-</code> 예제1: 텍스트 출력</p>
-<div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="st">&lt;p&gt; 파이썬 프로그래밍 2023 &lt;/p&gt;</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="80a9ec67-8ee8-42b9-8b04-a04b8636218e" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p&gt; 파이썬 프로그래밍 2023 &lt;/p&gt;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>HTML(html_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4c78a6ae-94d7-49d0-936d-3bae46a71dcc" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>HTML(html_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 
 <p> 파이썬 프로그래밍 2023 </p>
 </div>
 </div>
 <p><code>-</code> 예제2: 텍스트의 스타일변경</p>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="st">&lt;style&gt;</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a><span class="st">    .title {</span></span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
-<span id="cb33-5"><a href="#cb33-5"></a><span class="st">        font-size: 30px;</span></span>
-<span id="cb33-6"><a href="#cb33-6"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb33-7"><a href="#cb33-7"></a><span class="st">    }</span></span>
-<span id="cb33-8"><a href="#cb33-8"></a><span class="st">&lt;/style&gt;</span></span>
-<span id="cb33-9"><a href="#cb33-9"></a><span class="st">&lt;p class="title"&gt;파이썬 프로그래밍 2023&lt;/p&gt;</span></span>
-<span id="cb33-10"><a href="#cb33-10"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="82969341-fe99-4f90-9edb-734c828737e3" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;style&gt;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="st">    .title {</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 30px;</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/style&gt;</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;파이썬 프로그래밍 2023&lt;/p&gt;</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>HTML(html_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c63f688f-95b2-4f06-b5a6-7bdac075a7aa" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>HTML(html_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 
 <style>
@@ -715,24 +736,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p><code>-</code> 예제3: 이미지의 삽입</p>
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="st">&lt;img src = https://github.com/guebin/PP2023/blob/main/posts/03_Class/JungGGuckMa.jpg?raw=true&gt;</span></span>
-<span id="cb35-3"><a href="#cb35-3"></a><span class="st">'''</span></span>
-<span id="cb35-4"><a href="#cb35-4"></a>HTML(html_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="68a765d0-1a7c-407d-8bbe-5c0cbe63abb8" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;img src = https://github.com/guebin/PP2023/blob/main/posts/03_Class/JungGGuckMa.jpg?raw=true&gt;</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>HTML(html_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 
 <img src="https://github.com/guebin/PP2023/blob/main/posts/03_Class/JungGGuckMa.jpg?raw=true">
 </div>
 </div>
 <p><code>-</code> 예제4: 텍스트 + 이미지</p>
-<div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a><span class="st">&lt;p&gt; 로그전 패배는 괜찮아 &lt;/p&gt;</span></span>
-<span id="cb36-3"><a href="#cb36-3"></a><span class="st">&lt;img src = https://github.com/guebin/PP2023/blob/main/posts/03_Class/JungGGuckMa.jpg?raw=true&gt;</span></span>
-<span id="cb36-4"><a href="#cb36-4"></a><span class="st">&lt;p&gt; 중요한 건 꺾이지 않는 마음 &lt;/p&gt;</span></span>
-<span id="cb36-5"><a href="#cb36-5"></a><span class="st">'''</span></span>
-<span id="cb36-6"><a href="#cb36-6"></a>HTML(html_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8c3cf71e-bac3-4972-9c14-f2bfaa79c3c9" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p&gt; 로그전 패배는 괜찮아 &lt;/p&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;img src = https://github.com/guebin/PP2023/blob/main/posts/03_Class/JungGGuckMa.jpg?raw=true&gt;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p&gt; 중요한 건 꺾이지 않는 마음 &lt;/p&gt;</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>HTML(html_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 
 <p> 로그전 패배는 괜찮아 </p>
@@ -744,8 +765,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="display" class="level2">
 <h2 class="anchored" data-anchor-id="display">display</h2>
 <p><code>-</code> 아래는 <code>HTML(html_str)</code>의 내용을 명시적으로 display 하는 코드이다.</p>
-<div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>display(HTML(html_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8aca9bec-32e4-4ef5-af54-20b979538fcc" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>display(HTML(html_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <p> 로그전 패배는 괜찮아 </p>
@@ -754,62 +775,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p><code>-</code> 이것은 마치 아래와 유사함.</p>
-<div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>a<span class="op">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6d108c6c-3497-43f2-811d-faf8c82843fe" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7a5e2d45-18e4-4699-b2d6-8afe3841bd5a" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>1</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0efb5fe9-f4f2-44e4-b173-7df2355805b7" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="중요한-것은-꺽이지-않는-마음" class="level1">
+<section id="중요한-것은-꺽이지-않는-마음" class="level1 page-columns page-full">
 <h1>중요한 것은 꺽이지 않는 마음</h1>
 <section id="구현" class="level2">
 <h2 class="anchored" data-anchor-id="구현">구현</h2>
 <p><code>-</code> 기사처럼 보이도록 html_str 을 선언</p>
-<div class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a><span class="st">&lt;style&gt;</span></span>
-<span id="cb43-3"><a href="#cb43-3"></a><span class="st">    .title {</span></span>
-<span id="cb43-4"><a href="#cb43-4"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
-<span id="cb43-5"><a href="#cb43-5"></a><span class="st">        font-size: 30px;</span></span>
-<span id="cb43-6"><a href="#cb43-6"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb43-7"><a href="#cb43-7"></a><span class="st">    }</span></span>
-<span id="cb43-8"><a href="#cb43-8"></a><span class="st">    .text {</span></span>
-<span id="cb43-9"><a href="#cb43-9"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
-<span id="cb43-10"><a href="#cb43-10"></a><span class="st">        font-size: 20px;</span></span>
-<span id="cb43-11"><a href="#cb43-11"></a><span class="st">        font-style: italic;</span></span>
-<span id="cb43-12"><a href="#cb43-12"></a><span class="st">    }</span></span>
-<span id="cb43-13"><a href="#cb43-13"></a><span class="st">    .highlight {</span></span>
-<span id="cb43-14"><a href="#cb43-14"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
-<span id="cb43-15"><a href="#cb43-15"></a><span class="st">        font-size: 35px;</span></span>
-<span id="cb43-16"><a href="#cb43-16"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb43-17"><a href="#cb43-17"></a><span class="st">        text-decoration: underline;</span></span>
-<span id="cb43-18"><a href="#cb43-18"></a><span class="st">        font-style: normal;</span></span>
-<span id="cb43-19"><a href="#cb43-19"></a><span class="st">        color: darkblue;</span></span>
-<span id="cb43-20"><a href="#cb43-20"></a><span class="st">        background-color: #FFFF00;</span></span>
-<span id="cb43-21"><a href="#cb43-21"></a><span class="st">    }</span></span>
-<span id="cb43-22"><a href="#cb43-22"></a><span class="st">&lt;/style&gt;</span></span>
-<span id="cb43-23"><a href="#cb43-23"></a></span>
-<span id="cb43-24"><a href="#cb43-24"></a><span class="st">&lt;p class="title"&gt;RGE전 패배는 괜찮다.&lt;/p&gt;</span></span>
-<span id="cb43-25"><a href="#cb43-25"></a><span class="st">&lt;img src=https://github.com/guebin/PP2023/blob/main/posts/03_Class/JungGGuckMa.jpg?raw=true width="600"&gt;</span></span>
-<span id="cb43-26"><a href="#cb43-26"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
-<span id="cb43-27"><a href="#cb43-27"></a><span class="st">&lt;p class="text"&gt; Q: 로그와 2라운드 재대결, 어떤 점에 유의해야 할까?&lt;/p&gt;</span></span>
-<span id="cb43-28"><a href="#cb43-28"></a><span class="st">&lt;p class="text"&gt; A: 상대팀에 대해서 더 분석할 건 없는 것 같고, 저희가 저희 플레이 잘하는 게 제일 중요한 것 같고 오늘 지긴 했지만 저희끼리만 안 무너지면 충분히 이길 수 있을 것 같아요.</span></span>
-<span id="cb43-29"><a href="#cb43-29"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;마음&lt;/span&gt;&lt;/p&gt;</span></span>
-<span id="cb43-30"><a href="#cb43-30"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="40d2829b-389c-45ee-938c-2ec78725f457" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;style&gt;</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="st">    .title {</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 30px;</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="st">    .text {</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 20px;</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: italic;</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="st">    .highlight {</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 35px;</span></span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a><span class="st">        text-decoration: underline;</span></span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: normal;</span></span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a><span class="st">        color: darkblue;</span></span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="st">        background-color: #FFFF00;</span></span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/style&gt;</span></span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;RGE전 패배는 괜찮다.&lt;/p&gt;</span></span>
+<span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;img src=https://github.com/guebin/PP2023/blob/main/posts/03_Class/JungGGuckMa.jpg?raw=true width="600"&gt;</span></span>
+<span id="cb43-26"><a href="#cb43-26" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
+<span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; Q: 로그와 2라운드 재대결, 어떤 점에 유의해야 할까?&lt;/p&gt;</span></span>
+<span id="cb43-28"><a href="#cb43-28" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; A: 상대팀에 대해서 더 분석할 건 없는 것 같고, 저희가 저희 플레이 잘하는 게 제일 중요한 것 같고 오늘 지긴 했지만 저희끼리만 안 무너지면 충분히 이길 수 있을 것 같아요.</span></span>
+<span id="cb43-29"><a href="#cb43-29" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;마음&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb43-30"><a href="#cb43-30" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>display(HTML(html_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="396d80b2-e706-42c2-873a-11695aa78420" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>display(HTML(html_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -850,40 +871,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><a href="https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true" class="uri">https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true</a></li>
 </ul>
-<div class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a><span class="st">&lt;style&gt;</span></span>
-<span id="cb45-3"><a href="#cb45-3"></a><span class="st">    .title {</span></span>
-<span id="cb45-4"><a href="#cb45-4"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
-<span id="cb45-5"><a href="#cb45-5"></a><span class="st">        font-size: 30px;</span></span>
-<span id="cb45-6"><a href="#cb45-6"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb45-7"><a href="#cb45-7"></a><span class="st">    }</span></span>
-<span id="cb45-8"><a href="#cb45-8"></a><span class="st">    .text {</span></span>
-<span id="cb45-9"><a href="#cb45-9"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
-<span id="cb45-10"><a href="#cb45-10"></a><span class="st">        font-size: 20px;</span></span>
-<span id="cb45-11"><a href="#cb45-11"></a><span class="st">        font-style: italic;</span></span>
-<span id="cb45-12"><a href="#cb45-12"></a><span class="st">    }</span></span>
-<span id="cb45-13"><a href="#cb45-13"></a><span class="st">    .highlight {</span></span>
-<span id="cb45-14"><a href="#cb45-14"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
-<span id="cb45-15"><a href="#cb45-15"></a><span class="st">        font-size: 35px;</span></span>
-<span id="cb45-16"><a href="#cb45-16"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb45-17"><a href="#cb45-17"></a><span class="st">        text-decoration: underline;</span></span>
-<span id="cb45-18"><a href="#cb45-18"></a><span class="st">        font-style: normal;</span></span>
-<span id="cb45-19"><a href="#cb45-19"></a><span class="st">        color: darkblue;</span></span>
-<span id="cb45-20"><a href="#cb45-20"></a><span class="st">        background-color: #FFFF00;</span></span>
-<span id="cb45-21"><a href="#cb45-21"></a><span class="st">    }</span></span>
-<span id="cb45-22"><a href="#cb45-22"></a><span class="st">&lt;/style&gt;</span></span>
-<span id="cb45-23"><a href="#cb45-23"></a></span>
-<span id="cb45-24"><a href="#cb45-24"></a><span class="st">&lt;p class="title"&gt;파이썬 프로그래밍 중간고사 패배는 괜찮다.&lt;/p&gt;</span></span>
-<span id="cb45-25"><a href="#cb45-25"></a><span class="st">&lt;img src=https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true width="600"&gt;</span></span>
-<span id="cb45-26"><a href="#cb45-26"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
-<span id="cb45-27"><a href="#cb45-27"></a><span class="st">&lt;p class="text"&gt; Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?&lt;/p&gt;</span></span>
-<span id="cb45-28"><a href="#cb45-28"></a><span class="st">&lt;p class="text"&gt; A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 제가 제 코드를 잘 구현하는 게 제일 중요한 것 같고 오늘 중간고사는 망하긴 했지만 저 스스로가 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.</span></span>
-<span id="cb45-29"><a href="#cb45-29"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;마음&lt;/span&gt;&lt;/p&gt;</span></span>
-<span id="cb45-30"><a href="#cb45-30"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5fbac013-5ba2-4fcf-b488-43c8bb5fe967" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;style&gt;</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="st">    .title {</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 30px;</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="st">    .text {</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 20px;</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: italic;</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="st">    .highlight {</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 35px;</span></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a><span class="st">        text-decoration: underline;</span></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: normal;</span></span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="st">        color: darkblue;</span></span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a><span class="st">        background-color: #FFFF00;</span></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/style&gt;</span></span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;파이썬 프로그래밍 중간고사 패배는 괜찮다.&lt;/p&gt;</span></span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;img src=https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true width="600"&gt;</span></span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?&lt;/p&gt;</span></span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 제가 제 코드를 잘 구현하는 게 제일 중요한 것 같고 오늘 중간고사는 망하긴 했지만 저 스스로가 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.</span></span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;마음&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>display(HTML(html_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="28f74d4e-5168-42fe-b986-7f2bf04e4754" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>display(HTML(html_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -929,54 +950,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="단계-양식틀의-완성-함수이용" class="level2">
 <h2 class="anchored" data-anchor-id="단계-양식틀의-완성-함수이용">2단계: 양식틀의 완성 (함수이용)</h2>
-<div class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="st">&lt;style&gt;</span></span>
-<span id="cb47-3"><a href="#cb47-3"></a><span class="st">    .title </span><span class="sc">{{</span></span>
-<span id="cb47-4"><a href="#cb47-4"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
-<span id="cb47-5"><a href="#cb47-5"></a><span class="st">        font-size: 30px;</span></span>
-<span id="cb47-6"><a href="#cb47-6"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb47-7"><a href="#cb47-7"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb47-8"><a href="#cb47-8"></a><span class="st">    .text </span><span class="sc">{{</span></span>
-<span id="cb47-9"><a href="#cb47-9"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
-<span id="cb47-10"><a href="#cb47-10"></a><span class="st">        font-size: 20px;</span></span>
-<span id="cb47-11"><a href="#cb47-11"></a><span class="st">        font-style: italic;</span></span>
-<span id="cb47-12"><a href="#cb47-12"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb47-13"><a href="#cb47-13"></a><span class="st">    .highlight </span><span class="sc">{{</span></span>
-<span id="cb47-14"><a href="#cb47-14"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
-<span id="cb47-15"><a href="#cb47-15"></a><span class="st">        font-size: 35px;</span></span>
-<span id="cb47-16"><a href="#cb47-16"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb47-17"><a href="#cb47-17"></a><span class="st">        text-decoration: underline;</span></span>
-<span id="cb47-18"><a href="#cb47-18"></a><span class="st">        font-style: normal;</span></span>
-<span id="cb47-19"><a href="#cb47-19"></a><span class="st">        color: darkblue;</span></span>
-<span id="cb47-20"><a href="#cb47-20"></a><span class="st">        background-color: #FFFF00;</span></span>
-<span id="cb47-21"><a href="#cb47-21"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb47-22"><a href="#cb47-22"></a><span class="st">&lt;/style&gt;</span></span>
-<span id="cb47-23"><a href="#cb47-23"></a></span>
-<span id="cb47-24"><a href="#cb47-24"></a><span class="st">&lt;p class="title"&gt;</span><span class="sc">{ttl}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb47-25"><a href="#cb47-25"></a><span class="st">&lt;img src=</span><span class="sc">{url}</span><span class="st"> width="600"&gt;</span></span>
-<span id="cb47-26"><a href="#cb47-26"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
-<span id="cb47-27"><a href="#cb47-27"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb47-28"><a href="#cb47-28"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb47-29"><a href="#cb47-29"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
-<span id="cb47-30"><a href="#cb47-30"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4d21b10c-fecd-4552-a788-ace953b82b75" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>html_str <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;style&gt;</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="st">    .title </span><span class="sc">{{</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 30px;</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="st">    .text </span><span class="sc">{{</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 20px;</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: italic;</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="st">    .highlight </span><span class="sc">{{</span></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 35px;</span></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="st">        text-decoration: underline;</span></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: normal;</span></span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a><span class="st">        color: darkblue;</span></span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a><span class="st">        background-color: #FFFF00;</span></span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/style&gt;</span></span>
+<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;</span><span class="sc">{ttl}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;img src=</span><span class="sc">{url}</span><span class="st"> width="600"&gt;</span></span>
+<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
+<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb47-29"><a href="#cb47-29" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb47-30"><a href="#cb47-30" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다!!!'</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a>imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true'</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a>ques <span class="op">=</span> <span class="st">'Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?'</span></span>
-<span id="cb48-4"><a href="#cb48-4"></a>ans <span class="op">=</span> <span class="st">'A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 제가 제 코드를 잘 구현하는 게 제일 중요한 것 같고 오늘 중간고사는 망하긴 했지만 저 스스로가 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.'</span></span>
-<span id="cb48-5"><a href="#cb48-5"></a>highlight <span class="op">=</span> <span class="st">'마음'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d7a84cff-4c3d-4212-a3e6-8145d8a4e7a6" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다!!!'</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true'</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>ques <span class="op">=</span> <span class="st">'Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?'</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>ans <span class="op">=</span> <span class="st">'A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 제가 제 코드를 잘 구현하는 게 제일 중요한 것 같고 오늘 중간고사는 망하긴 했지만 저 스스로가 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.'</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>highlight <span class="op">=</span> <span class="st">'마음'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>_str <span class="op">=</span> html_str.<span class="bu">format</span>(</span>
-<span id="cb49-2"><a href="#cb49-2"></a>    ttl <span class="op">=</span> title,</span>
-<span id="cb49-3"><a href="#cb49-3"></a>    url <span class="op">=</span> imgurl,</span>
-<span id="cb49-4"><a href="#cb49-4"></a>    Q <span class="op">=</span> ques,</span>
-<span id="cb49-5"><a href="#cb49-5"></a>    A <span class="op">=</span> ans,</span>
-<span id="cb49-6"><a href="#cb49-6"></a>    hl <span class="op">=</span> highlight</span>
-<span id="cb49-7"><a href="#cb49-7"></a>)</span>
-<span id="cb49-8"><a href="#cb49-8"></a>display(HTML(_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cfb1bfa6-365a-4b6a-acf6-284b8dc90a79" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>_str <span class="op">=</span> html_str.<span class="bu">format</span>(</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    ttl <span class="op">=</span> title,</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> imgurl,</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> ques,</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> ans,</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    hl <span class="op">=</span> highlight</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>display(HTML(_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -1011,19 +1032,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p><code>-</code> 함수의 선언</p>
-<div class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="kw">def</span> show_JungGGuckMa(html_str,title,imgurl,ques,ans,highlight):</span>
-<span id="cb50-2"><a href="#cb50-2"></a>    _str <span class="op">=</span> html_str.<span class="bu">format</span>(</span>
-<span id="cb50-3"><a href="#cb50-3"></a>        ttl <span class="op">=</span> title,</span>
-<span id="cb50-4"><a href="#cb50-4"></a>        url <span class="op">=</span> imgurl,</span>
-<span id="cb50-5"><a href="#cb50-5"></a>        Q <span class="op">=</span> ques,</span>
-<span id="cb50-6"><a href="#cb50-6"></a>        A <span class="op">=</span> ans,</span>
-<span id="cb50-7"><a href="#cb50-7"></a>        hl <span class="op">=</span> highlight</span>
-<span id="cb50-8"><a href="#cb50-8"></a>    )</span>
-<span id="cb50-9"><a href="#cb50-9"></a>    display(HTML(_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5f44c562-c3f3-44a7-84d0-55c7eda066ce" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_JungGGuckMa(html_str,title,imgurl,ques,ans,highlight):</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    _str <span class="op">=</span> html_str.<span class="bu">format</span>(</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>        ttl <span class="op">=</span> title,</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>        url <span class="op">=</span> imgurl,</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>        Q <span class="op">=</span> ques,</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>        A <span class="op">=</span> ans,</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>        hl <span class="op">=</span> highlight</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>    display(HTML(_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>show_JungGGuckMa(html_str,title,imgurl,ques,ans,highlight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c1219642-bc94-420e-a99d-a646bc3e1315" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>show_JungGGuckMa(html_str,title,imgurl,ques,ans,highlight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -1062,11 +1083,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="단계-밈놀이-함수">3단계: 밈놀이 (함수)</h2>
 <section id="t1-밈1-파이썬-프로그래밍-중간고사" class="level3">
 <h3 class="anchored" data-anchor-id="t1-밈1-파이썬-프로그래밍-중간고사"><strong><em>t=1 – 밈1: 파이썬 프로그래밍 중간고사</em></strong></h3>
-<div class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># 필요한 변수들 선언</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a><span class="co"># show_JungGGuckMa 함수 선언 </span></span>
-<span id="cb52-3"><a href="#cb52-3"></a><span class="co"># 사용</span></span>
-<span id="cb52-4"><a href="#cb52-4"></a>show_JungGGuckMa(html_str,title,imgurl,ques,ans,highlight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="93c4a8e3-408a-47b8-8193-15e503691338" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 필요한 변수들 선언</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co"># show_JungGGuckMa 함수 선언 </span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 사용</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>show_JungGGuckMa(html_str,title,imgurl,ques,ans,highlight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -1104,15 +1125,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="t2-밈2-버거킹" class="level3">
 <h3 class="anchored" data-anchor-id="t2-밈2-버거킹"><strong><em>t=2 – 밈2: 버거킹</em></strong></h3>
 <p>ref: <a href="https://i2.ruliweb.com/ori/22/12/03/184d62f98aace2c4.png" class="uri">https://i2.ruliweb.com/ori/22/12/03/184d62f98aace2c4.png</a></p>
-<div class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>title <span class="op">=</span> <span class="st">'버거 2개를 골라도 6000원'</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a>imgurl2 <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/burgerking.png?raw=true'</span></span>
-<span id="cb53-3"><a href="#cb53-3"></a>ques <span class="op">=</span> <span class="st">'기간: 11월28일(월)-12월4일(일)'</span></span>
-<span id="cb53-4"><a href="#cb53-4"></a>ans <span class="op">=</span> <span class="st">'콰트로치즈 와퍼 주니어, 통새우 와퍼 주니어, 롱치킨 버거 최대 42% 할인'</span></span>
-<span id="cb53-5"><a href="#cb53-5"></a>highlight <span class="op">=</span> <span class="st">'할인'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="269ec536-a1fb-497b-ab0a-d8061fbc5936" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>title <span class="op">=</span> <span class="st">'버거 2개를 골라도 6000원'</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>imgurl2 <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/burgerking.png?raw=true'</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>ques <span class="op">=</span> <span class="st">'기간: 11월28일(월)-12월4일(일)'</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>ans <span class="op">=</span> <span class="st">'콰트로치즈 와퍼 주니어, 통새우 와퍼 주니어, 롱치킨 버거 최대 42% 할인'</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>highlight <span class="op">=</span> <span class="st">'할인'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>show_JungGGuckMa(html_str,title,imgurl2,ques,ans,highlight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7d40765e-c669-4a97-a67f-ef12890b77d7" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>show_JungGGuckMa(html_str,title,imgurl2,ques,ans,highlight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -1149,15 +1170,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="t3-밈1변경-중요한-것은-꺾이지-않는-집중력" class="level3">
 <h3 class="anchored" data-anchor-id="t3-밈1변경-중요한-것은-꺾이지-않는-집중력"><strong><em>t=3 – 밈1변경: 중요한 것은 꺾이지 않는 “집중력”</em></strong></h3>
-<div class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다!!!'</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a>imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true'</span></span>
-<span id="cb55-3"><a href="#cb55-3"></a>ques <span class="op">=</span> <span class="st">'Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?'</span></span>
-<span id="cb55-4"><a href="#cb55-4"></a>ans <span class="op">=</span> <span class="st">'A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 제가 제 코드를 잘 구현하는 게 제일 중요한 것 같고 오늘 중간고사는 망하긴 했지만 저 스스로가 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.'</span></span>
-<span id="cb55-5"><a href="#cb55-5"></a>highlight <span class="op">=</span> <span class="st">'집중력'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c5ebe611-d581-4ed4-be8c-3d313fb760b4" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다!!!'</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true'</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>ques <span class="op">=</span> <span class="st">'Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?'</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>ans <span class="op">=</span> <span class="st">'A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 제가 제 코드를 잘 구현하는 게 제일 중요한 것 같고 오늘 중간고사는 망하긴 했지만 저 스스로가 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.'</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>highlight <span class="op">=</span> <span class="st">'집중력'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>show_JungGGuckMa(html_str,title,imgurl,ques,ans,highlight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e22b6ec7-96e8-4941-b718-4bbc3b3f5e78" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>show_JungGGuckMa(html_str,title,imgurl,ques,ans,highlight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -1202,81 +1223,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>-</code> 변수들이 정리가 되어있지 않고 산만함</p>
 </section>
 </section>
-<section id="단계-밈놀이-클래스" class="level2">
+<section id="단계-밈놀이-클래스" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="단계-밈놀이-클래스">3단계: 밈놀이 (클래스)</h2>
-<div class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="kw">class</span> JungKKuckMa:</span>
-<span id="cb57-2"><a href="#cb57-2"></a>    <span class="cf">pass</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9645199e-fe8c-4d38-8d16-ad12a74ebf93" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> JungKKuckMa:</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="t1-밈1-파이썬-프로그래밍-중간고사-1" class="level3">
+<section id="t1-밈1-파이썬-프로그래밍-중간고사-1" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="t1-밈1-파이썬-프로그래밍-중간고사-1"><strong><em>t=1 – 밈1: 파이썬 프로그래밍 중간고사</em></strong></h3>
-<div class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>pp2023 <span class="op">=</span> JungKKuckMa()</span>
-<span id="cb58-2"><a href="#cb58-2"></a>pp2023</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f1a294d3-2068-47b1-a8af-06f46ce919c9" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>pp2023 <span class="op">=</span> JungKKuckMa()</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>pp2023</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>&lt;__main__.JungKKuckMa at 0x7f101ca06fd0&gt;</code></pre>
 </div>
 </div>
 <p><em>(참고) 여기에서 <code>pp2023.</code>을 치고 tab을 눌러도 아무런 변화가 없음.</em></p>
 <p><img src="2023-05-15-11wk-1_files/figure-html/61dddf67-0897-42c4-aa4b-2848b6cd545e-1-db44152d-5dcf-4fea-8070-058e8ece912c.png" class="img-fluid"></p>
-<div class="cell" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>pp2023.title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다!!!'</span></span>
-<span id="cb60-2"><a href="#cb60-2"></a>pp2023.imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true'</span></span>
-<span id="cb60-3"><a href="#cb60-3"></a>pp2023.ques <span class="op">=</span> <span class="st">'Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?'</span></span>
-<span id="cb60-4"><a href="#cb60-4"></a>pp2023.ans <span class="op">=</span> <span class="st">'A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 제가 제 코드를 잘 구현하는 게 제일 중요한 것 같고 오늘 중간고사는 망하긴 했지만 저 스스로가 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.'</span></span>
-<span id="cb60-5"><a href="#cb60-5"></a>pp2023.highlight <span class="op">=</span> <span class="st">'마음'</span></span>
-<span id="cb60-6"><a href="#cb60-6"></a>pp2023.html_str <span class="op">=\</span></span>
-<span id="cb60-7"><a href="#cb60-7"></a><span class="st">'''</span></span>
-<span id="cb60-8"><a href="#cb60-8"></a><span class="st">&lt;style&gt;</span></span>
-<span id="cb60-9"><a href="#cb60-9"></a><span class="st">    .title </span><span class="sc">{{</span></span>
-<span id="cb60-10"><a href="#cb60-10"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
-<span id="cb60-11"><a href="#cb60-11"></a><span class="st">        font-size: 30px;</span></span>
-<span id="cb60-12"><a href="#cb60-12"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb60-13"><a href="#cb60-13"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb60-14"><a href="#cb60-14"></a><span class="st">    .text </span><span class="sc">{{</span></span>
-<span id="cb60-15"><a href="#cb60-15"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
-<span id="cb60-16"><a href="#cb60-16"></a><span class="st">        font-size: 20px;</span></span>
-<span id="cb60-17"><a href="#cb60-17"></a><span class="st">        font-style: italic;</span></span>
-<span id="cb60-18"><a href="#cb60-18"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb60-19"><a href="#cb60-19"></a><span class="st">    .highlight </span><span class="sc">{{</span></span>
-<span id="cb60-20"><a href="#cb60-20"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
-<span id="cb60-21"><a href="#cb60-21"></a><span class="st">        font-size: 35px;</span></span>
-<span id="cb60-22"><a href="#cb60-22"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb60-23"><a href="#cb60-23"></a><span class="st">        text-decoration: underline;</span></span>
-<span id="cb60-24"><a href="#cb60-24"></a><span class="st">        font-style: normal;</span></span>
-<span id="cb60-25"><a href="#cb60-25"></a><span class="st">        color: darkblue;</span></span>
-<span id="cb60-26"><a href="#cb60-26"></a><span class="st">        background-color: #FFFF00;</span></span>
-<span id="cb60-27"><a href="#cb60-27"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb60-28"><a href="#cb60-28"></a><span class="st">&lt;/style&gt;</span></span>
-<span id="cb60-29"><a href="#cb60-29"></a></span>
-<span id="cb60-30"><a href="#cb60-30"></a><span class="st">&lt;p class="title"&gt;</span><span class="sc">{ttl}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb60-31"><a href="#cb60-31"></a><span class="st">&lt;img src=</span><span class="sc">{url}</span><span class="st"> width="600"&gt;</span></span>
-<span id="cb60-32"><a href="#cb60-32"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
-<span id="cb60-33"><a href="#cb60-33"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb60-34"><a href="#cb60-34"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb60-35"><a href="#cb60-35"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
-<span id="cb60-36"><a href="#cb60-36"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f59f97f3-87fc-47c4-aa3f-6dee495463b0" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>pp2023.title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다!!!'</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>pp2023.imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true'</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>pp2023.ques <span class="op">=</span> <span class="st">'Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?'</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>pp2023.ans <span class="op">=</span> <span class="st">'A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 제가 제 코드를 잘 구현하는 게 제일 중요한 것 같고 오늘 중간고사는 망하긴 했지만 저 스스로가 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.'</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>pp2023.highlight <span class="op">=</span> <span class="st">'마음'</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>pp2023.html_str <span class="op">=\</span></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;style&gt;</span></span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="st">    .title </span><span class="sc">{{</span></span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 30px;</span></span>
+<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a><span class="st">    .text </span><span class="sc">{{</span></span>
+<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
+<span id="cb60-16"><a href="#cb60-16" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 20px;</span></span>
+<span id="cb60-17"><a href="#cb60-17" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: italic;</span></span>
+<span id="cb60-18"><a href="#cb60-18" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb60-19"><a href="#cb60-19" aria-hidden="true" tabindex="-1"></a><span class="st">    .highlight </span><span class="sc">{{</span></span>
+<span id="cb60-20"><a href="#cb60-20" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
+<span id="cb60-21"><a href="#cb60-21" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 35px;</span></span>
+<span id="cb60-22"><a href="#cb60-22" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb60-23"><a href="#cb60-23" aria-hidden="true" tabindex="-1"></a><span class="st">        text-decoration: underline;</span></span>
+<span id="cb60-24"><a href="#cb60-24" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: normal;</span></span>
+<span id="cb60-25"><a href="#cb60-25" aria-hidden="true" tabindex="-1"></a><span class="st">        color: darkblue;</span></span>
+<span id="cb60-26"><a href="#cb60-26" aria-hidden="true" tabindex="-1"></a><span class="st">        background-color: #FFFF00;</span></span>
+<span id="cb60-27"><a href="#cb60-27" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb60-28"><a href="#cb60-28" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/style&gt;</span></span>
+<span id="cb60-29"><a href="#cb60-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-30"><a href="#cb60-30" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;</span><span class="sc">{ttl}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb60-31"><a href="#cb60-31" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;img src=</span><span class="sc">{url}</span><span class="st"> width="600"&gt;</span></span>
+<span id="cb60-32"><a href="#cb60-32" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
+<span id="cb60-33"><a href="#cb60-33" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb60-34"><a href="#cb60-34" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb60-35"><a href="#cb60-35" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb60-36"><a href="#cb60-36" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>(참고) 이 상태에서 <code>pp2023.</code> + tab 을 하면 아래와 같이 보인다.</em></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
 <p><img src="2023-05-15-11wk-1_files/figure-html/f435302a-a4cf-4e6f-88d8-870dab5e8fed-1-e7462662-31f7-451c-babb-97fe354c2929.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">image.png</figcaption><p></p>
+<figcaption class="figure-caption margin-caption">image.png</figcaption>
 </figure>
 </div>
-<div class="cell" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="kw">def</span> show(pp2023):</span>
-<span id="cb61-2"><a href="#cb61-2"></a>    _str <span class="op">=</span> pp2023.html_str.<span class="bu">format</span>(</span>
-<span id="cb61-3"><a href="#cb61-3"></a>        ttl <span class="op">=</span> pp2023.title,</span>
-<span id="cb61-4"><a href="#cb61-4"></a>        url <span class="op">=</span> pp2023.imgurl,</span>
-<span id="cb61-5"><a href="#cb61-5"></a>        Q <span class="op">=</span> pp2023.ques,</span>
-<span id="cb61-6"><a href="#cb61-6"></a>        A <span class="op">=</span> pp2023.ans,</span>
-<span id="cb61-7"><a href="#cb61-7"></a>        hl <span class="op">=</span> pp2023.highlight</span>
-<span id="cb61-8"><a href="#cb61-8"></a>    )</span>
-<span id="cb61-9"><a href="#cb61-9"></a>    display(HTML(_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="750b55be-d4cc-4128-bbfa-f55fc2ec37a8" class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show(pp2023):</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>    _str <span class="op">=</span> pp2023.html_str.<span class="bu">format</span>(</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>        ttl <span class="op">=</span> pp2023.title,</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>        url <span class="op">=</span> pp2023.imgurl,</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>        Q <span class="op">=</span> pp2023.ques,</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>        A <span class="op">=</span> pp2023.ans,</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>        hl <span class="op">=</span> pp2023.highlight</span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>    display(HTML(_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="67">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>show(pp2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c3b1c772-29a3-497b-832e-9ce71b7cc44c" class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>show(pp2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -1313,72 +1334,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="t2-밈2-버거킹-1" class="level3">
 <h3 class="anchored" data-anchor-id="t2-밈2-버거킹-1"><strong><em>t=2 – 밈2: 버거킹</em></strong></h3>
-<div class="cell" data-execution_count="68">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>burger <span class="op">=</span> JungKKuckMa()</span>
-<span id="cb63-2"><a href="#cb63-2"></a>burger</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e49cdf6e-3671-4e00-bbda-6c9904268f30" class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>burger <span class="op">=</span> JungKKuckMa()</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>burger</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="68">
 <pre><code>&lt;__main__.JungKKuckMa at 0x7f101ca069d0&gt;</code></pre>
 </div>
 </div>
 <p><em>(참고) 여기에서 <code>burger.</code>을 치고 tab을 눌러도 아무런 변화가 없음.</em></p>
 <p><img src="2023-05-15-11wk-1_files/figure-html/2c0f0e4e-49ed-4e08-987b-615bef4e44d9-1-4de3eaea-90e9-429f-b1ed-27adc5c357c0.png" class="img-fluid"></p>
-<div class="cell" data-execution_count="69">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>burger.title <span class="op">=</span> <span class="st">'버거 2개를 골라도 6000원'</span></span>
-<span id="cb65-2"><a href="#cb65-2"></a>burger.imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/burgerking.png?raw=true'</span></span>
-<span id="cb65-3"><a href="#cb65-3"></a>burger.ques <span class="op">=</span> <span class="st">'기간: 11월28일(월)-12월4일(일)'</span></span>
-<span id="cb65-4"><a href="#cb65-4"></a>burger.ans <span class="op">=</span> <span class="st">'콰트로치즈 와퍼 주니어, 통새우 와퍼 주니어, 롱치킨 버거 최대 42% 할인'</span></span>
-<span id="cb65-5"><a href="#cb65-5"></a>burger.highlight <span class="op">=</span> <span class="st">'할인'</span></span>
-<span id="cb65-6"><a href="#cb65-6"></a>burger.html_str <span class="op">=\</span></span>
-<span id="cb65-7"><a href="#cb65-7"></a><span class="st">'''</span></span>
-<span id="cb65-8"><a href="#cb65-8"></a><span class="st">&lt;style&gt;</span></span>
-<span id="cb65-9"><a href="#cb65-9"></a><span class="st">    .title </span><span class="sc">{{</span></span>
-<span id="cb65-10"><a href="#cb65-10"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
-<span id="cb65-11"><a href="#cb65-11"></a><span class="st">        font-size: 30px;</span></span>
-<span id="cb65-12"><a href="#cb65-12"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb65-13"><a href="#cb65-13"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb65-14"><a href="#cb65-14"></a><span class="st">    .text </span><span class="sc">{{</span></span>
-<span id="cb65-15"><a href="#cb65-15"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
-<span id="cb65-16"><a href="#cb65-16"></a><span class="st">        font-size: 20px;</span></span>
-<span id="cb65-17"><a href="#cb65-17"></a><span class="st">        font-style: italic;</span></span>
-<span id="cb65-18"><a href="#cb65-18"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb65-19"><a href="#cb65-19"></a><span class="st">    .highlight </span><span class="sc">{{</span></span>
-<span id="cb65-20"><a href="#cb65-20"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
-<span id="cb65-21"><a href="#cb65-21"></a><span class="st">        font-size: 35px;</span></span>
-<span id="cb65-22"><a href="#cb65-22"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb65-23"><a href="#cb65-23"></a><span class="st">        text-decoration: underline;</span></span>
-<span id="cb65-24"><a href="#cb65-24"></a><span class="st">        font-style: normal;</span></span>
-<span id="cb65-25"><a href="#cb65-25"></a><span class="st">        color: darkblue;</span></span>
-<span id="cb65-26"><a href="#cb65-26"></a><span class="st">        background-color: #FFFF00;</span></span>
-<span id="cb65-27"><a href="#cb65-27"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb65-28"><a href="#cb65-28"></a><span class="st">&lt;/style&gt;</span></span>
-<span id="cb65-29"><a href="#cb65-29"></a></span>
-<span id="cb65-30"><a href="#cb65-30"></a><span class="st">&lt;p class="title"&gt;</span><span class="sc">{ttl}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb65-31"><a href="#cb65-31"></a><span class="st">&lt;img src=</span><span class="sc">{url}</span><span class="st"> width="600"&gt;</span></span>
-<span id="cb65-32"><a href="#cb65-32"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
-<span id="cb65-33"><a href="#cb65-33"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb65-34"><a href="#cb65-34"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb65-35"><a href="#cb65-35"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
-<span id="cb65-36"><a href="#cb65-36"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c3c2b1e7-926a-4735-8241-a53b06f9882d" class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>burger.title <span class="op">=</span> <span class="st">'버거 2개를 골라도 6000원'</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>burger.imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/burgerking.png?raw=true'</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>burger.ques <span class="op">=</span> <span class="st">'기간: 11월28일(월)-12월4일(일)'</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>burger.ans <span class="op">=</span> <span class="st">'콰트로치즈 와퍼 주니어, 통새우 와퍼 주니어, 롱치킨 버거 최대 42% 할인'</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>burger.highlight <span class="op">=</span> <span class="st">'할인'</span></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>burger.html_str <span class="op">=\</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;style&gt;</span></span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a><span class="st">    .title </span><span class="sc">{{</span></span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
+<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 30px;</span></span>
+<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a><span class="st">    .text </span><span class="sc">{{</span></span>
+<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
+<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 20px;</span></span>
+<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: italic;</span></span>
+<span id="cb65-18"><a href="#cb65-18" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a><span class="st">    .highlight </span><span class="sc">{{</span></span>
+<span id="cb65-20"><a href="#cb65-20" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
+<span id="cb65-21"><a href="#cb65-21" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 35px;</span></span>
+<span id="cb65-22"><a href="#cb65-22" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb65-23"><a href="#cb65-23" aria-hidden="true" tabindex="-1"></a><span class="st">        text-decoration: underline;</span></span>
+<span id="cb65-24"><a href="#cb65-24" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: normal;</span></span>
+<span id="cb65-25"><a href="#cb65-25" aria-hidden="true" tabindex="-1"></a><span class="st">        color: darkblue;</span></span>
+<span id="cb65-26"><a href="#cb65-26" aria-hidden="true" tabindex="-1"></a><span class="st">        background-color: #FFFF00;</span></span>
+<span id="cb65-27"><a href="#cb65-27" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb65-28"><a href="#cb65-28" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/style&gt;</span></span>
+<span id="cb65-29"><a href="#cb65-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-30"><a href="#cb65-30" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;</span><span class="sc">{ttl}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb65-31"><a href="#cb65-31" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;img src=</span><span class="sc">{url}</span><span class="st"> width="600"&gt;</span></span>
+<span id="cb65-32"><a href="#cb65-32" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
+<span id="cb65-33"><a href="#cb65-33" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb65-34"><a href="#cb65-34" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb65-35"><a href="#cb65-35" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb65-36"><a href="#cb65-36" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>(참고) 이 순간은 <code>burger.</code> + tab 을 하면 아래와 같이 나온다.</em></p>
 <p><img src="2023-05-15-11wk-1_files/figure-html/10b04e9d-5d30-48d1-aa33-55d4dbe43853-1-a6019b53-4d2f-43a0-8dc3-e1a12ac6d427.png" class="img-fluid"></p>
 <p><code>-</code> show() 함수는 재사용가능하겠는데?</p>
-<div class="cell" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># def show(pp2023):</span></span>
-<span id="cb66-2"><a href="#cb66-2"></a><span class="co">#     _str = pp2023.html_str.format(</span></span>
-<span id="cb66-3"><a href="#cb66-3"></a><span class="co">#         ttl = pp2023.title,</span></span>
-<span id="cb66-4"><a href="#cb66-4"></a><span class="co">#         url = pp2023.imgurl,</span></span>
-<span id="cb66-5"><a href="#cb66-5"></a><span class="co">#         Q = pp2023.ques,</span></span>
-<span id="cb66-6"><a href="#cb66-6"></a><span class="co">#         A = pp2023.ans,</span></span>
-<span id="cb66-7"><a href="#cb66-7"></a><span class="co">#         hl = pp2023.highlight</span></span>
-<span id="cb66-8"><a href="#cb66-8"></a><span class="co">#     )</span></span>
-<span id="cb66-9"><a href="#cb66-9"></a><span class="co">#     display(HTML(_str))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d6e44649-886e-4b6b-a3d1-10313903fd99" class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># def show(pp2023):</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     _str = pp2023.html_str.format(</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co">#         ttl = pp2023.title,</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co">#         url = pp2023.imgurl,</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co">#         Q = pp2023.ques,</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="co">#         A = pp2023.ans,</span></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="co">#         hl = pp2023.highlight</span></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     )</span></span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="co">#     display(HTML(_str))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>pp2023, burger 를 show 함수의 입력 x로 생각해도 무방</li>
 </ul>
-<div class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>show(burger)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3108b090-bb4b-4454-83de-e9473ec76c87" class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>show(burger)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -1415,11 +1436,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="t3-밈1변경-중요한-것은-꺾이지-않는-집중력-1" class="level3">
 <h3 class="anchored" data-anchor-id="t3-밈1변경-중요한-것은-꺾이지-않는-집중력-1"><strong><em>t=3 – 밈1변경: 중요한 것은 꺾이지 않는 “집중력”</em></strong></h3>
-<div class="cell" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>pp2023.highlight <span class="op">=</span> <span class="st">'집중력'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3cc54e29-11c9-472d-b910-694d9fcc9d41" class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>pp2023.highlight <span class="op">=</span> <span class="st">'집중력'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>show(pp2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d2b42cf3-997a-4576-a61b-c38fd3cdf790" class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>show(pp2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -1456,11 +1477,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="t4-밈2변경-버거-종류-수정-1" class="level3">
 <h3 class="anchored" data-anchor-id="t4-밈2변경-버거-종류-수정-1"><strong><em>t=4 – 밈2변경: 버거 종류 수정</em></strong></h3>
-<div class="cell" data-execution_count="74">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>burger.ans <span class="op">=</span> <span class="st">'기네스콰트로치즈와퍼, 기네스와퍼, 몬스터와퍼, 몬스터X 최대 XX% 할인'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0582ea75-94ce-4853-82a7-d49b97ab15f2" class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>burger.ans <span class="op">=</span> <span class="st">'기네스콰트로치즈와퍼, 기네스와퍼, 몬스터와퍼, 몬스터X 최대 XX% 할인'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="75">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>show(burger)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3c5353eb-c209-4431-800a-866d6c4f0908" class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>show(burger)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style>
@@ -1498,17 +1519,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="코드의-복습-대응하는-용어의-정리" class="level3">
 <h3 class="anchored" data-anchor-id="코드의-복습-대응하는-용어의-정리"><strong><em>코드의 복습 + 대응하는 용어의 정리</em></strong></h3>
 <p><code>-</code> 코드조각1: 아래의 과정은 “<code>JungKKuckMa</code>라는 이름의 클래스를 선언한다.” 라고 표현한다.</p>
-<div class="cell" data-execution_count="76">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a><span class="kw">class</span> JungKKuckMa:</span>
-<span id="cb72-2"><a href="#cb72-2"></a>    <span class="cf">pass</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6925de4b-4a54-44bf-910c-c8022d9097ae" class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> JungKKuckMa:</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>’JungKKuckMa.HWP’라는 빈 한글파일을 만들어 두는 과정이라 비유할 수 있다.</li>
 </ul>
 <p><code>-</code> 코드조각2: 아래의 과정은 “<code>JungKKuckMa</code>라는 클래스에서 <code>pp2023</code>이라는 인스턴스를 <strong>생성</strong>시켰다.” 고 표현한다.</p>
-<div class="cell" data-execution_count="77">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>pp2023 <span class="op">=</span> JungKKuckMa()</span>
-<span id="cb73-2"><a href="#cb73-2"></a>pp2023</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0fb79217-f0e5-4a60-baa8-bc6ebc548f63" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>pp2023 <span class="op">=</span> JungKKuckMa()</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>pp2023</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="77">
 <pre><code>&lt;__main__.JungKKuckMa at 0x7f101ca06fa0&gt;</code></pre>
 </div>
@@ -1521,66 +1542,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>여기에서 정의된 <code>pp2023.title</code> 등을 “<code>pp2023</code>의 attribute” 라고 표현한다.</li>
 </ul>
-<div class="cell" data-execution_count="79">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>pp2023.title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다!!!'</span></span>
-<span id="cb75-2"><a href="#cb75-2"></a>pp2023.imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true'</span></span>
-<span id="cb75-3"><a href="#cb75-3"></a>pp2023.ques <span class="op">=</span> <span class="st">'Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?'</span></span>
-<span id="cb75-4"><a href="#cb75-4"></a>pp2023.ans <span class="op">=</span> <span class="st">'A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 제가 제 코드를 잘 구현하는 게 제일 중요한 것 같고 오늘 중간고사는 망하긴 했지만 저 스스로가 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.'</span></span>
-<span id="cb75-5"><a href="#cb75-5"></a>pp2023.highlight <span class="op">=</span> <span class="st">'마음'</span></span>
-<span id="cb75-6"><a href="#cb75-6"></a>pp2023.html_str <span class="op">=\</span></span>
-<span id="cb75-7"><a href="#cb75-7"></a><span class="st">'''</span></span>
-<span id="cb75-8"><a href="#cb75-8"></a><span class="st">&lt;style&gt;</span></span>
-<span id="cb75-9"><a href="#cb75-9"></a><span class="st">    .title </span><span class="sc">{{</span></span>
-<span id="cb75-10"><a href="#cb75-10"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
-<span id="cb75-11"><a href="#cb75-11"></a><span class="st">        font-size: 30px;</span></span>
-<span id="cb75-12"><a href="#cb75-12"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb75-13"><a href="#cb75-13"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb75-14"><a href="#cb75-14"></a><span class="st">    .text </span><span class="sc">{{</span></span>
-<span id="cb75-15"><a href="#cb75-15"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
-<span id="cb75-16"><a href="#cb75-16"></a><span class="st">        font-size: 20px;</span></span>
-<span id="cb75-17"><a href="#cb75-17"></a><span class="st">        font-style: italic;</span></span>
-<span id="cb75-18"><a href="#cb75-18"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb75-19"><a href="#cb75-19"></a><span class="st">    .highlight </span><span class="sc">{{</span></span>
-<span id="cb75-20"><a href="#cb75-20"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
-<span id="cb75-21"><a href="#cb75-21"></a><span class="st">        font-size: 35px;</span></span>
-<span id="cb75-22"><a href="#cb75-22"></a><span class="st">        font-weight: 900;</span></span>
-<span id="cb75-23"><a href="#cb75-23"></a><span class="st">        text-decoration: underline;</span></span>
-<span id="cb75-24"><a href="#cb75-24"></a><span class="st">        font-style: normal;</span></span>
-<span id="cb75-25"><a href="#cb75-25"></a><span class="st">        color: darkblue;</span></span>
-<span id="cb75-26"><a href="#cb75-26"></a><span class="st">        background-color: #FFFF00;</span></span>
-<span id="cb75-27"><a href="#cb75-27"></a><span class="st">    </span><span class="sc">}}</span></span>
-<span id="cb75-28"><a href="#cb75-28"></a><span class="st">&lt;/style&gt;</span></span>
-<span id="cb75-29"><a href="#cb75-29"></a></span>
-<span id="cb75-30"><a href="#cb75-30"></a><span class="st">&lt;p class="title"&gt;</span><span class="sc">{ttl}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb75-31"><a href="#cb75-31"></a><span class="st">&lt;img src=</span><span class="sc">{url}</span><span class="st"> width="600"&gt;</span></span>
-<span id="cb75-32"><a href="#cb75-32"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
-<span id="cb75-33"><a href="#cb75-33"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb75-34"><a href="#cb75-34"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
-<span id="cb75-35"><a href="#cb75-35"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
-<span id="cb75-36"><a href="#cb75-36"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5749232a-8331-4a2e-bc10-ad076050d2fa" class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>pp2023.title <span class="op">=</span> <span class="st">'파이썬 프로그래밍 중간고사 패배는 괜찮다!!!'</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>pp2023.imgurl <span class="op">=</span> <span class="st">'https://github.com/guebin/PP2023/blob/main/posts/03_Class/PP2023mid.jpg?raw=true'</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>pp2023.ques <span class="op">=</span> <span class="st">'Q: 파이썬 프로그래밍 기말고사, 어떤 점에 유의해야 할까?'</span></span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>pp2023.ans <span class="op">=</span> <span class="st">'A: 최규빈 교수 문제 스타일에 대해서 더 분석할 건 없는 것 같고, 제가 제 코드를 잘 구현하는 게 제일 중요한 것 같고 오늘 중간고사는 망하긴 했지만 저 스스로가 안 무너지면 충분히 기말고사는 잘 볼 수 있을 것 같아요.'</span></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>pp2023.highlight <span class="op">=</span> <span class="st">'마음'</span></span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>pp2023.html_str <span class="op">=\</span></span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;style&gt;</span></span>
+<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a><span class="st">    .title </span><span class="sc">{{</span></span>
+<span id="cb75-10"><a href="#cb75-10" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Times New Roman", serif;</span></span>
+<span id="cb75-11"><a href="#cb75-11" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 30px;</span></span>
+<span id="cb75-12"><a href="#cb75-12" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb75-13"><a href="#cb75-13" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb75-14"><a href="#cb75-14" aria-hidden="true" tabindex="-1"></a><span class="st">    .text </span><span class="sc">{{</span></span>
+<span id="cb75-15"><a href="#cb75-15" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Arial", sans-serif;</span></span>
+<span id="cb75-16"><a href="#cb75-16" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 20px;</span></span>
+<span id="cb75-17"><a href="#cb75-17" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: italic;</span></span>
+<span id="cb75-18"><a href="#cb75-18" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb75-19"><a href="#cb75-19" aria-hidden="true" tabindex="-1"></a><span class="st">    .highlight </span><span class="sc">{{</span></span>
+<span id="cb75-20"><a href="#cb75-20" aria-hidden="true" tabindex="-1"></a><span class="st">        font-family: "Montserrat", monospace;</span></span>
+<span id="cb75-21"><a href="#cb75-21" aria-hidden="true" tabindex="-1"></a><span class="st">        font-size: 35px;</span></span>
+<span id="cb75-22"><a href="#cb75-22" aria-hidden="true" tabindex="-1"></a><span class="st">        font-weight: 900;</span></span>
+<span id="cb75-23"><a href="#cb75-23" aria-hidden="true" tabindex="-1"></a><span class="st">        text-decoration: underline;</span></span>
+<span id="cb75-24"><a href="#cb75-24" aria-hidden="true" tabindex="-1"></a><span class="st">        font-style: normal;</span></span>
+<span id="cb75-25"><a href="#cb75-25" aria-hidden="true" tabindex="-1"></a><span class="st">        color: darkblue;</span></span>
+<span id="cb75-26"><a href="#cb75-26" aria-hidden="true" tabindex="-1"></a><span class="st">        background-color: #FFFF00;</span></span>
+<span id="cb75-27"><a href="#cb75-27" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">}}</span></span>
+<span id="cb75-28"><a href="#cb75-28" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/style&gt;</span></span>
+<span id="cb75-29"><a href="#cb75-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-30"><a href="#cb75-30" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;</span><span class="sc">{ttl}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb75-31"><a href="#cb75-31" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;img src=</span><span class="sc">{url}</span><span class="st"> width="600"&gt;</span></span>
+<span id="cb75-32"><a href="#cb75-32" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p&gt; </span><span class="ch">\n</span><span class="st"> &lt;/p&gt;</span></span>
+<span id="cb75-33"><a href="#cb75-33" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{Q}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb75-34"><a href="#cb75-34" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="text"&gt; </span><span class="sc">{A}</span><span class="st">&lt;/p&gt;</span></span>
+<span id="cb75-35"><a href="#cb75-35" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;p class="title"&gt;중요한 것은 꺾이지 않는 &lt;span class="highlight"&gt;</span><span class="sc">{hl}</span><span class="st">&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb75-36"><a href="#cb75-36" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>‘pp2023.HWP’ 라는 문서안에 내용을 채우는 과정이라고 비유할 수 있다.</li>
 </ul>
 <p><code>-</code> 코드조각4: 아래의 과정은 클래스에서 생성된 인스턴스를 입력으로 받아서 어떠한 동작을 수행할 함수를 정의</p>
-<div class="cell" data-execution_count="80">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a><span class="kw">def</span> show(pp2023):</span>
-<span id="cb76-2"><a href="#cb76-2"></a>    _str <span class="op">=</span> pp2023.html_str.<span class="bu">format</span>(</span>
-<span id="cb76-3"><a href="#cb76-3"></a>        ttl <span class="op">=</span> pp2023.title,</span>
-<span id="cb76-4"><a href="#cb76-4"></a>        url <span class="op">=</span> pp2023.imgurl,</span>
-<span id="cb76-5"><a href="#cb76-5"></a>        Q <span class="op">=</span> pp2023.ques,</span>
-<span id="cb76-6"><a href="#cb76-6"></a>        A <span class="op">=</span> pp2023.ans,</span>
-<span id="cb76-7"><a href="#cb76-7"></a>        hl <span class="op">=</span> pp2023.highlight</span>
-<span id="cb76-8"><a href="#cb76-8"></a>    )</span>
-<span id="cb76-9"><a href="#cb76-9"></a>    display(HTML(_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="178a6ad6-cd3a-48ed-bdb8-cc0373d592df" class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show(pp2023):</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>    _str <span class="op">=</span> pp2023.html_str.<span class="bu">format</span>(</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>        ttl <span class="op">=</span> pp2023.title,</span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>        url <span class="op">=</span> pp2023.imgurl,</span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>        Q <span class="op">=</span> pp2023.ques,</span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>        A <span class="op">=</span> pp2023.ans,</span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>        hl <span class="op">=</span> pp2023.highlight</span>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a>    display(HTML(_str))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>특징: show의 입력은 너무 깔끔하다. 클래스에서 생성된 인스턴스의 이름을 받아서 여러변수를 한번에 정리하였음.</li>
 </ul>
 <p><code>-</code> 코드조각5: 아래의 과정은 생성된 인스턴스를 입력으로 받아서 어떠한 함수를 수행하는 과정이다.</p>
-<div class="cell" data-execution_count="81">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># show(pp2023)</span></span>
-<span id="cb77-2"><a href="#cb77-2"></a><span class="co"># show(burger)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6bde2c16-ea54-4b12-925f-fc968e518a13" class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show(pp2023)</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="co"># show(burger)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>show 라는 버튼을 눌러서 ‘pp2023.HWP’ 혹은 ‘burger.HWP’ 를 보는 느낌</li>
@@ -1624,9 +1645,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1662,10 +1697,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1675,8 +1709,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1691,6 +1734,195 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1730,7 +1962,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="guebin/PP2023" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 </div> <!-- /content -->
+
 
 
 
