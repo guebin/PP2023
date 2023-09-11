@@ -5,7 +5,6 @@ website:
   title: "PP2023"
   navbar:
     right:
-      - about.qmd
       - icon: github
         href: https://github.com/guebin/PP2023
       - icon: youtube
